@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHYS2261 Thermal Physics</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},startup:{typeset:true}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --bg: #FAFAF7;
+    --bg-section: #F3F2ED;
+    --text: #1A1A18;
+    --text-secondary: #4A4A44;
+    --text-dim: #7A7A72;
+    --accent: #2A5F8A;
+    --accent-faint: rgba(42,95,138,0.08);
+    --eq-bg: #F7F6F2;
+    --border: #D8D6CE;
+    --border-light: #E8E6DE;
+    --key-bg: #2A5F8A;
+    --key-text: #FAFAF7;
+    --serif: 'Source Serif 4', 'Georgia', serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #181816; --bg-section: #222220;
+      --text: #E8E8E2; --text-secondary: #B8B8B0; --text-dim: #888880;
+      --accent: #5A9FD4; --accent-faint: rgba(90,159,212,0.1);
+      --eq-bg: #242422; --border: #3A3A36; --border-light: #2E2E2A;
+      --key-bg: #5A9FD4; --key-text: #181816;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #181816; --bg-section: #222220;
+    --text: #E8E8E2; --text-secondary: #B8B8B0; --text-dim: #888880;
+    --accent: #5A9FD4; --accent-faint: rgba(90,159,212,0.1);
+    --eq-bg: #242422; --border: #3A3A36; --border-light: #2E2E2A;
+    --key-bg: #5A9FD4; --key-text: #181816;
+  }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--serif); font-size: 17px; line-height: 1.72;
+    max-width: 760px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  .course-label {
+    font-family: var(--sans); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px;
+  }
+  h1 { font-family: var(--serif); font-size: 32px; font-weight: 700; line-height: 1.2; text-wrap: balance; margin: 0 0 6px; }
+  .subtitle { font-family: var(--sans); font-size: 14px; color: var(--text-dim); margin-bottom: 40px; }
+  .toc { background: var(--bg-section); border: 1px solid var(--border-light); border-radius: 6px; padding: 20px 24px; margin-bottom: 48px; }
+  .toc-title { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+  .toc ol { margin: 0; padding: 0; list-style: none; counter-reset: toc; }
+  .toc > ol > li { counter-increment: toc; margin-bottom: 6px; }
+  .toc > ol > li > a { font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--accent); text-decoration: none; }
+  .toc > ol > li > a::before { content: counter(toc) ". "; color: var(--text-dim); font-variant-numeric: tabular-nums; }
+  .toc > ol > li > a:hover { text-decoration: underline; }
+  .toc ol ol { margin: 4px 0 4px 20px; padding: 0; list-style: none; }
+  .toc ol ol li { margin-bottom: 2px; }
+  .toc ol ol li a { font-family: var(--sans); font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+  .toc ol ol li a:hover { text-decoration: underline; }
+  .chapter { margin-bottom: 56px; padding-top: 16px; border-top: 2px solid var(--accent); }
+  .chapter-num { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+  h2 { font-family: var(--serif); font-size: 26px; font-weight: 700; line-height: 1.25; text-wrap: balance; margin: 0 0 28px; }
+  h3 { font-family: var(--serif); font-size: 20px; font-weight: 600; line-height: 1.3; margin: 36px 0 14px; }
+  h4 { font-family: var(--sans); font-size: 15px; font-weight: 600; margin: 24px 0 8px; }
+  p { margin: 0 0 16px; }
+  .eq {
+    background: var(--eq-bg); border-left: 3px solid var(--accent);
+    padding: 14px 20px; margin: 20px 0; overflow-x: auto; color: var(--text);
+  }
+  .eq .label {
+    font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--accent);
+    letter-spacing: 0.04em; text-transform: uppercase; display: block; margin-bottom: 4px;
+  }
+  .eq mjx-container { font-size: 110% !important; }
+  .key-result {
+    background: var(--key-bg); color: var(--key-text);
+    border-radius: 6px; padding: 16px 22px; margin: 24px 0;
+  }
+  .key-result .kr-label {
+    font-family: var(--sans); font-size: 11px; font-weight: 600;
+    letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; margin-bottom: 6px;
+  }
+  .key-result p { margin: 0; line-height: 1.8; }
+  .key-result mjx-container { font-size: 110% !important; }
+  .def-grid { display: grid; grid-template-columns: auto 1fr; gap: 8px 16px; margin: 16px 0; align-items: baseline; }
+  .def-grid dt { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--accent); white-space: nowrap; }
+  .def-grid dd { margin: 0; font-size: 16px; }
+  .remark {
+    background: var(--accent-faint); border-radius: 6px; padding: 14px 18px;
+    margin: 20px 0; font-size: 15px; line-height: 1.65; color: var(--text-secondary);
+  }
+  .remark strong { color: var(--text); font-weight: 600; }
+  .scroll-x { overflow-x: auto; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+  th { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-dim); text-align: left; padding: 8px 12px; border-bottom: 2px solid var(--border); }
+  td { padding: 10px 12px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  ul, ol { padding-left: 22px; margin: 8px 0 16px; }
+  li { margin-bottom: 6px; }
+  strong { font-weight: 600; }
+  em { font-style: italic; }
+  a { color: var(--accent); }
+  @media (max-width: 600px) {
+    body { font-size: 16px; padding: 32px 16px 60px; }
+    h1 { font-size: 26px; } h2 { font-size: 22px; } h3 { font-size: 18px; }
+    .def-grid { grid-template-columns: 1fr; gap: 2px 0; }
+    .def-grid dt { margin-top: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="course-label">PHYS 2261 — Semester 3</div>
+<h1>Thermal Physics: Lecture Notes</h1>
+<p class="subtitle">Chapters 1–3 &middot; Thermodynamic Systems through the First Law</p>
+
+<nav class="toc">
+  <div class="toc-title">Contents</div>
+  <ol>
+    <li><a href="#ch1">Thermodynamic Systems, the Zeroth Law, and Temperature</a>
+      <ol>
+        <li><a href="#s1-1">What is a thermodynamic system?</a></li>
+        <li><a href="#s1-2">Types of systems</a></li>
+        <li><a href="#s1-3">Types of processes</a></li>
+        <li><a href="#s1-4">State variables and thermodynamic coordinates</a></li>
+        <li><a href="#s1-5">The Zeroth Law and the definition of temperature</a></li>
+        <li><a href="#s1-6">Temperature scales and gas thermometry</a></li>
+      </ol>
+    </li>
+    <li><a href="#ch2">Ideal Gas, Real Gas, and the Kinetic Theory</a>
+      <ol>
+        <li><a href="#s2-1">Equations of state</a></li>
+        <li><a href="#s2-2">Real gas equations</a></li>
+        <li><a href="#s2-3">Kinetic theory of ideal gases</a></li>
+        <li><a href="#s2-4">Equipartition of energy</a></li>
+        <li><a href="#s2-5">Maxwell speed distribution</a></li>
+        <li><a href="#s2-6">Equations of state for liquids and solids</a></li>
+      </ol>
+    </li>
+    <li><a href="#ch3">Work, Heat, and the First Law</a>
+      <ol>
+        <li><a href="#s3-1">Internal energy as a state variable</a></li>
+        <li><a href="#s3-2">The equivalence of heat and work</a></li>
+        <li><a href="#s3-3">Mechanical work on a gas</a></li>
+        <li><a href="#s3-4">Heat, heat capacity, and enthalpy</a></li>
+        <li><a href="#s3-5">The internal energy differential dU</a></li>
+        <li><a href="#s3-6">Quasi-static adiabatic processes</a></li>
+        <li><a href="#s3-7">The Joule process (free expansion)</a></li>
+        <li><a href="#s3-8">The Joule–Thomson process (throttling)</a></li>
+        <li><a href="#s3-9">The Carnot cycle and thermal efficiency</a></li>
+        <li><a href="#s3-10">Heat engines and refrigerators</a></li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+
+<!-- CHAPTER 1 -->
+<section class="chapter" id="ch1">
+<div class="chapter-num">Chapter 1</div>
+<h2>Thermodynamic Systems, the Zeroth Law, and Temperature</h2>
+
+<h3 id="s1-1">1.1 &ensp;What is a thermodynamic system?</h3>
+<p>A <strong>thermodynamic system</strong> is any body of matter or radiation that we single out for study. It is separated from the rest of the universe (its <em>surroundings</em>) by boundaries called <strong>walls</strong>. The character of the wall determines what can cross it: energy, particles, volume changes, or none of the above. Everything outside the wall is "the surroundings." The wall is not necessarily physical — it is a conceptual boundary that tells us which flows we allow.</p>
+
+<h3 id="s1-2">1.2 &ensp;Types of systems</h3>
+<dl class="def-grid">
+  <dt>Isolated system</dt>
+  <dd>Surrounded by walls that permit <em>nothing</em> to cross — no energy, no particles, no volume change. The system is completely cut off from its surroundings. An example (approximately): a gas in a rigid, perfectly insulating container with a fixed lid.</dd>
+  <dt>Closed system</dt>
+  <dd>Walls allow <em>energy</em> to flow (as heat or work) but <em>no particles</em> may enter or leave. The amount of matter inside is fixed. Example: a gas in a cylinder with a movable piston — the gas can exchange energy with its environment through the piston, but no molecules escape.</dd>
+  <dt>Open system</dt>
+  <dd>Walls are permeable to <em>both</em> energy and particles. Matter can flow in and out. Example: a pot of boiling water — steam leaves, heat enters from the stove.</dd>
+</dl>
+
+<h3 id="s1-3">1.3 &ensp;Types of thermodynamic processes</h3>
+<p>A <strong>thermodynamic process</strong> is any change that takes a system from one equilibrium state to another. Not all processes are equal — they differ in how far from equilibrium the system stays during the change.</p>
+<dl class="def-grid">
+  <dt>Spontaneous</dt>
+  <dd>A process that occurs naturally once a constraint is removed, without external driving. Example: a gas expanding into a vacuum when a partition is broken. The system passes through non-equilibrium states — pressure and temperature may not even be well-defined during the process.</dd>
+  <dt>Quasi-static</dt>
+  <dd>A process carried out so slowly that the system is <em>essentially in equilibrium at every intermediate step</em>. Practically, this means each change is tiny enough that the system has time to relax back to equilibrium before the next change occurs. Quasi-static processes can be drawn as continuous curves on state diagrams (e.g., \(P\)–\(V\) diagrams). Real processes can only approximate this.</dd>
+  <dt>Reversible</dt>
+  <dd>A quasi-static process with <em>no dissipation</em> (no friction, no turbulence, no uncompensated heat flow). A reversible process can be exactly undone — the system and its surroundings return to their original states. Reversible processes are an idealisation; all real processes are irreversible to some degree.</dd>
+</dl>
+<p><strong>Thermal equilibrium</strong> is the state in which all macroscopic properties of the system (pressure, temperature, density, etc.) remain constant in time and there is no net flow of energy or matter within the system or between the system and its surroundings.</p>
+
+<h3 id="s1-4">1.4 &ensp;State variables and thermodynamic coordinates</h3>
+<p><strong>State variables</strong> are macroscopic quantities that describe the condition of a system when it is in equilibrium. They are well-defined only in equilibrium. We distinguish two kinds:</p>
+<dl class="def-grid">
+  <dt>Extensive</dt>
+  <dd>Variables that scale with the size (amount of matter) in the system. If you double the system, these double. Examples: volume \(V\), internal energy \(U\), mass, number of moles.</dd>
+  <dt>Intensive</dt>
+  <dd>Variables that do <em>not</em> depend on the system's size. They have the same value whether you look at the whole system or a small part. Examples: temperature \(T\), pressure \(p\), density.</dd>
+</dl>
+<p><strong>Thermodynamic coordinates</strong> are a privileged, <em>minimal</em> set of state variables that fully determine the equilibrium state of the system. All other state variables can be expressed as functions of these coordinates. The thermodynamic coordinates span what we call the <strong>thermodynamic space</strong>: a multi-dimensional space where each point represents one unique equilibrium state.</p>
+<p>The coordinates are always <em>extensive</em> variables: the internal energy \(U\), plus one or more "work coordinates" such as volume \(V\). For more exotic systems, additional coordinates appear — magnetisation \(M\) for a magnetic system, surface area for a film, and so on.</p>
+<div class="remark">
+  <strong>Why not use \(T\) and \(p\) as coordinates?</strong> Consider three containers holding the same amount of water at 0 °C and 1 atm: one is all ice, one is a mix of ice and water, and one is all liquid water. They share the same \(T\) and \(p\), yet they have very different internal energies (the ice has the least, the liquid the most). Temperature and pressure alone cannot distinguish these distinct equilibrium states — you need an extensive quantity like \(U\) as well.
+</div>
+
+<h3 id="s1-5">1.5 &ensp;The Zeroth Law and the definition of temperature</h3>
+<div class="key-result">
+  <div class="kr-label">The Zeroth Law of Thermodynamics</div>
+  <p>If system A is in thermal equilibrium with system B, and also in thermal equilibrium with system C, then B is in thermal equilibrium with C.</p>
+</div>
+<p>This seemingly obvious statement is actually a deep foundational axiom. It is the logical basis for the existence of <em>temperature</em> as a measurable quantity. Here is why:</p>
+<p>Suppose A, B, and C are each described by their own sets of thermodynamic coordinates. If A is in equilibrium with C, there must be some constraint relating A's coordinates to C's coordinates. Similarly, equilibrium between B and C imposes another constraint. We can write:</p>
+<div class="eq">\[ f_{AC}(A_1, A_2, \ldots\,;\; C_1, C_2, \ldots) = 0 \qquad f_{BC}(B_1, B_2, \ldots\,;\; C_1, C_2, \ldots) = 0 \]</div>
+<p>Solving each for \(C_1\):</p>
+<div class="eq">\[ C_1 = F_{AC}(A_1, A_2, \ldots\,;\; C_2, \ldots) \qquad C_1 = F_{BC}(B_1, B_2, \ldots\,;\; C_2, \ldots) \]</div>
+<p>If C is separately in equilibrium with both A and B, these must be equal:</p>
+<div class="eq">\[ F_{AC}(A_1, A_2, \ldots\,;\; C_2, \ldots) = F_{BC}(B_1, B_2, \ldots\,;\; C_2, \ldots) \]</div>
+<p>But the Zeroth Law tells us that A and B must <em>also</em> be in equilibrium with each other, imposing \(f_{AB}(A_1, A_2, \ldots\,;\; B_1, B_2, \ldots) = 0\). This equation contains <em>no C-coordinates</em>. Therefore it must be possible to cancel all C-coordinates from the equation above, leaving:</p>
+<div class="key-result">
+  <div class="kr-label">Consequence</div>
+  <p>\[ \Theta_A(A_1, A_2, \ldots) = \Theta_B(B_1, B_2, \ldots) \]</p>
+</div>
+<p>The function \(\Theta\) depends only on each system's own coordinates, and it takes the same value for all systems in mutual thermal equilibrium. This function is what we call <strong>temperature</strong>. The Zeroth Law guarantees that temperature is a well-defined, universal scalar quantity.</p>
+
+<h3 id="s1-6">1.6 &ensp;Temperature scales and gas thermometry</h3>
+<p>The Zeroth Law tells us temperature <em>exists</em>, but not how to assign numbers to it. To build a temperature scale, we need to make choices.</p>
+
+<h4>The general approach</h4>
+<p>Pick a <strong>thermometric substance</strong> (a material whose properties change with "hotness") and measure one of its <strong>thermometric properties</strong> \(X\) — for example, the volume of mercury, the pressure of a gas at constant volume, or the electrical resistance of a wire. Then assume a linear relationship:</p>
+<div class="eq">\[ \Theta = aX + b \]</div>
+<p>where \(a\) and \(b\) are constants determined by choosing reference points.</p>
+
+<h4>The Celsius scale</h4>
+<p>Uses two reference points: the freezing point of water (0 °C) and the boiling point of water at 1 atm (100 °C). For a gas thermometer reading pressure, intermediate temperatures are interpolated linearly:</p>
+<div class="eq">\[ \Theta(P) = 0° + \frac{100° - 0°}{P_{100} - P_0}\,(P - P_0) \]</div>
+
+<h4>The Kelvin scale and absolute zero</h4>
+<p>At fixed pressure, the volume of a (dilute) gas varies linearly with temperature: \(V = n\beta(P)\,\theta + n\gamma(P)\), where \(n\) is the number of moles and \(\beta\), \(\gamma\) are constants that depend only on pressure, not on the type of gas. If you extrapolate this line to find the temperature at which \(V \to 0\), you get \(\theta_0 = -273.15\) °C — the same value for any gas and any pressure. Since volume cannot be negative, this is the lowest possible temperature: <strong>absolute zero</strong>.</p>
+<p>The <strong>Kelvin scale</strong> keeps the same degree size as Celsius but shifts the zero:</p>
+<div class="eq">\[ T\;\text{(K)} = \theta\;\text{(°C)} + 273.15 \]</div>
+<p>So ice melts at 273.15 K. In Kelvin, Charles's law takes the clean form \(V = n\beta(P)\,T\).</p>
+
+<h4>The ideal-gas temperature scale</h4>
+<p>A practical issue: different thermometric substances give slightly different temperature readings. Gas thermometers filled with different gases at different amounts will disagree. However, experiments show that as you reduce the amount of gas (make it more dilute), <em>all</em> gas thermometers converge to the same reading. This leads to the <strong>ideal-gas temperature scale</strong>:</p>
+<div class="key-result">
+  <div class="kr-label">Ideal-Gas Temperature</div>
+  <p>\[ T(P) = 273.16 \;\lim_{P_{\text{tr}}\to 0} \frac{P}{P_{\text{tr}}} \quad\text{(K), at constant volume} \]</p>
+</div>
+<p>Here \(P_{\text{tr}}\) is the pressure measured when the gas is at the triple point of water (\(T_{\text{tr}} = 273.16\) K, where ice, liquid water, and steam coexist). The limit \(P_{\text{tr}} \to 0\) means we use a very small amount of gas, approaching ideal-gas behaviour. This gives a temperature scale that is independent of the choice of gas — it is truly universal.</p>
+
+<h4>Conversion between Celsius and Fahrenheit</h4>
+<div class="eq">\[ °\text{C} = \tfrac{5}{9}\,(°\text{F} - 32) \]</div>
+</section>
+
+<!-- CHAPTER 2 -->
+<section class="chapter" id="ch2">
+<div class="chapter-num">Chapter 2</div>
+<h2>Ideal Gas, Real Gas, and the Kinetic Theory</h2>
+
+<h3 id="s2-1">2.1 &ensp;Equations of state</h3>
+<p>An <strong>equation of state (EoS)</strong> is a relationship among the macroscopic state variables of a system in equilibrium. From the Zeroth Law, temperature is a function of other coordinates like volume and pressure, so we can write:</p>
+<div class="eq">\[ T = T(V,\,p,\,\ldots) \qquad\text{or equivalently}\qquad f(p,\,V,\,T,\,\ldots) = 0 \]</div>
+<p>The EoS encodes everything about how the state variables of a particular substance are related to each other. Different substances have different equations of state.</p>
+
+<h4>The ideal gas equation of state</h4>
+<p>Starting from the ideal-gas temperature scale, recall that at constant volume:</p>
+<div class="eq">\[ T(p) = 273.16 \;\lim_{P_{\text{tr}}\to 0}\frac{p}{P_{\text{tr}}} = 273.16 \;\lim_{P_{\text{tr}}\to 0}\frac{pV/n}{P_{\text{tr}}V/n} \]</div>
+<p>Rearranging, we identify \(\displaystyle\frac{pV}{n} = \left[\lim_{P_{\text{tr}}\to 0}\frac{P_{\text{tr}}V/n}{273.16}\right] T = RT\), giving:</p>
+<div class="key-result">
+  <div class="kr-label">Ideal Gas Law</div>
+  <p>\[ pV = nRT \]</p>
+</div>
+<p>where \(R = 8.314\;\text{J/(mol·K)}\) is the universal gas constant and \(n\) is the number of moles. Equivalently, \(pV = Nk_BT\), where \(N\) is the number of molecules and \(k_B = R/N_A = 1.381\times 10^{-23}\;\text{J/K}\) is the Boltzmann constant.</p>
+
+<h3 id="s2-2">2.2 &ensp;Real gas equations</h3>
+<p>Real gases deviate from ideal behaviour, especially at high pressures and low temperatures where molecules are close together and interact. The ideal gas law is really the <em>low-pressure limit</em> of any real gas. Two common descriptions:</p>
+
+<h4>Virial expansion</h4>
+<div class="eq">\[ pV = nRT\left(1 + \frac{B(T)}{V/n} + \frac{C(T)}{(V/n)^2} + \cdots\right) \]</div>
+<p>Here \(B(T)\), \(C(T)\), etc. are the <strong>virial coefficients</strong>, which depend only on temperature and the specific gas. They encode the effects of molecular interactions. At large \(V/n\) (low density), all correction terms vanish and the ideal gas law is recovered.</p>
+
+<h4>Van der Waals equation</h4>
+<div class="eq">\[ \left(p + \frac{an^2}{V^2}\right)(V - bn) = nRT \]</div>
+<p>This adds two corrections:</p>
+<ul>
+  <li>The term \(an^2/V^2\) corrects the pressure for <strong>intermolecular attractions</strong>. Molecules near the container wall are pulled inward by their neighbours, so they strike the wall with less force. The constant \(a\) measures the strength of these attractions.</li>
+  <li>The term \(bn\) corrects the volume for the <strong>finite size of molecules</strong>. The available volume for molecular motion is less than the container volume \(V\) because each molecule excludes a small region around itself. The constant \(b\) is related to the molecular diameter.</li>
+</ul>
+
+<h3 id="s2-3">2.3 &ensp;Kinetic theory of ideal gases</h3>
+<p>The kinetic theory provides a microscopic (molecular) derivation of the ideal gas law. It models a gas as a large collection of molecules and shows that macroscopic quantities like pressure and temperature arise from the statistics of molecular motion.</p>
+
+<h4>Assumptions of the model</h4>
+<ol>
+  <li>The gas consists of an enormous number of identical molecules, modelled as small hard spheres in perpetual random motion.</li>
+  <li>The average distance between molecules is much larger than the size of each molecule.</li>
+  <li>There are no intermolecular forces except during brief, infrequent collisions. Between collisions, molecules travel in straight lines.</li>
+  <li>All collisions (molecule–molecule and molecule–wall) are perfectly <strong>elastic</strong> — kinetic energy is conserved.</li>
+  <li>There is no preferred direction for molecular velocities (the gas is <strong>isotropic</strong>).</li>
+  <li>Collision durations are negligible compared to the time between collisions.</li>
+</ol>
+
+<h4>Deriving pressure from molecular collisions</h4>
+<p>Consider a molecule moving toward the right wall of a container with x-component of velocity \(v_x\). It bounces back elastically with velocity \(-v_x\). The momentum change per collision is \(\Delta p_x = 2mv_x\).</p>
+<p>Now consider a wall of area \(A\). Per unit time, the number of molecules striking the wall is \(\tfrac{1}{2}\rho A v_x\), where \(\rho = N/V\) is the number density and the factor \(\tfrac{1}{2}\) selects only the half travelling rightward. The total force on the wall is:</p>
+<div class="eq">\[ \bar{F} = \tfrac{1}{2}\rho A \langle v_x\rangle \cdot 2m\langle v_x\rangle = \frac{N}{V}\,A\,m\langle v_x^2\rangle \]</div>
+<p>The pressure (force per unit area) is:</p>
+<div class="eq">\[ p = \frac{\bar{F}}{A} = \frac{N}{V}\,m\langle v_x^2\rangle \]</div>
+<p>By isotropy, all three velocity components contribute equally: \(\langle v_x^2\rangle = \langle v_y^2\rangle = \langle v_z^2\rangle = \tfrac{1}{3}\langle \vec{v}^{\,2}\rangle\). Substituting:</p>
+<div class="key-result">
+  <div class="kr-label">Bernoulli Equation</div>
+  <p>\[ pV = \tfrac{1}{3}\,Nm\langle \vec{v}^{\,2}\rangle = \tfrac{2}{3}\,K \]</p>
+</div>
+<p>where \(K = N\cdot\tfrac{1}{2}m\langle \vec{v}^{\,2}\rangle\) is the total translational kinetic energy of all \(N\) molecules. This is a remarkable result: the macroscopic quantity <em>pressure</em> is directly linked to the microscopic average kinetic energy.</p>
+
+<h3 id="s2-4">2.4 &ensp;Equipartition of energy</h3>
+<p>Comparing the Bernoulli equation \(pV = \tfrac{2}{3}K\) with the ideal gas law \(pV = Nk_BT\), we immediately find:</p>
+<div class="eq">
+<span class="label">Mean-square speed</span>
+\[ \langle \vec{v}^{\,2}\rangle = \frac{3k_BT}{m} \]
+</div>
+<div class="eq">
+<span class="label">Total kinetic energy</span>
+\[ K = \tfrac{3}{2}\,Nk_BT \]
+</div>
+<p>The average kinetic energy <em>per molecule</em> is:</p>
+<div class="eq">\[ \tfrac{1}{2}m\langle \vec{v}^{\,2}\rangle = \tfrac{1}{2}m\langle v_x^2 + v_y^2 + v_z^2\rangle = \tfrac{3}{2}\,k_BT \]</div>
+<p>Since the three directions are equivalent, the energy is shared equally among them:</p>
+<div class="eq">\[ \tfrac{1}{2}m\langle v_x^2\rangle = \tfrac{1}{2}m\langle v_y^2\rangle = \tfrac{1}{2}m\langle v_z^2\rangle = \tfrac{1}{2}\,k_BT \]</div>
+<p>This is the <strong>equipartition theorem</strong>: each independent quadratic degree of freedom contributes \(\tfrac{1}{2}k_BT\) to the average energy per molecule. A monatomic gas has 3 translational degrees of freedom, giving \(\tfrac{3}{2}k_BT\) per molecule.</p>
+<div class="remark">
+  <strong>Temperature is non-negative.</strong> Since \(\langle \vec{v}^{\,2}\rangle = 3k_BT/m\) and \(\langle \vec{v}^{\,2}\rangle\) is a sum of squares (always \(\geq 0\)), the ideal-gas temperature scale guarantees \(T \geq 0\;\text{K}\).
+</div>
+
+<h4>Molecules with internal structure</h4>
+<p>For polyatomic molecules with \(r\) atoms, the total number of degrees of freedom is \(3r\): 3 translational (centre-of-mass motion) plus \(3(r-1)\) internal (rotational and vibrational). By equipartition, each contributes \(\tfrac{1}{2}k_BT\), so the total energy per molecule is \(3r \times \tfrac{1}{2}k_BT\).</p>
+<p>For <strong>diatomic molecules</strong> (\(r=2\)): 6 degrees of freedom (3 translational + 2 rotational + 1 vibrational), giving total energy \(6 \times \tfrac{1}{2}k_BT = 3k_BT\) per molecule.</p>
+
+<h4>Root-mean-square speed</h4>
+<p>The <strong>rms speed</strong> is \(v_{\text{rms}} = \sqrt{\langle \vec{v}^{\,2}\rangle}\). The mean velocity is zero by symmetry (\(\langle \vec{v}\rangle = \vec{0}\)), but the rms speed is not:</p>
+<div class="eq">\[ v_{\text{rms}} = \sqrt{\frac{3k_BT}{m}} \]</div>
+
+<h4>Application: isotope separation by effusion</h4>
+<p>If two gases at the same temperature have different molecular masses \(m_1\) and \(m_2\), their rms speeds differ:</p>
+<div class="eq">\[ \frac{v_{\text{rms},1}}{v_{\text{rms},2}} = \sqrt{\frac{m_2}{m_1}} \]</div>
+<p>Lighter molecules move faster and escape through a porous wall more rapidly. The <strong>separation factor</strong> per stage is \(\alpha = \sqrt{m_2/m_1}\). For uranium enrichment using UF\(_6\), \(\alpha \approx 1.0043\). Because this is so close to 1, about 350 repeated stages are needed to enrich \(^{235}\)U from its natural abundance of 0.7% to 3%.</p>
+
+<h3 id="s2-5">2.5 &ensp;Maxwell speed distribution</h3>
+<p>Individual molecules have a wide spread of speeds. The <strong>Maxwell velocity distribution</strong> gives the probability of finding a molecule with velocity in the interval \([\vec{v},\;\vec{v}+d\vec{v}]\):</p>
+<div class="eq">
+<span class="label">Velocity distribution (3D)</span>
+\[ f(\vec{v})\,d^3v = \left(\frac{m}{2\pi k_BT}\right)^{3/2} \exp\!\left(-\frac{m\vec{v}^{\,2}}{2k_BT}\right) d^3v \]
+</div>
+<p>This is a Gaussian (normal) distribution in each velocity component, centred at zero. Integrating over all directions (angles \(\theta\), \(\phi\) in spherical coordinates) converts \(d^3v\) into a spherical shell \(4\pi v^2\,dv\), giving the <strong>Maxwell speed distribution</strong>:</p>
+<div class="key-result">
+  <div class="kr-label">Maxwell Speed Distribution</div>
+  <p>\[ f(v)\,dv = \left(\frac{m}{2\pi k_BT}\right)^{3/2} 4\pi v^2 \exp\!\left(-\frac{mv^2}{2k_BT}\right) dv \]</p>
+</div>
+<p>Key features:</p>
+<ul>
+  <li>Normalised: \(\int_0^\infty f(v)\,dv = 1\).</li>
+  <li>Rises from zero at \(v=0\) (because of the \(v^2\) factor), peaks at the <strong>most probable speed</strong> \(v_{\text{mp}} = \sqrt{2k_BT/m}\), then decays exponentially (the Boltzmann tail).</li>
+  <li>At higher temperatures, the distribution broadens and the peak shifts rightward.</li>
+  <li>The three characteristic speeds satisfy \(v_{\text{mp}} < \langle v\rangle < v_{\text{rms}}\).</li>
+</ul>
+
+<h3 id="s2-6">2.6 &ensp;Equations of state for liquids and solids</h3>
+<p>For liquids and solids, the EoS typically takes the form \(V = V(T,\,p)\). Thermodynamics alone does <em>not</em> determine a system's EoS — that comes either from statistical mechanics or from experiment. What thermodynamics can do is relate the EoS to experimentally measurable coefficients:</p>
+
+<div class="scroll-x">
+<table>
+  <tr><th>Coefficient</th><th>Definition</th><th>Meaning</th></tr>
+  <tr>
+    <td>Thermal expansion \(\alpha\)</td>
+    <td>\(\displaystyle\alpha = \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_{\!p}\)</td>
+    <td>Fractional volume change per unit temperature increase at constant pressure</td>
+  </tr>
+  <tr>
+    <td>Pressure coefficient \(\beta\)</td>
+    <td>\(\displaystyle\beta = \frac{1}{p}\left(\frac{\partial p}{\partial T}\right)_{\!V}\)</td>
+    <td>Fractional pressure change per unit temperature increase at constant volume</td>
+  </tr>
+  <tr>
+    <td>Isothermal compressibility \(\kappa_T\)</td>
+    <td>\(\displaystyle\kappa_T = -\frac{1}{V}\left(\frac{\partial V}{\partial p}\right)_{\!T}\)</td>
+    <td>Fractional volume decrease per unit pressure increase at constant temperature</td>
+  </tr>
+</table>
+</div>
+<p>The minus sign in \(\kappa_T\) ensures it is positive (increasing pressure decreases volume).</p>
+
+<h4>Reconstructing the EoS from measurements</h4>
+<p>Since \(V = V(T,p)\), the total differential is:</p>
+<div class="eq">\[ dV = \left(\frac{\partial V}{\partial T}\right)_{\!p} dT + \left(\frac{\partial V}{\partial p}\right)_{\!T} dp = V(\alpha\,dT - \kappa_T\,dp) \]</div>
+<p>Dividing by \(V\) and integrating:</p>
+<div class="eq">\[ \ln\frac{V}{V_0} = \int(\alpha\,dT - \kappa_T\,dp) \]</div>
+<p>If \(\alpha\) and \(\kappa_T\) are approximately constant (reasonable for solids and liquids over moderate ranges):</p>
+<div class="eq">\[ V(T,p) \approx V_0\bigl[1 + \alpha(T - T_0) - \kappa_T(p - p_0)\bigr] \]</div>
+<p>For solids and liquids, typical values are \(\alpha \sim 10^{-4}\;\text{K}^{-1}\) and \(\kappa_T \sim 10^{-10}\;\text{Pa}^{-1}\), so both corrections are small.</p>
+
+<h4>The cyclic relation</h4>
+<p>When three state variables \(p\), \(V\), \(T\) are connected by an EoS \(f(p,V,T)=0\), their partial derivatives obey:</p>
+<div class="key-result">
+  <div class="kr-label">Cyclic Relation</div>
+  <p>\[ \left(\frac{\partial V}{\partial p}\right)_{\!T} \left(\frac{\partial p}{\partial T}\right)_{\!V} \left(\frac{\partial T}{\partial V}\right)_{\!p} = -1 \]</p>
+</div>
+<p>In terms of the response coefficients, this becomes \(\alpha = \kappa_T \beta\, p\) — the three are not independent.</p>
+
+<h4>Verification with ideal gas</h4>
+<p>For \(pV = nRT\): \(\alpha = 1/T\), \(\beta = 1/T\), \(\kappa_T = 1/p\). Check: \(\kappa_T\beta p = (1/p)(1/T)(p) = 1/T = \alpha\). ✓</p>
+</section>
+
+<!-- CHAPTER 3 -->
+<section class="chapter" id="ch3">
+<div class="chapter-num">Chapter 3</div>
+<h2>Work, Heat, and the First Law</h2>
+
+<h3 id="s3-1">3.1 &ensp;Internal energy as a state variable</h3>
+<p>When a system undergoes a thermodynamic process, its energy changes. There are two distinguished ways to change it: by doing <strong>work</strong> on it or by supplying <strong>heat</strong>.</p>
+<p>Consider a system initially at equilibrium state \((p_1,V_1)\). If we do work on it <em>adiabatically</em> (no heat exchange), it reaches a new state \((p_2,V_2)\). The energy increase is exactly the adiabatic work:</p>
+<div class="eq">\[ \Delta U = W^{\text{ad}} \]</div>
+<p>Crucially, experiments show that the adiabatic work between two given equilibrium states is always the same, regardless of <em>how</em> the work is done (mechanically, electrically, by stirring, etc.). This path-independence means we can define a <strong>state function</strong> \(U\), called the <strong>internal energy</strong>, whose change depends only on the initial and final states.</p>
+
+<h3 id="s3-2">3.2 &ensp;The equivalence of heat and work</h3>
+<p>If the system can exchange heat with its surroundings, we can bring it between the same states by supplying heat \(Q\) alone:</p>
+<div class="eq">\[ \Delta U = Q \qquad\text{(when } W = 0\text{)} \]</div>
+<p>In general, the change can be achieved by any combination of work \(W\) and heat \(Q\):</p>
+<div class="key-result">
+  <div class="kr-label">First Law of Thermodynamics</div>
+  <p>\[ \Delta U = W + Q \]</p>
+</div>
+<p>This expresses three ideas at once:</p>
+<ol>
+  <li><strong>Internal energy \(U\) is a state function</strong> — it depends only on the current equilibrium state, not on how the system got there.</li>
+  <li><strong>Energy is conserved</strong> — the total energy change equals the total energy input.</li>
+  <li><strong>Heat is energy transfer by virtue of temperature difference</strong> — it is whatever additional energy (beyond mechanical work) is needed to change the state.</li>
+</ol>
+<div class="remark">
+  <strong>Important distinction:</strong> Internal energy \(U\) is a state variable. Work \(W\) and heat \(Q\) are <em>not</em> — they are <strong>process quantities</strong> that depend on the path taken. The same \(\Delta U\) can be achieved by different combinations of \(W\) and \(Q\). This is why we write \(\mathchar'26\mkern-11mu d W\) and \(\mathchar'26\mkern-11mu d Q\) (with a crossed d) for infinitesimal amounts — they are not exact differentials.
+</div>
+
+<h3 id="s3-3">3.3 &ensp;Mechanical work on a gas</h3>
+<p>For a gas in a cylinder with a movable piston, the work done <em>on the gas</em> during a quasi-static process is:</p>
+<div class="eq">\[ \text{đ}W = -P\,dV \]</div>
+<p>The minus sign reflects the convention that work done <em>on</em> the system is positive: compressing the gas (\(dV < 0\)) requires positive work input. The total work for a finite process:</p>
+<div class="eq">\[ W = -\int_{\text{path}} P\,dV \]</div>
+<p>On a \(P\)–\(V\) diagram, the work equals the area under the curve (with sign from the direction). Different paths between the same endpoints involve different amounts of work — confirming that work is path-dependent.</p>
+<div class="remark">
+  <strong>Non-quasi-static processes</strong> cannot be represented as curves on a \(P\)–\(V\) diagram, because the system passes through non-equilibrium states where pressure is not well-defined throughout the system.
+</div>
+
+<h3 id="s3-4">3.4 &ensp;Heat, heat capacity, and enthalpy</h3>
+<p>Like work, heat is path-dependent. The heat required to raise the temperature depends on what is held constant. This leads to <strong>heat capacities</strong>:</p>
+<div class="eq">
+<span class="label">At constant volume</span>
+\[ C_V = \left.\frac{\text{đ}Q}{dT}\right|_V = \left(\frac{\partial U}{\partial T}\right)_{\!V} \]
+</div>
+<p>At constant volume, no work is done (\(dV=0\)), so all heat goes into increasing internal energy: \(dU = \text{đ}Q\).</p>
+<div class="eq">
+<span class="label">At constant pressure</span>
+\[ C_P = \left.\frac{\text{đ}Q}{dT}\right|_P = \left(\frac{\partial U}{\partial T}\right)_{\!P} + P\left(\frac{\partial V}{\partial T}\right)_{\!P} = \left(\frac{\partial H}{\partial T}\right)_{\!P} \]
+</div>
+<p>At constant pressure, some heat goes into expansion work. It is convenient to define a new state function, the <strong>enthalpy</strong>:</p>
+<div class="key-result">
+  <div class="kr-label">Enthalpy</div>
+  <p>\[ H = U + PV \]</p>
+</div>
+<p>Then in an isobaric (constant-pressure) process, the heat exchanged equals the change in enthalpy: \(\text{đ}Q = dH\). This makes enthalpy the natural energy function for constant-pressure processes, just as internal energy is for constant-volume ones.</p>
+
+<h3 id="s3-5">3.5 &ensp;The internal energy differential \(dU\)</h3>
+<p>Since \(U\) is a state function, \(dU\) is an exact differential. Taking \(U = U(T,V)\):</p>
+<div class="eq">\[ dU = \left(\frac{\partial U}{\partial T}\right)_{\!V} dT + \left(\frac{\partial U}{\partial V}\right)_{\!T} dV = C_V\,dT + \left(\frac{\partial U}{\partial V}\right)_{\!T} dV \]</div>
+<p>Using the first law and dividing by \(dT\) at constant pressure, one derives:</p>
+<div class="eq">\[ C_P - C_V = \left(\frac{\partial V}{\partial T}\right)_{\!P}\!\left[\left(\frac{\partial U}{\partial V}\right)_{\!T} + P\right] \]</div>
+<p>Rearranging:</p>
+<div class="eq">\[ \left(\frac{\partial U}{\partial V}\right)_{\!T} = \frac{C_P - C_V}{\alpha V} - P \]</div>
+<p>where \(\alpha = \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_P\). Substituting back:</p>
+<div class="eq">\[ dU = C_V\,dT + \left[\frac{C_P - C_V}{\alpha V} - P\right] dV \]</div>
+<p>Alternatively, expressing \(U = U(P,V)\):</p>
+<div class="eq">\[ dU = \left\{C_P\left(\frac{\partial T}{\partial V}\right)_{\!P} - P\right\} dV + C_V\left(\frac{\partial T}{\partial P}\right)_{\!V} dP \]</div>
+
+<h4>Ideal gas results</h4>
+<p>For one mole of a monatomic ideal gas: \(PV = RT\), \(U = \tfrac{3}{2}RT\), \(H = U + PV = \tfrac{5}{2}RT\). Both \(U\) and \(H\) depend <em>only on temperature</em>. Therefore:</p>
+<div class="eq">\[ C_V = \tfrac{3}{2}R = \frac{R}{\gamma - 1}\,,\qquad C_P = \tfrac{5}{2}R = \frac{\gamma R}{\gamma - 1}\,,\qquad \gamma = \frac{C_P}{C_V} = \frac{5}{3} \]</div>
+
+<h3 id="s3-6">3.6 &ensp;Quasi-static adiabatic processes</h3>
+<p>In an adiabatic process, no heat is exchanged: \(\text{đ}Q = 0\). For a quasi-static adiabatic process, the first law gives \(dU + P\,dV = 0\).</p>
+<div class="remark">
+  <strong>Subtlety:</strong> Not all adiabatic processes are quasi-static. The expression \(\text{đ}Q = dU - \text{đ}W\) is always valid, but replacing \(\text{đ}W\) by \(-P\,dV\) requires the process to be quasi-static and frictionless.
+</div>
+<p>Using the expression for \(dU\) in terms of \(V\) and \(P\), and setting \(\text{đ}Q = 0\):</p>
+<div class="eq">\[ \left(\frac{\partial P}{\partial V}\right)_{\!S} = \frac{C_P}{C_V}\left(\frac{\partial P}{\partial V}\right)_{\!T} = \gamma\left(\frac{\partial P}{\partial V}\right)_{\!T} \]</div>
+<p>Defining the <strong>adiabatic compressibility</strong> \(\kappa_S = -\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_S\):</p>
+<div class="key-result">
+  <div class="kr-label">Compressibility Ratio</div>
+  <p>\[ \frac{\kappa_T}{\kappa_S} = \frac{C_P}{C_V} \equiv \gamma > 1 \]</p>
+</div>
+<p>The isothermal compressibility is always greater than the adiabatic — a gas resists compression more strongly when heat cannot escape.</p>
+
+<h4>Adiabatic relations for an ideal gas</h4>
+<p>For an ideal gas with \(PV = nRT\), the derivatives \(\left(\frac{\partial T}{\partial V}\right)_P = \frac{P}{nR}\) and \(\left(\frac{\partial T}{\partial P}\right)_V = \frac{V}{nR}\). The adiabatic condition becomes:</p>
+<div class="eq">\[ C_P P\,dV + C_V V\,dP = 0 \qquad\Longrightarrow\qquad \gamma\,\frac{dV}{V} + \frac{dP}{P} = 0 \]</div>
+<p>Integrating:</p>
+<div class="key-result">
+  <div class="kr-label">Adiabatic Relations (Ideal Gas)</div>
+  <p>\[ PV^\gamma = \text{const} \qquad\qquad TV^{\gamma-1} = \text{const} \]</p>
+</div>
+<p>Adiabats are steeper than isotherms on the \(P\)–\(V\) diagram: at any given point, the adiabat has slope \(-\gamma P/V\) versus \(-P/V\) for the isotherm.</p>
+<p>Verification: for an ideal gas, \(\kappa_T = 1/P\) (from \(PV = \text{const}\)) and \(\kappa_S = 1/(\gamma P)\) (from \(PV^\gamma = \text{const}\)), so \(\kappa_T/\kappa_S = \gamma\). ✓</p>
+
+<h3 id="s3-7">3.7 &ensp;The Joule process (free expansion)</h3>
+<p>A gas confined to one half of a rigid, thermally insulating container expands freely into the vacuum other half when a partition is removed.</p>
+<p>Since the container is rigid: \(\text{đ}W = 0\). Since it is insulating: \(\text{đ}Q = 0\). By the first law:</p>
+<div class="eq">\[ dU = 0 \qquad\text{(Joule free-expansion process)} \]</div>
+<p>Define the <strong>Joule coefficient</strong>:</p>
+<div class="eq">\[ \lambda = \left.\frac{\partial T}{\partial V}\right|_U \]</div>
+<p>Experimentally, for an ideal gas, the temperature does not change during free expansion: \(\lambda = 0\). This means the internal energy of an ideal gas is independent of volume — it depends only on temperature. One can show that:</p>
+<div class="eq">\[ \left(\frac{\partial U}{\partial V}\right)_{\!T} = -\lambda\, C_V = 0 \quad\text{(ideal gas)} \]</div>
+<p>So for ideal gases, the partial derivative \(C_V = \left(\frac{\partial U}{\partial T}\right)_V\) can be replaced by the total derivative \(C_V = \frac{dU}{dT}\).</p>
+<div class="remark">
+  <strong>For real gases</strong>, \(\lambda \neq 0\): free expansion causes a small temperature change (usually cooling), because part of the internal energy is potential energy associated with intermolecular attractions, which increases as molecules move apart.
+</div>
+
+<h3 id="s3-8">3.8 &ensp;The Joule–Thomson process (throttling)</h3>
+<p>A gas flows slowly through a porous plug from constant high pressure \(P_1\) to constant low pressure \(P_2\), in a thermally insulated pipe (\(\text{đ}Q = 0\)). The energy change comes entirely from the pressure work:</p>
+<div class="eq">\[ U_2 - U_1 = P_1V_1 - P_2V_2 \]</div>
+<p>Rearranging: \(U_2 + P_2V_2 = U_1 + P_1V_1\), i.e.,</p>
+<div class="eq">\[ dH = 0 \qquad\text{(Joule–Thomson throttling process)} \]</div>
+<p>The enthalpy is conserved. The <strong>Joule–Thomson coefficient</strong> is:</p>
+<div class="eq">\[ \mu = \left.\frac{\partial T}{\partial P}\right|_H \qquad\text{and one can show}\qquad \left(\frac{\partial H}{\partial P}\right)_{\!T} = -\mu\, C_P \]</div>
+<p>For ideal gases, \(\mu = 0\) — throttling causes no temperature change, and \(H\) depends only on \(T\). For real gases, \(\mu\) can be positive (cooling upon expansion — used in refrigeration and gas liquefaction) or negative (heating upon expansion), depending on temperature and pressure.</p>
+
+<h3 id="s3-9">3.9 &ensp;The Carnot cycle and thermal efficiency</h3>
+<p>The <strong>Carnot cycle</strong> is an idealised cycle for converting heat into work using an ideal gas. It operates between a hot reservoir at \(T_H\) and a cold reservoir at \(T_C\), and consists of four quasi-static steps:</p>
+
+<div class="scroll-x">
+<table>
+  <tr><th>Step</th><th>Process</th><th>What happens</th></tr>
+  <tr>
+    <td>A → B</td>
+    <td>Isothermal expansion at \(T_H\)</td>
+    <td>Gas expands, does work \(W_{A\to B} = nRT_H\ln(V_B/V_A)\) on surroundings. Since \(\Delta U = 0\) for an isothermal ideal gas, \(Q_H = W_{A\to B}\).</td>
+  </tr>
+  <tr>
+    <td>B → C</td>
+    <td>Adiabatic expansion</td>
+    <td>\(Q = 0\). Temperature drops from \(T_H\) to \(T_C\). Work done comes at the expense of internal energy.</td>
+  </tr>
+  <tr>
+    <td>C → D</td>
+    <td>Isothermal compression at \(T_C\)</td>
+    <td>Gas is compressed; work is done <em>on</em> the gas. Heat \(Q_C\) is released to the cold reservoir.</td>
+  </tr>
+  <tr>
+    <td>D → A</td>
+    <td>Adiabatic compression</td>
+    <td>\(Q = 0\). Temperature rises from \(T_C\) back to \(T_H\), completing the cycle.</td>
+  </tr>
+</table>
+</div>
+
+<p>The net work equals the area enclosed by the cycle on the \(P\)–\(V\) diagram. Using the adiabatic relation \(TV^{\gamma-1} = \text{const}\) for steps B→C and D→A, one shows that \(V_C/V_D = V_B/V_A\), which gives:</p>
+<div class="key-result">
+  <div class="kr-label">Carnot Efficiency</div>
+  <p>\[ \eta = \frac{W}{Q_H} = 1 - \frac{T_C}{T_H} \]</p>
+</div>
+<p>The efficiency depends <em>only on the temperatures</em> of the two reservoirs. Since \(T_C > 0\), we always have \(\eta < 1\) — no heat engine operating in a cycle can convert heat entirely into work.</p>
+<p>For the Carnot cycle, the heat exchanged at each reservoir satisfies:</p>
+<div class="eq">\[ \frac{Q_C}{Q_H} = \frac{T_C}{T_H} \qquad\text{or equivalently}\qquad \frac{Q_C}{T_C} = \frac{Q_H}{T_H} \]</div>
+<p>This symmetric form foreshadows the concept of entropy.</p>
+
+<h4>General heat engine efficiency</h4>
+<p>For <em>any</em> cyclic engine, since the system returns to its initial state, \(\Delta U = 0\). By energy conservation:</p>
+<div class="eq">\[ W = Q_H - Q_C \qquad\Longrightarrow\qquad \eta = \frac{W}{Q_H} = 1 - \frac{Q_C}{Q_H} \]</div>
+
+<h3 id="s3-10">3.10 &ensp;Other processes and refrigerators</h3>
+<h4>Other ideal-gas processes</h4>
+<p>Besides isothermal and adiabatic processes, two other basic processes are frequently encountered:</p>
+<ul>
+  <li><strong>Isochoric</strong> (constant volume, \(V = \text{const}\)): No work is done (\(W = 0\)), so all heat goes into changing \(U\).</li>
+  <li><strong>Isobaric</strong> (constant pressure, \(P = \text{const}\)): Work done on outside is \(W = P(V_f - V_i)\).</li>
+</ul>
+<p>Real-world engine cycles combine these building blocks in different ways: the <strong>Otto cycle</strong> (petrol engine: two adiabats + two isochores), the <strong>Diesel cycle</strong> (one isobar + one isochore + two adiabats), the <strong>Stirling cycle</strong> (two isotherms + two isochores), and the <strong>Rankine cycle</strong> (steam engine), among others.</p>
+
+<h4>Refrigerators</h4>
+<p>A <strong>heat engine</strong> absorbs heat from a hot reservoir, converts some of it into work, and dumps the rest to a cold reservoir. A <strong>refrigerator</strong> runs this in reverse: it uses external work to extract heat from a cold reservoir and dump it (along with the work energy) into a hot reservoir.</p>
+<p>Both operate cyclically. Their figures of merit are:</p>
+<div class="eq">
+<span class="label">Heat engine</span>
+\[ \eta = \frac{W}{Q_H} \qquad\text{(thermal efficiency)} \]
+</div>
+<div class="eq">
+<span class="label">Refrigerator</span>
+\[ \text{COP} = \frac{Q_C}{W} = \frac{Q_C}{Q_H - Q_C} \qquad\text{(coefficient of performance)} \]
+</div>
+<p>For a Carnot refrigerator: \(\text{COP} = T_C/(T_H - T_C)\). Notice that COP can exceed 1 — a refrigerator can extract more heat from the cold side than the work it consumes. This is not a violation of energy conservation; the total energy dumped into the hot side is \(Q_H = Q_C + W\).</p>
+</section>
+
+<footer style="margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-family:var(--sans); font-size:12px; color:var(--text-dim);">
+  PHYS 2261 &middot; Chapters 1–3 &middot; Compiled from lecture slides
+</footer>
+
+</body>
+</html>

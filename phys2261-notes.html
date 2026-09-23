@@ -116,7 +116,7 @@
 
 <div class="course-label">PHYS 2261 — Semester 3</div>
 <h1>Thermal Physics: Lecture Notes</h1>
-<p class="subtitle">Chapters 1–4 &middot; Thermodynamic Systems through Entropy and the Second Law</p>
+<p class="subtitle">Chapters 1–5 &middot; Thermodynamic Systems through Thermodynamic Potentials</p>
 
 <nav class="toc">
   <div class="toc-title">Contents</div>
@@ -168,6 +168,19 @@
         <li><a href="#s4-9">Entropy of general P–V systems</a></li>
         <li><a href="#s4-10">The Clausius inequality and the direction of processes</a></li>
         <li><a href="#s4-11">Microscopic interpretation of entropy</a></li>
+      </ol>
+    </li>
+    <li><a href="#ch5">Thermodynamic Potentials</a>
+      <ol>
+        <li><a href="#s5-1">Why new potentials?</a></li>
+        <li><a href="#s5-2">Internal energy revisited</a></li>
+        <li><a href="#s5-3">Enthalpy</a></li>
+        <li><a href="#s5-4">Helmholtz free energy</a></li>
+        <li><a href="#s5-5">Gibbs free energy</a></li>
+        <li><a href="#s5-6">Summary: the four potentials and the thermodynamic square</a></li>
+        <li><a href="#s5-7">Maxwell relations</a></li>
+        <li><a href="#s5-8">Measurable quantities and thermodynamic derivatives</a></li>
+        <li><a href="#s5-9">Energy density and equations of state</a></li>
       </ol>
     </li>
   </ol>
@@ -995,8 +1008,312 @@
 
 </section>
 
+<!-- CHAPTER 5 -->
+<section class="chapter" id="ch5">
+<div class="chapter-num">Chapter 5</div>
+<h2>Thermodynamic Potentials</h2>
+
+<h3 id="s5-1">5.1 &ensp;Why new potentials?</h3>
+
+<p>In Chapter 4 we established the fundamental relation \(dU = T\,dS - P\,dV\), which tells us that the <strong>natural variables</strong> of internal energy are entropy and volume: \(U = U(S, V)\). From \(U(S,V)\) we can extract every thermodynamic property of the system — \(T = (\partial U/\partial S)_V\) and \(P = -(\partial U/\partial V)_S\).</p>
+
+<p>But there is a practical problem: <em>entropy and volume are not always the variables we control in the laboratory</em>. Most experiments are done at controlled temperature (thermostat) or controlled pressure (open to the atmosphere), not at controlled entropy. If we try to express \(U\) as a function of \(T\) and \(V\) instead, we lose information — two different systems can share the same \(U(T,V)\) while having different entropy functions, so the mapping is not one-to-one.</p>
+
+<p>The solution is the <strong>Legendre transform</strong>: a mathematical operation that swaps an independent variable for its conjugate derivative while preserving all thermodynamic information. Starting from \(U(S,V)\), each Legendre transform replaces one natural variable with its conjugate:</p>
+
+<dl class="def-grid">
+  <dt>\(S \to T\)</dt>
+  <dd>Replace entropy with temperature (its conjugate) → <strong>Helmholtz free energy</strong> \(F\)</dd>
+  <dt>\(V \to P\)</dt>
+  <dd>Replace volume with pressure (its conjugate) → <strong>Enthalpy</strong> \(H\)</dd>
+  <dt>\(S \to T\) and \(V \to P\)</dt>
+  <dd>Replace both → <strong>Gibbs free energy</strong> \(G\)</dd>
+</dl>
+
+<p>Each new potential contains exactly the same information as \(U(S,V)\), but repackaged with different natural variables — the ones that are held constant in a given experimental setup.</p>
+
+<h3 id="s5-2">5.2 &ensp;Internal energy revisited</h3>
+
+<p>We begin by restating the fundamental relation for a simple compressible system:</p>
+
+<div class="key-result">
+  <div class="kr-label">Internal Energy</div>
+  <p>\[ dU = T\,dS - P\,dV \]</p>
+  <p>Natural variables: \(S\), \(V\). &ensp; Conjugate pairs: \((T, S)\) and \((-P, V)\).</p>
+</div>
+
+<p>From \(U = U(S, V)\), the partial derivatives are:</p>
+<div class="eq">\[ T = \left(\frac{\partial U}{\partial S}\right)_{\!V} \qquad -P = \left(\frac{\partial U}{\partial V}\right)_{\!S} \]</div>
+
+<p>The second derivatives yield a <strong>Maxwell relation</strong>. Because mixed partials are equal:</p>
+<div class="eq">\[ \frac{\partial^2 U}{\partial V\,\partial S} = \frac{\partial^2 U}{\partial S\,\partial V} \qquad\Longrightarrow\qquad \left(\frac{\partial T}{\partial V}\right)_{\!S} = -\left(\frac{\partial P}{\partial S}\right)_{\!V} \]</div>
+
+<p>\(U\) is minimised at equilibrium for a system at fixed \(S\) and \(V\). This is the energy minimum principle: among all states accessible to an isolated system at given entropy and volume, the equilibrium state has the lowest internal energy.</p>
+
+<h3 id="s5-3">5.3 &ensp;Enthalpy</h3>
+
+<p>The <strong>enthalpy</strong> is the Legendre transform of \(U\) that replaces volume with pressure:</p>
+
+<div class="key-result">
+  <div class="kr-label">Enthalpy</div>
+  <p>\[ H = U + PV \]</p>
+  <p>Natural variables: \(S\), \(P\).</p>
+</div>
+
+<p>To find its differential, we compute \(dH = dU + P\,dV + V\,dP\). Substituting \(dU = T\,dS - P\,dV\):</p>
+<div class="eq">\[ dH = T\,dS - P\,dV + P\,dV + V\,dP = T\,dS + V\,dP \]</div>
+
+<p>The natural variables are indeed \(S\) and \(P\), with partial derivatives:</p>
+<div class="eq">\[ T = \left(\frac{\partial H}{\partial S}\right)_{\!P} \qquad V = \left(\frac{\partial H}{\partial P}\right)_{\!S} \]</div>
+
+<p>The associated Maxwell relation:</p>
+<div class="eq">
+<span class="label">Maxwell relation from H</span>
+\[ \left(\frac{\partial T}{\partial P}\right)_{\!S} = \left(\frac{\partial V}{\partial S}\right)_{\!P} \]
+</div>
+
+<h4>Why enthalpy is useful</h4>
+<p>For a process at <strong>constant pressure</strong> (\(dP = 0\)), the enthalpy differential reduces to \(dH = T\,dS = \text{đ}Q_{\text{rev}}\). So:</p>
+<ul>
+  <li>At constant pressure, <strong>the heat absorbed equals the enthalpy change</strong>: \(Q_P = \Delta H\).</li>
+  <li>This is why we defined \(C_P = (\partial H/\partial T)_P\) earlier — heat capacity at constant pressure is the temperature derivative of enthalpy.</li>
+  <li>Phase transitions at constant pressure (melting, boiling) are characterised by their enthalpy of transition ("latent heat").</li>
+  <li>Chemical reactions at constant pressure release or absorb \(\Delta H\) of heat.</li>
+</ul>
+
+<p>\(H\) is minimised at equilibrium for a system at fixed \(S\) and \(P\).</p>
+
+<h3 id="s5-4">5.4 &ensp;Helmholtz free energy</h3>
+
+<p>The <strong>Helmholtz free energy</strong> (sometimes called the Helmholtz function or free energy) replaces entropy with temperature:</p>
+
+<div class="key-result">
+  <div class="kr-label">Helmholtz Free Energy</div>
+  <p>\[ F = U - TS \]</p>
+  <p>Natural variables: \(T\), \(V\).</p>
+</div>
+
+<p>Computing the differential: \(dF = dU - T\,dS - S\,dT = (T\,dS - P\,dV) - T\,dS - S\,dT\):</p>
+<div class="eq">\[ dF = -S\,dT - P\,dV \]</div>
+
+<p>The partial derivatives:</p>
+<div class="eq">\[ -S = \left(\frac{\partial F}{\partial T}\right)_{\!V} \qquad -P = \left(\frac{\partial F}{\partial V}\right)_{\!T} \]</div>
+
+<p>The Maxwell relation:</p>
+<div class="eq">
+<span class="label">Maxwell relation from F</span>
+\[ \left(\frac{\partial S}{\partial V}\right)_{\!T} = \left(\frac{\partial P}{\partial T}\right)_{\!V} \]
+</div>
+
+<h4>Why Helmholtz free energy is useful</h4>
+<p>For a process at <strong>constant temperature</strong> (\(dT = 0\)), we have \(dF = -P\,dV = \text{đ}W\). So:</p>
+<ul>
+  <li>At constant temperature, <strong>the work done on the system equals the change in \(F\)</strong>: \(W_T = \Delta F\).</li>
+  <li>More generally, the maximum work extractable from a system at constant temperature is \(-\Delta F\). This is why \(F\) is called "free" energy — it is the portion of internal energy that is "free" to do work, after accounting for the entropy cost.</li>
+  <li>\(F\) is the natural potential for systems in contact with a heat bath (fixed \(T\)) at fixed volume — the typical setting in statistical mechanics.</li>
+</ul>
+
+<p>\(F\) is minimised at equilibrium for a system at fixed \(T\) and \(V\).</p>
+
+<h3 id="s5-5">5.5 &ensp;Gibbs free energy</h3>
+
+<p>The <strong>Gibbs free energy</strong> replaces both entropy and volume with their conjugates:</p>
+
+<div class="key-result">
+  <div class="kr-label">Gibbs Free Energy</div>
+  <p>\[ G = U - TS + PV = H - TS = F + PV \]</p>
+  <p>Natural variables: \(T\), \(P\).</p>
+</div>
+
+<p>Computing the differential: \(dG = dH - T\,dS - S\,dT = (T\,dS + V\,dP) - T\,dS - S\,dT\):</p>
+<div class="eq">\[ dG = -S\,dT + V\,dP \]</div>
+
+<p>The partial derivatives:</p>
+<div class="eq">\[ -S = \left(\frac{\partial G}{\partial T}\right)_{\!P} \qquad V = \left(\frac{\partial G}{\partial P}\right)_{\!T} \]</div>
+
+<p>The Maxwell relation:</p>
+<div class="eq">
+<span class="label">Maxwell relation from G</span>
+\[ \left(\frac{\partial S}{\partial P}\right)_{\!T} = -\left(\frac{\partial V}{\partial T}\right)_{\!P} \]
+</div>
+
+<h4>Why Gibbs free energy is useful</h4>
+<ul>
+  <li>At constant \(T\) and \(P\), \(dG = 0\) at equilibrium, and \(G\) is minimised. Since most chemical and biological processes occur at constant temperature and pressure, \(G\) is the central potential in chemistry.</li>
+  <li>At a phase transition (constant \(T\) and \(P\)), the two phases coexist when their molar Gibbs energies are equal: \(g_{\text{phase 1}} = g_{\text{phase 2}}\).</li>
+  <li>The condition for chemical equilibrium is also expressed in terms of \(G\).</li>
+</ul>
+
+<h3 id="s5-6">5.6 &ensp;Summary: the four potentials and the thermodynamic square</h3>
+
+<div class="scroll-x">
+<table>
+  <tr>
+    <th>Potential</th><th>Definition</th><th>Differential</th><th>Natural variables</th><th>Equilibrium at fixed…</th>
+  </tr>
+  <tr>
+    <td>\(U\)</td>
+    <td>—</td>
+    <td>\(T\,dS - P\,dV\)</td>
+    <td>\(S, V\)</td>
+    <td>\(S, V\) (isolated)</td>
+  </tr>
+  <tr>
+    <td>\(H = U + PV\)</td>
+    <td>Enthalpy</td>
+    <td>\(T\,dS + V\,dP\)</td>
+    <td>\(S, P\)</td>
+    <td>\(S, P\)</td>
+  </tr>
+  <tr>
+    <td>\(F = U - TS\)</td>
+    <td>Helmholtz</td>
+    <td>\(-S\,dT - P\,dV\)</td>
+    <td>\(T, V\)</td>
+    <td>\(T, V\) (heat bath)</td>
+  </tr>
+  <tr>
+    <td>\(G = U - TS + PV\)</td>
+    <td>Gibbs</td>
+    <td>\(-S\,dT + V\,dP\)</td>
+    <td>\(T, P\)</td>
+    <td>\(T, P\) (open lab)</td>
+  </tr>
+</table>
+</div>
+
+<p>A useful mnemonic for remembering these relations is the <strong>thermodynamic square</strong> (also called the Born square). Arrange the four natural variables around a square:</p>
+
+<div class="eq" style="text-align:center; font-family:var(--sans); font-size:15px; line-height:2.2;">
+\(V\) &mdash; \(F\) &mdash; \(T\)<br>
+| &emsp;&emsp;&emsp;&emsp;&emsp; |<br>
+\(U\) &emsp;&emsp;&emsp;&emsp;&ensp; \(G\)<br>
+| &emsp;&emsp;&emsp;&emsp;&emsp; |<br>
+\(S\) &mdash; \(H\) &mdash; \(P\)
+</div>
+
+<p>Reading the square: each potential sits between its two natural variables. The conjugate pairs \((T, S)\) and \((P, V)\) sit on opposite sides. The partial derivatives and Maxwell relations can all be read off from the square by following the edges and diagonals.</p>
+
+<div class="remark">
+  <strong>Choosing the right potential:</strong> Match the potential to the experimental constraints. A bomb calorimeter (rigid, insulated) → fixed \(S\), \(V\) → use \(U\). A reaction in an open beaker at room temperature → fixed \(T\), \(P\) → use \(G\). An isothermal piston → fixed \(T\), \(V\) → use \(F\). A flow calorimeter at constant pressure → fixed \(S\), \(P\) → use \(H\).
+</div>
+
+<h3 id="s5-7">5.7 &ensp;Maxwell relations</h3>
+
+<p>Each thermodynamic potential generates one Maxwell relation from the equality of mixed second partial derivatives. Collecting all four:</p>
+
+<div class="key-result">
+  <div class="kr-label">The Four Maxwell Relations</div>
+  <p>\[ \left(\frac{\partial T}{\partial V}\right)_{\!S} = -\left(\frac{\partial P}{\partial S}\right)_{\!V} \qquad\text{(from } U\text{)} \]</p>
+  <p>\[ \left(\frac{\partial T}{\partial P}\right)_{\!S} = \left(\frac{\partial V}{\partial S}\right)_{\!P} \qquad\text{(from } H\text{)} \]</p>
+  <p>\[ \left(\frac{\partial S}{\partial V}\right)_{\!T} = \left(\frac{\partial P}{\partial T}\right)_{\!V} \qquad\text{(from } F\text{)} \]</p>
+  <p>\[ \left(\frac{\partial S}{\partial P}\right)_{\!T} = -\left(\frac{\partial V}{\partial T}\right)_{\!P} \qquad\text{(from } G\text{)} \]</p>
+</div>
+
+<p>The last two are by far the most useful, because they involve the experimentally accessible variables \(T\), \(P\), \(V\) on both sides. They let us compute entropy derivatives — which are hard to measure directly — from \(P\)–\(V\)–\(T\) data, which is easy to measure.</p>
+
+<h4>Using the Maxwell relations</h4>
+<p>Whenever you encounter a partial derivative involving entropy as a variable being differentiated with respect to, try replacing it with a Maxwell relation. For example:</p>
+<ul>
+  <li>\((\partial S/\partial V)_T\) is hard to measure — but by the third Maxwell relation, it equals \((\partial P/\partial T)_V\), which is just the slope of an isochore on a \(P\)–\(T\) diagram.</li>
+  <li>\((\partial S/\partial P)_T\) equals \(-(\partial V/\partial T)_P\), which is directly related to the thermal expansion coefficient.</li>
+</ul>
+
+<h3 id="s5-8">5.8 &ensp;Measurable quantities and thermodynamic derivatives</h3>
+
+<p>In practice, the properties of a substance are characterised by a small set of <strong>directly measurable quantities</strong>:</p>
+
+<dl class="def-grid">
+  <dt>\(C_P\)</dt>
+  <dd>Heat capacity at constant pressure: \(C_P = T(\partial S/\partial T)_P\)</dd>
+  <dt>\(C_V\)</dt>
+  <dd>Heat capacity at constant volume: \(C_V = T(\partial S/\partial T)_V\)</dd>
+  <dt>\(\alpha\)</dt>
+  <dd>Isobaric thermal expansion coefficient: \(\alpha = \tfrac{1}{V}(\partial V/\partial T)_P\)</dd>
+  <dt>\(\kappa_T\)</dt>
+  <dd>Isothermal compressibility: \(\kappa_T = -\tfrac{1}{V}(\partial V/\partial P)_T\)</dd>
+</dl>
+
+<p>Together with \(T\), \(P\), and \(V\), these four quantities are sufficient to express <em>any</em> thermodynamic derivative for a single-component system. The key relations connecting them are the Maxwell relations and two important identities.</p>
+
+<h4>Useful identities</h4>
+<p>The <strong>reciprocal relation</strong>: for any three state variables \(x\), \(y\), \(z\) related by an equation of state:</p>
+<div class="eq">\[ \left(\frac{\partial x}{\partial y}\right)_{\!z} = \frac{1}{\left(\frac{\partial y}{\partial x}\right)_{\!z}} \]</div>
+
+<p>The <strong>cyclic relation</strong> (also called the triple product rule): if \(x\), \(y\), \(z\) are related by a single constraint \(f(x,y,z) = 0\):</p>
+<div class="eq">
+<span class="label">Cyclic relation</span>
+\[ \left(\frac{\partial x}{\partial y}\right)_{\!z} \left(\frac{\partial y}{\partial z}\right)_{\!x} \left(\frac{\partial z}{\partial x}\right)_{\!y} = -1 \]
+</div>
+
+<h4>Worked examples</h4>
+
+<p><strong>Example 1:</strong> Express \((\partial H/\partial P)_T\) in terms of measurables.</p>
+<p>Start from \(dH = T\,dS + V\,dP\). At constant \(T\):</p>
+<div class="eq">\[ \left(\frac{\partial H}{\partial P}\right)_{\!T} = T\left(\frac{\partial S}{\partial P}\right)_{\!T} + V \]</div>
+<p>Apply the Maxwell relation from \(G\): \((\partial S/\partial P)_T = -(\partial V/\partial T)_P = -V\alpha\).</p>
+<div class="eq">\[ \left(\frac{\partial H}{\partial P}\right)_{\!T} = V(1 - \alpha T) \]</div>
+
+<p><strong>Example 2:</strong> Express \((\partial S/\partial T)_H\) in terms of measurables.</p>
+<p>Use the cyclic relation with \(S\), \(T\), \(H\):</p>
+<div class="eq">\[ \left(\frac{\partial S}{\partial T}\right)_{\!H} \left(\frac{\partial T}{\partial H}\right)_{\!S} \left(\frac{\partial H}{\partial S}\right)_{\!T} = -1 \]</div>
+<p>We know \((\partial T/\partial H)_S = 1/(\partial H/\partial T)_S\) and \((\partial H/\partial S)_T\). Using \(dH = T\,dS + V\,dP\):</p>
+<ul>
+  <li>\((\partial H/\partial T)_S = V(\partial P/\partial T)_S\). By the cyclic relation on \(P\), \(T\), \(S\): \((\partial P/\partial T)_S = -(\partial S/\partial T)_P/(\partial S/\partial P)_T = (C_P/T)/(V\alpha) = C_P/(TV\alpha)\).</li>
+  <li>So \((\partial H/\partial T)_S = VC_P/(TV\alpha) = C_P/(T\alpha)\).</li>
+</ul>
+<p>Similarly, \((\partial H/\partial S)_T = T + V(\partial P/\partial S)_T = T - V/[(\partial S/\partial P)_T] \cdot (\partial P/\partial S)_T\). More directly: at constant \(T\), \((\partial H/\partial S)_T = T + V(\partial P/\partial S)_T\). By the reciprocal of the Maxwell relation, \((\partial P/\partial S)_T = 1/(\partial S/\partial P)_T = -1/(V\alpha)\), so \((\partial H/\partial S)_T = T - 1/\alpha\).</p>
+<p>Assembling via the cyclic relation gives:</p>
+<div class="eq">\[ \left(\frac{\partial S}{\partial T}\right)_{\!H} = \frac{C_P}{T\alpha - 1} \cdot \frac{\alpha}{T} \]</div>
+
+<p><strong>Example 3:</strong> Express \((\partial S/\partial P)_V\) in terms of measurables.</p>
+<p>Use the cyclic relation on \(S\), \(P\), \(V\):</p>
+<div class="eq">\[ \left(\frac{\partial S}{\partial P}\right)_{\!V} = -\left(\frac{\partial S}{\partial V}\right)_{\!P} \left(\frac{\partial V}{\partial P}\right)_{\!S} \]</div>
+<p>Alternatively, write \(S = S(T, V)\). At constant \(V\):</p>
+<div class="eq">\[ \left(\frac{\partial S}{\partial P}\right)_{\!V} = \left(\frac{\partial S}{\partial T}\right)_{\!V} \left(\frac{\partial T}{\partial P}\right)_{\!V} = \frac{C_V}{T} \cdot \frac{1}{(\partial P/\partial T)_V} \]</div>
+<p>By the cyclic relation on \(P\), \(V\), \(T\): \((\partial P/\partial T)_V = -(\partial V/\partial T)_P / (\partial V/\partial P)_T = \alpha/\kappa_T\). So:</p>
+<div class="eq">\[ \left(\frac{\partial S}{\partial P}\right)_{\!V} = \frac{C_V \kappa_T}{\alpha T} \]</div>
+
+<p><strong>Example 4:</strong> Express \((\partial V/\partial T)_U\) in terms of measurables.</p>
+<p>Use the cyclic relation on \(V\), \(T\), \(U\):</p>
+<div class="eq">\[ \left(\frac{\partial V}{\partial T}\right)_{\!U} = -\frac{(\partial U/\partial T)_V}{(\partial U/\partial V)_T} \]</div>
+<p>The numerator is \(C_V\). For the denominator, recall from Chapter 4 that \((\partial U/\partial V)_T = T(\partial P/\partial T)_V - P = T\alpha/\kappa_T - P\). Therefore:</p>
+<div class="eq">\[ \left(\frac{\partial V}{\partial T}\right)_{\!U} = \frac{-C_V}{T\alpha/\kappa_T - P} = \frac{C_V \kappa_T}{P\kappa_T - T\alpha} \]</div>
+
+<div class="remark">
+  <strong>General strategy:</strong> To express any derivative \((\partial A/\partial B)_C\) in terms of measurables: (1) If \(A\) or \(B\) is a potential (\(U\), \(H\), \(F\), \(G\)), expand its differential. (2) If entropy appears, use a Maxwell relation to replace it. (3) Use the cyclic and reciprocal relations to reduce everything to \(C_P\), \(C_V\), \(\alpha\), \(\kappa_T\), \(T\), \(P\), \(V\).
+</div>
+
+<h4>Important derived relation: \(C_P - C_V\)</h4>
+<p>Using the Maxwell relations and the general expression for entropy, one can derive a fundamental connection between the two heat capacities:</p>
+<div class="key-result">
+  <div class="kr-label">Heat Capacity Difference</div>
+  <p>\[ C_P - C_V = \frac{TV\alpha^2}{\kappa_T} \]</p>
+</div>
+<p>Since \(T > 0\), \(V > 0\), and \(\kappa_T > 0\) (stability), this shows that \(C_P \geq C_V\) always, with equality only when \(\alpha = 0\) (as happens for water at 4 °C). For an ideal gas, \(\alpha = 1/T\) and \(\kappa_T = 1/P\), giving \(C_P - C_V = TV(1/T)^2/(1/P) = PV/T = nR\), recovering the familiar result.</p>
+
+<h3 id="s5-9">5.9 &ensp;Energy density and equations of state</h3>
+
+<p>For systems where the energy density \(u = U/V\) depends only on temperature, the fundamental relation provides a powerful constraint linking \(u(T)\) to the equation of state.</p>
+
+<p>From the result of Chapter 4 (Section 4.9), the internal energy–pressure relation states:</p>
+<div class="eq">\[ \left(\frac{\partial U}{\partial V}\right)_{\!T} = T\left(\frac{\partial P}{\partial T}\right)_{\!V} - P \]</div>
+
+<p>If \(u = U/V\) depends only on \(T\), then \(U = u(T)\,V\), and \((\partial U/\partial V)_T = u(T)\). Meanwhile, if the equation of state gives \(P = \tfrac{1}{3}u(T)\), then \((\partial P/\partial T)_V = \tfrac{1}{3}u'(T)\). Substituting:</p>
+<div class="eq">\[ u = \frac{T}{3}\,u'(T) - \frac{u}{3} \]</div>
+<p>Rearranging: \(\tfrac{4}{3}u = \tfrac{T}{3}u'\), i.e. \(u'/u = 4/T\). Integrating:</p>
+<div class="eq">\[ \ln u = 4\ln T + \text{const} \qquad\Longrightarrow\qquad u(T) = bT^4 \]</div>
+
+<p>where \(b\) is a constant. This is the <strong>Stefan–Boltzmann law</strong> for blackbody radiation — the energy density of a photon gas scales as \(T^4\). Remarkably, thermodynamics alone (without quantum mechanics) determines the functional form, given only the equation of state \(P = u/3\).</p>
+
+<div class="remark">
+  <strong>The power of thermodynamic consistency:</strong> This example illustrates a recurring theme — the fundamental relation and Maxwell relations impose strong constraints. If you know the equation of state and one thermal property (like the form of \(u\)), the rest is determined. The tutorial problems exploit this strategy: given \(C_V\) and \(P(T, V)\), the entropy function \(S(U, V, N)\) is fully determined up to a constant.
+</div>
+
+</section>
+
 <footer style="margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-family:var(--sans); font-size:12px; color:var(--text-dim);">
-  PHYS 2261 &middot; Chapters 1–4 &middot; Compiled from lecture slides
+  PHYS 2261 &middot; Chapters 1–5 &middot; Compiled from lecture slides
 </footer>
 
 </body>

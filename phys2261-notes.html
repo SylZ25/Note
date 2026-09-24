@@ -172,15 +172,19 @@
     </li>
     <li><a href="#ch5">Thermodynamic Potentials</a>
       <ol>
-        <li><a href="#s5-1">Why new potentials?</a></li>
-        <li><a href="#s5-2">Internal energy revisited</a></li>
+        <li><a href="#s5-1">Equilibrium state: entropy and energy criteria</a></li>
+        <li><a href="#s5-2">Internal energy and the fundamental relation</a></li>
         <li><a href="#s5-3">Enthalpy</a></li>
         <li><a href="#s5-4">Helmholtz free energy</a></li>
         <li><a href="#s5-5">Gibbs free energy</a></li>
-        <li><a href="#s5-6">Summary: the four potentials and the thermodynamic square</a></li>
+        <li><a href="#s5-6">Legendre transformations and the thermodynamic square</a></li>
         <li><a href="#s5-7">Maxwell relations</a></li>
-        <li><a href="#s5-8">Measurable quantities and thermodynamic derivatives</a></li>
-        <li><a href="#s5-9">Energy density and equations of state</a></li>
+        <li><a href="#s5-8">Response functions and measurable quantities</a></li>
+        <li><a href="#s5-9">Applications of Maxwell relations</a></li>
+        <li><a href="#s5-10">Thermodynamic potentials for P–V systems</a></li>
+        <li><a href="#s5-11">Potentials for ideal gases</a></li>
+        <li><a href="#s5-12">Euler equations and extensivity</a></li>
+        <li><a href="#s5-13">Open systems, chemical potential, and the Gibbs–Duhem relation</a></li>
       </ol>
     </li>
   </ol>
@@ -629,382 +633,221 @@
 <h2>Entropy and the Second Law</h2>
 
 <h3 id="s4-1">4.1 &ensp;Reversible processes and heat reservoirs</h3>
-
-<p><strong>Reversible processes</strong> are ideal abstractions of real, irreversible processes. Just as we assume frictionless pulleys and point masses in mechanics, reversible processes let us analyse thermodynamic problems in their simplest, most tractable form.</p>
-
-<p>For a process to be reversible, two conditions must be met:</p>
+<p><strong>Reversible processes</strong> are ideal abstractions of real, irreversible processes. They serve the same role in thermodynamics that frictionless pulleys and point masses serve in mechanics: they allow rigorous theoretical analysis.</p>
+<p>For a process to be reversible, two conditions must hold:</p>
 <ol>
-  <li>The process is carried out <strong>quasi-statically</strong> — so slowly that the system passes through a continuous sequence of equilibrium states.</li>
-  <li>The process involves <strong>no dissipative effects</strong> — no friction, turbulence, or uncompensated heat flow.</li>
+  <li>The process must be <strong>quasi-static</strong> — carried out so slowly that the system passes through a continuous sequence of equilibrium states.</li>
+  <li>The process must involve <strong>no dissipation</strong> — no friction, turbulence, or any other irreversible effect.</li>
 </ol>
-<p>If both conditions hold, the process can be exactly undone: the system and <em>its entire environment</em> return to their original states, with nothing in the universe changed. This is the defining feature — not just the system, but <em>everything</em> must revert.</p>
+<p>If both conditions are met, the process can be exactly undone, returning both the system and the environment to their original states — nothing is changed in the universe. The quasi-static isothermal and adiabatic processes in the Carnot cycle are the two most important examples of reversible processes.</p>
 
-<p>The quasi-static isothermal and adiabatic processes that make up the Carnot cycle are the two most important examples of reversible processes.</p>
-
-<dl class="def-grid">
-  <dt>Heat reservoir</dt>
-  <dd>A body of such large heat capacity that it can absorb or release an unlimited supply of heat without appreciable change in its temperature. Because any changes in the reservoir are infinitesimally slow, heat transfer to or from a reservoir is always reversible. Examples include the atmosphere, large bodies of water, or (in idealised problems) any thermal bath at fixed \(T\).</dd>
-</dl>
-
-<div class="remark">
-  <strong>Why reversible processes matter:</strong> All real processes are irreversible — friction, turbulence, and finite temperature gradients are unavoidable. But reversible processes set the theoretical <em>best case</em>: they extract the maximum work or require the minimum input. Every real engine is less efficient than its reversible counterpart.
-</div>
+<p>A <strong>heat reservoir</strong> (or thermal reservoir) is a body of such large heat capacity that it can absorb or release an unlimited amount of heat without appreciable change in its temperature. Because any heat exchange with a reservoir is slow and minute relative to the reservoir's total energy, the process is effectively reversible from the reservoir's point of view.</p>
 
 <h3 id="s4-2">4.2 &ensp;The Second Law of Thermodynamics</h3>
-
-<p>The First Law is a bookkeeping rule: it says energy is conserved, but it says nothing about <em>which</em> processes actually occur. It forbids perpetual motion machines of the first kind (creating energy from nothing), but it does not explain why heat flows from hot to cold, why gases expand into a vacuum, or why coffee cools to room temperature rather than spontaneously heating up. The Second Law fills this gap: it dictates the <em>direction</em> in which processes occur spontaneously.</p>
+<p>The First Law tells us that energy is conserved. It does not, however, tell us <em>which</em> direction a process goes spontaneously. The Second Law provides this missing information: it dictates the direction of spontaneous change.</p>
 
 <h4>Kelvin's statement</h4>
 <div class="key-result">
-  <div class="kr-label">Kelvin's Statement of the Second Law</div>
-  <p>A process whose <em>only</em> effect is the complete conversion of heat into work cannot occur.</p>
+  <div class="kr-label">Kelvin's Statement of the 2nd Law</div>
+  <p>A process cannot occur whose <em>only</em> effect is the complete conversion of heat into work.</p>
 </div>
-<p>In other words, there can be no perpetual motion machine of the second kind — a device that operates in a cycle, absorbs heat from a single reservoir, and converts it entirely into work with no other effect. The qualifier "only" is crucial: it <em>is</em> possible to convert heat completely into work if the state of the system changes, as in an isothermal expansion of an ideal gas. But in a <em>cyclic</em> process — one where the system returns to its initial state — some heat must always be rejected to a colder reservoir.</p>
+<p>In other words, there can be no perpetual-motion machine of the second kind — a device that spontaneously converts thermal energy entirely into mechanical work in a cyclic process. The qualifier "only" is important: it <em>is</em> possible to convert heat completely into work if the final state differs from the initial one (e.g., isothermal expansion of a gas), but not in a cyclic engine.</p>
 
 <h4>Clausius's statement</h4>
 <div class="key-result">
-  <div class="kr-label">Clausius's Statement of the Second Law</div>
-  <p>Heat cannot be transferred from a colder to a hotter body without any other effect.</p>
+  <div class="kr-label">Clausius's Statement of the 2nd Law</div>
+  <p>Heat cannot be transferred from a colder to a hotter body without any other effects.</p>
 </div>
-<p>Again, the qualifier "without any other effect" is essential. A refrigerator <em>does</em> transfer heat from cold to hot — but only by consuming external work. Clausius's statement says this cannot happen <em>spontaneously</em>, with nothing else changing.</p>
+<p>Again, the qualifier "without any other effects" is crucial. A refrigerator transfers heat from cold to hot, but it requires work input — there are other effects.</p>
 
 <h4>Equivalence of the two statements</h4>
-<p>The Kelvin and Clausius statements are logically equivalent — violating one implies violating the other:</p>
+<p>The Kelvin and Clausius statements are logically equivalent. To see why:</p>
 <ul>
-  <li><strong>If Clausius is violated</strong> (heat flows spontaneously from cold to hot): pair this with a Carnot engine operating between the two reservoirs. The engine absorbs \(Q_H\) from the hot reservoir and dumps \(Q_C\) to the cold one. But if heat also flows spontaneously from cold back to hot, the cold reservoir returns \(Q_C\) to the hot reservoir for free. Net effect: heat from the hot reservoir is converted entirely into work — violating Kelvin.</li>
-  <li><strong>If Kelvin is violated</strong> (a perfect engine converts heat entirely to work): use that work to drive a refrigerator, pumping heat from the cold body to the hot body with no net work input — violating Clausius.</li>
+  <li><strong>If Clausius is violated → Kelvin is violated:</strong> Suppose heat could flow spontaneously from cold to hot. Couple this with a Carnot engine operating between the same two reservoirs. The net effect would be complete conversion of heat from the hot reservoir into work, violating Kelvin's statement.</li>
+  <li><strong>If Kelvin is violated → Clausius is violated:</strong> Suppose a perfect engine could convert heat completely into work. Use that work to drive a refrigerator. The net effect would be heat transfer from cold to hot with no other change, violating Clausius's statement.</li>
 </ul>
 
 <h3 id="s4-3">4.3 &ensp;Carnot's theorem</h3>
-
 <div class="key-result">
   <div class="kr-label">Carnot's Theorem</div>
-  <p>No heat engine operating between two reservoirs at temperatures \(T_H\) and \(T_C\) can be more efficient than a reversible engine. Furthermore, all reversible engines operating between the same two reservoirs have the same efficiency: \(\eta = 1 - T_C/T_H\).</p>
+  <p>No heat engine operating between two given temperatures can be more efficient than a reversible engine. All reversible engines operating between the same two temperatures have the same efficiency: \(\eta = 1 - T_C/T_H\).</p>
 </div>
-
-<p>The proof proceeds by contradiction. Suppose an engine X has efficiency \(\eta_X > \eta_{\text{rev}}\). Run the reversible engine backwards as a refrigerator, driven by engine X. Because X is "super-efficient," it produces more work per unit of \(Q_H\) than the reversible engine needs. The net effect of the combined device is the transfer of heat from the cold reservoir to the hot reservoir with no net work input — violating the Clausius statement of the Second Law.</p>
-
-<p>To show all reversible engines share the same efficiency: suppose A and B are both reversible engines operating between the same reservoirs. Since A is reversible, \(\eta_A \geq \eta_B\) (by Carnot's theorem). Since B is also reversible, \(\eta_B \geq \eta_A\). Therefore \(\eta_A = \eta_B\).</p>
-
-<p>Since the Carnot engine is reversible and has efficiency \(\eta = 1 - T_C/T_H\), <em>all</em> reversible engines share this efficiency. It depends only on the reservoir temperatures — not on the working substance or any other details of the engine.</p>
+<p>The proof uses the Second Law. Suppose engine A is a "superefficient" engine with \(\eta_A > \eta_{\text{Carnot}}\). Run A as an engine and use its work output to drive a Carnot engine in reverse (as a refrigerator). Since A produces more work than the Carnot engine would from the same \(Q_H\), the net effect is heat transfer from the cold reservoir to the hot reservoir with no other change — violating the Clausius statement.</p>
+<p>Now suppose A and B are both reversible. Since A is reversible, \(\eta_A \leq \eta_B\). Since B is reversible, \(\eta_B \leq \eta_A\). Therefore \(\eta_A = \eta_B\).</p>
+<p>Since all reversible engines between two reservoirs have the same efficiency, and the Carnot engine (whose efficiency we computed explicitly in Chapter 3) is one such reversible engine, the universal efficiency is:</p>
+<div class="eq">\[ \eta = 1 - \frac{T_C}{T_H} \]</div>
 
 <h3 id="s4-4">4.4 &ensp;The thermodynamic temperature scale</h3>
-
-<p>Carnot's theorem tells us that the efficiency of a reversible engine depends only on the reservoir temperatures, not on the working substance. This means the ratio of heats exchanged is a universal function of the reservoir temperatures alone:</p>
-
+<p>Since all reversible engines between the same two reservoirs have the same efficiency, this efficiency cannot depend on the working substance — it depends only on the reservoir temperatures. Consider a reversible engine operating between temperatures \(\theta_2\) and \(\theta_3 < \theta_2\). The ratio of heats is:</p>
 <div class="eq">\[ \frac{|Q_3|}{|Q_2|} = f(\theta_3, \theta_2) \]</div>
-
-<p>where \(\theta_2\) and \(\theta_3\) label two reservoir temperatures.</p>
-
-<p>Now introduce a third reservoir at temperature \(\theta_1 > \theta_2\). A reversible engine between \(\theta_1\) and \(\theta_3\) gives \(|Q_3|/|Q_1| = f(\theta_3, \theta_1)\), and one between \(\theta_1\) and \(\theta_2\) gives \(|Q_2|/|Q_1| = f(\theta_2, \theta_1)\). Combining:</p>
-
+<p>Now introduce a third reservoir at \(\theta_1 > \theta_2\). A second reversible engine operates between \(\theta_1\) and \(\theta_3\), and a third between \(\theta_1\) and \(\theta_2\). Combining the heat ratios:</p>
 <div class="eq">\[ \frac{|Q_3|}{|Q_2|} = \frac{f(\theta_3, \theta_1)}{f(\theta_2, \theta_1)} = f(\theta_3, \theta_2) \]</div>
-
-<p>Since the left side is independent of \(\theta_1\), the dependence on \(\theta_1\) must cancel in the ratio. This forces \(f\) to factorise as \(f(\theta_a, \theta_b) = f'(\theta_a)/f'(\theta_b)\). The simplest choice is \(f'(\theta) = \theta\), giving:</p>
-
-<div class="eq">\[ \frac{|Q_C|}{|Q_H|} = \frac{\theta_C}{\theta_H} \]</div>
-
-<p>This defines the <strong>thermodynamic (Kelvin absolute) temperature scale</strong>. The efficiency becomes \(\eta = 1 - \theta_C/\theta_H\), identical to the Carnot efficiency \(\eta = 1 - T_C/T_H\) derived using the ideal gas. The thermodynamic and ideal-gas temperature scales are consistent — a deeply satisfying result, because the thermodynamic scale is defined without reference to any particular substance.</p>
+<p>For the ratio \(f(\theta_3, \theta_1)/f(\theta_2, \theta_1)\) to be independent of \(\theta_1\), the function \(f\) must factorise: \(f(\theta_3, \theta_1) = f'(\theta_3)/f'(\theta_1)\). The simplest choice is \(f'(\theta) = \theta\), which defines the <strong>thermodynamic (Kelvin absolute) temperature scale</strong>:</p>
+<div class="key-result">
+  <div class="kr-label">Thermodynamic Temperature</div>
+  <p>\[ \frac{|Q_C|}{|Q_H|} = \frac{\theta_C}{\theta_H} \qquad\Longrightarrow\qquad \eta = 1 - \frac{\theta_C}{\theta_H} \]</p>
+</div>
+<p>This recovers the Carnot efficiency \(\eta = 1 - T_C/T_H\) that we derived using the ideal-gas temperature scale in Chapter 3. The two scales are therefore consistent — the thermodynamic temperature \(\theta\) is the same as the ideal-gas temperature \(T\).</p>
 
 <h3 id="s4-5">4.5 &ensp;Clausius's theorem and the definition of entropy</h3>
-
 <h4>Clausius's theorem</h4>
-<p>For any cyclic process involving heat exchanges \(\text{đ}Q\) with reservoirs at temperature \(T\), the following inequality holds:</p>
-
+<p>Consider an arbitrary cyclic process involving heat exchanges \(\text{đ}Q\) at various temperatures. We can model this by coupling the system to a series of Carnot engines, each connected to a principal reservoir at temperature \(T_0\). The composite system (original system + all Carnot engines) exchanges heat only with the principal reservoir. By the Kelvin statement, the total heat absorbed from the principal reservoir in one full cycle cannot be positive. Working through the Carnot engine relations:</p>
 <div class="key-result">
   <div class="kr-label">Clausius's Theorem</div>
   <p>\[ \oint \frac{\text{đ}Q}{T} \leq 0 \]</p>
 </div>
+<p>with equality holding if and only if the cyclic process is reversible:</p>
+<div class="eq">\[ \oint \frac{\text{đ}Q_{\text{rev}}}{T} = 0 \]</div>
 
-<p>with equality if and only if the cycle is reversible:</p>
-<div class="eq">
-<span class="label">Reversible cycle</span>
-\[ \oint \frac{\text{đ}Q_{\text{rev}}}{T} = 0 \]
-</div>
-
-<h4>From Clausius's theorem to entropy</h4>
-<p>The result for reversible cycles is profoundly important. Recall from the Carnot cycle analysis that \(Q_H/T_H + Q_C/T_C = 0\), where \(Q_H\) and \(Q_C\) are the heats <em>absorbed</em> by the gas (so \(Q_C < 0\)). This generalises: for any reversible cycle involving heat exchanges with reservoirs at various temperatures \(T_i\), we have \(\sum Q_i/T_i = 0\), or in the continuous limit, the integral form above.</p>
-
-<p>The vanishing of the cyclic integral means that the integral \(\int \text{đ}Q_{\text{rev}}/T\) between any two states is <strong>path-independent</strong>. To see why: consider two reversible paths, I and II, connecting state A to state B. Going A→B via path I, then B→A via path II (reversed), forms a complete reversible cycle. The Clausius equality gives:</p>
-
-<div class="eq">\[ \int_{\text{Path I}} \frac{\text{đ}Q_{\text{rev}}}{T} + \int_{\text{Path II (reversed)}} \frac{\text{đ}Q_{\text{rev}}}{T} = 0 \]</div>
-
-<p>which means \(\int_{\text{Path I}} \text{đ}Q_{\text{rev}}/T = \int_{\text{Path II}} \text{đ}Q_{\text{rev}}/T\). Both paths give the same answer.</p>
-
-<p>A path-independent integral defines a <strong>state function</strong>. We call it <em>entropy</em>, denoted \(S\):</p>
-
+<h4>Definition of entropy</h4>
+<p>From the Carnot efficiency, we showed in Chapter 3 that \(Q_H/T_H + Q_C/T_C = 0\) for a Carnot cycle (adopting the sign convention that \(Q\) is positive when absorbed by the gas). This result generalises: for any reversible cycle involving multiple heat exchanges at temperatures \(T_i\):</p>
+<div class="eq">\[ \sum_i \frac{Q_i}{T_i} = 0 \qquad\text{and in the continuum limit}\qquad \oint \frac{\text{đ}Q_{\text{rev}}}{T} = 0 \]</div>
+<p>The vanishing of this closed integral means the integrand \(\text{đ}Q_{\text{rev}}/T\) is <strong>path-independent</strong>: for any two reversible paths I and II between the same endpoints A and B,</p>
+<div class="eq">\[ \int_{\text{Path I}} \frac{\text{đ}Q}{T} = \int_{\text{Path II}} \frac{\text{đ}Q}{T} \]</div>
+<p>A path-independent integral defines a <strong>state function</strong>. We call this function <strong>entropy</strong> \(S\):</p>
 <div class="key-result">
   <div class="kr-label">Definition of Entropy</div>
   <p>\[ \Delta S = S(B) - S(A) = \int_A^B \frac{\text{đ}Q_{\text{rev}}}{T} \]</p>
 </div>
-
-<p>Entropy is a state function: it has a definite value at each equilibrium state, regardless of how the system arrived there. The differential form is \(dS = \text{đ}Q_{\text{rev}}/T\).</p>
-
-<div class="remark">
-  <strong>Computing \(\Delta S\) for irreversible processes:</strong> Because \(S\) is a state function, \(\Delta S\) depends only on the initial and final states. To find \(\Delta S\) for an irreversible process, we do <em>not</em> integrate along the actual (irreversible) path. Instead, we <strong>devise a reversible path</strong> connecting the same initial and final states, and integrate \(\text{đ}Q_{\text{rev}}/T\) along that invented path. The result is the same \(\Delta S\), because entropy cares only about endpoints.
-</div>
+<p>The entropy change between two equilibrium states is computed by evaluating the integral along <em>any</em> reversible path connecting them. Although the integral must be taken along a reversible path, the entropy difference \(\Delta S\) itself is independent of the path (reversible or not), because \(S\) is a state function.</p>
 
 <h3 id="s4-6">4.6 &ensp;Entropy changes: worked examples</h3>
 
-<h4>Entropy change in the Carnot cycle</h4>
-<p>Consider each step of the Carnot cycle (states A→B→C→D→A):</p>
+<h4>Example 1: Entropy change in the Carnot cycle</h4>
+<p>Consider the entropy changes of the gas and the environment (reservoirs) during each process of the Carnot cycle:</p>
+<p><strong>(i) Isothermal expansion A → B at \(T_H\):</strong></p>
+<div class="eq">\[ \Delta S_{\text{gas}} = \int_A^B \frac{\text{đ}Q_{\text{rev}}}{T} = \frac{1}{T_H}\int_A^B \text{đ}Q = nR\ln\frac{V_B}{V_A} \qquad \Delta S_{\text{reservoir}} = \frac{Q}{T_H} = -nR\ln\frac{V_B}{V_A} \]</div>
+<p><strong>(ii) Isothermal compression C → D at \(T_C\):</strong></p>
+<div class="eq">\[ \Delta S_{\text{gas}} = nR\ln\frac{V_D}{V_C} \qquad \Delta S_{\text{reservoir}} = -nR\ln\frac{V_D}{V_C} \]</div>
+<p><strong>(iii) Adiabatic processes B → C and D → A:</strong> \(\text{đ}Q = 0\), so \(\Delta S = 0\) for both gas and reservoirs.</p>
+<p>For each individual step, \(\Delta S^{\text{univ}} = \Delta S^{\text{gas}} + \Delta S^{\text{env}} = 0\). For the full cycle, \(\Delta S^{\text{gas}} = 0\) (it returns to its initial state), \(\Delta S^{\text{env}} = 0\), and \(\Delta S^{\text{univ}} = 0\). The Carnot cycle is reversible, and the total entropy of the universe does not change.</p>
 
-<div class="scroll-x">
-<table>
-  <tr>
-    <th>Step</th><th>Process</th><th>\(\Delta S_{\text{gas}}\)</th><th>\(\Delta S_{\text{reservoir}}\)</th>
-  </tr>
-  <tr>
-    <td>A → B</td>
-    <td>Isothermal expansion at \(T_H\)</td>
-    <td>\(nR\ln(V_B/V_A)\)</td>
-    <td>\(-nR\ln(V_B/V_A)\)</td>
-  </tr>
-  <tr>
-    <td>B → C</td>
-    <td>Adiabatic expansion</td>
-    <td>\(0\)</td>
-    <td>\(0\)</td>
-  </tr>
-  <tr>
-    <td>C → D</td>
-    <td>Isothermal compression at \(T_C\)</td>
-    <td>\(nR\ln(V_D/V_C)\)</td>
-    <td>\(-nR\ln(V_D/V_C)\)</td>
-  </tr>
-  <tr>
-    <td>D → A</td>
-    <td>Adiabatic compression</td>
-    <td>\(0\)</td>
-    <td>\(0\)</td>
-  </tr>
-</table>
-</div>
-
-<p>For the isothermal expansion A → B at temperature \(T_H\), the gas entropy change is \(\Delta S = \int_A^B \text{đ}Q_{\text{rev}}/T = (1/T_H)\int_A^B \text{đ}Q = nR\ln(V_B/V_A)\). The reservoir loses the same heat, so its entropy change is exactly the negative. For the adiabatic steps, \(\text{đ}Q = 0\) and both entropy changes vanish.</p>
-
-<p>Over the full cycle: \(\Delta S^{\text{gas}} = 0\), \(\Delta S^{\text{env}} = 0\), and \(\Delta S^{\text{univ}} = 0\). The Carnot cycle is reversible — no entropy is created anywhere in the universe.</p>
-
-<h4>Two blocks reaching thermal equilibrium</h4>
-<p>Two blocks of heat capacity \(C\) at initial temperatures \(T_1\) and \(T_2\) (with \(T_1 \geq T_2\)) are brought into thermal contact. By energy conservation, the final equilibrium temperature is:</p>
+<h4>Example 2: Two blocks reaching thermal equilibrium</h4>
+<p>Two blocks, each with heat capacity \(C\), at initial temperatures \(T_1\) and \(T_2\) (with \(T_1 \geq T_2\)) are brought into thermal contact. By energy conservation, the final equilibrium temperature is:</p>
 <div class="eq">\[ T_f = \frac{T_1 + T_2}{2} \]</div>
+<p>To find the entropy change, we must devise a reversible process connecting the same initial and final states. Place each block in successive contact with reservoirs at infinitesimally separated temperatures, bringing block 1 from \(T_1\) down to \(T_f\), and block 2 from \(T_2\) up to \(T_f\). For infinitesimal steps, \(\text{đ}Q = C\,dT\), giving:</p>
+<div class="eq">\[ \Delta S = \Delta S_1 + \Delta S_2 = C\ln\frac{T_f}{T_1} + C\ln\frac{T_f}{T_2} = C\ln\frac{T_f^2}{T_1 T_2} = C\ln\frac{(T_1+T_2)^2}{4T_1 T_2} \geq 0 \]</div>
+<p>The inequality follows from the AM–GM inequality: \((T_1 + T_2)^2 \geq 4T_1 T_2\), with equality only when \(T_1 = T_2\) (no temperature difference, no process). Entropy increases whenever heat flows spontaneously from hot to cold.</p>
 
-<p>The actual process (thermal conduction) is irreversible. To compute \(\Delta S\), we devise a reversible path: place each block in thermal contact with a sequence of reservoirs that change its temperature in infinitesimal steps from its initial value to \(T_f\). For each block, \(\text{đ}Q_{\text{rev}} = C\,dT\), so:</p>
-
-<div class="eq">\[ \Delta S_1 = C\ln\!\left(\frac{T_f}{T_1}\right), \qquad \Delta S_2 = C\ln\!\left(\frac{T_f}{T_2}\right) \]</div>
-
-<p>The total entropy change is:</p>
-<div class="eq">\[ \Delta S = C\ln\!\left(\frac{T_f^2}{T_1 T_2}\right) = C\ln\!\left[\frac{(T_1 + T_2)^2}{4T_1 T_2}\right] \geq 0 \]</div>
-
-<p>The inequality follows from the arithmetic–geometric mean inequality: \((T_1 + T_2)^2 \geq 4T_1 T_2\), with equality only when \(T_1 = T_2\) (no process occurs). The universe's entropy increases, as expected for an irreversible process.</p>
-
-<h4>Heat transport between reservoirs</h4>
-<p>When heat \(Q\) flows from a hot reservoir at \(T_1\) to a cold reservoir at \(T_2 < T_1\), the entropy changes are \(\Delta S_1 = -Q/T_1\) (hot loses heat) and \(\Delta S_2 = +Q/T_2\) (cold gains heat). The total:</p>
+<h4>Example 3: Heat transport between reservoirs</h4>
+<p>An amount of heat \(Q\) is transported from a reservoir at \(T_1\) to one at \(T_2 < T_1\). The process described (direct heat flow) is irreversible. To find the entropy change, devise a reversible process: extract \(Q\) from reservoir 1 by dumping it into a "copy" reservoir at \(T_1\), and similarly add \(Q\) to reservoir 2 from a copy at \(T_2\). The entropy changes are:</p>
+<div class="eq">\[ \Delta S_1 = -\frac{Q}{T_1}\,,\qquad \Delta S_2 = \frac{Q}{T_2} \]</div>
+<p>Nothing else changes in the environment, so:</p>
 <div class="eq">\[ \Delta S^{\text{univ}} = \frac{Q}{T_2} - \frac{Q}{T_1} > 0 \]</div>
-<p>The universe's entropy increases — heat flow from hot to cold is irreversible.</p>
+<p>The entropy of the universe increases. The process is irreversible, as expected.</p>
 
-<h4>Free expansion of an ideal gas</h4>
-<p>An ideal gas at temperature \(T\) expands freely (adiabatically) from volume \(V_1\) to \(V_2\). During a free expansion, \(W = 0\), \(Q = 0\), and therefore \(\Delta U = 0\). For an ideal gas, \(U\) depends only on \(T\), so the temperature is unchanged.</p>
+<h4>Example 4: Free expansion of an ideal gas</h4>
+<p>An ideal gas at temperature \(T\) and volume \(V_1\) undergoes adiabatic free expansion to volume \(V_2\). This process is obviously irreversible. During the process, \(W = Q = 0\), so \(dU = 0\). For an ideal gas, temperature is unchanged.</p>
+<p>To calculate the entropy change, devise a reversible process between the same endpoints: an isothermal expansion from \(V_1\) to \(V_2\) at temperature \(T\). Using the result from Example 1:</p>
+<div class="eq">\[ \Delta S = S_2 - S_1 = nR\ln\frac{V_2}{V_1} \]</div>
+<p>Since \(V_2 > V_1\), \(\Delta S > 0\). There is no entropy change in the environment (no heat was exchanged). So \(\Delta S^{\text{univ}} > 0\) — the process is irreversible.</p>
 
-<p>The process is wildly irreversible — the gas rushes into the vacuum through non-equilibrium states. But since \(S\) is a state function, we compute \(\Delta S\) using a reversible isothermal expansion from \(V_1\) to \(V_2\) at the same \(T\):</p>
-<div class="eq">\[ \Delta S = nR\ln\!\left(\frac{V_2}{V_1}\right) > 0 \]</div>
-<p>Since \(V_2 > V_1\), the system's entropy increases. There is no entropy change in the environment (\(Q = 0\)), so \(\Delta S^{\text{univ}} = \Delta S^{\text{sys}} > 0\). The free expansion is irreversible.</p>
+<h4>Example 5: Evaluating reversibility</h4>
+<p>A systematic test for reversibility is to compute the total entropy change of the universe \(\Delta S^{\text{univ}} = \Delta S^{\text{sys}} + \Delta S^{\text{env}}\):</p>
+<ul>
+  <li><strong>Heat transport</strong> \(T_1 \to T_2 < T_1\): \(\Delta S^{\text{univ}} = Q/T_2 - Q/T_1 > 0\). Irreversible.</li>
+  <li><strong>Free expansion</strong>: \(\Delta S^{\text{univ}} = nR\ln(V_2/V_1) + 0 > 0\). Irreversible.</li>
+  <li><strong>Isothermal expansion</strong> (reversible, against a piston): \(\Delta S^{\text{univ}} = nR\ln(V_2/V_1) + [-nR\ln(V_2/V_1)] = 0\). Reversible.</li>
+</ul>
 
 <h3 id="s4-7">4.7 &ensp;The fundamental relation of thermodynamics</h3>
-
-<p>For a reversible adiabatic process, \(\text{đ}Q_{\text{rev}} = 0\) and entropy is conserved. For a non-adiabatic reversible process, \(\text{đ}Q_{\text{rev}} = T\,dS\). Substituting into the First Law \(dU = \text{đ}Q + \text{đ}W\) (with \(\text{đ}W = -P\,dV\)):</p>
-
+<p>For a reversible adiabatic process, \(\text{đ}Q = 0\), so entropy is conserved: \(dS = 0\). For a non-adiabatic reversible process, \(\text{đ}Q = T\,dS\). Substituting into the First Law:</p>
 <div class="key-result">
-  <div class="kr-label">Fundamental Relation of Thermodynamics</div>
+  <div class="kr-label">Fundamental Relation (Gibbs Relation)</div>
   <p>\[ dU = T\,dS - P\,dV \]</p>
 </div>
-
-<p>Rearranging:</p>
+<p>Equivalently:</p>
 <div class="eq">\[ dS = \frac{1}{T}\,dU + \frac{P}{T}\,dV \]</div>
-
-<p>Viewing \(S\) as a function of \(U\) and \(V\), i.e. \(S = S(U, V)\), the total differential gives two fundamental identities:</p>
-
-<div class="eq">
-<span class="label">Thermodynamic identities</span>
-\[ \left(\frac{\partial S}{\partial U}\right)_{\!V} = \frac{1}{T} \qquad\text{and}\qquad \left(\frac{\partial S}{\partial V}\right)_{\!U} = \frac{P}{T} \]
-</div>
-
-<p>These are remarkable: they <em>define</em> temperature and pressure in terms of how entropy responds to changes in energy and volume. Temperature is the reciprocal of how fast entropy increases with energy at fixed volume; pressure is \(T\) times how fast entropy increases with volume at fixed energy.</p>
-
-<div class="remark">
-  <strong>Key point:</strong> \(S\) is a state function and \(dU = T\,dS - P\,dV\) is always valid between equilibrium states, regardless of whether the actual process connecting them is reversible. During a reversible adiabatic process, entropy stays constant. During an irreversible adiabatic process, entropy increases — as we shall see in Section 4.10.
-</div>
+<p>These are the <strong>fundamental relations of thermodynamics</strong>. Viewing \(S\) as a function of \(U\) and \(V\) — that is, \(S = S(U, V)\) — we read off:</p>
+<div class="eq">\[ \left(\frac{\partial S}{\partial U}\right)_{\!V} = \frac{1}{T} \qquad\text{and}\qquad \left(\frac{\partial S}{\partial V}\right)_{\!U} = \frac{P}{T} \]</div>
+<p>Entropy is a state function and does not depend on the process. During a reversible adiabatic process, entropy stays constant; for an irreversible adiabatic process, entropy always increases.</p>
 
 <h3 id="s4-8">4.8 &ensp;Entropy change of ideal gases</h3>
-
-<p>For an ideal gas, recall that \(dU = nC_V\,dT\) and \(\text{đ}W = -P\,dV = -(nRT/V)\,dV\). Substituting into \(dS = (1/T)\,dU + (P/T)\,dV\):</p>
-
-<div class="eq">
-<span class="label">Entropy differential (\(T\), \(V\) variables)</span>
-\[ dS = nC_V \frac{dT}{T} + nR\frac{dV}{V} \]
-</div>
-
-<p>Integrating between initial state \((T_i, V_i)\) and final state \((T_f, V_f)\):</p>
+<p>For an ideal gas, \(dU = C_V\,dT = nc_V\,dT\) (where \(c_V\) is the molar heat capacity) and \(\text{đ}W = -P\,dV = -(nRT/V)\,dV\). Inserting into the fundamental relation:</p>
+<div class="eq">\[ dS = \frac{1}{T}\,dU + \frac{P}{T}\,dV = nc_V\frac{dT}{T} + nR\frac{dV}{V} \]</div>
+<p>Integrating (assuming \(c_V\) is constant):</p>
 <div class="key-result">
-  <div class="kr-label">Ideal Gas Entropy Change (\(T\), \(V\) variables)</div>
-  <p>\[ \Delta S = nC_V \ln\!\left(\frac{T_f}{T_i}\right) + nR\ln\!\left(\frac{V_f}{V_i}\right) \]</p>
+  <div class="kr-label">Entropy Change — Ideal Gas (T, V variables)</div>
+  <p>\[ \Delta S = nc_V\ln\frac{T_f}{T_i} + nR\ln\frac{V_f}{V_i} \]</p>
 </div>
-
-<p>If instead the states are specified by \((T, P)\), we use \(PV = nRT\) to eliminate \(V\). Taking the differential of the ideal gas law: \(dP/P + dV/V = dT/T\), so \(dV/V = dT/T - dP/P\). Substituting and using \(C_P - C_V = R\):</p>
-
-<div class="eq">
-<span class="label">Entropy differential (\(T\), \(P\) variables)</span>
-\[ dS = nC_P \frac{dT}{T} - nR\frac{dP}{P} \]
-</div>
-
-<p>Integrating:</p>
+<p>Alternatively, using \((T, P)\) as independent variables: from \(PV = nRT\), taking differentials gives \(dP/P + dV/V = dT/T\), so \(dV/V = dT/T - dP/P\). Substituting and using \(c_P - c_V = R\):</p>
+<div class="eq">\[ dS = nc_P\frac{dT}{T} - nR\frac{dP}{P} \]</div>
 <div class="key-result">
-  <div class="kr-label">Ideal Gas Entropy Change (\(T\), \(P\) variables)</div>
-  <p>\[ \Delta S = nC_P \ln\!\left(\frac{T_f}{T_i}\right) - nR\ln\!\left(\frac{P_f}{P_i}\right) \]</p>
+  <div class="kr-label">Entropy Change — Ideal Gas (T, P variables)</div>
+  <p>\[ \Delta S = nc_P\ln\frac{T_f}{T_i} - nR\ln\frac{P_f}{P_i} \]</p>
 </div>
 
-<div class="remark">
-  <strong>Quick checks:</strong> For an isothermal process (\(T_f = T_i\)), the first form gives \(\Delta S = nR\ln(V_f/V_i)\) — consistent with the free-expansion result. Setting \(\Delta S = 0\) in the first form recovers the adiabatic relation \(TV^{\gamma-1} = \text{const}\).
-</div>
+<h4>Example: mixing identical gases at constant pressure</h4>
+<p>Two equal masses of the same ideal gas at temperatures \(T_1\) and \(T_2\) are mixed adiabatically at constant pressure. The final temperature is \(T = (T_1+T_2)/2\). Using the \((T,P)\) formula with \(P_f = P_i\):</p>
+<div class="eq">\[ \Delta S = \Delta S_1 + \Delta S_2 = C_P\ln\frac{T_1+T_2}{2T_1} + C_P\ln\frac{T_1+T_2}{2T_2} = C_P\ln\frac{(T_1+T_2)^2}{4T_1T_2} \geq 0 \]</div>
 
-<h4>Mixing identical gases at different temperatures</h4>
-<p>Two portions of the same ideal gas, equal in mass, at temperatures \(T_1\) and \(T_2\), are mixed adiabatically at constant pressure. The final temperature is \(T_f = (T_1 + T_2)/2\). Using the \((T, P)\) formula with \(\Delta P = 0\):</p>
-<div class="eq">\[ \Delta S = C_P \ln\!\left(\frac{T_1+T_2}{2T_1}\right) + C_P \ln\!\left(\frac{T_1+T_2}{2T_2}\right) = C_P \ln\!\left[\frac{(T_1+T_2)^2}{4T_1 T_2}\right] \geq 0 \]</div>
-<p>Same form as the two-blocks problem — the AM–GM inequality guarantees \(\Delta S \geq 0\).</p>
-
-<h3 id="s4-9">4.9 &ensp;Entropy of general \(P\)–\(V\) systems</h3>
-
-<p>For a general system whose state can be represented on a \(P\)–\(V\) diagram, we choose \((T, V)\) as independent variables. Starting from the fundamental relation:</p>
-
+<h3 id="s4-9">4.9 &ensp;Entropy of general P–V systems</h3>
+<p>For systems beyond the ideal gas, whose state can be represented on a \(P\)–\(V\) diagram, we choose \((T,V)\) as independent variables. Starting from the fundamental relation:</p>
 <div class="eq">\[ dS(T,V) = \frac{1}{T}\,dU(T,V) + \frac{P}{T}\,dV \]</div>
-
-<p>Expanding \(dU = (\partial U/\partial T)_V\,dT + (\partial U/\partial V)_T\,dV\) and substituting:</p>
-
+<p>Writing the total differential of \(U(T,V)\):</p>
+<div class="eq">\[ dU = \left(\frac{\partial U}{\partial T}\right)_{\!V} dT + \left(\frac{\partial U}{\partial V}\right)_{\!T} dV \]</div>
+<p>Substituting:</p>
 <div class="eq">\[ dS = \frac{1}{T}\left(\frac{\partial U}{\partial T}\right)_{\!V} dT + \frac{1}{T}\left[\left(\frac{\partial U}{\partial V}\right)_{\!T} + P\right] dV \]</div>
-
-<p>For an ideal gas, \((\partial U/\partial V)_T = 0\) and we recover Section 4.8. But for real substances this term is non-zero.</p>
-
-<p>Because \(dS\) is an exact differential, its mixed partial derivatives must be equal. Working through this condition yields a powerful identity:</p>
-
-<div class="eq">
-<span class="label">Internal energy–pressure relation</span>
-\[ \left(\frac{\partial U}{\partial V}\right)_{\!T} = T\left(\frac{\partial P}{\partial T}\right)_{\!V} - P \]
-</div>
-
-<p>This tells us how internal energy depends on volume for <em>any</em> \(P\)–\(V\) system, given only its equation of state \(P = P(T,V)\). Substituting back and noting \((\partial U/\partial T)_V = C_V\):</p>
-
+<p>For an ideal gas, \((\partial U/\partial V)_T = 0\), recovering the earlier result. For a general system, we can derive a simpler form. Since \(dS\) is an exact differential, the cross-partial derivatives must be equal. After simplification, one obtains:</p>
+<div class="eq">\[ \left(\frac{\partial U}{\partial V}\right)_{\!T} = T\left(\frac{\partial P}{\partial T}\right)_{\!V} - P \]</div>
+<p>Substituting back and noting that \((\partial U/\partial T)_V = C_V\):</p>
 <div class="key-result">
-  <div class="kr-label">General Entropy Differential</div>
+  <div class="kr-label">Entropy Differential — General System</div>
   <p>\[ dS(T,V) = \frac{C_V}{T}\,dT + \left(\frac{\partial P}{\partial T}\right)_{\!V} dV \]</p>
 </div>
-
-<p>To find \(S(T,V)\), compute \((\partial P/\partial T)_V\) from the equation of state and integrate along a convenient path.</p>
+<p>The derivative \((\partial P/\partial T)_V\) is readily found from the equation of state. Integrating along a chosen path gives the entropy function \(S = S(T,V)\).</p>
 
 <h4>Example: entropy of a van der Waals gas</h4>
-<p>The van der Waals equation of state is \(P = nRT/(V - nb) - a(n/V)^2\). Computing the required derivative:</p>
+<p>The van der Waals equation of state is \(P = nRT/(V - nb) - a(n/V)^2\). Taking the partial derivative:</p>
 <div class="eq">\[ \left(\frac{\partial P}{\partial T}\right)_{\!V} = \frac{nR}{V - nb} \]</div>
 <p>So the entropy differential becomes:</p>
 <div class="eq">\[ dS = \frac{C_V}{T}\,dT + \frac{nR}{V - nb}\,dV \]</div>
-<p>Integrating (assuming \(C_V\) is constant):</p>
-<div class="eq">\[ \Delta S = C_V \ln\!\left(\frac{T_f}{T_i}\right) + nR\ln\!\left(\frac{V_f - nb}{V_i - nb}\right) \]</div>
-<p>Compare with the ideal gas result (\(b = 0\)): the excluded volume \(nb\) reduces the accessible volume, so the entropy gain from expansion is slightly smaller for a real gas than for an ideal one.</p>
+<p>Integrating (with \(C_V\) constant):</p>
+<div class="eq">\[ \Delta S = C_V\ln\frac{T_f}{T_i} + nR\ln\frac{V_f - nb}{V_i - nb} \]</div>
+<p>This reduces to the ideal gas result when \(b \to 0\). The attractive parameter \(a\) does not appear in the entropy expression — intermolecular attractions affect the energy but not the entropy differential at fixed \(T\) and \(V\).</p>
 
 <h3 id="s4-10">4.10 &ensp;The Clausius inequality and the direction of processes</h3>
-
-<p>Consider an irreversible process taking a system from state A to state B. We can always return from B to A via a reversible path, forming a cycle. Clausius's theorem gives:</p>
-
-<div class="eq">\[ \oint \frac{\text{đ}Q}{T} = \int_{I\,(A \to B)} \frac{\text{đ}Q}{T} + \int_{II\,(B \to A)} \frac{\text{đ}Q_{\text{rev}}}{T} \leq 0 \]</div>
-
-<p>The reversible return integral equals \(S_A - S_B\). Rearranging:</p>
-
+<p>Consider an irreversible process from state A to state B, indicated by path I. Complete the cycle by returning from B to A along a <em>reversible</em> path II. By Clausius's theorem for the entire cycle:</p>
+<div class="eq">\[ \oint \frac{\text{đ}Q}{T} = \int_I \frac{\text{đ}Q}{T} + \int_{II} \frac{\text{đ}Q}{T} \leq 0 \]</div>
+<p>But for the reversible return path, \(\int_{II} \text{đ}Q/T = S_A - S_B\). Therefore:</p>
 <div class="key-result">
   <div class="kr-label">Clausius Inequality</div>
-  <p>\[ \int_{A}^{B} \frac{\text{đ}Q}{T} \leq \Delta S = S_B - S_A \]</p>
+  <p>\[ \int_A^B \frac{\text{đ}Q}{T} \leq \Delta S = S_B - S_A \]</p>
 </div>
-
-<p>with equality for a reversible process. In differential form:</p>
+<p>In differential form:</p>
 <div class="eq">\[ dS \geq \frac{\text{đ}Q}{T} \qquad\text{or equivalently}\qquad T\,dS \geq \text{đ}Q \]</div>
-
-<p>This has profound consequences:</p>
-
+<p>with equality for reversible processes. This is a powerful result:</p>
 <ul>
-  <li><strong>Adiabatic irreversible processes:</strong> If \(\text{đ}Q = 0\), then \(dS > 0\). An irreversible adiabatic process always <em>increases</em> the system's entropy. (A reversible adiabatic process keeps it constant — hence the term "isentropic.")</li>
-  <li><strong>Isolated systems:</strong> An isolated system is intrinsically adiabatic. Therefore, <em>thermally isolated systems can only evolve to states of equal or higher entropy</em>.</li>
-  <li><strong>The universe:</strong> The universe as a whole is an isolated system (by definition, there is nothing outside it). Therefore, the entropy of the universe never decreases as a result of any process.</li>
+  <li>If the process is <strong>adiabatic</strong> (but irreversible), \(\text{đ}Q = 0\), so \(dS > 0\) — the entropy of the system increases.</li>
+  <li>For an <strong>isolated system</strong> (intrinsically adiabatic), entropy can only increase or stay constant.</li>
 </ul>
-
 <div class="key-result">
   <div class="kr-label">Entropy Principle</div>
-  <p>\[ \Delta S^{\text{univ}} \geq 0 \]</p>
-  <p>The entropy of the universe never decreases. Equality holds for reversible processes; strict inequality holds for irreversible ones.</p>
-</div>
-
-<h4>Testing reversibility</h4>
-<p>The entropy principle provides a definitive test: compute \(\Delta S^{\text{univ}} = \Delta S^{\text{sys}} + \Delta S^{\text{env}}\).</p>
-
-<div class="scroll-x">
-<table>
-  <tr>
-    <th>Process</th><th>\(\Delta S^{\text{univ}}\)</th><th>Verdict</th>
-  </tr>
-  <tr>
-    <td>Heat \(Q\) from \(T_1\) to \(T_2 < T_1\)</td>
-    <td>\(Q/T_2 - Q/T_1 > 0\)</td>
-    <td>Irreversible</td>
-  </tr>
-  <tr>
-    <td>Free expansion (\(V_1 \to V_2\))</td>
-    <td>\(nR\ln(V_2/V_1) > 0\)</td>
-    <td>Irreversible</td>
-  </tr>
-  <tr>
-    <td>Reversible isothermal expansion</td>
-    <td>\(nR\ln(V_2/V_1) - nR\ln(V_2/V_1) = 0\)</td>
-    <td>Reversible</td>
-  </tr>
-</table>
+  <p>Thermally isolated systems can only evolve to states of equal or higher entropy. Consequently, the entropy of the universe as a result of any process never decreases.</p>
 </div>
 
 <h3 id="s4-11">4.11 &ensp;Microscopic interpretation of entropy</h3>
-
-<p>So far, entropy has been defined macroscopically via heat and temperature. But entropy has a deeper meaning rooted in the microscopic structure of matter.</p>
-
-<h4>Microstates and multiplicity</h4>
-<p>A <strong>macrostate</strong> is specified by macroscopic quantities (temperature, pressure, volume, energy). A <strong>microstate</strong> is a complete specification of the positions and momenta of every particle. Many microstates correspond to the same macrostate. The number of microstates compatible with a given macrostate is called the <strong>multiplicity</strong> \(\Omega\).</p>
-
-<p>As a simple illustration, consider flipping \(N\) coins. Each coin has 2 states (H or T), giving \(2^N\) total microstates. The macrostate "exactly \(n\) heads" has multiplicity:</p>
+<p>Entropy can also be understood from a microscopic perspective. Consider a simple two-state system — like coin flipping, or the orientation of magnetic dipoles in a paramagnet. If we flip \(N\) coins, the total number of possible <strong>microstates</strong> (specific arrangements of individual coins) is \(2^N\). A <strong>macrostate</strong> is defined by a macroscopic observable — say, the total number of heads \(n\). The number of microstates corresponding to a given macrostate is the <strong>multiplicity</strong>:</p>
 <div class="eq">\[ \Omega(N, n) = \binom{N}{n} = \frac{N!}{n!\,(N-n)!} \]</div>
-<p>For \(N = 3\), the macrostate "2 heads" has \(\Omega = 3\). The physical analogy: the coins are like magnetic dipoles in a paramagnet, and "number of heads" is like the total magnetisation.</p>
-
-<h4>Boltzmann's formula</h4>
-
+<p>The key insight is that entropy measures the number of microstates consistent with the macroscopic constraints. The connection was proposed by Boltzmann:</p>
 <div class="key-result">
-  <div class="kr-label">Boltzmann Entropy Formula</div>
+  <div class="kr-label">Boltzmann's Entropy</div>
   <p>\[ S = k_B \ln \Omega \]</p>
 </div>
+<p>Equilibrium corresponds to the macrostate with the largest \(\Omega\) — the most probable configuration. The Second Law (entropy tends to increase) is thus a <em>statistical</em> statement: systems evolve toward configurations with more microstates because those configurations are overwhelmingly more probable.</p>
 
-<p>where \(k_B = 1.38 \times 10^{-23}\;\text{J/K}\) is the Boltzmann constant. The logarithm ensures additivity: if two independent systems have multiplicities \(\Omega_1\) and \(\Omega_2\), the combined system has \(\Omega = \Omega_1 \cdot \Omega_2\), and \(S = k_B \ln(\Omega_1\Omega_2) = S_1 + S_2\).</p>
-
-<p>The Second Law now acquires a statistical interpretation: systems evolve toward macrostates with <em>higher multiplicity</em> — not because the laws of physics forbid low-multiplicity states, but because high-multiplicity states are overwhelmingly more probable.</p>
-
-<h4>The Sackur–Tetrode equation</h4>
-<p>For an ideal gas of \(N\) identical monoatomic molecules in volume \(V\) with total energy \(U\), the multiplicity can be calculated from phase-space arguments. A single molecule occupies volume \(V\) in position space. In momentum space, the constraint \(U = (p_x^2 + p_y^2 + p_z^2)/(2m)\) confines it to the surface of a sphere of radius \(\sqrt{2mU}\). For \(N\) molecules, the accessible momentum space is the surface of a \(3N\)-dimensional hypersphere. Including position space and the indistinguishability factor \(1/N!\):</p>
-
-<div class="eq">\[ \Omega_N \propto \frac{1}{N!}\,V^N \cdot (\sqrt{2mU})^{3N} = f(N)\,V^N\,U^{3N/2} \]</div>
-
-<p>Using the formula for the surface area of a \(d\)-dimensional hypersphere of radius \(r\): \(A_d = 2\pi^{d/2}\,r^{d-1}/\Gamma(d/2)\), and Stirling's approximation \(\ln N! \approx N\ln N - N\), one obtains:</p>
-
+<h4>Entropy of an ideal gas: the Sackur–Tetrode equation</h4>
+<p>For an ideal gas of \(N\) monoatomic molecules in a container of volume \(V\) with total energy \(U\), the multiplicity is proportional to the volume of accessible phase space. The position space contributes a factor \(V^N\), and momentum space contributes the surface area of a \(3N\)-dimensional hypersphere of radius \(\sqrt{2mU}\):</p>
+<div class="eq">\[ \Omega_N \propto \frac{1}{N!}\,V^N \cdot \frac{\pi^{3N/2}}{(3N/2)!}\,(\sqrt{2mU})^{3N} = f(N)\,V^N\, U^{3N/2} \]</div>
+<p>where the factor \(1/N!\) corrects for the indistinguishability of identical particles, and \(f(N)\) collects all \(N\)-dependent constants. Taking the logarithm and using Stirling's approximation (\(\ln N! \approx N\ln N - N\)):</p>
 <div class="key-result">
   <div class="kr-label">Sackur–Tetrode Equation</div>
-  <p>\[ S = Nk_B\!\left[\ln\!\left(\frac{V}{N}\!\left(\frac{4\pi mU}{3Nh^2}\right)^{\!3/2}\right) + \frac{5}{2}\right] \]</p>
+  <p>\[ S = Nk_B\left[\ln\left(\frac{V}{N}\left(\frac{4\pi mU}{3Nh^2}\right)^{3/2}\right) + \frac{5}{2}\right] \]</p>
 </div>
-
-<p>The key structural form is \(S = Nk_B\ln V + \tfrac{3}{2}Nk_B\ln U + k_B\ln f(N)\). From the thermodynamic identities of Section 4.7:</p>
-
-<div class="eq">\[ \frac{1}{T} = \left(\frac{\partial S}{\partial U}\right)_{\!V,N} = \frac{3}{2}\frac{Nk_B}{U} \qquad\Longrightarrow\qquad U = \frac{3}{2}Nk_BT \]</div>
-<div class="eq">\[ \frac{P}{T} = \left(\frac{\partial S}{\partial V}\right)_{\!U,N} = \frac{Nk_B}{V} \qquad\Longrightarrow\qquad PV = Nk_BT \]</div>
-
-<p>The microscopic formula for entropy, derived from purely statistical counting of microstates, reproduces both the ideal gas law and the equipartition result \(U = \tfrac{3}{2}Nk_BT\). This is a striking confirmation that the macroscopic and microscopic definitions of entropy are consistent — thermodynamics and statistical mechanics agree.</p>
+<p>Equivalently, \(S = Nk_B\ln V + \tfrac{3}{2}Nk_B\ln U + k_B\ln f(N)\). From this expression, one recovers the fundamental thermodynamic quantities by differentiation:</p>
+<div class="eq">\[ \frac{1}{T} = \left(\frac{\partial S}{\partial U}\right)_{\!V,N} = \frac{3}{2}\frac{Nk_B}{U} \quad\Longrightarrow\quad U = \tfrac{3}{2}Nk_BT \]</div>
+<div class="eq">\[ \frac{P}{T} = \left(\frac{\partial S}{\partial V}\right)_{\!U,N} = \frac{Nk_B}{V} \quad\Longrightarrow\quad PV = Nk_BT \]</div>
+<p>The ideal gas law and the equipartition result emerge directly from the microscopic entropy — a striking confirmation that thermodynamics and statistical mechanics are consistent.</p>
 
 </section>
 
@@ -1013,302 +856,246 @@
 <div class="chapter-num">Chapter 5</div>
 <h2>Thermodynamic Potentials</h2>
 
-<h3 id="s5-1">5.1 &ensp;Why new potentials?</h3>
-
-<p>In Chapter 4 we established the fundamental relation \(dU = T\,dS - P\,dV\), which tells us that the <strong>natural variables</strong> of internal energy are entropy and volume: \(U = U(S, V)\). From \(U(S,V)\) we can extract every thermodynamic property of the system — \(T = (\partial U/\partial S)_V\) and \(P = -(\partial U/\partial V)_S\).</p>
-
-<p>But there is a practical problem: <em>entropy and volume are not always the variables we control in the laboratory</em>. Most experiments are done at controlled temperature (thermostat) or controlled pressure (open to the atmosphere), not at controlled entropy. If we try to express \(U\) as a function of \(T\) and \(V\) instead, we lose information — two different systems can share the same \(U(T,V)\) while having different entropy functions, so the mapping is not one-to-one.</p>
-
-<p>The solution is the <strong>Legendre transform</strong>: a mathematical operation that swaps an independent variable for its conjugate derivative while preserving all thermodynamic information. Starting from \(U(S,V)\), each Legendre transform replaces one natural variable with its conjugate:</p>
-
-<dl class="def-grid">
-  <dt>\(S \to T\)</dt>
-  <dd>Replace entropy with temperature (its conjugate) → <strong>Helmholtz free energy</strong> \(F\)</dd>
-  <dt>\(V \to P\)</dt>
-  <dd>Replace volume with pressure (its conjugate) → <strong>Enthalpy</strong> \(H\)</dd>
-  <dt>\(S \to T\) and \(V \to P\)</dt>
-  <dd>Replace both → <strong>Gibbs free energy</strong> \(G\)</dd>
-</dl>
-
-<p>Each new potential contains exactly the same information as \(U(S,V)\), but repackaged with different natural variables — the ones that are held constant in a given experimental setup.</p>
-
-<h3 id="s5-2">5.2 &ensp;Internal energy revisited</h3>
-
-<p>We begin by restating the fundamental relation for a simple compressible system:</p>
-
+<h3 id="s5-1">5.1 &ensp;Equilibrium state: entropy and energy criteria</h3>
+<p>In Chapter 4 we established that an isolated system evolves spontaneously (irreversibly) in the direction of increasing entropy, reaching equilibrium when its entropy is maximised. The <strong>entropy criterion</strong> is therefore:</p>
 <div class="key-result">
-  <div class="kr-label">Internal Energy</div>
-  <p>\[ dU = T\,dS - P\,dV \]</p>
-  <p>Natural variables: \(S\), \(V\). &ensp; Conjugate pairs: \((T, S)\) and \((-P, V)\).</p>
+  <div class="kr-label">Equilibrium of an Isolated System</div>
+  <p>The equilibrium state of an isolated system is the state at which the entropy is maximum.</p>
 </div>
+<p>Since the entropy function can be expressed in terms of other state variables — \(S = S(U, V, N, \ldots)\) — one can invert to obtain \(U = U(S, V, N, \ldots)\). Maximising \(S\) at constant \(U\) is equivalent to <strong>minimising \(U\) at constant \(S\)</strong>.</p>
 
-<p>From \(U = U(S, V)\), the partial derivatives are:</p>
-<div class="eq">\[ T = \left(\frac{\partial U}{\partial S}\right)_{\!V} \qquad -P = \left(\frac{\partial U}{\partial V}\right)_{\!S} \]</div>
+<h4>Proof of equivalence</h4>
+<p>Suppose entropy is at maximum. Then for any other thermodynamic coordinate \(X\) that may vary under the given constraints:</p>
+<div class="eq">\[ \left(\frac{\partial S}{\partial X}\right)_{\!U} = 0 \qquad\text{and}\qquad \left(\frac{\partial^2 S}{\partial X^2}\right)_{\!U} < 0 \]</div>
+<p>Define \(\Gamma = (\partial U/\partial X)_S\). Using the chain rule and the relation \((\partial S/\partial X)_U = 0\), one shows that \(\Gamma = -T(\partial S/\partial X)_U = 0\). For the second derivative:</p>
+<div class="eq">\[ \left(\frac{\partial^2 U}{\partial X^2}\right)_{\!S} = \left(\frac{\partial \Gamma}{\partial X}\right)_{\!U} = -T\left(\frac{\partial^2 S}{\partial X^2}\right)_{\!U} > 0 \]</div>
+<p>So \(U\) is indeed at a minimum. The two criteria are equivalent.</p>
 
-<p>The second derivatives yield a <strong>Maxwell relation</strong>. Because mixed partials are equal:</p>
+<h3 id="s5-2">5.2 &ensp;Internal energy and the fundamental relation</h3>
+<p>Recall the fundamental relation:</p>
+<div class="eq">\[ dU = T\,dS - P\,dV \]</div>
+<p>This tells us that the <strong>natural variables</strong> of \(U\) are \(S\) and \(V\): \(U = U(S,V)\). Writing the total differential:</p>
+<div class="eq">\[ dU = \left(\frac{\partial U}{\partial S}\right)_{\!V} dS + \left(\frac{\partial U}{\partial V}\right)_{\!S} dV \]</div>
+<p>Comparing term by term:</p>
+<div class="eq">\[ T = \left(\frac{\partial U}{\partial S}\right)_{\!V}\,,\qquad P = -\left(\frac{\partial U}{\partial V}\right)_{\!S} \]</div>
+<p>Both \(T\) and \(P\) are functions of \((S,V)\). Eliminating \(S\) between these two equations gives a relation \(V = V(P,T)\) — the equation of state.</p>
+<p>Since \(dU\) is an exact differential, the second cross-partial derivatives are equal:</p>
 <div class="eq">\[ \frac{\partial^2 U}{\partial V\,\partial S} = \frac{\partial^2 U}{\partial S\,\partial V} \qquad\Longrightarrow\qquad \left(\frac{\partial T}{\partial V}\right)_{\!S} = -\left(\frac{\partial P}{\partial S}\right)_{\!V} \]</div>
-
-<p>\(U\) is minimised at equilibrium for a system at fixed \(S\) and \(V\). This is the energy minimum principle: among all states accessible to an isolated system at given entropy and volume, the equilibrium state has the lowest internal energy.</p>
+<p>This is the first of the <strong>Maxwell relations</strong>.</p>
 
 <h3 id="s5-3">5.3 &ensp;Enthalpy</h3>
-
-<p>The <strong>enthalpy</strong> is the Legendre transform of \(U\) that replaces volume with pressure:</p>
-
+<p>For a system in mechanical contact with its environment so that it maintains a common pressure (a "pressure reservoir"), the relevant energy function is the <strong>enthalpy</strong>:</p>
 <div class="key-result">
   <div class="kr-label">Enthalpy</div>
   <p>\[ H = U + PV \]</p>
-  <p>Natural variables: \(S\), \(P\).</p>
 </div>
-
-<p>To find its differential, we compute \(dH = dU + P\,dV + V\,dP\). Substituting \(dU = T\,dS - P\,dV\):</p>
-<div class="eq">\[ dH = T\,dS - P\,dV + P\,dV + V\,dP = T\,dS + V\,dP \]</div>
-
-<p>The natural variables are indeed \(S\) and \(P\), with partial derivatives:</p>
-<div class="eq">\[ T = \left(\frac{\partial H}{\partial S}\right)_{\!P} \qquad V = \left(\frac{\partial H}{\partial P}\right)_{\!S} \]</div>
-
-<p>The associated Maxwell relation:</p>
-<div class="eq">
-<span class="label">Maxwell relation from H</span>
-\[ \left(\frac{\partial T}{\partial P}\right)_{\!S} = \left(\frac{\partial V}{\partial S}\right)_{\!P} \]
-</div>
-
-<h4>Why enthalpy is useful</h4>
-<p>For a process at <strong>constant pressure</strong> (\(dP = 0\)), the enthalpy differential reduces to \(dH = T\,dS = \text{đ}Q_{\text{rev}}\). So:</p>
-<ul>
-  <li>At constant pressure, <strong>the heat absorbed equals the enthalpy change</strong>: \(Q_P = \Delta H\).</li>
-  <li>This is why we defined \(C_P = (\partial H/\partial T)_P\) earlier — heat capacity at constant pressure is the temperature derivative of enthalpy.</li>
-  <li>Phase transitions at constant pressure (melting, boiling) are characterised by their enthalpy of transition ("latent heat").</li>
-  <li>Chemical reactions at constant pressure release or absorb \(\Delta H\) of heat.</li>
-</ul>
-
-<p>\(H\) is minimised at equilibrium for a system at fixed \(S\) and \(P\).</p>
+<p>To see why \(H\) is minimised at equilibrium: consider the system plus environment together, with total energy \(U + U^r\) where \(U^r\) is the reservoir's energy. At equilibrium, the total energy is minimised. Since \(dV = -dV^r\) and \(P = P^r\), we have \(d(U + U^r) = d(U + PV) = dH = 0\), with \(d^2H = d^2U > 0\).</p>
+<p>The natural variables of \(H\) are \(S\) and \(P\): \(H = H(S,P)\), and the fundamental relation is:</p>
+<div class="eq">\[ dH = T\,dS + V\,dP \]</div>
+<p>From which we read off:</p>
+<div class="eq">\[ T = \left(\frac{\partial H}{\partial S}\right)_{\!P}\,,\qquad V = \left(\frac{\partial H}{\partial P}\right)_{\!S} \]</div>
+<p>The associated Maxwell relation is:</p>
+<div class="eq">\[ \left(\frac{\partial T}{\partial P}\right)_{\!S} = \left(\frac{\partial V}{\partial S}\right)_{\!P} \]</div>
 
 <h3 id="s5-4">5.4 &ensp;Helmholtz free energy</h3>
-
-<p>The <strong>Helmholtz free energy</strong> (sometimes called the Helmholtz function or free energy) replaces entropy with temperature:</p>
-
+<p>For a system in thermal contact with a reservoir so that the temperature \(T\) is fixed externally, the appropriate potential is the <strong>Helmholtz free energy</strong>:</p>
 <div class="key-result">
   <div class="kr-label">Helmholtz Free Energy</div>
   <p>\[ F = U - TS \]</p>
-  <p>Natural variables: \(T\), \(V\).</p>
 </div>
-
-<p>Computing the differential: \(dF = dU - T\,dS - S\,dT = (T\,dS - P\,dV) - T\,dS - S\,dT\):</p>
+<p>At equilibrium in contact with a thermal reservoir, \(F\) is minimised. The natural variables are \(T\) and \(V\): \(F = F(T,V)\), with fundamental relation:</p>
 <div class="eq">\[ dF = -S\,dT - P\,dV \]</div>
-
-<p>The partial derivatives:</p>
-<div class="eq">\[ -S = \left(\frac{\partial F}{\partial T}\right)_{\!V} \qquad -P = \left(\frac{\partial F}{\partial V}\right)_{\!T} \]</div>
-
-<p>The Maxwell relation:</p>
-<div class="eq">
-<span class="label">Maxwell relation from F</span>
-\[ \left(\frac{\partial S}{\partial V}\right)_{\!T} = \left(\frac{\partial P}{\partial T}\right)_{\!V} \]
-</div>
-
-<h4>Why Helmholtz free energy is useful</h4>
-<p>For a process at <strong>constant temperature</strong> (\(dT = 0\)), we have \(dF = -P\,dV = \text{đ}W\). So:</p>
-<ul>
-  <li>At constant temperature, <strong>the work done on the system equals the change in \(F\)</strong>: \(W_T = \Delta F\).</li>
-  <li>More generally, the maximum work extractable from a system at constant temperature is \(-\Delta F\). This is why \(F\) is called "free" energy — it is the portion of internal energy that is "free" to do work, after accounting for the entropy cost.</li>
-  <li>\(F\) is the natural potential for systems in contact with a heat bath (fixed \(T\)) at fixed volume — the typical setting in statistical mechanics.</li>
-</ul>
-
-<p>\(F\) is minimised at equilibrium for a system at fixed \(T\) and \(V\).</p>
+<p>giving:</p>
+<div class="eq">\[ S = -\left(\frac{\partial F}{\partial T}\right)_{\!V}\,,\qquad P = -\left(\frac{\partial F}{\partial V}\right)_{\!T} \]</div>
+<p>The Helmholtz free energy has a useful physical interpretation: in a reversible isothermal process from state A to state B, the work done <em>on</em> the system equals the change in \(F\):</p>
+<div class="eq">\[ W = \Delta U - Q = \Delta U - T\Delta S = (U_B - TS_B) - (U_A - TS_A) = \Delta F \]</div>
+<p>The Maxwell relation from \(F\) is:</p>
+<div class="eq">\[ \left(\frac{\partial S}{\partial V}\right)_{\!T} = \left(\frac{\partial P}{\partial T}\right)_{\!V} \]</div>
 
 <h3 id="s5-5">5.5 &ensp;Gibbs free energy</h3>
-
-<p>The <strong>Gibbs free energy</strong> replaces both entropy and volume with their conjugates:</p>
-
+<p>When a system is in contact with both a thermal reservoir (fixing \(T\)) and a pressure reservoir (fixing \(P\)), the function minimised at equilibrium is the <strong>Gibbs free energy</strong>:</p>
 <div class="key-result">
   <div class="kr-label">Gibbs Free Energy</div>
-  <p>\[ G = U - TS + PV = H - TS = F + PV \]</p>
-  <p>Natural variables: \(T\), \(P\).</p>
+  <p>\[ G = F + PV = H - TS = U - TS + PV \]</p>
 </div>
-
-<p>Computing the differential: \(dG = dH - T\,dS - S\,dT = (T\,dS + V\,dP) - T\,dS - S\,dT\):</p>
+<p>The natural variables are \(T\) and \(P\): \(G = G(T,P)\), with fundamental relation:</p>
 <div class="eq">\[ dG = -S\,dT + V\,dP \]</div>
+<p>giving:</p>
+<div class="eq">\[ S = -\left(\frac{\partial G}{\partial T}\right)_{\!P}\,,\qquad V = \left(\frac{\partial G}{\partial P}\right)_{\!T} \]</div>
+<p>The Maxwell relation from \(G\) is:</p>
+<div class="eq">\[ \left(\frac{\partial S}{\partial P}\right)_{\!T} = -\left(\frac{\partial V}{\partial T}\right)_{\!P} \]</div>
 
-<p>The partial derivatives:</p>
-<div class="eq">\[ -S = \left(\frac{\partial G}{\partial T}\right)_{\!P} \qquad V = \left(\frac{\partial G}{\partial P}\right)_{\!T} \]</div>
+<h3 id="s5-6">5.6 &ensp;Legendre transformations and the thermodynamic square</h3>
+<p>The four potentials \(U\), \(H\), \(F\), \(G\) are all state functions containing the same thermodynamic information, but expressed in different natural variables. They are connected by <strong>Legendre transformations</strong>: the mathematical operation \(d(xy) = x\,dy + y\,dx\) transforms one differential into another. For example, starting from \(dU = T\,dS - P\,dV\) and using \(d(TS) = T\,dS + S\,dT\):</p>
+<div class="eq">\[ dU - d(TS) = -S\,dT - P\,dV \qquad\Longrightarrow\qquad d(U - TS) = dF = -S\,dT - P\,dV \]</div>
+<p>Each Legendre transformation swaps one conjugate pair (e.g., \(S \leftrightarrow T\) or \(V \leftrightarrow P\)).</p>
 
-<p>The Maxwell relation:</p>
-<div class="eq">
-<span class="label">Maxwell relation from G</span>
-\[ \left(\frac{\partial S}{\partial P}\right)_{\!T} = -\left(\frac{\partial V}{\partial T}\right)_{\!P} \]
-</div>
-
-<h4>Why Gibbs free energy is useful</h4>
-<ul>
-  <li>At constant \(T\) and \(P\), \(dG = 0\) at equilibrium, and \(G\) is minimised. Since most chemical and biological processes occur at constant temperature and pressure, \(G\) is the central potential in chemistry.</li>
-  <li>At a phase transition (constant \(T\) and \(P\)), the two phases coexist when their molar Gibbs energies are equal: \(g_{\text{phase 1}} = g_{\text{phase 2}}\).</li>
-  <li>The condition for chemical equilibrium is also expressed in terms of \(G\).</li>
-</ul>
-
-<h3 id="s5-6">5.6 &ensp;Summary: the four potentials and the thermodynamic square</h3>
-
+<h4>Summary of the four potentials</h4>
 <div class="scroll-x">
 <table>
-  <tr>
-    <th>Potential</th><th>Definition</th><th>Differential</th><th>Natural variables</th><th>Equilibrium at fixed…</th>
-  </tr>
-  <tr>
-    <td>\(U\)</td>
-    <td>—</td>
-    <td>\(T\,dS - P\,dV\)</td>
-    <td>\(S, V\)</td>
-    <td>\(S, V\) (isolated)</td>
-  </tr>
-  <tr>
-    <td>\(H = U + PV\)</td>
-    <td>Enthalpy</td>
-    <td>\(T\,dS + V\,dP\)</td>
-    <td>\(S, P\)</td>
-    <td>\(S, P\)</td>
-  </tr>
-  <tr>
-    <td>\(F = U - TS\)</td>
-    <td>Helmholtz</td>
-    <td>\(-S\,dT - P\,dV\)</td>
-    <td>\(T, V\)</td>
-    <td>\(T, V\) (heat bath)</td>
-  </tr>
-  <tr>
-    <td>\(G = U - TS + PV\)</td>
-    <td>Gibbs</td>
-    <td>\(-S\,dT + V\,dP\)</td>
-    <td>\(T, P\)</td>
-    <td>\(T, P\) (open lab)</td>
-  </tr>
+  <tr><th>Potential</th><th>Definition</th><th>Natural variables</th><th>Fundamental relation</th></tr>
+  <tr><td>\(U\)</td><td>Internal energy</td><td>\(S, V\)</td><td>\(dU = T\,dS - P\,dV\)</td></tr>
+  <tr><td>\(H = U + PV\)</td><td>Enthalpy</td><td>\(S, P\)</td><td>\(dH = T\,dS + V\,dP\)</td></tr>
+  <tr><td>\(F = U - TS\)</td><td>Helmholtz</td><td>\(T, V\)</td><td>\(dF = -S\,dT - P\,dV\)</td></tr>
+  <tr><td>\(G = U - TS + PV\)</td><td>Gibbs</td><td>\(T, P\)</td><td>\(dG = -S\,dT + V\,dP\)</td></tr>
 </table>
 </div>
 
-<p>A useful mnemonic for remembering these relations is the <strong>thermodynamic square</strong> (also called the Born square). Arrange the four natural variables around a square:</p>
-
-<div class="eq" style="text-align:center; font-family:var(--sans); font-size:15px; line-height:2.2;">
-\(V\) &mdash; \(F\) &mdash; \(T\)<br>
-| &emsp;&emsp;&emsp;&emsp;&emsp; |<br>
-\(U\) &emsp;&emsp;&emsp;&emsp;&ensp; \(G\)<br>
-| &emsp;&emsp;&emsp;&emsp;&emsp; |<br>
-\(S\) &mdash; \(H\) &mdash; \(P\)
-</div>
-
-<p>Reading the square: each potential sits between its two natural variables. The conjugate pairs \((T, S)\) and \((P, V)\) sit on opposite sides. The partial derivatives and Maxwell relations can all be read off from the square by following the edges and diagonals.</p>
-
-<div class="remark">
-  <strong>Choosing the right potential:</strong> Match the potential to the experimental constraints. A bomb calorimeter (rigid, insulated) → fixed \(S\), \(V\) → use \(U\). A reaction in an open beaker at room temperature → fixed \(T\), \(P\) → use \(G\). An isothermal piston → fixed \(T\), \(V\) → use \(F\). A flow calorimeter at constant pressure → fixed \(S\), \(P\) → use \(H\).
-</div>
+<p>The <strong>thermodynamic square</strong> is a mnemonic device for remembering these relations. Arrange the variables around a square with the potentials on the sides:</p>
+<div class="eq">\[ \begin{array}{ccc} V & \xrightarrow{F} & T \\ {\scriptstyle U}\!\Big\downarrow & \times & \Big\downarrow\!{\scriptstyle G} \\ S & \xrightarrow{H} & P \end{array} \]</div>
+<p>A mnemonic: "Valid Facts and Theoretical Understandings Generate Solutions for Hard Problems" (reading V, F, T, U, G, S, H, P around the square).</p>
 
 <h3 id="s5-7">5.7 &ensp;Maxwell relations</h3>
-
-<p>Each thermodynamic potential generates one Maxwell relation from the equality of mixed second partial derivatives. Collecting all four:</p>
-
+<p>Each fundamental relation yields one Maxwell relation from the equality of mixed second partial derivatives. Collecting all four:</p>
 <div class="key-result">
-  <div class="kr-label">The Four Maxwell Relations</div>
-  <p>\[ \left(\frac{\partial T}{\partial V}\right)_{\!S} = -\left(\frac{\partial P}{\partial S}\right)_{\!V} \qquad\text{(from } U\text{)} \]</p>
-  <p>\[ \left(\frac{\partial T}{\partial P}\right)_{\!S} = \left(\frac{\partial V}{\partial S}\right)_{\!P} \qquad\text{(from } H\text{)} \]</p>
-  <p>\[ \left(\frac{\partial S}{\partial V}\right)_{\!T} = \left(\frac{\partial P}{\partial T}\right)_{\!V} \qquad\text{(from } F\text{)} \]</p>
-  <p>\[ \left(\frac{\partial S}{\partial P}\right)_{\!T} = -\left(\frac{\partial V}{\partial T}\right)_{\!P} \qquad\text{(from } G\text{)} \]</p>
+  <div class="kr-label">Maxwell Relations</div>
+  <p>\[ \left(\frac{\partial T}{\partial V}\right)_{\!S} = -\left(\frac{\partial P}{\partial S}\right)_{\!V} \qquad\text{(from } U\text{)} \]
+  \[ \left(\frac{\partial T}{\partial P}\right)_{\!S} = \left(\frac{\partial V}{\partial S}\right)_{\!P} \qquad\text{(from } H\text{)} \]
+  \[ \left(\frac{\partial S}{\partial V}\right)_{\!T} = \left(\frac{\partial P}{\partial T}\right)_{\!V} \qquad\text{(from } F\text{)} \]
+  \[ \left(\frac{\partial S}{\partial P}\right)_{\!T} = -\left(\frac{\partial V}{\partial T}\right)_{\!P} \qquad\text{(from } G\text{)} \]</p>
 </div>
+<p>The Maxwell relations connect entropy derivatives (which are difficult to measure directly) to derivatives of \(P\), \(V\), and \(T\) (which are experimentally accessible). This is their chief practical value.</p>
 
-<p>The last two are by far the most useful, because they involve the experimentally accessible variables \(T\), \(P\), \(V\) on both sides. They let us compute entropy derivatives — which are hard to measure directly — from \(P\)–\(V\)–\(T\) data, which is easy to measure.</p>
+<h3 id="s5-8">5.8 &ensp;Response functions and measurable quantities</h3>
+<p>The partial derivatives appearing in the Maxwell relations are all second-order derivatives of the thermodynamic potentials. Many correspond to directly measurable quantities — the <strong>response functions</strong>:</p>
+<div class="scroll-x">
+<table>
+  <tr><th>Quantity</th><th>Definition</th><th>As 2nd derivative</th></tr>
+  <tr>
+    <td>Thermal expansion \(\alpha\)</td>
+    <td>\(\displaystyle\alpha = \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_{\!P}\)</td>
+    <td>\(\displaystyle\frac{1}{V}\left(\frac{\partial^2 G}{\partial T\,\partial P}\right)\)</td>
+  </tr>
+  <tr>
+    <td>Isothermal compressibility \(\kappa_T\)</td>
+    <td>\(\displaystyle\kappa_T = -\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_{\!T}\)</td>
+    <td>\(\displaystyle-\frac{1}{V}\left(\frac{\partial^2 G}{\partial P^2}\right)_{\!T}\)</td>
+  </tr>
+  <tr>
+    <td>Heat capacity at constant pressure \(C_P\)</td>
+    <td>\(\displaystyle C_P = T\left(\frac{\partial S}{\partial T}\right)_{\!P}\)</td>
+    <td>\(\displaystyle-T\left(\frac{\partial^2 G}{\partial T^2}\right)_{\!P}\)</td>
+  </tr>
+  <tr>
+    <td>Heat capacity at constant volume \(C_V\)</td>
+    <td>\(\displaystyle C_V = T\left(\frac{\partial S}{\partial T}\right)_{\!V}\)</td>
+    <td>\(\displaystyle-T\left(\frac{\partial^2 F}{\partial T^2}\right)_{\!V}\)</td>
+  </tr>
+</table>
+</div>
+<p>These quantities are experimentally accessible and encode the full second-order thermodynamic information of the system.</p>
 
-<h4>Using the Maxwell relations</h4>
-<p>Whenever you encounter a partial derivative involving entropy as a variable being differentiated with respect to, try replacing it with a Maxwell relation. For example:</p>
-<ul>
-  <li>\((\partial S/\partial V)_T\) is hard to measure — but by the third Maxwell relation, it equals \((\partial P/\partial T)_V\), which is just the slope of an isochore on a \(P\)–\(T\) diagram.</li>
-  <li>\((\partial S/\partial P)_T\) equals \(-(\partial V/\partial T)_P\), which is directly related to the thermal expansion coefficient.</li>
-</ul>
+<h3 id="s5-9">5.9 &ensp;Applications of Maxwell relations</h3>
 
-<h3 id="s5-8">5.8 &ensp;Measurable quantities and thermodynamic derivatives</h3>
+<h4>1. Finding \(C_V\) from \(C_P\)</h4>
+<p>Heat capacity at constant volume is often harder to measure than \(C_P\). Using the Maxwell relations and the chain rule, one derives:</p>
+<div class="eq">\[ C_P - C_V = \alpha VT\left(\frac{\alpha}{\kappa_T}\right) = \frac{TV\alpha^2}{\kappa_T} \]</div>
+<p>Since \(T > 0\), \(V > 0\), and \(\kappa_T > 0\) (thermodynamic stability), we conclude \(C_P \geq C_V\), with equality only when \(\alpha = 0\) (e.g., water at 4 °C).</p>
+<p>For an ideal gas: \(\alpha = 1/T\) and \(\kappa_T = 1/P\), so \(C_P - C_V = TV(1/T)^2/(1/P) = PV/T = nR\), recovering the familiar result.</p>
 
-<p>In practice, the properties of a substance are characterised by a small set of <strong>directly measurable quantities</strong>:</p>
+<h4>2. Isentropic (adiabatic) expansion</h4>
+<p>How does temperature change when a gas expands isentropically? Using a Maxwell relation from \(H\):</p>
+<div class="eq">\[ \left(\frac{\partial T}{\partial P}\right)_{\!S} = \frac{T}{C_P}\left(\frac{\partial V}{\partial T}\right)_{\!P} = \frac{VT\alpha}{C_P} > 0 \]</div>
+<p>Since this is positive, temperature decreases as pressure decreases during an isentropic expansion — the gas cools.</p>
 
-<dl class="def-grid">
-  <dt>\(C_P\)</dt>
-  <dd>Heat capacity at constant pressure: \(C_P = T(\partial S/\partial T)_P\)</dd>
-  <dt>\(C_V\)</dt>
-  <dd>Heat capacity at constant volume: \(C_V = T(\partial S/\partial T)_V\)</dd>
-  <dt>\(\alpha\)</dt>
-  <dd>Isobaric thermal expansion coefficient: \(\alpha = \tfrac{1}{V}(\partial V/\partial T)_P\)</dd>
-  <dt>\(\kappa_T\)</dt>
-  <dd>Isothermal compressibility: \(\kappa_T = -\tfrac{1}{V}(\partial V/\partial P)_T\)</dd>
-</dl>
+<h4>3. Cooling by adiabatic demagnetisation</h4>
+<p>For a magnetic system with magnetisation \(M\) in an applied field \(H\), replacing \(-P\,dV\) with \(\mu_0 H\,dM\) in the fundamental relation gives an analogous Maxwell relation. Using Curie's law \(M = aV H/T\):</p>
+<div class="eq">\[ \left(\frac{\partial T}{\partial H}\right)_{\!S} = \frac{aV}{C_H T}\,H > 0 \]</div>
+<p>Reducing the applied field adiabatically causes the temperature to <em>decrease</em>. This is the principle behind <strong>adiabatic demagnetisation</strong>, a technique used to reach temperatures below 1 K.</p>
 
-<p>Together with \(T\), \(P\), and \(V\), these four quantities are sufficient to express <em>any</em> thermodynamic derivative for a single-component system. The key relations connecting them are the Maxwell relations and two important identities.</p>
+<h4>4. Joule–Thomson coefficient revisited</h4>
+<p>The Joule–Thomson coefficient \(\mu = (\partial T/\partial P)_H\) can be expressed using Maxwell relations. From \(dH = T\,dS + V\,dP\) and \((\partial H/\partial T)_P = C_P\):</p>
+<div class="eq">\[ \left(\frac{\partial H}{\partial P}\right)_{\!T} = T\left(\frac{\partial S}{\partial P}\right)_{\!T} + V = V - T\left(\frac{\partial V}{\partial T}\right)_{\!P} \]</div>
+<p>Therefore:</p>
+<div class="eq">\[ \mu = \frac{1}{C_P}\left[T\left(\frac{\partial V}{\partial T}\right)_{\!P} - V\right] = \frac{V}{C_P}(T\alpha - 1) \]</div>
+<p>For an ideal gas, \(\alpha = 1/T\), so \(T\alpha = 1\) and \(\mu = 0\) — no temperature change upon throttling. For real gases, when \(T\alpha > 1\), \(\mu > 0\) (cooling upon expansion); when \(T\alpha < 1\), \(\mu < 0\) (warming). The boundary \(T\alpha = 1\) defines the <strong>inversion curve</strong>.</p>
 
-<h4>Useful identities</h4>
-<p>The <strong>reciprocal relation</strong>: for any three state variables \(x\), \(y\), \(z\) related by an equation of state:</p>
-<div class="eq">\[ \left(\frac{\partial x}{\partial y}\right)_{\!z} = \frac{1}{\left(\frac{\partial y}{\partial x}\right)_{\!z}} \]</div>
+<h3 id="s5-10">5.10 &ensp;Thermodynamic potentials for P–V systems</h3>
+<p>For a general system described by the equation of state \(P = P(T,V)\), we can construct all thermodynamic potentials from experimentally measurable quantities: \(C_V(P)\), \(\alpha\), and \(\kappa_T\).</p>
 
-<p>The <strong>cyclic relation</strong> (also called the triple product rule): if \(x\), \(y\), \(z\) are related by a single constraint \(f(x,y,z) = 0\):</p>
+<h4>Using \((T,V)\) as independent variables</h4>
+<p>From the fundamental relation and the Maxwell relation \((\partial S/\partial V)_T = (\partial P/\partial T)_V\):</p>
+<div class="eq">\[ dS = \frac{C_V}{T}\,dT + \left(\frac{\partial P}{\partial T}\right)_{\!V} dV \]</div>
+<p>Integrating along a path gives \(S(T,V)\). For the internal energy, using \((\partial U/\partial V)_T = T(\partial P/\partial T)_V - P\):</p>
+<div class="eq">\[ dU = C_V\,dT + \left[T\left(\frac{\partial P}{\partial T}\right)_{\!V} - P\right] dV \]</div>
+<p>Integrating gives \(U(T,V)\). The Helmholtz free energy follows as \(F(T,V) = U - TS\).</p>
+
+<h4>Using \((T,P)\) as independent variables</h4>
+<p>Similarly, using the Maxwell relation \((\partial S/\partial P)_T = -(\partial V/\partial T)_P\):</p>
+<div class="eq">\[ dS = \frac{C_P}{T}\,dT - \left(\frac{\partial V}{\partial T}\right)_{\!P} dP \]</div>
+<p>For enthalpy, \(dH = C_P\,dT + [V - T(\partial V/\partial T)_P]\,dP\). Integrating along a path — first isobaric from \((T_0,P_0)\) to \((T,P_0)\), then isothermal from \((T,P_0)\) to \((T,P)\) — gives \(H(T,P)\) and \(S(T,P)\). The Gibbs free energy follows as \(G(T,P) = H - TS\).</p>
+
+<h3 id="s5-11">5.11 &ensp;Potentials for ideal gases</h3>
+<p>For an ideal gas (\(PV = nRT\), \(C_V\) independent of temperature):</p>
 <div class="eq">
-<span class="label">Cyclic relation</span>
-\[ \left(\frac{\partial x}{\partial y}\right)_{\!z} \left(\frac{\partial y}{\partial z}\right)_{\!x} \left(\frac{\partial z}{\partial x}\right)_{\!y} = -1 \]
+<span class="label">Internal energy</span>
+\[ U(T) = \int C_V\,dT + U_0 = C_V T + U_0 \]
+</div>
+<div class="eq">
+<span class="label">Entropy (T, V)</span>
+\[ S(T,V) = C_V\ln T + nR\ln V + S_0 \]
+</div>
+<div class="eq">
+<span class="label">Helmholtz free energy</span>
+\[ F(T,V) = C_V T - C_V T\ln T - nRT\ln V + F_0 \]
+</div>
+<p>Alternatively, using \((T,P)\) variables and \(S(T,P) = C_P\ln T - nR\ln P + S_0'\):</p>
+<div class="eq">
+<span class="label">Gibbs free energy</span>
+\[ G(T,P) = C_P T - C_P T\ln T + nRT\ln P + G_0 \]
 </div>
 
-<h4>Worked examples</h4>
-
-<p><strong>Example 1:</strong> Express \((\partial H/\partial P)_T\) in terms of measurables.</p>
-<p>Start from \(dH = T\,dS + V\,dP\). At constant \(T\):</p>
-<div class="eq">\[ \left(\frac{\partial H}{\partial P}\right)_{\!T} = T\left(\frac{\partial S}{\partial P}\right)_{\!T} + V \]</div>
-<p>Apply the Maxwell relation from \(G\): \((\partial S/\partial P)_T = -(\partial V/\partial T)_P = -V\alpha\).</p>
-<div class="eq">\[ \left(\frac{\partial H}{\partial P}\right)_{\!T} = V(1 - \alpha T) \]</div>
-
-<p><strong>Example 2:</strong> Express \((\partial S/\partial T)_H\) in terms of measurables.</p>
-<p>Use the cyclic relation with \(S\), \(T\), \(H\):</p>
-<div class="eq">\[ \left(\frac{\partial S}{\partial T}\right)_{\!H} \left(\frac{\partial T}{\partial H}\right)_{\!S} \left(\frac{\partial H}{\partial S}\right)_{\!T} = -1 \]</div>
-<p>We know \((\partial T/\partial H)_S = 1/(\partial H/\partial T)_S\) and \((\partial H/\partial S)_T\). Using \(dH = T\,dS + V\,dP\):</p>
-<ul>
-  <li>\((\partial H/\partial T)_S = V(\partial P/\partial T)_S\). By the cyclic relation on \(P\), \(T\), \(S\): \((\partial P/\partial T)_S = -(\partial S/\partial T)_P/(\partial S/\partial P)_T = (C_P/T)/(V\alpha) = C_P/(TV\alpha)\).</li>
-  <li>So \((\partial H/\partial T)_S = VC_P/(TV\alpha) = C_P/(T\alpha)\).</li>
-</ul>
-<p>Similarly, \((\partial H/\partial S)_T = T + V(\partial P/\partial S)_T = T - V/[(\partial S/\partial P)_T] \cdot (\partial P/\partial S)_T\). More directly: at constant \(T\), \((\partial H/\partial S)_T = T + V(\partial P/\partial S)_T\). By the reciprocal of the Maxwell relation, \((\partial P/\partial S)_T = 1/(\partial S/\partial P)_T = -1/(V\alpha)\), so \((\partial H/\partial S)_T = T - 1/\alpha\).</p>
-<p>Assembling via the cyclic relation gives:</p>
-<div class="eq">\[ \left(\frac{\partial S}{\partial T}\right)_{\!H} = \frac{C_P}{T\alpha - 1} \cdot \frac{\alpha}{T} \]</div>
-
-<p><strong>Example 3:</strong> Express \((\partial S/\partial P)_V\) in terms of measurables.</p>
-<p>Use the cyclic relation on \(S\), \(P\), \(V\):</p>
-<div class="eq">\[ \left(\frac{\partial S}{\partial P}\right)_{\!V} = -\left(\frac{\partial S}{\partial V}\right)_{\!P} \left(\frac{\partial V}{\partial P}\right)_{\!S} \]</div>
-<p>Alternatively, write \(S = S(T, V)\). At constant \(V\):</p>
-<div class="eq">\[ \left(\frac{\partial S}{\partial P}\right)_{\!V} = \left(\frac{\partial S}{\partial T}\right)_{\!V} \left(\frac{\partial T}{\partial P}\right)_{\!V} = \frac{C_V}{T} \cdot \frac{1}{(\partial P/\partial T)_V} \]</div>
-<p>By the cyclic relation on \(P\), \(V\), \(T\): \((\partial P/\partial T)_V = -(\partial V/\partial T)_P / (\partial V/\partial P)_T = \alpha/\kappa_T\). So:</p>
-<div class="eq">\[ \left(\frac{\partial S}{\partial P}\right)_{\!V} = \frac{C_V \kappa_T}{\alpha T} \]</div>
-
-<p><strong>Example 4:</strong> Express \((\partial V/\partial T)_U\) in terms of measurables.</p>
-<p>Use the cyclic relation on \(V\), \(T\), \(U\):</p>
-<div class="eq">\[ \left(\frac{\partial V}{\partial T}\right)_{\!U} = -\frac{(\partial U/\partial T)_V}{(\partial U/\partial V)_T} \]</div>
-<p>The numerator is \(C_V\). For the denominator, recall from Chapter 4 that \((\partial U/\partial V)_T = T(\partial P/\partial T)_V - P = T\alpha/\kappa_T - P\). Therefore:</p>
-<div class="eq">\[ \left(\frac{\partial V}{\partial T}\right)_{\!U} = \frac{-C_V}{T\alpha/\kappa_T - P} = \frac{C_V \kappa_T}{P\kappa_T - T\alpha} \]</div>
-
-<div class="remark">
-  <strong>General strategy:</strong> To express any derivative \((\partial A/\partial B)_C\) in terms of measurables: (1) If \(A\) or \(B\) is a potential (\(U\), \(H\), \(F\), \(G\)), expand its differential. (2) If entropy appears, use a Maxwell relation to replace it. (3) Use the cyclic and reciprocal relations to reduce everything to \(C_P\), \(C_V\), \(\alpha\), \(\kappa_T\), \(T\), \(P\), \(V\).
-</div>
-
-<h4>Important derived relation: \(C_P - C_V\)</h4>
-<p>Using the Maxwell relations and the general expression for entropy, one can derive a fundamental connection between the two heat capacities:</p>
+<h3 id="s5-12">5.12 &ensp;Euler equations and extensivity</h3>
+<p>Internal energy is an <strong>extensive</strong> quantity — it scales linearly with the size of the system. If we scale the system by a factor \(\alpha\) (i.e., \(S \to \alpha S\), \(V \to \alpha V\), \(N \to \alpha N\)):</p>
+<div class="eq">\[ U(\alpha S, \alpha V, \alpha N, \ldots) = \alpha\, U(S, V, N, \ldots) \]</div>
+<p>Differentiating both sides with respect to \(\alpha\) and setting \(\alpha = 1\):</p>
+<div class="eq">\[ \left(\frac{\partial U}{\partial S}\right)_{\!V} S + \left(\frac{\partial U}{\partial V}\right)_{\!S} V + \cdots = U \]</div>
+<p>Substituting \(T = (\partial U/\partial S)_V\) and \(P = -(\partial U/\partial V)_S\):</p>
 <div class="key-result">
-  <div class="kr-label">Heat Capacity Difference</div>
-  <p>\[ C_P - C_V = \frac{TV\alpha^2}{\kappa_T} \]</p>
+  <div class="kr-label">Euler Equation for Internal Energy</div>
+  <p>\[ U = TS - PV + \cdots \]</p>
 </div>
-<p>Since \(T > 0\), \(V > 0\), and \(\kappa_T > 0\) (stability), this shows that \(C_P \geq C_V\) always, with equality only when \(\alpha = 0\) (as happens for water at 4 °C). For an ideal gas, \(\alpha = 1/T\) and \(\kappa_T = 1/P\), giving \(C_P - C_V = TV(1/T)^2/(1/P) = PV/T = nR\), recovering the familiar result.</p>
+<p>The "\(+ \cdots\)" accounts for additional work terms in more general systems (magnetic, surface, chemical). For each thermodynamic potential, the Euler equation takes a corresponding form:</p>
+<div class="eq">\[ H = TS + \cdots\,,\qquad F = -PV + \cdots\,,\qquad G = \cdots \]</div>
 
-<h3 id="s5-9">5.9 &ensp;Energy density and equations of state</h3>
-
-<p>For systems where the energy density \(u = U/V\) depends only on temperature, the fundamental relation provides a powerful constraint linking \(u(T)\) to the equation of state.</p>
-
-<p>From the result of Chapter 4 (Section 4.9), the internal energy–pressure relation states:</p>
-<div class="eq">\[ \left(\frac{\partial U}{\partial V}\right)_{\!T} = T\left(\frac{\partial P}{\partial T}\right)_{\!V} - P \]</div>
-
-<p>If \(u = U/V\) depends only on \(T\), then \(U = u(T)\,V\), and \((\partial U/\partial V)_T = u(T)\). Meanwhile, if the equation of state gives \(P = \tfrac{1}{3}u(T)\), then \((\partial P/\partial T)_V = \tfrac{1}{3}u'(T)\). Substituting:</p>
-<div class="eq">\[ u = \frac{T}{3}\,u'(T) - \frac{u}{3} \]</div>
-<p>Rearranging: \(\tfrac{4}{3}u = \tfrac{T}{3}u'\), i.e. \(u'/u = 4/T\). Integrating:</p>
-<div class="eq">\[ \ln u = 4\ln T + \text{const} \qquad\Longrightarrow\qquad u(T) = bT^4 \]</div>
-
-<p>where \(b\) is a constant. This is the <strong>Stefan–Boltzmann law</strong> for blackbody radiation — the energy density of a photon gas scales as \(T^4\). Remarkably, thermodynamics alone (without quantum mechanics) determines the functional form, given only the equation of state \(P = u/3\).</p>
-
-<div class="remark">
-  <strong>The power of thermodynamic consistency:</strong> This example illustrates a recurring theme — the fundamental relation and Maxwell relations impose strong constraints. If you know the equation of state and one thermal property (like the form of \(u\)), the rest is determined. The tutorial problems exploit this strategy: given \(C_V\) and \(P(T, V)\), the entropy function \(S(U, V, N)\) is fully determined up to a constant.
+<h3 id="s5-13">5.13 &ensp;Open systems, chemical potential, and the Gibbs–Duhem relation</h3>
+<p>So far we have considered <strong>closed</strong> systems where particle number \(N\) is fixed. For <strong>open</strong> systems — where particles can enter or leave (e.g., a glass of water evaporating) — the fundamental relation must include an additional term accounting for changes in \(N\).</p>
+<p>For a system with fixed \(N\), the molar quantities \(u = U/N\), \(s = S/N\), \(v = V/N\) satisfy \(du = T\,ds - P\,dv\). When \(N\) is allowed to vary, \(dU = d(Nu) = u\,dN + N\,du\). Expanding and using the product rule on \(d(Ns)\) and \(d(Nv)\):</p>
+<div class="eq">\[ dU = T\,dS - P\,dV + \mu\,dN \]</div>
+<p>where we define the <strong>chemical potential</strong>:</p>
+<div class="key-result">
+  <div class="kr-label">Chemical Potential</div>
+  <p>\[ \mu = u - Ts + Pv = \frac{U}{N} - T\frac{S}{N} + P\frac{V}{N} \]</p>
 </div>
+<p>From the Euler equation for open systems, \(U = TS - PV + \mu N\), and so:</p>
+<div class="eq">\[ G = U - TS + PV = \mu N \]</div>
+<p>The Gibbs free energy per particle is exactly the chemical potential: \(\mu = G/N\). The natural variables of \(G\) are now \(T\), \(P\), and \(N\):</p>
+<div class="eq">\[ dG = -S\,dT + V\,dP + \mu\,dN \qquad\Longrightarrow\qquad \mu = \left(\frac{\partial G}{\partial N}\right)_{\!T,P} \]</div>
+<p>For a system with multiple chemical species \(N_1, N_2, \ldots\):</p>
+<div class="eq">\[ G = \sum_i \mu_i N_i\,,\qquad dG = -S\,dT + V\,dP + \sum_i \mu_i\,dN_i \]</div>
+
+<h4>The thermodynamic identity for open systems</h4>
+<p>The four thermodynamic potentials generalise to:</p>
+<div class="scroll-x">
+<table>
+  <tr><th>Euler relation</th><th>Thermodynamic identity</th></tr>
+  <tr><td>\(U = TS - PV + \mu N\)</td><td>\(dU = T\,dS - P\,dV + \mu\,dN\)</td></tr>
+  <tr><td>\(H = TS + \mu N\)</td><td>\(dH = T\,dS + V\,dP + \mu\,dN\)</td></tr>
+  <tr><td>\(F = -PV + \mu N\)</td><td>\(dF = -S\,dT - P\,dV + \mu\,dN\)</td></tr>
+  <tr><td>\(G = \mu N\)</td><td>\(dG = -S\,dT + V\,dP + \mu\,dN\)</td></tr>
+</table>
+</div>
+
+<h4>The Gibbs–Duhem relation</h4>
+<p>Differentiating the Euler equation \(U = TS - PV + \mu N\):</p>
+<div class="eq">\[ dU = T\,dS + S\,dT - P\,dV - V\,dP + \mu\,dN + N\,d\mu \]</div>
+<p>But the thermodynamic identity states \(dU = T\,dS - P\,dV + \mu\,dN\). Subtracting:</p>
+<div class="key-result">
+  <div class="kr-label">Gibbs–Duhem Relation</div>
+  <p>\[ S\,dT - V\,dP + N\,d\mu = 0 \]</p>
+</div>
+<p>For a multi-component system: \(S\,dT - V\,dP + \sum_i N_i\,d\mu_i = 0\).</p>
+<p>This relation implies that among the \((n+2)\) intensive variables \(T\), \(P\), \(\mu_1, \ldots, \mu_n\), only \((n+1)\) are independent. The Gibbs–Duhem relation constrains how these intensive variables can change simultaneously — not all of them can be varied freely.</p>
 
 </section>
 

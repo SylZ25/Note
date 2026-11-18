@@ -163,11 +163,39 @@
   <svg class="icon-close" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
 </button>
 <div class="side-panel-backdrop" id="navBackdrop"></div>
-<nav class="side-panel" id="sidePanel" aria-label="Sections"><div class="sp-chapter open"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">Prep</span> What to Bring from Chapters 1–4</button><ul class="sp-sections">
-<li><a href="#s0-1" data-s>0.1 State functions and total differentials</a></li>
-<li><a href="#s0-2" data-s>0.2 Three tools for partial derivatives</a></li>
-<li><a href="#s0-3" data-s>0.3 Three laws, one equation</a></li>
-<li><a href="#s0-4" data-s>0.4 The measurable quantities</a></li>
+<nav class="side-panel" id="sidePanel" aria-label="Sections"><div class="sp-chapter open"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">1</span> Systems, the Zeroth Law and Temperature</button><ul class="sp-sections">
+<li><a href="#s1-1" data-s>1.1 Systems and their walls</a></li>
+<li><a href="#s1-2" data-s>1.2 Equilibrium and kinds of processes</a></li>
+<li><a href="#s1-3" data-s>1.3 State variables: extensive and intensive</a></li>
+<li><a href="#s1-4" data-s>1.4 The Zeroth Law: why temperature exists</a></li>
+<li><a href="#s1-5" data-s>1.5 Temperature scales</a></li>
+</ul></div>
+<div class="sp-chapter"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">2</span> Gases, Kinetic Theory and Response Coefficients</button><ul class="sp-sections">
+<li><a href="#s2-1" data-s>2.1 The ideal gas law</a></li>
+<li><a href="#s2-2" data-s>2.2 Real gases</a></li>
+<li><a href="#s2-3" data-s>2.3 Kinetic theory: pressure from molecules</a></li>
+<li><a href="#s2-4" data-s>2.4 Temperature as kinetic energy: equipartition</a></li>
+<li><a href="#s2-5" data-s>2.5 The Maxwell speed distribution</a></li>
+<li><a href="#s2-6" data-s>2.6 Response coefficients and the partial-derivative toolkit</a></li>
+</ul></div>
+<div class="sp-chapter"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">3</span> Work, Heat and the First Law</button><ul class="sp-sections">
+<li><a href="#s3-1" data-s>3.1 Internal energy and the First Law</a></li>
+<li><a href="#s3-2" data-s>3.2 Work done on a gas</a></li>
+<li><a href="#s3-3" data-s>3.3 Heat capacity and enthalpy</a></li>
+<li><a href="#s3-4" data-s>3.4 The ideal-gas process table</a></li>
+<li><a href="#s3-5" data-s>3.5 Adiabatic processes</a></li>
+<li><a href="#s3-6" data-s>3.6 Free expansion and throttling</a></li>
+<li><a href="#s3-7" data-s>3.7 Heat engines and the Carnot cycle</a></li>
+</ul></div>
+<div class="sp-chapter"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">4</span> Entropy and the Second Law</button><ul class="sp-sections">
+<li><a href="#s4-1" data-s>4.1 Reversible processes and reservoirs</a></li>
+<li><a href="#s4-2" data-s>4.2 The Second Law</a></li>
+<li><a href="#s4-3" data-s>4.3 Carnot's theorem and absolute temperature</a></li>
+<li><a href="#s4-4" data-s>4.4 Entropy</a></li>
+<li><a href="#s4-5" data-s>4.5 The entropy principle</a></li>
+<li><a href="#s4-6" data-s>4.6 Computing entropy changes: the toolkit</a></li>
+<li><a href="#s4-7" data-s>4.7 The fundamental relation and ideal-gas entropy</a></li>
+<li><a href="#s4-8" data-s>4.8 What entropy measures: \(S = k_B\ln\Omega\)</a></li>
 </ul></div>
 <div class="sp-chapter"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">5</span> Thermodynamic Potentials</button><ul class="sp-sections">
 <li><a href="#s5-1" data-s>5.1 Natural variables: what a differential tells you</a></li>
@@ -208,7 +236,7 @@
 
 <div class="course-label">PHYS 2261 — Semester 3</div>
 <h1>Thermal Physics: Study Guide</h1>
-<p class="subtitle">Chapters 5–9 · Intuition first, proofs on demand</p>
+<p class="subtitle">Chapters 1–9 · Intuition first, proofs on demand</p>
 
 <div class="howto">
   <b>How to read this guide.</b> Each chapter opens by saying what problem it solves and what you should be able to do afterwards. The main text gives the idea and the result first; <b>proofs are folded away</b>. On a first read you can skip every one of them and come back once the results feel familiar. Example solutions are folded too, so you can try first. The complete, rigorous version is still in the original <a href="phys2261-notes.html">Lecture Notes</a>.
@@ -224,11 +252,15 @@
   <button type="button" id="closeAll">Collapse all</button>
 </div>
 
-<h3 style="margin-top:0">The map: how Chapters 5–9 fit together</h3>
-<p>These five chapters follow a single thread. Chapter 4 ended with one equation, \(dU = T\,dS - P\,dV\), and everything after grows out of it:</p>
+<h3 style="margin-top:0">The map: how the nine chapters fit together</h3>
+<p>Chapters 1–4 build the three laws and the quantities \(T\), \(U\), \(S\). Chapter 4 ends with one equation, \(dU = T\,dS - P\,dV\), and Chapters 5–9 grow out of it.</p>
 <div class="scroll-x">
 <table>
   <tr><th>Ch.</th><th>In one sentence</th><th>Main tool</th><th>Typical question</th></tr>
+  <tr><td>1</td><td>What is a system, and why does temperature exist?</td><td>Zeroth Law; Kelvin and ideal-gas scales</td><td>Classify systems/processes; convert temperatures</td></tr>
+  <tr><td>2</td><td>How \(P, V, T\) are related, and what molecules are doing</td><td>\(PV = nRT\); \(U = \tfrac f2 nRT\); \(\alpha, \kappa_T\); cyclic relation</td><td>Balloon/barometric problems; molecular speeds; partial derivatives</td></tr>
+  <tr><td>3</td><td>Energy bookkeeping for processes and engines</td><td>\(\Delta U = W + Q\); process table; \(PV^\gamma\)</td><td>\(W, Q, \Delta U\) per step; cycle efficiencies</td></tr>
+  <tr><td>4</td><td>Which way processes go</td><td>Entropy; \(\Delta S_{\text{univ}} \ge 0\)</td><td>Compute \(\Delta S\); test reversibility; Carnot limit</td></tr>
   <tr><td>5</td><td>Rewrite \(dU = TdS - PdV\) in forms that suit real experiments</td><td>\(H, F, G\); Maxwell relations; chemical potential \(\mu\)</td><td>Derive a Maxwell relation; compute \(C_P - C_V\); replace \(\partial S\) by measurable quantities</td></tr>
   <tr><td>6</td><td>Where does a system settle, and is that state stable?</td><td>"At fixed \(T, P\), \(G\) is minimised"; equal \(T, P, \mu\) at equilibrium</td><td>Decide which way a process goes; stability constraints (\(S = aU^bV^cN^d\))</td></tr>
   <tr><td>7</td><td>Ice, water, steam: which phase, and when?</td><td>Two phases coexist ⟺ equal \(\mu\); Clausius–Clapeyron</td><td>Slope of a phase boundary; vapour pressure; triple point; phase rule</td></tr>
@@ -236,14 +268,42 @@
   <tr><td>9</td><td>Can we reach 0 K?</td><td>Third Law: \(\Delta S \to 0\) as \(T \to 0\)</td><td>Absolute entropy; consequences \(C \to 0\), \(\alpha \to 0\)</td></tr>
 </table>
 </div>
-<p>Suggested order: <strong>get comfortable with the Chapter 5 toolkit first</strong> (the four potentials, reading off coefficients, Maxwell relations), then 6 → 7. Chapter 9 is short and can come before 8. Chapter 8 is the most applied; leave it for last.</p>
+<p>Suggested order: Chapters 1–4 in sequence (Chapter 1 is light; the heavy lifting is the process table in Chapter 3 and the entropy toolkit in Chapter 4). Then <strong>get comfortable with the Chapter 5 toolkit</strong> (the four potentials, reading off coefficients, Maxwell relations) before 6 → 7. Chapter 9 is short and can come before 8; Chapter 8 is the most applied, so leave it for last.</p>
 
 <nav class="toc"><div class="toc-title">Contents</div><ol>
-<li><a href="#ch0">What to Bring from Chapters 1–4</a><ol>
-<li><a href="#s0-1">0.1 State functions and total differentials</a></li>
-<li><a href="#s0-2">0.2 Three tools for partial derivatives</a></li>
-<li><a href="#s0-3">0.3 Three laws, one equation</a></li>
-<li><a href="#s0-4">0.4 The measurable quantities</a></li>
+<li><a href="#ch1">1. Systems, the Zeroth Law and Temperature</a><ol>
+<li><a href="#s1-1">1.1 Systems and their walls</a></li>
+<li><a href="#s1-2">1.2 Equilibrium and kinds of processes</a></li>
+<li><a href="#s1-3">1.3 State variables: extensive and intensive</a></li>
+<li><a href="#s1-4">1.4 The Zeroth Law: why temperature exists</a></li>
+<li><a href="#s1-5">1.5 Temperature scales</a></li>
+</ol></li>
+<li><a href="#ch2">2. Gases, Kinetic Theory and Response Coefficients</a><ol>
+<li><a href="#s2-1">2.1 The ideal gas law</a></li>
+<li><a href="#s2-2">2.2 Real gases</a></li>
+<li><a href="#s2-3">2.3 Kinetic theory: pressure from molecules</a></li>
+<li><a href="#s2-4">2.4 Temperature as kinetic energy: equipartition</a></li>
+<li><a href="#s2-5">2.5 The Maxwell speed distribution</a></li>
+<li><a href="#s2-6">2.6 Response coefficients and the partial-derivative toolkit</a></li>
+</ol></li>
+<li><a href="#ch3">3. Work, Heat and the First Law</a><ol>
+<li><a href="#s3-1">3.1 Internal energy and the First Law</a></li>
+<li><a href="#s3-2">3.2 Work done on a gas</a></li>
+<li><a href="#s3-3">3.3 Heat capacity and enthalpy</a></li>
+<li><a href="#s3-4">3.4 The ideal-gas process table</a></li>
+<li><a href="#s3-5">3.5 Adiabatic processes</a></li>
+<li><a href="#s3-6">3.6 Free expansion and throttling</a></li>
+<li><a href="#s3-7">3.7 Heat engines and the Carnot cycle</a></li>
+</ol></li>
+<li><a href="#ch4">4. Entropy and the Second Law</a><ol>
+<li><a href="#s4-1">4.1 Reversible processes and reservoirs</a></li>
+<li><a href="#s4-2">4.2 The Second Law</a></li>
+<li><a href="#s4-3">4.3 Carnot's theorem and absolute temperature</a></li>
+<li><a href="#s4-4">4.4 Entropy</a></li>
+<li><a href="#s4-5">4.5 The entropy principle</a></li>
+<li><a href="#s4-6">4.6 Computing entropy changes: the toolkit</a></li>
+<li><a href="#s4-7">4.7 The fundamental relation and ideal-gas entropy</a></li>
+<li><a href="#s4-8">4.8 What entropy measures: \(S = k_B\ln\Omega\)</a></li>
 </ol></li>
 <li><a href="#ch5">5. Thermodynamic Potentials</a><ol>
 <li><a href="#s5-1">5.1 Natural variables: what a differential tells you</a></li>
@@ -283,69 +343,792 @@
 </ol></li>
 </ol></nav>
 
-<!-- CHAPTER 0 -->
-<section class="chapter" id="ch0">
-<div class="chapter-num">Before we start</div>
-<h2>What to Bring from Chapters 1–4</h2>
+
+<!-- CHAPTER 1 -->
+<section class="chapter" id="ch1">
+<div class="chapter-num">Chapter 1</div>
+<h2>Systems, the Zeroth Law and Temperature</h2>
 
 <div class="intro">
-  <span class="tag">What this part does</span>
-  <p>Chapters 5–9 rely on only a handful of facts from the first four chapters. They are collected here so you can flip back whenever one is used. If any item looks unfamiliar, revisit that part of the original notes first.</p>
+  <span class="tag">What this chapter does</span>
+  <p>Thermodynamics describes huge numbers of particles with a handful of numbers (\(P\), \(V\), \(T\), \(U\), …). This chapter sets up the vocabulary for that: what a "system" is, what kinds of changes it can undergo, which quantities describe it, and, most importantly, why <strong>temperature</strong> is a well-defined thing you can measure at all.</p>
+  <span class="tag" style="margin-top:12px">After this chapter you should be able to</span>
+  <ul>
+    <li>classify systems (isolated / closed / open) and processes (spontaneous / quasi-static / reversible);</li>
+    <li>tell extensive from intensive variables;</li>
+    <li>explain what the Zeroth Law guarantees and how the Kelvin and ideal-gas temperature scales are built.</li>
+  </ul>
 </div>
 
-<h3 id="s0-1">0.1 &ensp;State functions and total differentials</h3>
-<p>A <strong>state function</strong> depends only on the current state of the system, not on how it got there: \(U, S, V, P, T\) are all state functions. Heat \(Q\) and work \(W\) are not; they are <em>process quantities</em>, which is why their small amounts are written \(\text{đ}Q\), \(\text{đ}W\).</p>
-<p>If \(f\) is a state function of \(x\) and \(y\), a small change in \(f\) is</p>
-<div class="key-result">
-  <div class="kr-label">Total differential</div>
-  <p>\[ df = \left(\frac{\partial f}{\partial x}\right)_{\!y} dx + \left(\frac{\partial f}{\partial y}\right)_{\!x} dy \]</p>
-</div>
-<p>The single most common move from Chapter 5 onward is <strong>reading off coefficients</strong>: whenever you have an equation of the form \(df = A\,dx + B\,dy\), you immediately know \(A = (\partial f/\partial x)_y\) and \(B = (\partial f/\partial y)_x\).</p>
-
-<h3 id="s0-2">0.2 &ensp;Three tools for partial derivatives</h3>
-<p>Nearly every calculation in Chapter 5 uses only these three:</p>
-<div class="eq">
-<span class="label">① Mixed partials are equal (because \(f\) is a state function)</span>
-\[ \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right) = \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial y}\right) \quad\Longrightarrow\quad \left(\frac{\partial A}{\partial y}\right)_{\!x} = \left(\frac{\partial B}{\partial x}\right)_{\!y} \]
-</div>
-<div class="eq">
-<span class="label">② Reciprocal</span>
-\[ \left(\frac{\partial x}{\partial y}\right)_{\!z} = \frac{1}{(\partial y/\partial x)_z} \]
-</div>
-<div class="eq">
-<span class="label">③ Cyclic relation (three variables linked by one equation)</span>
-\[ \left(\frac{\partial x}{\partial y}\right)_{\!z}\left(\frac{\partial y}{\partial z}\right)_{\!x}\left(\frac{\partial z}{\partial x}\right)_{\!y} = -1 \]
-</div>
-<div class="why">
-  <span class="tag">Where these are used</span>
-  <p>Tool ① produces the Maxwell relations of Chapter 5. Tool ③ turns hard-to-measure derivatives into easy ones, for example \((\partial P/\partial T)_V = \alpha/\kappa_T\), which you need for \(C_P - C_V\).</p>
-</div>
-
-<h3 id="s0-3">0.3 &ensp;Three laws, one equation</h3>
-<p>The First Law says \(dU = \text{đ}Q + \text{đ}W\). For a quasi-static process the work done on a gas is \(\text{đ}W = -P\,dV\), and for a reversible process the heat absorbed is \(\text{đ}Q = T\,dS\) (this is the definition of entropy). Substituting:</p>
-<div class="key-result">
-  <div class="kr-label">Fundamental relation</div>
-  <p>\[ dU = T\,dS - P\,dV \]</p>
-</div>
-<p>We used a reversible process to derive it, but the equation contains only state functions, so it holds between <strong>any two neighbouring equilibrium states</strong>, however the system actually gets from one to the other. Everything in Chapters 5–9 grows from this line.</p>
-<p>Two more results from earlier chapters come up again and again:</p>
-<ul>
-  <li><strong>Entropy principle:</strong> for an isolated system \(\Delta S \geq 0\), with equality only for reversible processes. More generally \(dS \geq \text{đ}Q/T\) (the Clausius inequality).</li>
-  <li><strong>How to compute entropy changes:</strong> \(\Delta S = \int\text{đ}Q_\text{rev}/T\); for heating \(\Delta S = \int C\,dT/T\), for a phase change \(\Delta S = L/T\).</li>
-</ul>
-
-<h3 id="s0-4">0.4 &ensp;The measurable quantities</h3>
-<p>In the lab we can measure \(P\), \(V\), \(T\) and heat directly. That gives four standard <strong>response functions</strong>:</p>
+<h3 id="s1-1">1.1 &ensp;Systems and their walls</h3>
+<p>A <strong>thermodynamic system</strong> is whatever piece of the world we choose to study: a gas in a cylinder, a cup of coffee, a star. Everything else is the <strong>surroundings</strong>. The boundary between them is called a <strong>wall</strong>, and what matters about a wall is what it lets through.</p>
 <div class="scroll-x">
 <table>
-  <tr><th>Name</th><th>Definition</th><th>Meaning</th><th>Ideal gas</th></tr>
-  <tr><td>Expansion coefficient \(\alpha\)</td><td>\(\frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_P\)</td><td>Fractional volume change per kelvin at fixed \(P\)</td><td>\(1/T\)</td></tr>
-  <tr><td>Isothermal compressibility \(\kappa_T\)</td><td>\(-\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T\)</td><td>Fractional volume decrease per unit pressure at fixed \(T\)</td><td>\(1/P\)</td></tr>
-  <tr><td>Heat capacity \(C_P\)</td><td>\(T\left(\frac{\partial S}{\partial T}\right)_P\)</td><td>Heat needed per kelvin at fixed \(P\)</td><td>\(\tfrac{f+2}{2}nR\)</td></tr>
-  <tr><td>Heat capacity \(C_V\)</td><td>\(T\left(\frac{\partial S}{\partial T}\right)_V\)</td><td>Heat needed per kelvin at fixed \(V\)</td><td>\(\tfrac{f}{2}nR\)</td></tr>
+  <tr><th>System</th><th>Energy crosses?</th><th>Matter crosses?</th><th>Example</th></tr>
+  <tr><td>Isolated</td><td>No</td><td>No</td><td>Gas in a rigid, perfectly insulated box</td></tr>
+  <tr><td>Closed</td><td>Yes (heat or work)</td><td>No</td><td>Gas in a cylinder with a movable piston</td></tr>
+  <tr><td>Open</td><td>Yes</td><td>Yes</td><td>A pot of boiling water (steam escapes)</td></tr>
 </table>
 </div>
-<p>Heat capacities are written as \(T(\partial S/\partial T)\) because \(\text{đ}Q = T\,dS\). This form is used directly in Chapters 5 and 9.</p>
+<div class="why">
+  <span class="tag">Where it's used later</span>
+  <p>Chapters 1–5 mostly treat closed systems. Isolated systems are where the Second Law is cleanest ("entropy never decreases", Chapter 4). Open systems need the chemical potential (Chapter 5) and are the setting for phase transitions and solutions (Chapters 7–8).</p>
+</div>
+
+<h3 id="s1-2">1.2 &ensp;Equilibrium and kinds of processes</h3>
+<p>A system is in <strong>(thermal) equilibrium</strong> when its macroscopic properties (pressure, temperature, density, …) stay constant in time and nothing flows inside it or across its walls. Only then are quantities like "the pressure" or "the temperature" of the system well defined. A <strong>process</strong> takes the system from one equilibrium state to another, and processes come in three kinds:</p>
+<dl style="margin:12px 0 16px">
+  <dt style="font-family:var(--sans);font-weight:600;font-size:14px;color:var(--accent)">Spontaneous</dt>
+  <dd style="margin:0 0 10px">Happens by itself once a constraint is removed, e.g. gas rushing into a vacuum when a partition breaks. In between, the system is out of equilibrium, so \(P\) and \(T\) may not even be defined.</dd>
+  <dt style="font-family:var(--sans);font-weight:600;font-size:14px;color:var(--accent)">Quasi-static</dt>
+  <dd style="margin:0 0 10px">Carried out so slowly that the system is essentially in equilibrium at every step. Only these can be drawn as curves on a \(P\)–\(V\) diagram.</dd>
+  <dt style="font-family:var(--sans);font-weight:600;font-size:14px;color:var(--accent)">Reversible</dt>
+  <dd style="margin:0">Quasi-static <em>and</em> with no dissipation (no friction, no heat flowing across a finite temperature gap). It can be run backwards so that the system and its surroundings both return exactly to where they started. An idealisation, like a frictionless pulley.</dd>
+</dl>
+<div class="why">
+  <span class="tag">Why the distinction matters</span>
+  <p>The formula for work \(W = -\int P\,dV\) (Chapter 3) only applies to quasi-static processes, because otherwise \(P\) isn't defined. The formula for entropy \(\Delta S = \int \text{đ}Q/T\) (Chapter 4) only applies along reversible paths. Many exam questions turn on noticing that a process is <em>not</em> quasi-static (sudden expansion, a released piston, a weight dropped on a piston).</p>
+</div>
+
+<h3 id="s1-3">1.3 &ensp;State variables: extensive and intensive</h3>
+<p><strong>State variables</strong> describe an equilibrium state. A quick test sorts them into two kinds: cut the system in half and see what happens to the variable.</p>
+<div class="scroll-x">
+<table>
+  <tr><th>Kind</th><th>When you halve the system</th><th>Examples</th></tr>
+  <tr><td>Extensive</td><td>halves</td><td>\(V\), \(U\), \(N\), mass, \(S\)</td></tr>
+  <tr><td>Intensive</td><td>stays the same</td><td>\(T\), \(P\), density, \(\mu\)</td></tr>
+</table>
+</div>
+<p>A minimal set of variables that fixes the equilibrium state completely is called the set of <strong>thermodynamic coordinates</strong>. All other state variables are functions of them. The coordinates are taken to be extensive: the internal energy \(U\) plus "work coordinates" such as \(V\) (or a magnetisation \(M\) for a magnet, an area for a film).</p>
+<div class="remark"><strong>Why not just use \(T\) and \(P\)?</strong> Take three containers of water at 0 °C and 1 atm: all ice, half ice and half water, all water. Same \(T\), same \(P\), but clearly different states with different internal energies. \(T\) and \(P\) can't tell them apart; an extensive variable like \(U\) can.</div>
+
+<h3 id="s1-4">1.4 &ensp;The Zeroth Law: why temperature exists</h3>
+<div class="key-result">
+  <div class="kr-label">The Zeroth Law</div>
+  <p>If A is in thermal equilibrium with C, and B is in thermal equilibrium with C, then A is in thermal equilibrium with B.</p>
+</div>
+<p>It sounds obvious, but it is exactly what makes a <strong>thermometer</strong> work. C is the thermometer: if it reads the same in A and in B, we can conclude that A and B would be in equilibrium with each other without ever putting them in contact. Mathematically, the Zeroth Law guarantees that every system has a function of its own coordinates, \(\Theta\), that takes the same value for all systems in mutual equilibrium:</p>
+<div class="key-result">
+  <div class="kr-label">Consequence</div>
+  <p>\[ \Theta_A(A_1, A_2, \ldots) = \Theta_B(B_1, B_2, \ldots) \quad\text{whenever A and B are in equilibrium} \]</p>
+</div>
+<p>That function is the <strong>temperature</strong>. The Zeroth Law tells us it exists; it does not yet tell us what numbers to assign. That is the job of a temperature scale.</p>
+<details><summary>Proof: from the Zeroth Law to a temperature function</summary><div class="body">
+  <p>Equilibrium between A and C imposes one condition linking their coordinates, \(f_{AC}(A_1, A_2, \ldots; C_1, C_2, \ldots) = 0\); similarly \(f_{BC}(B_1, \ldots; C_1, \ldots) = 0\). Solve both for \(C_1\):</p>
+  <p>\[ C_1 = F_{AC}(A_1, A_2, \ldots; C_2, \ldots) = F_{BC}(B_1, B_2, \ldots; C_2, \ldots) \]</p>
+  <p>The Zeroth Law says A and B are then also in equilibrium, \(f_{AB}(A_1, \ldots; B_1, \ldots) = 0\), a condition with no C-coordinates in it. So the C-coordinates must cancel out of the equation above, leaving \(\Theta_A(A_1, A_2, \ldots) = \Theta_B(B_1, B_2, \ldots)\).</p>
+</div></details>
+
+<h3 id="s1-5">1.5 &ensp;Temperature scales</h3>
+<p>To put numbers on temperature, pick a <strong>thermometric property</strong> \(X\) that changes with hotness (the length of a mercury column, the pressure of a gas at fixed volume, a wire's resistance) and assume a linear rule \(\Theta = aX + b\), with \(a\), \(b\) fixed by reference points.</p>
+
+<h4>Celsius, absolute zero, Kelvin</h4>
+<p>Celsius uses two reference points, ice melting (0 °C) and water boiling at 1 atm (100 °C), and interpolates linearly between them. Now measure the volume of a dilute gas at fixed pressure at several temperatures and extrapolate the straight line to \(V = 0\). Whatever the gas and whatever the pressure, the line hits zero at \(-273.15\ \text{°C}\). Since a volume can't be negative, nothing can be colder: that is <strong>absolute zero</strong>. The Kelvin scale keeps the Celsius degree size but starts there:</p>
+<div class="key-result">
+  <div class="kr-label">Conversions</div>
+  <p>\[ T\ (\text{K}) = \theta\ (\text{°C}) + 273.15, \qquad \theta\ (\text{°C}) = \tfrac{5}{9}\,(\theta_F - 32) \]</p>
+</div>
+<div class="remark"><strong>Always use kelvin in formulas.</strong> Ratios like \(T_2/T_1\), \(\ln(T_2/T_1)\) or \(1 - T_C/T_H\) are meaningless in Celsius. Temperature <em>differences</em> are the same in both.</div>
+
+<h4>The ideal-gas temperature scale</h4>
+<p>Different thermometers (different substances, different amounts of gas) disagree slightly with each other. But as a gas thermometer is made more and more dilute, all gases converge on the same reading. That limit defines a universal scale, anchored at the triple point of water (273.16 K, where ice, water and vapour coexist):</p>
+<div class="key-result">
+  <div class="kr-label">Ideal-gas temperature (constant-volume gas thermometer)</div>
+  <p>\[ T = 273.16\ \text{K}\times\lim_{P_{\text{tr}}\to0}\frac{P}{P_{\text{tr}}} \]</p>
+</div>
+<p>\(P_{\text{tr}}\) is the gas pressure when the bulb sits at the triple point; \(P\) is the pressure at the unknown temperature. Chapter 4 shows that this scale coincides with the "thermodynamic" temperature defined by heat engines, so it is not tied to any particular substance.</p>
+<div class="ex">
+  <span class="tag">Example · Reading a gas thermometer</span>
+  <p>A dilute constant-volume gas thermometer reads \(P_{\text{tr}} = 50.0\ \text{kPa}\) at the triple point and \(68.3\ \text{kPa}\) in boiling water. What temperature does it give?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>\(T = 273.16 \times 68.3/50.0 \approx 373.1\ \text{K}\), i.e. about 100 °C. (In practice you repeat with less and less gas and extrapolate the ratio to \(P_{\text{tr}} \to 0\).)</p>
+  </div></details>
+</div>
+
+<div class="card">
+  <span class="tag">Chapter 1 summary card</span>
+  <div class="scroll-x"><table>
+    <tr><th>Topic</th><th>Key point</th></tr>
+    <tr><td>Systems</td><td>isolated (nothing crosses) · closed (energy only) · open (energy and matter)</td></tr>
+    <tr><td>Processes</td><td>reversible ⊂ quasi-static; only quasi-static ones have \(W = -\int P\,dV\)</td></tr>
+    <tr><td>Variables</td><td>extensive (\(V, U, N, S\)) vs intensive (\(T, P, \mu\))</td></tr>
+    <tr><td>Zeroth Law</td><td>equilibrium is transitive ⇒ temperature exists</td></tr>
+    <tr><td>Scales</td><td>\(T(\text{K}) = \theta(\text{°C}) + 273.15\); ideal-gas scale \(T = 273.16\lim P/P_{\text{tr}}\)</td></tr>
+  </table></div>
+</div>
+</section>
+
+<!-- CHAPTER 2 -->
+<section class="chapter" id="ch2">
+<div class="chapter-num">Chapter 2</div>
+<h2>Gases, Kinetic Theory and Response Coefficients</h2>
+
+<div class="intro">
+  <span class="tag">What this chapter does</span>
+  <p>An <strong>equation of state</strong> ties \(P\), \(V\), \(T\) together for a given substance. This chapter collects the ones we use (ideal gas, van der Waals), then looks underneath: kinetic theory explains pressure and temperature in terms of molecules bouncing around, which gives us \(U = \tfrac{f}{2}nRT\), the source of every heat capacity in Chapter 3. Finally it introduces the measurable coefficients \(\alpha\), \(\kappa_T\), \(\beta\) and the partial-derivative tools you will use for the rest of the course.</p>
+  <span class="tag" style="margin-top:12px">After this chapter you should be able to</span>
+  <ul>
+    <li>use \(PV = nRT\) and explain the corrections in the van der Waals equation;</li>
+    <li>derive \(PV = \tfrac{2}{3}K\), use equipartition to find \(U\) for monatomic and diatomic gases, and compute characteristic molecular speeds;</li>
+    <li>work with \(\alpha\), \(\kappa_T\), \(\beta\) and the cyclic relation.</li>
+  </ul>
+</div>
+
+<h3 id="s2-1">2.1 &ensp;The ideal gas law</h3>
+<p>An <strong>equation of state</strong> is a relation \(f(P, V, T) = 0\) among the state variables of a substance in equilibrium. Thermodynamics does not predict it; it comes from experiment or from a microscopic model. The simplest, and the limit every real gas approaches at low density, is</p>
+<div class="key-result">
+  <div class="kr-label">Ideal gas law</div>
+  <p>\[ PV = nRT = Nk_BT, \qquad R = 8.314\ \text{J/(mol·K)}, \quad k_B = R/N_A = 1.381\times10^{-23}\ \text{J/K} \]</p>
+</div>
+<p>It is really the ideal-gas temperature scale of §1.5 rewritten: that scale is <em>defined</em> so that \(PV/n\) of a dilute gas is proportional to \(T\), and \(R\) is the proportionality constant. Useful forms: density \(\rho = PM/(RT)\) with \(M\) the molar mass; and \(1\ \text{atm·L} = 101.3\ \text{J}\).</p>
+
+<div class="ex">
+  <span class="tag">Example 1 · Hot-air balloon (Tut 1)</span>
+  <p>A balloon of volume 1800 m³ carries 500 kg (envelope + payload). Outside air is at 290 K and 1 atm, with molar mass 29 g/mol; inside is at the same pressure. (i) What must the inside temperature be for the balloon to float? (ii) What is the mass of hot air inside?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Outside density: \(\rho_{\text{out}} = PM/(RT) = (1.01\times10^5)(0.029)/(8.314\times290) \approx 1.215\ \text{kg/m}^3\), so the displaced air has mass \(1.215\times1800 \approx 2187\ \text{kg}\).</p>
+    <p>Floating: weight of displaced air = payload + hot air, so the hot air has mass \(2187 - 500 = 1687\ \text{kg}\) — that's (ii).</p>
+    <p>Same pressure inside and out means \(\rho T\) is the same: \(T_{\text{in}} = T_{\text{out}}\,\rho_{\text{out}}/\rho_{\text{in}} = 290 \times 2187/1687 \approx 376\ \text{K}\) (about 103 °C) — that's (i).</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 2 · Pressure falls with height (barometric formula, Tut 1)</span>
+  <p>A thin slab of air at height \(z\) is held up by the pressure difference across it. Assuming constant \(T\), find \(P(z)\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Force balance on a slab of area \(A\), thickness \(dz\): \(P(z)A = P(z + dz)A + \rho g A\,dz\), so \(dP/dz = -\rho g = -\frac{Mg}{RT}P\). Separating and integrating:</p>
+    <p>\[ P(z) = P_0\,e^{-Mgz/RT} \]</p>
+    <p>The pressure drops by a factor \(e\) every \(RT/(Mg) = (8.314\times290)/(0.029\times9.8) \approx 8.5\ \text{km}\). (Chapter 3 redoes this with temperature falling with height.)</p>
+  </div></details>
+</div>
+
+<h3 id="s2-2">2.2 &ensp;Real gases</h3>
+<p>Real molecules have a size and attract each other, so at high density (high pressure, low temperature) the ideal gas law fails. Two standard corrections:</p>
+<div class="key-result">
+  <div class="kr-label">Van der Waals equation</div>
+  <p>\[ \left(P + \frac{an^2}{V^2}\right)(V - nb) = nRT \]</p>
+</div>
+<ul>
+  <li><strong>\(-nb\): molecules take up space.</strong> The volume available to move in is less than the container volume.</li>
+  <li><strong>\(+an^2/V^2\): molecules attract.</strong> A molecule about to hit the wall is pulled back by its neighbours, so it hits more softly and the measured \(P\) is lower than it would otherwise be. The effect grows with the square of the density.</li>
+</ul>
+<div class="eq">
+<span class="label">Virial expansion (a systematic series in density)</span>
+\[ PV = nRT\left(1 + \frac{B(T)}{V/n} + \frac{C(T)}{(V/n)^2} + \cdots\right) \]
+</div>
+<p>At low density every correction vanishes and \(PV = nRT\) returns.</p>
+<div class="why">
+  <span class="tag">Where it's used later</span>
+  <p>The van der Waals gas is the course's standard "non-ideal" example: its entropy (Chapter 4), why it cools in a free expansion (Chapter 5), and how it produces the liquid–gas transition and a critical point (Chapter 7).</p>
+</div>
+
+<h3 id="s2-3">2.3 &ensp;Kinetic theory: pressure from molecules</h3>
+<p>Model the gas as many tiny hard spheres in random motion, colliding elastically with each other and the walls, with no forces between collisions and no preferred direction. Pressure is then just the momentum delivered to the walls per unit area per unit time. Working this out gives</p>
+<div class="key-result">
+  <div class="kr-label">Pressure from molecular motion</div>
+  <p>\[ PV = \tfrac{1}{3}Nm\langle v^2\rangle = \tfrac{2}{3}K, \qquad K = N\cdot\tfrac12 m\langle v^2\rangle \]</p>
+</div>
+<p>The macroscopic pressure is set by the total translational kinetic energy \(K\) of the molecules.</p>
+<details><summary>Proof: momentum transfer to a wall</summary><div class="body">
+  <p>A molecule with \(x\)-velocity \(v_x\) bounces off the right wall and reverses, transferring momentum \(2mv_x\). In time \(dt\), the molecules that reach a wall of area \(A\) are those within distance \(v_x\,dt\) moving towards it: \(\tfrac12(N/V)Av_x\,dt\) of them (the \(\tfrac12\) because half move the other way). Force = momentum per time:</p>
+  <p>\[ F = \tfrac12\frac{N}{V}Av_x\cdot 2mv_x \;\;\Rightarrow\;\; P = \frac{F}{A} = \frac{N}{V}m\langle v_x^2\rangle \]</p>
+  <p>No direction is special, so \(\langle v_x^2\rangle = \tfrac13\langle v^2\rangle\), giving \(PV = \tfrac13 Nm\langle v^2\rangle\).</p>
+</div></details>
+
+<h3 id="s2-4">2.4 &ensp;Temperature as kinetic energy: equipartition</h3>
+<p>Put \(PV = \tfrac23 K\) next to \(PV = Nk_BT\): they agree only if \(K = \tfrac32 Nk_BT\). So <strong>temperature measures the average kinetic energy per molecule</strong>, \(\tfrac12m\langle v^2\rangle = \tfrac32k_BT\), shared equally among the three directions of motion. The general rule:</p>
+<div class="key-result">
+  <div class="kr-label">Equipartition theorem</div>
+  <p>Every independent quadratic term in a molecule's energy (\(\tfrac12mv_x^2\), \(\tfrac12I\omega^2\), \(\tfrac12kx^2\), …) carries on average \(\tfrac12k_BT\). With \(f\) such terms:</p>
+  <p>\[ U = \frac{f}{2}Nk_BT = \frac{f}{2}nRT \]</p>
+</div>
+<div class="scroll-x">
+<table>
+  <tr><th>Gas</th><th>Quadratic terms \(f\)</th><th>\(U\) per mole</th><th>\(c_V\)</th><th>\(\gamma = c_P/c_V\)</th></tr>
+  <tr><td>Monatomic (He, Ar)</td><td>3 translation</td><td>\(\tfrac32RT\)</td><td>\(\tfrac32R\)</td><td>5/3</td></tr>
+  <tr><td>Diatomic, room \(T\) (N₂, O₂, air)</td><td>3 translation + 2 rotation</td><td>\(\tfrac52RT\)</td><td>\(\tfrac52R\)</td><td>7/5</td></tr>
+  <tr><td>Diatomic, high \(T\)</td><td>+ 2 vibration (kinetic + potential)</td><td>\(\tfrac72RT\)</td><td>\(\tfrac72R\)</td><td>9/7</td></tr>
+</table>
+</div>
+<div class="remark"><strong>Counting caution.</strong> The slides count a diatomic molecule as having 6 <em>degrees of freedom</em> (3 translation + 2 rotation + 1 vibration). The vibration counts once as a motion but contributes <em>two</em> quadratic terms (kinetic and potential energy), i.e. \(k_BT\). At room temperature the vibration is "frozen out" (a quantum effect), which is why air behaves as \(f = 5\), \(\gamma = 1.4\).</div>
+<div class="why">
+  <span class="tag">Where it's used later</span>
+  <p>\(U = \tfrac f2 nRT\) gives \(C_V = \tfrac f2 nR\), \(C_P = C_V + nR\) and \(\gamma\) in Chapter 3. Every adiabatic and engine calculation needs these.</p>
+</div>
+
+<h4>Typical molecular speeds</h4>
+<div class="eq">\[ v_{\text{rms}} = \sqrt{\langle v^2\rangle} = \sqrt{\frac{3k_BT}{m}} = \sqrt{\frac{3RT}{M}} \]</div>
+<p>Lighter molecules move faster at the same temperature. That is the basis of isotope separation by effusion: through a porous barrier, the lighter species leaks out faster, with separation factor \(\sqrt{m_2/m_1}\) per stage. For uranium hexafluoride (\(^{235}\)UF\(_6\) vs \(^{238}\)UF\(_6\), molar masses 349 and 352) that is \(\sqrt{352/349} \approx 1.0043\), so hundreds of stages are needed.</p>
+<div class="ex">
+  <span class="tag">Example · How fast are air molecules?</span>
+  <p>Find \(v_{\text{rms}}\) for N₂ (\(M = 0.028\ \text{kg/mol}\)) at 300 K.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>\(v_{\text{rms}} = \sqrt{3(8.314)(300)/0.028} \approx 517\ \text{m/s}\), about 1.5 times the speed of sound in air. (Sound travels at a speed of the same order, since it is carried by these molecules.)</p>
+  </div></details>
+</div>
+
+<h3 id="s2-5">2.5 &ensp;The Maxwell speed distribution</h3>
+<p>Molecules don't all move at \(v_{\text{rms}}\); their speeds spread out according to</p>
+<div class="key-result">
+  <div class="kr-label">Maxwell speed distribution</div>
+  <p>\[ f(v) = 4\pi\left(\frac{m}{2\pi k_BT}\right)^{3/2}v^2\,e^{-mv^2/2k_BT}, \qquad \int_0^\infty f(v)\,dv = 1 \]</p>
+</div>
+<p>\(f(v)\,dv\) is the fraction of molecules with speeds between \(v\) and \(v + dv\). Two competing factors shape it: \(v^2\) (there are more ways to have a large velocity vector — a bigger sphere in velocity space) and \(e^{-mv^2/2k_BT}\) (high energies are exponentially rare).</p>
+<figure>
+<svg viewBox="0 0 600 340" role="img" aria-label="Maxwell speed distribution of nitrogen at 300 K and 600 K, with the most probable, mean and rms speeds marked at 300 K" style="width:100%;max-width:600px;display:block;margin:12px auto">
+  <line x1="60" y1="290" x2="575" y2="290" stroke="var(--text)" stroke-width="1.2"/>
+  <line x1="60" y1="290" x2="60" y2="15" stroke="var(--text)" stroke-width="1.2"/>
+  <line x1="191.9" y1="44.6" x2="191.9" y2="290" stroke="var(--accent)" stroke-dasharray="3 3"/><line x1="208.8" y1="52.3" x2="208.8" y2="290" stroke="var(--accent)" stroke-dasharray="3 3"/><line x1="221.5" y1="66.8" x2="221.5" y2="290" stroke="var(--accent)" stroke-dasharray="3 3"/>
+  <polyline points="60.0,290.0 61.3,290.0 62.5,289.9 63.8,289.8 65.0,289.7 66.3,289.5 67.5,289.2 68.8,289.0 70.0,288.6 71.3,288.3 72.5,287.9 73.8,287.4 75.0,287.0 76.3,286.4 77.5,285.9 78.8,285.3 80.1,284.6 81.3,283.9 82.6,283.2 83.8,282.4 85.1,281.6 86.3,280.8 87.6,279.9 88.8,279.0 90.1,278.0 91.3,277.1 92.6,276.0 93.8,275.0 95.1,273.9 96.3,272.8 97.6,271.6 98.8,270.4 100.1,269.2 101.4,267.9 102.6,266.6 103.9,265.3 105.1,264.0 106.4,262.6 107.6,261.2 108.9,259.8 110.1,258.3 111.4,256.8 112.6,255.3 113.9,253.8 115.1,252.2 116.4,250.6 117.6,249.0 118.9,247.4 120.2,245.8 121.4,244.1 122.7,242.4 123.9,240.8 125.2,239.0 126.4,237.3 127.7,235.6 128.9,233.8 130.2,232.0 131.4,230.3 132.7,228.5 133.9,226.7 135.2,224.8 136.4,223.0 137.7,221.2 138.9,219.4 140.2,217.5 141.5,215.7 142.7,213.8 144.0,211.9 145.2,210.1 146.5,208.2 147.7,206.4 149.0,204.5 150.2,202.6 151.5,200.8 152.7,198.9 154.0,197.1 155.2,195.2 156.5,193.4 157.7,191.6 159.0,189.7 160.3,187.9 161.5,186.1 162.8,184.3 164.0,182.5 165.3,180.7 166.5,179.0 167.8,177.2 169.0,175.5 170.3,173.8 171.5,172.0 172.8,170.4 174.0,168.7 175.3,167.0 176.5,165.4 177.8,163.7 179.0,162.1 180.3,160.6 181.6,159.0 182.8,157.4 184.1,155.9 185.3,154.4 186.6,153.0 187.8,151.5 189.1,150.1 190.3,148.7 191.6,147.3 192.8,145.9 194.1,144.6 195.3,143.3 196.6,142.0 197.8,140.8 199.1,139.6 200.4,138.4 201.6,137.2 202.9,136.1 204.1,135.0 205.4,133.9 206.6,132.9 207.9,131.9 209.1,130.9 210.4,129.9 211.6,129.0 212.9,128.1 214.1,127.3 215.4,126.5 216.6,125.7 217.9,124.9 219.1,124.2 220.4,123.5 221.7,122.8 222.9,122.2 224.2,121.6 225.4,121.1 226.7,120.5 227.9,120.0 229.2,119.6 230.4,119.1 231.7,118.7 232.9,118.4 234.2,118.0 235.4,117.7 236.7,117.5 237.9,117.2 239.2,117.0 240.5,116.9 241.7,116.7 243.0,116.6 244.2,116.5 245.5,116.5 246.7,116.5 248.0,116.5 249.2,116.6 250.5,116.7 251.7,116.8 253.0,116.9 254.2,117.1 255.5,117.3 256.7,117.5 258.0,117.8 259.2,118.1 260.5,118.4 261.8,118.7 263.0,119.1 264.3,119.5 265.5,120.0 266.8,120.4 268.0,120.9 269.3,121.4 270.5,121.9 271.8,122.5 273.0,123.1 274.3,123.7 275.5,124.3 276.8,125.0 278.0,125.7 279.3,126.4 280.6,127.1 281.8,127.9 283.1,128.6 284.3,129.4 285.6,130.2 286.8,131.1 288.1,131.9 289.3,132.8 290.6,133.7 291.8,134.6 293.1,135.5 294.3,136.4 295.6,137.4 296.8,138.4 298.1,139.4 299.3,140.4 300.6,141.4 301.9,142.4 303.1,143.5 304.4,144.5 305.6,145.6 306.9,146.7 308.1,147.8 309.4,148.9 310.6,150.0 311.9,151.2 313.1,152.3 314.4,153.5 315.6,154.6 316.9,155.8 318.1,157.0 319.4,158.2 320.7,159.4 321.9,160.6 323.2,161.8 324.4,163.0 325.7,164.2 326.9,165.4 328.2,166.7 329.4,167.9 330.7,169.1 331.9,170.4 333.2,171.6 334.4,172.9 335.7,174.1 336.9,175.4 338.2,176.6 339.4,177.9 340.7,179.1 342.0,180.4 343.2,181.6 344.5,182.9 345.7,184.1 347.0,185.4 348.2,186.6 349.5,187.9 350.7,189.1 352.0,190.4 353.2,191.6 354.5,192.8 355.7,194.1 357.0,195.3 358.2,196.5 359.5,197.7 360.8,199.0 362.0,200.2 363.3,201.4 364.5,202.6 365.8,203.8 367.0,205.0 368.3,206.1 369.5,207.3 370.8,208.5 372.0,209.7 373.3,210.8 374.5,212.0 375.8,213.1 377.0,214.2 378.3,215.4 379.5,216.5 380.8,217.6 382.1,218.7 383.3,219.8 384.6,220.9 385.8,222.0 387.1,223.0 388.3,224.1 389.6,225.2 390.8,226.2 392.1,227.2 393.3,228.2 394.6,229.3 395.8,230.3 397.1,231.3 398.3,232.2 399.6,233.2 400.9,234.2 402.1,235.1 403.4,236.1 404.6,237.0 405.9,238.0 407.1,238.9 408.4,239.8 409.6,240.7 410.9,241.5 412.1,242.4 413.4,243.3 414.6,244.1 415.9,245.0 417.1,245.8 418.4,246.6 419.6,247.4 420.9,248.2 422.2,249.0 423.4,249.8 424.7,250.6 425.9,251.3 427.2,252.1 428.4,252.8 429.7,253.6 430.9,254.3 432.2,255.0 433.4,255.7 434.7,256.4 435.9,257.1 437.2,257.7 438.4,258.4 439.7,259.0 441.0,259.7 442.2,260.3 443.5,260.9 444.7,261.5 446.0,262.1 447.2,262.7 448.5,263.3 449.7,263.9 451.0,264.4 452.2,265.0 453.5,265.5 454.7,266.1 456.0,266.6 457.2,267.1 458.5,267.6 459.7,268.1 461.0,268.6 462.3,269.1 463.5,269.5 464.8,270.0 466.0,270.5 467.3,270.9 468.5,271.3 469.8,271.8 471.0,272.2 472.3,272.6 473.5,273.0 474.8,273.4 476.0,273.8 477.3,274.2 478.5,274.6 479.8,274.9 481.1,275.3 482.3,275.7 483.6,276.0 484.8,276.3 486.1,276.7 487.3,277.0 488.6,277.3 489.8,277.6 491.1,277.9 492.3,278.2 493.6,278.5 494.8,278.8 496.1,279.1 497.3,279.4 498.6,279.7 499.8,279.9 501.1,280.2 502.4,280.4 503.6,280.7 504.9,280.9 506.1,281.2 507.4,281.4 508.6,281.6 509.9,281.8 511.1,282.1 512.4,282.3 513.6,282.5 514.9,282.7 516.1,282.9 517.4,283.1 518.6,283.3 519.9,283.4 521.2,283.6 522.4,283.8 523.7,284.0 524.9,284.1 526.2,284.3 527.4,284.5 528.7,284.6 529.9,284.8 531.2,284.9 532.4,285.1 533.7,285.2 534.9,285.3 536.2,285.5 537.4,285.6 538.7,285.7 539.9,285.8 541.2,286.0 542.5,286.1 543.7,286.2 545.0,286.3 546.2,286.4 547.5,286.5 548.7,286.6 550.0,286.7 551.2,286.8 552.5,286.9 553.7,287.0 555.0,287.1 556.2,287.2 557.5,287.3 558.7,287.4 560.0,287.4" fill="none" stroke="var(--text-dim)" stroke-width="2" stroke-dasharray="6 4"/>
+  <polyline points="60.0,290.0 61.3,289.9 62.5,289.8 63.8,289.5 65.0,289.0 66.3,288.5 67.5,287.8 68.8,287.1 70.0,286.2 71.3,285.2 72.5,284.0 73.8,282.8 75.0,281.4 76.3,280.0 77.5,278.4 78.8,276.7 80.1,274.9 81.3,273.0 82.6,271.0 83.8,269.0 85.1,266.8 86.3,264.5 87.6,262.1 88.8,259.6 90.1,257.1 91.3,254.4 92.6,251.7 93.8,248.9 95.1,246.0 96.3,243.1 97.6,240.0 98.8,236.9 100.1,233.8 101.4,230.6 102.6,227.3 103.9,223.9 105.1,220.6 106.4,217.1 107.6,213.7 108.9,210.2 110.1,206.6 111.4,203.0 112.6,199.4 113.9,195.8 115.1,192.1 116.4,188.4 117.6,184.7 118.9,181.0 120.2,177.3 121.4,173.6 122.7,169.9 123.9,166.1 125.2,162.4 126.4,158.7 127.7,155.0 128.9,151.4 130.2,147.7 131.4,144.1 132.7,140.5 133.9,136.9 135.2,133.4 136.4,129.8 137.7,126.4 138.9,123.0 140.2,119.6 141.5,116.2 142.7,113.0 144.0,109.7 145.2,106.6 146.5,103.5 147.7,100.4 149.0,97.4 150.2,94.5 151.5,91.6 152.7,88.9 154.0,86.1 155.2,83.5 156.5,80.9 157.7,78.5 159.0,76.1 160.3,73.7 161.5,71.5 162.8,69.3 164.0,67.3 165.3,65.3 166.5,63.4 167.8,61.6 169.0,59.9 170.3,58.2 171.5,56.7 172.8,55.2 174.0,53.9 175.3,52.6 176.5,51.4 177.8,50.4 179.0,49.4 180.3,48.5 181.6,47.7 182.8,47.0 184.1,46.4 185.3,45.9 186.6,45.4 187.8,45.1 189.1,44.9 190.3,44.7 191.6,44.6 192.8,44.7 194.1,44.8 195.3,45.0 196.6,45.2 197.8,45.6 199.1,46.1 200.4,46.6 201.6,47.2 202.9,47.9 204.1,48.7 205.4,49.6 206.6,50.5 207.9,51.5 209.1,52.6 210.4,53.7 211.6,54.9 212.9,56.2 214.1,57.6 215.4,59.0 216.6,60.5 217.9,62.0 219.1,63.6 220.4,65.2 221.7,67.0 222.9,68.7 224.2,70.5 225.4,72.4 226.7,74.3 227.9,76.3 229.2,78.3 230.4,80.3 231.7,82.4 232.9,84.5 234.2,86.7 235.4,88.9 236.7,91.1 237.9,93.4 239.2,95.7 240.5,98.0 241.7,100.3 243.0,102.7 244.2,105.1 245.5,107.5 246.7,109.9 248.0,112.3 249.2,114.8 250.5,117.2 251.7,119.7 253.0,122.2 254.2,124.7 255.5,127.2 256.7,129.7 258.0,132.2 259.2,134.7 260.5,137.2 261.8,139.7 263.0,142.2 264.3,144.7 265.5,147.2 266.8,149.7 268.0,152.2 269.3,154.6 270.5,157.1 271.8,159.5 273.0,162.0 274.3,164.4 275.5,166.8 276.8,169.2 278.0,171.5 279.3,173.9 280.6,176.2 281.8,178.5 283.1,180.8 284.3,183.1 285.6,185.3 286.8,187.6 288.1,189.8 289.3,192.0 290.6,194.1 291.8,196.2 293.1,198.4 294.3,200.4 295.6,202.5 296.8,204.5 298.1,206.5 299.3,208.5 300.6,210.4 301.9,212.3 303.1,214.2 304.4,216.1 305.6,217.9 306.9,219.7 308.1,221.5 309.4,223.2 310.6,225.0 311.9,226.6 313.1,228.3 314.4,229.9 315.6,231.5 316.9,233.1 318.1,234.6 319.4,236.1 320.7,237.6 321.9,239.1 323.2,240.5 324.4,241.9 325.7,243.2 326.9,244.6 328.2,245.9 329.4,247.2 330.7,248.4 331.9,249.6 333.2,250.8 334.4,252.0 335.7,253.1 336.9,254.3 338.2,255.3 339.4,256.4 340.7,257.4 342.0,258.5 343.2,259.4 344.5,260.4 345.7,261.4 347.0,262.3 348.2,263.2 349.5,264.0 350.7,264.9 352.0,265.7 353.2,266.5 354.5,267.3 355.7,268.0 357.0,268.8 358.2,269.5 359.5,270.2 360.8,270.9 362.0,271.5 363.3,272.2 364.5,272.8 365.8,273.4 367.0,274.0 368.3,274.6 369.5,275.1 370.8,275.7 372.0,276.2 373.3,276.7 374.5,277.2 375.8,277.6 377.0,278.1 378.3,278.5 379.5,279.0 380.8,279.4 382.1,279.8 383.3,280.2 384.6,280.5 385.8,280.9 387.1,281.3 388.3,281.6 389.6,281.9 390.8,282.2 392.1,282.5 393.3,282.8 394.6,283.1 395.8,283.4 397.1,283.7 398.3,283.9 399.6,284.2 400.9,284.4 402.1,284.6 403.4,284.9 404.6,285.1 405.9,285.3 407.1,285.5 408.4,285.7 409.6,285.8 410.9,286.0 412.1,286.2 413.4,286.4 414.6,286.5 415.9,286.7 417.1,286.8 418.4,286.9 419.6,287.1 420.9,287.2 422.2,287.3 423.4,287.4 424.7,287.6 425.9,287.7 427.2,287.8 428.4,287.9 429.7,288.0 430.9,288.1 432.2,288.2 433.4,288.2 434.7,288.3 435.9,288.4 437.2,288.5 438.4,288.5 439.7,288.6 441.0,288.7 442.2,288.7 443.5,288.8 444.7,288.9 446.0,288.9 447.2,289.0 448.5,289.0 449.7,289.1 451.0,289.1 452.2,289.2 453.5,289.2 454.7,289.2 456.0,289.3 457.2,289.3 458.5,289.3 459.7,289.4 461.0,289.4 462.3,289.4 463.5,289.5 464.8,289.5 466.0,289.5 467.3,289.5 468.5,289.6 469.8,289.6 471.0,289.6 472.3,289.6 473.5,289.6 474.8,289.7 476.0,289.7 477.3,289.7 478.5,289.7 479.8,289.7 481.1,289.7 482.3,289.8 483.6,289.8 484.8,289.8 486.1,289.8 487.3,289.8 488.6,289.8 489.8,289.8 491.1,289.8 492.3,289.8 493.6,289.9 494.8,289.9 496.1,289.9 497.3,289.9 498.6,289.9 499.8,289.9 501.1,289.9 502.4,289.9 503.6,289.9 504.9,289.9 506.1,289.9 507.4,289.9 508.6,289.9 509.9,289.9 511.1,289.9 512.4,289.9 513.6,289.9 514.9,289.9 516.1,289.9 517.4,290.0 518.6,290.0 519.9,290.0 521.2,290.0 522.4,290.0 523.7,290.0 524.9,290.0 526.2,290.0 527.4,290.0 528.7,290.0 529.9,290.0 531.2,290.0 532.4,290.0 533.7,290.0 534.9,290.0 536.2,290.0 537.4,290.0 538.7,290.0 539.9,290.0 541.2,290.0 542.5,290.0 543.7,290.0 545.0,290.0 546.2,290.0 547.5,290.0 548.7,290.0 550.0,290.0 551.2,290.0 552.5,290.0 553.7,290.0 555.0,290.0 556.2,290.0 557.5,290.0 558.7,290.0 560.0,290.0" fill="none" stroke="var(--text)" stroke-width="2.2"/>
+  <g font-family="Inter, sans-serif" font-size="12" fill="var(--text)"><line x1="60.0" y1="290" x2="60.0" y2="295" stroke="var(--text)"/><text x="60.0" y="309" text-anchor="middle">0</text><line x1="185.0" y1="290" x2="185.0" y2="295" stroke="var(--text)"/><text x="185.0" y="309" text-anchor="middle">400</text><line x1="310.0" y1="290" x2="310.0" y2="295" stroke="var(--text)"/><text x="310.0" y="309" text-anchor="middle">800</text><line x1="435.0" y1="290" x2="435.0" y2="295" stroke="var(--text)"/><text x="435.0" y="309" text-anchor="middle">1200</text><line x1="560.0" y1="290" x2="560.0" y2="295" stroke="var(--text)"/><text x="560.0" y="309" text-anchor="middle">1600</text>
+    <text x="318" y="330" text-anchor="middle">speed v (m/s)</text>
+    <text x="50" y="24" text-anchor="end" font-style="italic">f(v)</text>
+    <text x="155.9" y="38.6" text-anchor="end">300 K</text>
+    <text x="341.2" y="169.7" fill="var(--text-dim)">600 K</text>
+  </g>
+  <g font-family="Inter, sans-serif" font-size="11" fill="var(--accent)" font-style="italic">
+    <text x="188.9" y="282" text-anchor="end">v<tspan font-size="8" dy="3">mp</tspan></text>
+    <text x="224.5" y="282">v<tspan font-size="8" dy="3">rms</tspan></text>
+  </g>
+</svg>
+<figcaption>Maxwell distribution for N₂ (computed). At 300 K (solid) the three dashed lines mark, left to right, \(v_{\text{mp}} = 422\), \(\langle v\rangle = 476\) and \(v_{\text{rms}} = 517\ \text{m/s}\). At 600 K (dashed) the curve is broader, lower and shifted to higher speeds; the area under each curve is 1.</figcaption>
+</figure>
+<div class="eq">
+<span class="label">Three characteristic speeds (always in this order)</span>
+\[ v_{\text{mp}} = \sqrt{\frac{2k_BT}{m}} \;\lt\; \langle v\rangle = \sqrt{\frac{8k_BT}{\pi m}} \;\lt\; v_{\text{rms}} = \sqrt{\frac{3k_BT}{m}} \]
+</div>
+<p>\(v_{\text{mp}}\) is the peak of the curve; the long tail at high speed pulls the mean and the rms above it.</p>
+<details><summary>Where the distribution comes from (sketch)</summary><div class="body">
+  <p>Each velocity component is independently Gaussian: \(f(v_x) \propto e^{-mv_x^2/2k_BT}\), so \(f(\vec v)\,d^3v = \left(\frac{m}{2\pi k_BT}\right)^{3/2}e^{-mv^2/2k_BT}\,d^3v\). Counting all velocity vectors with the same speed \(v\) means integrating over a spherical shell in velocity space, \(d^3v \to 4\pi v^2\,dv\). The peak follows from \(df/dv = 0\), giving \(v_{\text{mp}}\); \(\langle v\rangle\) and \(\langle v^2\rangle\) are standard Gaussian integrals.</p>
+</div></details>
+
+<h3 id="s2-6">2.6 &ensp;Response coefficients and the partial-derivative toolkit</h3>
+<p>For liquids and solids there is no simple equation of state. What we can measure instead is how the volume or pressure <em>responds</em> to small changes:</p>
+<div class="scroll-x">
+<table>
+  <tr><th>Coefficient</th><th>Definition</th><th>Meaning</th><th>Ideal gas</th></tr>
+  <tr><td>Expansion \(\alpha\)</td><td>\(\frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_P\)</td><td>fractional volume change per kelvin, fixed \(P\)</td><td>\(1/T\)</td></tr>
+  <tr><td>Pressure coefficient \(\beta\)</td><td>\(\frac{1}{P}\left(\frac{\partial P}{\partial T}\right)_V\)</td><td>fractional pressure change per kelvin, fixed \(V\)</td><td>\(1/T\)</td></tr>
+  <tr><td>Isothermal compressibility \(\kappa_T\)</td><td>\(-\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T\)</td><td>fractional volume decrease per unit pressure, fixed \(T\)</td><td>\(1/P\)</td></tr>
+</table>
+</div>
+<p>(The minus sign makes \(\kappa_T\) positive, since squeezing decreases volume.) Typical solids and liquids have \(\alpha \sim 10^{-4}\ \text{K}^{-1}\) and \(\kappa_T \sim 10^{-10}\ \text{Pa}^{-1}\). If they are roughly constant, the equation of state near a reference point is</p>
+<div class="eq">\[ V(T,P) \approx V_0\left[1 + \alpha(T - T_0) - \kappa_T(P - P_0)\right] \]</div>
+
+<h4>The partial-derivative toolkit</h4>
+<p>From here on, almost every calculation uses these three facts about a function \(f(x, y)\):</p>
+<div class="key-result">
+  <div class="kr-label">Toolkit</div>
+  <p>\[ \text{① Total differential:}\quad df = \left(\frac{\partial f}{\partial x}\right)_{\!y}dx + \left(\frac{\partial f}{\partial y}\right)_{\!x}dy \]
+  \[ \text{② Reciprocal:}\quad \left(\frac{\partial x}{\partial y}\right)_{\!z} = \frac{1}{(\partial y/\partial x)_z} \qquad \text{③ Cyclic:}\quad \left(\frac{\partial x}{\partial y}\right)_{\!z}\left(\frac{\partial y}{\partial z}\right)_{\!x}\left(\frac{\partial z}{\partial x}\right)_{\!y} = -1 \]</p>
+</div>
+<p>The cyclic relation (for three variables tied by one equation, like \(P, V, T\)) says the three response coefficients are not independent:</p>
+<div class="eq">\[ \left(\frac{\partial P}{\partial T}\right)_{\!V} = -\frac{(\partial V/\partial T)_P}{(\partial V/\partial P)_T} = \frac{\alpha}{\kappa_T} \qquad\Longleftrightarrow\qquad \alpha = \kappa_T\,\beta\,P \]</div>
+<p>Check with an ideal gas: \(\kappa_T\beta P = \frac1P\cdot\frac1T\cdot P = \frac1T = \alpha\). ✓</p>
+<div class="why">
+  <span class="tag">Why it matters</span>
+  <p>A fourth tool, "mixed second derivatives are equal", is what generates the Maxwell relations in Chapter 5. And \((\partial P/\partial T)_V = \alpha/\kappa_T\) reappears in \(C_P - C_V = TV\alpha^2/\kappa_T\). The habit to build now: <strong>write the total differential, then read off or eliminate the coefficient you need</strong>.</p>
+</div>
+
+<div class="ex">
+  <span class="tag">Example 1 · Heating water in a sealed, rigid bottle</span>
+  <p>A rigid bottle is completely filled with water (\(\alpha = 2.1\times10^{-4}\ \text{K}^{-1}\), \(\kappa_T = 4.6\times10^{-10}\ \text{Pa}^{-1}\)). By how much does the pressure rise per kelvin of heating?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Fixed volume, so we need \((\partial P/\partial T)_V = \alpha/\kappa_T = 2.1\times10^{-4}/4.6\times10^{-10} \approx 4.6\times10^{5}\ \text{Pa/K}\), about 4.5 atm per kelvin. That is why completely full sealed containers burst when warmed.</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 2 · A wire clamped at both ends (Tut 1)</span>
+  <p>A wire of length \(L\), cross-section \(A\), tension \(\mathcal F\). Define \(\alpha_1 = \frac1L(\partial L/\partial T)_{\mathcal F}\) and Young's modulus \(E = \frac{L}{A}(\partial\mathcal F/\partial L)_T\), both depending only on \(T\). The ends are fixed and the temperature falls from \(T_1\) to \(T_2\). Find \(\Delta\mathcal F\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Fixed length, so we need \((\partial\mathcal F/\partial T)_L\). Cyclic relation for \(\mathcal F, L, T\):</p>
+    <p>\[ \left(\frac{\partial\mathcal F}{\partial T}\right)_{\!L} = -\left(\frac{\partial\mathcal F}{\partial L}\right)_{\!T}\left(\frac{\partial L}{\partial T}\right)_{\!\mathcal F} = -\frac{EA}{L}\cdot\alpha_1L = -EA\alpha_1 \]</p>
+    <p>\[ \Delta\mathcal F = -\int_{T_1}^{T_2}EA\alpha_1\,dT \approx EA\alpha_1(T_1 - T_2) \gt 0 \]</p>
+    <p>Cooling a clamped wire increases its tension (it "wants" to shrink but can't).</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 3 · 2021 midterm Q1</span>
+  <p>Show that in a quasi-static process \(dP = \kappa\left(-\frac{dV}{V} + \alpha_V\,dT\right)\), where \(\kappa = -V(\partial P/\partial V)_T\) and \(\alpha_V = \frac1V(\partial V/\partial T)_P\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Total differential of \(P(V,T)\): \(dP = (\partial P/\partial V)_T\,dV + (\partial P/\partial T)_V\,dT\).</p>
+    <p>First coefficient: \((\partial P/\partial V)_T = -\kappa/V\) by definition of \(\kappa\).</p>
+    <p>Second: cyclic relation, \((\partial P/\partial T)_V = -(\partial P/\partial V)_T(\partial V/\partial T)_P = (\kappa/V)(V\alpha_V) = \kappa\alpha_V\).</p>
+    <p>So \(dP = -\kappa\,dV/V + \kappa\alpha_V\,dT\). ∎ (Note \(\kappa = 1/\kappa_T\) is the bulk modulus.)</p>
+  </div></details>
+</div>
+
+<div class="card">
+  <span class="tag">Chapter 2 formula card</span>
+  <div class="scroll-x"><table>
+    <tr><th>Topic</th><th>Formula</th></tr>
+    <tr><td>Ideal gas</td><td>\(PV = nRT = Nk_BT\); \(\rho = PM/RT\)</td></tr>
+    <tr><td>Van der Waals</td><td>\((P + an^2/V^2)(V - nb) = nRT\)</td></tr>
+    <tr><td>Kinetic theory</td><td>\(PV = \tfrac13Nm\langle v^2\rangle = \tfrac23K\)</td></tr>
+    <tr><td>Equipartition</td><td>\(\tfrac12k_BT\) per quadratic term; \(U = \tfrac f2nRT\) (\(f = 3\) mono, 5 diatomic)</td></tr>
+    <tr><td>Speeds</td><td>\(v_{\text{mp}} = \sqrt{2k_BT/m} \lt \langle v\rangle = \sqrt{8k_BT/\pi m} \lt v_{\text{rms}} = \sqrt{3k_BT/m}\)</td></tr>
+    <tr><td>Barometric</td><td>\(P = P_0e^{-Mgz/RT}\)</td></tr>
+    <tr><td>Response</td><td>\(\alpha = \frac1V(\partial V/\partial T)_P,\ \kappa_T = -\frac1V(\partial V/\partial P)_T,\ \beta = \frac1P(\partial P/\partial T)_V\)</td></tr>
+    <tr><td>Cyclic</td><td>\((\partial P/\partial T)_V = \alpha/\kappa_T\); \(\alpha = \kappa_T\beta P\)</td></tr>
+  </table></div>
+</div>
+</section>
+
+<!-- CHAPTER 3 -->
+<section class="chapter" id="ch3">
+<div class="chapter-num">Chapter 3</div>
+<h2>Work, Heat and the First Law</h2>
+
+<div class="intro">
+  <span class="tag">What this chapter does</span>
+  <p>The First Law is energy bookkeeping: the energy of a system changes only by work done on it or heat put into it. The physics is simple; the skill is <strong>applying it to processes</strong>: computing \(W\), \(Q\) and \(\Delta U\) for each step of a process or an engine cycle. This chapter builds that toolkit.</p>
+  <span class="tag" style="margin-top:12px">After this chapter you should be able to</span>
+  <ul>
+    <li>use \(\Delta U = W + Q\) with the right sign conventions, and compute work for quasi-static and sudden processes;</li>
+    <li>fill in \(W\), \(Q\), \(\Delta U\) for isothermal, isochoric, isobaric and adiabatic steps of an ideal gas;</li>
+    <li>use the adiabatic relations, and spot when they <em>don't</em> apply;</li>
+    <li>find the efficiency of any cycle built from these steps (Carnot, Otto, Diesel, Joule).</li>
+  </ul>
+</div>
+
+<h3 id="s3-1">3.1 &ensp;Internal energy and the First Law</h3>
+<p>Experiments show that if you take a thermally insulated system from state 1 to state 2, the work needed is always the same, whether you stir it, compress it or pass a current through it. A quantity whose change depends only on the end states is a state function; this one is the <strong>internal energy \(U\)</strong>. If heat can also flow, the same change of state can be produced by any mix of work and heat:</p>
+<div class="key-result">
+  <div class="kr-label">First Law of Thermodynamics</div>
+  <p>\[ \Delta U = W + Q, \qquad dU = \text{đ}W + \text{đ}Q \]</p>
+  <p>\(W\) = work done <strong>on</strong> the system, \(Q\) = heat put <strong>into</strong> the system.</p>
+</div>
+<div class="remark"><strong>Sign conventions.</strong> This course uses "work done <em>on</em> the system". Some textbooks use work done <em>by</em> the system and write \(\Delta U = Q - W\). Before plugging into any formula, decide whose work it is. In engines we usually quote the work the engine delivers, which is \(-W\).</div>
+<p>\(U\) is a state function; \(W\) and \(Q\) are not. The same \(\Delta U\) can be reached with lots of work and little heat or the other way round, which is why small amounts of them are written \(\text{đ}W\), \(\text{đ}Q\).</p>
+
+<h3 id="s3-2">3.2 &ensp;Work done on a gas</h3>
+<p>Push a piston of area \(A\) in by \(dx\) against a gas at pressure \(P\): the work done on the gas is \(PA\,dx = -P\,dV\) (volume decreases, \(dV \lt 0\), work done on the gas is positive).</p>
+<div class="key-result">
+  <div class="kr-label">Quasi-static work</div>
+  <p>\[ \text{đ}W = -P\,dV, \qquad W = -\int_{V_1}^{V_2}P\,dV \]</p>
+</div>
+<p>On a \(P\)–\(V\) diagram, \(|W|\) is the area under the path. Different paths between the same two states enclose different areas, which is another way of seeing that \(W\) depends on the path.</p>
+<p><strong>Sudden processes.</strong> If the gas is not in equilibrium (a weight dropped onto a piston, a piston released), its own pressure isn't defined during the process and \(-\int P\,dV\) can't be used. But if the <em>external</em> pressure is constant, the work done on the gas is simply</p>
+<div class="eq">\[ W = -P_{\text{ext}}\,\Delta V \]</div>
+<div class="ex">
+  <span class="tag">Example · Adding weights one at a time (HW 1)</span>
+  <p>An ideal gas in a cylinder is kept at constant temperature by a reservoir. Initially \(P_1 = 1\ \text{atm}\), \(V_1\). Three equal weights are placed on the piston one at a time; after the first, the gas settles at \(V_2 = 0.8V_1\). (i) Find each equilibrium state. (ii) Total work done on the gas. (iii) Work when the weights are removed one at a time. Compare with a reversible isothermal compression.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p><b>States.</b> Isothermal equilibrium: \(PV = P_1V_1\). After weight 1, \(P = P_1V_1/(0.8V_1) = 1.25P_1\), so each weight adds \(0.25P_1\). After 2: \(1.5P_1\), \(V = V_1/1.5 = 0.667V_1\). After 3: \(1.75P_1\), \(V = 0.571V_1\).</p>
+    <p><b>Adding weights.</b> During each step the external pressure is the <em>new</em> pressure (constant), so \(W = -P_{\text{ext}}\Delta V\):</p>
+    <p>\[ W = P_1V_1\left[1.25(1 - 0.8) + 1.5(0.8 - 0.667) + 1.75(0.667 - 0.571)\right] \approx 0.617\,P_1V_1 \]</p>
+    <p><b>Removing weights.</b> Now each step expands against the <em>lower</em> pressure: \(W' = -P_1V_1[1.5(0.667 - 0.571) + 1.25(0.8 - 0.667) + 1.0(1 - 0.8)] \approx -0.510\,P_1V_1\).</p>
+    <p><b>Compare.</b> Reversible isothermal compression from \(V_1\) to \(V_1/1.75\) needs \(W = P_1V_1\ln 1.75 \approx 0.560\,P_1V_1\). Compressing in jumps costs more work (0.617); expanding in jumps gets less back (0.510). The difference is lost to irreversibility, and \(|W| \ne |W'|\).</p>
+  </div></details>
+</div>
+
+<h3 id="s3-3">3.3 &ensp;Heat capacity and enthalpy</h3>
+<p>How much heat it takes to warm something by 1 K depends on what else is happening, so there are two heat capacities:</p>
+<ul>
+  <li><strong>Constant volume:</strong> no work is done, so all the heat goes into \(U\): \(C_V = (\partial U/\partial T)_V\).</li>
+  <li><strong>Constant pressure:</strong> the system expands and does work on the surroundings, so more heat is needed. The bookkeeping is neat if we define the <strong>enthalpy</strong> \(H = U + PV\): at constant \(P\), \(\text{đ}Q = dU + P\,dV = d(U + PV) = dH\).</li>
+</ul>
+<div class="key-result">
+  <div class="kr-label">Heat capacities and enthalpy</div>
+  <p>\[ C_V = \left(\frac{\partial U}{\partial T}\right)_{\!V}, \qquad C_P = \left(\frac{\partial H}{\partial T}\right)_{\!P}, \qquad H = U + PV, \qquad Q_P = \Delta H \]</p>
+</div>
+<p>For an ideal gas, \(U = \tfrac f2nRT\) and \(H = U + nRT\) depend only on \(T\), so</p>
+<div class="key-result">
+  <div class="kr-label">Ideal gas</div>
+  <p>\[ C_P - C_V = nR, \qquad \gamma \equiv \frac{C_P}{C_V} = \frac{f+2}{f}, \qquad C_V = \frac{nR}{\gamma - 1}, \quad C_P = \frac{\gamma nR}{\gamma - 1} \]</p>
+</div>
+<p>Monatomic: \(c_V = \tfrac32R\), \(\gamma = 5/3\). Diatomic (air): \(c_V = \tfrac52R\), \(\gamma = 7/5\).</p>
+<details><summary>General result: \(C_P - C_V\) for any substance</summary><div class="body">
+  <p>Write \(U(T,V)\): \(dU = C_V\,dT + (\partial U/\partial V)_T\,dV\). Then \(\text{đ}Q = dU + P\,dV = C_V\,dT + [(\partial U/\partial V)_T + P]\,dV\). Divide by \(dT\) at constant \(P\):</p>
+  <p>\[ C_P - C_V = \left(\frac{\partial V}{\partial T}\right)_{\!P}\left[\left(\frac{\partial U}{\partial V}\right)_{\!T} + P\right] \]</p>
+  <p>For an ideal gas \((\partial U/\partial V)_T = 0\) and \((\partial V/\partial T)_P = nR/P\), giving \(nR\). Chapter 5 turns this into the more useful \(C_P - C_V = TV\alpha^2/\kappa_T\).</p>
+</div></details>
+
+<h3 id="s3-4">3.4 &ensp;The ideal-gas process table</h3>
+<p>Most problems break into steps of four basic types. For an ideal gas, everything follows from \(PV = nRT\), \(\Delta U = C_V\Delta T\) (always, for an ideal gas) and the First Law:</p>
+<div class="scroll-x">
+<table>
+  <tr><th>Process</th><th>\(W\) (on gas)</th><th>\(Q\) (into gas)</th><th>\(\Delta U\)</th></tr>
+  <tr><td>Isothermal (\(T\) const)</td><td>\(-nRT\ln\frac{V_2}{V_1}\)</td><td>\(+nRT\ln\frac{V_2}{V_1}\)</td><td>0</td></tr>
+  <tr><td>Isochoric (\(V\) const)</td><td>0</td><td>\(C_V\Delta T\)</td><td>\(C_V\Delta T\)</td></tr>
+  <tr><td>Isobaric (\(P\) const)</td><td>\(-P\Delta V = -nR\Delta T\)</td><td>\(C_P\Delta T\)</td><td>\(C_V\Delta T\)</td></tr>
+  <tr><td>Adiabatic, quasi-static</td><td>\(C_V\Delta T = \frac{P_2V_2 - P_1V_1}{\gamma - 1}\)</td><td>0</td><td>\(C_V\Delta T\)</td></tr>
+  <tr><td>Free expansion</td><td>0</td><td>0</td><td>0</td></tr>
+</table>
+</div>
+<div class="remark"><strong>How to use it.</strong> Fill in whichever column is easiest first, then get the third from \(\Delta U = W + Q\). For instance in an isobaric step, \(Q = C_P\Delta T\) and \(\Delta U = C_V\Delta T\), so \(W = \Delta U - Q = -nR\Delta T\).</div>
+
+<h3 id="s3-5">3.5 &ensp;Adiabatic processes</h3>
+<p>In a quasi-static adiabatic process (\(\text{đ}Q = 0\)), the work done on the gas all goes into \(U\): \(C_V\,dT = -P\,dV\). Compress a gas without letting heat out and it heats up; let it expand and it cools. For an ideal gas this integrates to:</p>
+<div class="key-result">
+  <div class="kr-label">Adiabatic relations (ideal gas, quasi-static)</div>
+  <p>\[ PV^\gamma = \text{const}, \qquad TV^{\gamma-1} = \text{const}, \qquad TP^{(1-\gamma)/\gamma} = \text{const} \]</p>
+</div>
+<p>Useful forms: \(T_2 = T_1(V_1/V_2)^{\gamma-1}\) and \(T_2 = T_1(P_2/P_1)^{(\gamma-1)/\gamma}\). On a \(P\)–\(V\) diagram an adiabat is steeper than an isotherm (slope \(-\gamma P/V\) vs \(-P/V\)): during compression the temperature rises too, adding to the pressure rise. Equivalently, a gas is harder to compress adiabatically:</p>
+<div class="eq">\[ \frac{\kappa_T}{\kappa_S} = \gamma \gt 1, \qquad \kappa_S = -\frac1V\left(\frac{\partial V}{\partial P}\right)_{\!S} \]</div>
+<details><summary>Proof: \(PV^\gamma = \text{const}\)</summary><div class="body">
+  <p>\(C_V\,dT = -P\,dV\). From \(PV = nRT\), \(dT = (P\,dV + V\,dP)/nR\). Substitute and use \(nR = C_P - C_V\):</p>
+  <p>\[ C_V(P\,dV + V\,dP) = -(C_P - C_V)P\,dV \;\Rightarrow\; C_PP\,dV + C_VV\,dP = 0 \;\Rightarrow\; \gamma\frac{dV}{V} + \frac{dP}{P} = 0 \]</p>
+  <p>Integrate: \(\gamma\ln V + \ln P = \text{const}\), i.e. \(PV^\gamma = \text{const}\). Substituting \(P = nRT/V\) gives the other two forms.</p>
+</div></details>
+<div class="remark"><strong>Watch out: adiabatic ≠ \(PV^\gamma\).</strong> \(PV^\gamma = \text{const}\) needs the process to be <em>quasi-static</em>. A free expansion is adiabatic but follows no curve at all (and an ideal gas's \(T\) doesn't change). A piston that is suddenly released and oscillates before settling is adiabatic but not quasi-static. Use energy conservation, not \(PV^\gamma\), as in Example 4 below.</div>
+
+<div class="ex">
+  <span class="tag">Example 1 · Pumping a bicycle tyre (Tut 2)</span>
+  <p>1 L of air at 1 atm and 300 K is compressed adiabatically to 7 atm (\(\gamma = 1.4\)). Find (i) the final volume, (ii) the work done, (iii) the final temperature.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>(i) \(V_2 = V_1(P_1/P_2)^{1/\gamma} = 7^{-1/1.4} = 7^{-5/7} \approx 0.249\ \text{L}\).</p>
+    <p>(ii) \(W_{\text{on}} = \frac{P_2V_2 - P_1V_1}{\gamma - 1} = \frac{(7)(0.249) - 1}{0.4}\ \text{atm·L} \approx 1.86\ \text{atm·L} \approx 188\ \text{J}\).</p>
+    <p>(iii) \(T_2 = T_1(P_2/P_1)^{(\gamma-1)/\gamma} = 300\times7^{2/7} \approx 523\ \text{K}\). That is why a pump gets hot.</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 2 · Why it gets colder with altitude (Tut 2)</span>
+  <p>Rising air expands adiabatically as the pressure drops. (i) Show \(dT/dP = \frac{\gamma-1}{\gamma}\frac TP\). (ii) Combine with the barometric equation to find \(dT/dz\) for air.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>(i) Differentiate \(TP^{(1-\gamma)/\gamma} = \text{const}\) logarithmically: \(\frac{dT}{T} + \frac{1-\gamma}{\gamma}\frac{dP}{P} = 0\).</p>
+    <p>(ii) Barometric: \(dP/dz = -MgP/(RT)\). Chain rule:</p>
+    <p>\[ \frac{dT}{dz} = \frac{dT}{dP}\frac{dP}{dz} = -\frac{\gamma-1}{\gamma}\frac{Mg}{R} = -\frac{0.4}{1.4}\cdot\frac{0.029\times9.8}{8.314} \approx -9.8\ \text{K/km} \]</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 3 · Polytropic process \(PV^m = C\) (HW 1)</span>
+  <p>An ideal gas goes from \((P_1,V_1)\) to \((P_2,V_2)\) along \(PV^m = C\). (i) Find the work done by the gas. (ii) Show its heat capacity along this path is \(C_m = \frac{m-\gamma}{m-1}C_V\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>(i) \(\int P\,dV = C\int V^{-m}dV = \frac{C(V_2^{1-m} - V_1^{1-m})}{1-m} = \frac{P_1V_1 - P_2V_2}{m - 1}\) (using \(CV^{1-m} = PV\)).</p>
+    <p>(ii) \(\text{đ}Q = C_V\,dT + P\,dV\). Along the path \(TV^{m-1} = \text{const}\), so \(dV/V = -dT/[(m-1)T]\) and \(P\,dV = nRT\,dV/V = -nR\,dT/(m-1)\). Hence \(C_m = C_V - \frac{nR}{m-1} = C_V - \frac{(\gamma-1)C_V}{m-1} = \frac{m-\gamma}{m-1}C_V\).</p>
+    <p>Check: \(m = 0\) (isobaric) gives \(\gamma C_V = C_P\) ✓; \(m = \gamma\) (adiabatic) gives 0 ✓; \(m = 1\) (isothermal) gives \(\infty\) ✓ (heat flows with no temperature change).</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 4 · A heavy piston released (2021 midterm Q4)</span>
+  <p>\(n\) mol of ideal gas (\(V_0\), \(T_0\)) is in an insulated vertical cylinder under a piston of mass \(M\), area \(A\), with atmospheric pressure \(p_a\) above. The piston is released, oscillates, and comes to rest. Find the final \(T\) and \(V\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Not quasi-static (the piston oscillates), so <b>don't</b> use \(PV^\gamma\). Use energy. The final pressure balances the piston: \(P_{\text{eq}} = p_a + Mg/A\). The atmosphere and gravity together act like a constant external pressure \(P_{\text{eq}}\), and the piston's kinetic energy is eventually dissipated into the gas. So the work done on the gas is \(-P_{\text{eq}}(V_f - V_0)\) and \(Q = 0\):</p>
+    <p>\[ nc_V(T_f - T_0) = -P_{\text{eq}}(V_f - V_0), \qquad P_{\text{eq}}V_f = nRT_f \]</p>
+    <p>Substitute \(P_{\text{eq}}V_f = nRT_f\) and use \(c_V + R = c_P\):</p>
+    <p>\[ T_f = \frac{c_VT_0 + P_{\text{eq}}V_0/n}{c_P}, \qquad V_f = \frac{nRT_f}{P_{\text{eq}}} \]</p>
+  </div></details>
+</div>
+
+<h3 id="s3-6">3.6 &ensp;Free expansion and throttling</h3>
+<p>Two processes in which a gas expands with no heat exchanged, each conserving a different energy-like quantity:</p>
+<div class="scroll-x">
+<table>
+  <tr><th>Process</th><th>Setup</th><th>Conserved</th><th>Coefficient</th><th>Ideal gas</th></tr>
+  <tr><td>Joule (free expansion)</td><td>gas rushes into a vacuum in a rigid, insulated box: \(W = Q = 0\)</td><td>\(U\)</td><td>\(\lambda = (\partial T/\partial V)_U\)</td><td>\(\lambda = 0\)</td></tr>
+  <tr><td>Joule–Thomson (throttling)</td><td>gas pushed slowly through a porous plug from \(P_1\) to \(P_2\), insulated</td><td>\(H\)</td><td>\(\mu = (\partial T/\partial P)_H\)</td><td>\(\mu = 0\)</td></tr>
+</table>
+</div>
+<p>For an ideal gas \(U\) and \(H\) depend only on \(T\), so neither process changes its temperature. Real gases usually cool in a free expansion: as the molecules spread out they do work against their mutual attraction. In throttling they can cool (\(\mu \gt 0\), used in refrigerators and gas liquefaction) or warm (\(\mu \lt 0\)), depending on \(T\) and \(P\). Chapter 5 gives formulas for both.</p>
+<details><summary>Why throttling conserves \(H\)</summary><div class="body">
+  <p>Follow a fixed amount of gas through the plug. On the high-pressure side, the gas behind it pushes it in with work \(P_1V_1\); on the low-pressure side it must push the gas ahead out of the way, doing work \(P_2V_2\). No heat flows, so \(U_2 - U_1 = P_1V_1 - P_2V_2\), i.e. \(U_1 + P_1V_1 = U_2 + P_2V_2\): \(H_1 = H_2\). Relations: \((\partial U/\partial V)_T = -\lambda C_V\) and \((\partial H/\partial P)_T = -\mu C_P\).</p>
+</div></details>
+
+<h3 id="s3-7">3.7 &ensp;Heat engines and the Carnot cycle</h3>
+<p>A <strong>heat engine</strong> runs in a cycle: it absorbs heat \(Q_H\) from a hot reservoir, delivers work \(W\), and dumps heat \(Q_C\) into a cold reservoir. Over a full cycle the working gas returns to its starting state, so \(\Delta U = 0\) and \(W = Q_H - Q_C\) (all quantities as magnitudes). A <strong>refrigerator</strong> runs the same cycle backwards, using work to pump heat from cold to hot.</p>
+<div class="key-result">
+  <div class="kr-label">Figures of merit</div>
+  <p>\[ \eta = \frac{W}{Q_H} = 1 - \frac{Q_C}{Q_H} \quad(\text{engine}), \qquad \text{COP} = \frac{Q_C}{W} = \frac{Q_C}{Q_H - Q_C} \quad(\text{refrigerator}) \]</p>
+</div>
+<p>The <strong>Carnot cycle</strong> is the ideal reversible engine: two isotherms joined by two adiabats.</p>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="Carnot cycle on a pressure-volume diagram: isothermal expansion at T_H, adiabatic expansion, isothermal compression at T_C, adiabatic compression; the enclosed area is the net work" style="width:100%;max-width:600px;display:block;margin:12px auto">
+  <path d="M133.2,49.1 L135.2,52.1 L137.2,55.0 L139.2,57.9 L141.2,60.7 L143.2,63.4 L145.2,66.1 L147.2,68.7 L149.2,71.2 L151.2,73.7 L153.2,76.2 L155.2,78.5 L157.2,80.9 L159.2,83.1 L161.2,85.4 L163.2,87.5 L165.2,89.7 L167.2,91.8 L169.2,93.8 L171.2,95.8 L173.2,97.8 L175.2,99.7 L177.2,101.6 L179.2,103.4 L181.2,105.2 L183.2,107.0 L185.2,108.7 L187.2,110.5 L189.2,112.1 L191.2,113.8 L193.3,115.4 L195.3,117.0 L197.3,118.5 L199.3,120.1 L201.3,121.6 L203.3,123.1 L205.3,124.5 L207.3,125.9 L209.3,127.3 L211.3,128.7 L213.3,130.1 L215.3,131.4 L217.3,132.7 L219.3,134.0 L221.3,135.3 L223.3,136.5 L225.3,137.7 L227.3,139.0 L229.3,140.1 L231.3,141.3 L233.3,142.5 L235.3,143.6 L237.3,144.7 L239.3,145.8 L241.3,146.9 L243.3,148.0 L245.3,149.0 L247.3,150.1 L249.3,151.1 L251.3,152.1 L253.3,153.1 L255.3,154.1 L257.3,155.0 L259.3,156.0 L261.3,156.9 L263.3,157.8 L265.3,158.7 L267.3,159.6 L269.3,160.5 L271.3,161.4 L273.3,162.3 L275.3,163.1 L277.3,164.0 L279.3,164.8 L281.3,165.6 L283.3,166.4 L285.3,167.2 L287.3,168.0 L289.3,168.8 L291.3,169.5 L291.3,169.5 L293.4,170.9 L295.6,172.2 L297.8,173.5 L299.9,174.8 L302.1,176.1 L304.2,177.3 L306.4,178.6 L308.6,179.8 L310.7,180.9 L312.9,182.1 L315.0,183.2 L317.2,184.4 L319.4,185.5 L321.5,186.6 L323.7,187.6 L325.8,188.7 L328.0,189.7 L330.2,190.7 L332.3,191.7 L334.5,192.7 L336.6,193.7 L338.8,194.6 L341.0,195.5 L343.1,196.5 L345.3,197.4 L347.4,198.3 L349.6,199.2 L351.8,200.0 L353.9,200.9 L356.1,201.7 L358.2,202.5 L360.4,203.4 L362.5,204.2 L364.7,205.0 L366.9,205.7 L369.0,206.5 L371.2,207.3 L373.3,208.0 L375.5,208.7 L377.7,209.5 L379.8,210.2 L382.0,210.9 L384.1,211.6 L386.3,212.3 L388.5,212.9 L390.6,213.6 L392.8,214.3 L394.9,214.9 L397.1,215.6 L399.3,216.2 L401.4,216.8 L403.6,217.4 L405.7,218.0 L407.9,218.6 L410.1,219.2 L412.2,219.8 L414.4,220.4 L416.5,220.9 L418.7,221.5 L420.8,222.0 L423.0,222.6 L425.2,223.1 L427.3,223.7 L429.5,224.2 L431.6,224.7 L433.8,225.2 L436.0,225.7 L438.1,226.2 L440.3,226.7 L442.4,227.2 L444.6,227.7 L446.8,228.2 L448.9,228.6 L451.1,229.1 L453.2,229.5 L455.4,230.0 L457.6,230.4 L459.7,230.9 L461.9,231.3 L461.9,231.3 L458.8,230.9 L455.7,230.6 L452.6,230.2 L449.6,229.8 L446.5,229.4 L443.4,229.0 L440.3,228.6 L437.2,228.2 L434.1,227.8 L431.1,227.4 L428.0,226.9 L424.9,226.5 L421.8,226.1 L418.7,225.6 L415.7,225.2 L412.6,224.7 L409.5,224.2 L406.4,223.8 L403.3,223.3 L400.3,222.8 L397.2,222.3 L394.1,221.8 L391.0,221.3 L387.9,220.8 L384.9,220.3 L381.8,219.8 L378.7,219.2 L375.6,218.7 L372.5,218.1 L369.5,217.6 L366.4,217.0 L363.3,216.4 L360.2,215.8 L357.1,215.2 L354.1,214.6 L351.0,214.0 L347.9,213.4 L344.8,212.7 L341.7,212.1 L338.7,211.4 L335.6,210.8 L332.5,210.1 L329.4,209.4 L326.3,208.7 L323.3,208.0 L320.2,207.2 L317.1,206.5 L314.0,205.7 L310.9,204.9 L307.9,204.2 L304.8,203.4 L301.7,202.5 L298.6,201.7 L295.5,200.9 L292.4,200.0 L289.4,199.1 L286.3,198.2 L283.2,197.3 L280.1,196.4 L277.0,195.4 L274.0,194.4 L270.9,193.4 L267.8,192.4 L264.7,191.4 L261.6,190.3 L258.6,189.2 L255.5,188.1 L252.4,187.0 L249.3,185.8 L246.2,184.6 L243.2,183.4 L240.1,182.2 L237.0,180.9 L233.9,179.6 L230.8,178.3 L227.8,176.9 L224.7,175.5 L221.6,174.1 L218.5,172.6 L218.5,172.6 L217.4,171.8 L216.4,170.9 L215.3,170.0 L214.2,169.1 L213.1,168.2 L212.0,167.2 L211.0,166.3 L209.9,165.4 L208.8,164.4 L207.7,163.4 L206.6,162.4 L205.6,161.4 L204.5,160.4 L203.4,159.4 L202.3,158.4 L201.2,157.3 L200.2,156.3 L199.1,155.2 L198.0,154.1 L196.9,153.0 L195.8,151.9 L194.8,150.7 L193.7,149.6 L192.6,148.4 L191.5,147.2 L190.4,146.0 L189.4,144.8 L188.3,143.6 L187.2,142.4 L186.1,141.1 L185.0,139.8 L184.0,138.5 L182.9,137.2 L181.8,135.9 L180.7,134.5 L179.7,133.2 L178.6,131.8 L177.5,130.4 L176.4,128.9 L175.3,127.5 L174.3,126.0 L173.2,124.5 L172.1,123.0 L171.0,121.5 L169.9,119.9 L168.9,118.3 L167.8,116.7 L166.7,115.1 L165.6,113.4 L164.5,111.7 L163.5,110.0 L162.4,108.3 L161.3,106.5 L160.2,104.8 L159.1,102.9 L158.1,101.1 L157.0,99.2 L155.9,97.3 L154.8,95.4 L153.7,93.4 L152.7,91.4 L151.6,89.4 L150.5,87.3 L149.4,85.2 L148.3,83.1 L147.3,80.9 L146.2,78.7 L145.1,76.5 L144.0,74.2 L142.9,71.9 L141.9,69.5 L140.8,67.1 L139.7,64.7 L138.6,62.2 L137.5,59.7 L136.5,57.1 L135.4,54.5 L134.3,51.8 L133.2,49.1 Z" fill="var(--accent)" fill-opacity="0.13" stroke="none"/>
+  <line x1="70" y1="290" x2="575" y2="290" stroke="var(--text)" stroke-width="1.2"/>
+  <line x1="70" y1="290" x2="70" y2="15" stroke="var(--text)" stroke-width="1.2"/>
+  <polyline points="120.6,28.1 125.9,37.5 131.3,46.1 136.7,54.2 142.0,61.8 147.4,68.9 152.8,75.6 158.1,81.9 163.5,87.8 168.8,93.4 174.2,98.7 179.6,103.7 184.9,108.5 190.3,113.0 195.7,117.3 201.0,121.4 206.4,125.3 211.7,129.0 217.1,132.6 222.5,136.0 227.8,139.3 233.2,142.4 238.5,145.4 243.9,148.3 249.3,151.1 254.6,153.7 260.0,156.3 265.4,158.8 270.7,161.2 276.1,163.5 281.4,165.7 286.8,167.8 292.2,169.9 297.5,171.9 302.9,173.8 308.3,175.7 313.6,177.5 319.0,179.2 324.3,180.9 329.7,182.6 335.1,184.2 340.4,185.8 345.8,187.3 351.2,188.7 356.5,190.1 361.9,191.5 367.2,192.9 372.6,194.2 378.0,195.5 383.3,196.7 388.7,197.9 394.1,199.1 399.4,200.2 404.8,201.4 410.1,202.5 415.5,203.5 420.9,204.6 426.2,205.6 431.6,206.6 436.9,207.5 442.3,208.5 447.7,209.4 453.0,210.3 458.4,211.2 463.8,212.1 469.1,212.9 474.5,213.7 479.8,214.5 485.2,215.3 490.6,216.1 495.9,216.9 501.3,217.6 506.7,218.4 512.0,219.1 517.4,219.8 522.7,220.5 528.1,221.1 533.5,221.8 538.8,222.4 544.2,223.1" fill="none" stroke="var(--border)" stroke-width="1"/><polyline points="84.2,28.1 90.0,41.4 95.9,53.4 101.7,64.3 107.5,74.2 113.3,83.3 119.2,91.7 125.0,99.4 130.8,106.5 136.6,113.1 142.4,119.3 148.3,125.0 154.1,130.4 159.9,135.4 165.7,140.1 171.6,144.6 177.4,148.8 183.2,152.7 189.0,156.5 194.9,160.0 200.7,163.4 206.5,166.5 212.3,169.6 218.1,172.5 224.0,175.2 229.8,177.8 235.6,180.3 241.4,182.7 247.3,185.0 253.1,187.2 258.9,189.3 264.7,191.4 270.5,193.3 276.4,195.2 282.2,197.0 288.0,198.7 293.8,200.4 299.7,202.0 305.5,203.5 311.3,205.0 317.1,206.5 322.9,207.9 328.8,209.2 334.6,210.5 340.4,211.8 346.2,213.0 352.1,214.2 357.9,215.4 363.7,216.5 369.5,217.6 375.3,218.6 381.2,219.7 387.0,220.7 392.8,221.6 398.6,222.6 404.5,223.5 410.3,224.4 416.1,225.2 421.9,226.1 427.7,226.9 433.6,227.7 439.4,228.5 445.2,229.2 451.0,230.0 456.9,230.7 462.7,231.4 468.5,232.1 474.3,232.8 480.1,233.4 486.0,234.1 491.8,234.7 497.6,235.3 503.4,235.9 509.3,236.5 515.1,237.1 520.9,237.7 526.7,238.2 532.5,238.8 538.4,239.3 544.2,239.8" fill="none" stroke="var(--border)" stroke-width="1"/>
+  <polyline points="133.2,49.1 135.2,52.1 137.2,55.0 139.2,57.9 141.2,60.7 143.2,63.4 145.2,66.1 147.2,68.7 149.2,71.2 151.2,73.7 153.2,76.2 155.2,78.5 157.2,80.9 159.2,83.1 161.2,85.4 163.2,87.5 165.2,89.7 167.2,91.8 169.2,93.8 171.2,95.8 173.2,97.8 175.2,99.7 177.2,101.6 179.2,103.4 181.2,105.2 183.2,107.0 185.2,108.7 187.2,110.5 189.2,112.1 191.2,113.8 193.3,115.4 195.3,117.0 197.3,118.5 199.3,120.1 201.3,121.6 203.3,123.1 205.3,124.5 207.3,125.9 209.3,127.3 211.3,128.7 213.3,130.1 215.3,131.4 217.3,132.7 219.3,134.0 221.3,135.3 223.3,136.5 225.3,137.7 227.3,139.0 229.3,140.1 231.3,141.3 233.3,142.5 235.3,143.6 237.3,144.7 239.3,145.8 241.3,146.9 243.3,148.0 245.3,149.0 247.3,150.1 249.3,151.1 251.3,152.1 253.3,153.1 255.3,154.1 257.3,155.0 259.3,156.0 261.3,156.9 263.3,157.8 265.3,158.7 267.3,159.6 269.3,160.5 271.3,161.4 273.3,162.3 275.3,163.1 277.3,164.0 279.3,164.8 281.3,165.6 283.3,166.4 285.3,167.2 287.3,168.0 289.3,168.8 291.3,169.5" fill="none" stroke="var(--text)" stroke-width="2.2"/><polyline points="461.9,231.3 458.8,230.9 455.7,230.6 452.6,230.2 449.6,229.8 446.5,229.4 443.4,229.0 440.3,228.6 437.2,228.2 434.1,227.8 431.1,227.4 428.0,226.9 424.9,226.5 421.8,226.1 418.7,225.6 415.7,225.2 412.6,224.7 409.5,224.2 406.4,223.8 403.3,223.3 400.3,222.8 397.2,222.3 394.1,221.8 391.0,221.3 387.9,220.8 384.9,220.3 381.8,219.8 378.7,219.2 375.6,218.7 372.5,218.1 369.5,217.6 366.4,217.0 363.3,216.4 360.2,215.8 357.1,215.2 354.1,214.6 351.0,214.0 347.9,213.4 344.8,212.7 341.7,212.1 338.7,211.4 335.6,210.8 332.5,210.1 329.4,209.4 326.3,208.7 323.3,208.0 320.2,207.2 317.1,206.5 314.0,205.7 310.9,204.9 307.9,204.2 304.8,203.4 301.7,202.5 298.6,201.7 295.5,200.9 292.4,200.0 289.4,199.1 286.3,198.2 283.2,197.3 280.1,196.4 277.0,195.4 274.0,194.4 270.9,193.4 267.8,192.4 264.7,191.4 261.6,190.3 258.6,189.2 255.5,188.1 252.4,187.0 249.3,185.8 246.2,184.6 243.2,183.4 240.1,182.2 237.0,180.9 233.9,179.6 230.8,178.3 227.8,176.9 224.7,175.5 221.6,174.1 218.5,172.6" fill="none" stroke="var(--text)" stroke-width="2.2"/>
+  <polyline points="291.3,169.5 293.4,170.9 295.6,172.2 297.8,173.5 299.9,174.8 302.1,176.1 304.2,177.3 306.4,178.6 308.6,179.8 310.7,180.9 312.9,182.1 315.0,183.2 317.2,184.4 319.4,185.5 321.5,186.6 323.7,187.6 325.8,188.7 328.0,189.7 330.2,190.7 332.3,191.7 334.5,192.7 336.6,193.7 338.8,194.6 341.0,195.5 343.1,196.5 345.3,197.4 347.4,198.3 349.6,199.2 351.8,200.0 353.9,200.9 356.1,201.7 358.2,202.5 360.4,203.4 362.5,204.2 364.7,205.0 366.9,205.7 369.0,206.5 371.2,207.3 373.3,208.0 375.5,208.7 377.7,209.5 379.8,210.2 382.0,210.9 384.1,211.6 386.3,212.3 388.5,212.9 390.6,213.6 392.8,214.3 394.9,214.9 397.1,215.6 399.3,216.2 401.4,216.8 403.6,217.4 405.7,218.0 407.9,218.6 410.1,219.2 412.2,219.8 414.4,220.4 416.5,220.9 418.7,221.5 420.8,222.0 423.0,222.6 425.2,223.1 427.3,223.7 429.5,224.2 431.6,224.7 433.8,225.2 436.0,225.7 438.1,226.2 440.3,226.7 442.4,227.2 444.6,227.7 446.8,228.2 448.9,228.6 451.1,229.1 453.2,229.5 455.4,230.0 457.6,230.4 459.7,230.9 461.9,231.3" fill="none" stroke="var(--accent)" stroke-width="2.2"/><polyline points="218.5,172.6 217.4,171.8 216.4,170.9 215.3,170.0 214.2,169.1 213.1,168.2 212.0,167.2 211.0,166.3 209.9,165.4 208.8,164.4 207.7,163.4 206.6,162.4 205.6,161.4 204.5,160.4 203.4,159.4 202.3,158.4 201.2,157.3 200.2,156.3 199.1,155.2 198.0,154.1 196.9,153.0 195.8,151.9 194.8,150.7 193.7,149.6 192.6,148.4 191.5,147.2 190.4,146.0 189.4,144.8 188.3,143.6 187.2,142.4 186.1,141.1 185.0,139.8 184.0,138.5 182.9,137.2 181.8,135.9 180.7,134.5 179.7,133.2 178.6,131.8 177.5,130.4 176.4,128.9 175.3,127.5 174.3,126.0 173.2,124.5 172.1,123.0 171.0,121.5 169.9,119.9 168.9,118.3 167.8,116.7 166.7,115.1 165.6,113.4 164.5,111.7 163.5,110.0 162.4,108.3 161.3,106.5 160.2,104.8 159.1,102.9 158.1,101.1 157.0,99.2 155.9,97.3 154.8,95.4 153.7,93.4 152.7,91.4 151.6,89.4 150.5,87.3 149.4,85.2 148.3,83.1 147.3,80.9 146.2,78.7 145.1,76.5 144.0,74.2 142.9,71.9 141.9,69.5 140.8,67.1 139.7,64.7 138.6,62.2 137.5,59.7 136.5,57.1 135.4,54.5 134.3,51.8 133.2,49.1" fill="none" stroke="var(--accent)" stroke-width="2.2"/>
+  <path d="M-6,-4 L4,0 L-6,4 Z" fill="var(--text)" transform="translate(213.3,130.1) rotate(33.9)"/><path d="M-6,-4 L4,0 L-6,4 Z" fill="var(--text)" transform="translate(377.7,209.5) rotate(18.4)"/><path d="M-6,-4 L4,0 L-6,4 Z" fill="var(--text)" transform="translate(338.7,211.4) rotate(-167.8)"/><path d="M-6,-4 L4,0 L-6,4 Z" fill="var(--text)" transform="translate(175.3,127.5) rotate(-126.5)"/><circle cx="133.2" cy="49.1" r="3.5" fill="var(--text)"/><circle cx="291.3" cy="169.5" r="3.5" fill="var(--text)"/><circle cx="461.9" cy="231.3" r="3.5" fill="var(--text)"/><circle cx="218.5" cy="172.6" r="3.5" fill="var(--text)"/>
+  <g font-family="Inter, sans-serif" font-size="13" fill="var(--text)"><text x="121.2" y="43.1" text-anchor="end" font-weight="600">A</text><text x="299.3" y="161.5" text-anchor="start" font-weight="600">B</text><text x="467.9" y="223.3" text-anchor="start" font-weight="600">C</text><text x="210.5" y="188.6" text-anchor="end" font-weight="600">D</text>
+    <text x="568" y="310" text-anchor="end" font-style="italic">V</text>
+    <text x="58" y="26" text-anchor="end" font-style="italic">P</text>
+    <text x="221.3" y="120.1">Q<tspan font-size="9" dy="3">H</tspan><tspan dy="-3"> in (at T</tspan><tspan font-size="9" dy="3">H</tspan><tspan dy="-3">)</tspan></text>
+    <text x="338.7" y="231.4" text-anchor="middle">Q<tspan font-size="9" dy="3">C</tspan><tspan dy="-3"> out (at T</tspan><tspan font-size="9" dy="3">C</tspan><tspan dy="-3">)</tspan></text>
+    <text x="291.3" y="189.0" text-anchor="middle" fill="var(--accent)" font-weight="600">W</text>
+  </g>
+  <g font-family="Inter, sans-serif" font-size="11" fill="var(--accent)">
+    <text x="385.7" y="203.5">adiabat</text>
+    <text x="167.3" y="141.5" text-anchor="end">adiabat</text>
+  </g>
+</svg>
+<figcaption>Carnot cycle for a monatomic ideal gas (computed, \(\gamma = 5/3\), \(T_C = 0.75\,T_H\)); the shaded area is the net work \(W\) per cycle. A→B: isothermal expansion at \(T_H\), absorbing \(Q_H\). B→C: adiabatic expansion, cooling to \(T_C\). C→D: isothermal compression at \(T_C\), releasing \(Q_C\). D→A: adiabatic compression back to \(T_H\).</figcaption>
+</figure>
+<div class="key-result">
+  <div class="kr-label">Carnot efficiency</div>
+  <p>\[ \eta_{\text{Carnot}} = 1 - \frac{T_C}{T_H}, \qquad \frac{Q_C}{Q_H} = \frac{T_C}{T_H}, \qquad \text{COP}_{\text{Carnot}} = \frac{T_C}{T_H - T_C} \]</p>
+</div>
+<p>The efficiency depends only on the two temperatures and is always below 1. A refrigerator's COP can exceed 1: it moves more heat than the work it uses, which is fine because the heat dumped is \(Q_H = Q_C + W\). Chapter 4 shows that <em>no</em> engine between \(T_H\) and \(T_C\) can beat \(\eta_{\text{Carnot}}\).</p>
+<details><summary>Proof: \(\eta = 1 - T_C/T_H\)</summary><div class="body">
+  <p>Isothermal steps: \(Q_H = nRT_H\ln(V_B/V_A)\), \(Q_C = nRT_C\ln(V_C/V_D)\). Adiabats: \(T_HV_B^{\gamma-1} = T_CV_C^{\gamma-1}\) and \(T_HV_A^{\gamma-1} = T_CV_D^{\gamma-1}\). Dividing, \(V_B/V_A = V_C/V_D\), so the logarithms cancel: \(Q_C/Q_H = T_C/T_H\).</p>
+</div></details>
+
+<h4>Recipe for the efficiency of any cycle</h4>
+<div class="remark">
+  <strong>①</strong> Label the corners and identify each step's type. <strong>②</strong> Find the steps where heat goes <em>in</em> (\(Q_H\)) and <em>out</em> (\(Q_C\)), using the process table: \(C_V\Delta T\) for isochoric, \(C_P\Delta T\) for isobaric, \(nRT\ln\) for isothermal, 0 for adiabatic. <strong>③</strong> \(\eta = 1 - |Q_C|/Q_H\). <strong>④</strong> Use the adiabatic relations to eliminate temperatures in favour of the given volumes or pressures.
+</div>
+<div class="ex">
+  <span class="tag">Example 1 · Otto cycle (petrol engine, Tut 3)</span>
+  <p>Two adiabats and two isochores, compression ratio \(r = V_1/V_2\). Show \(\eta = 1 - r^{1-\gamma}\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Heat in on the isochore 2→3: \(Q_H = C_V(T_3 - T_2)\). Heat out on the isochore 4→1: \(Q_C = C_V(T_4 - T_1)\). Adiabats between the same two volumes: \(T_2 = T_1r^{\gamma-1}\), \(T_3 = T_4r^{\gamma-1}\). So \(T_3 - T_2 = r^{\gamma-1}(T_4 - T_1)\) and</p>
+    <p>\[ \eta = 1 - \frac{T_4 - T_1}{T_3 - T_2} = 1 - r^{1-\gamma} \]</p>
+    <p>Higher compression ratio, higher efficiency: \(r = 8\), \(\gamma = 1.4\) gives \(\eta \approx 56\%\).</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 2 · Two isobars + two adiabats (Joule/Brayton cycle, HW 1)</span>
+  <p>An ideal-gas engine runs between pressures \(p_1\) (high) and \(p_2\) (low) on two isobars joined by adiabats. Find \(\eta\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Heat in on the high-pressure isobar: \(Q_H = C_P(T_b - T_a)\). Heat out on the low-pressure isobar: \(Q_C = C_P(T_c - T_d)\). Each adiabat connects \(p_1\) to \(p_2\), so \(T_c = T_b\,(p_2/p_1)^{(\gamma-1)/\gamma}\) and \(T_d = T_a\,(p_2/p_1)^{(\gamma-1)/\gamma}\). Therefore</p>
+    <p>\[ \eta = 1 - \frac{T_c - T_d}{T_b - T_a} = 1 - \left(\frac{p_2}{p_1}\right)^{(\gamma-1)/\gamma} \]</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 3 · Diesel cycle (2021 midterm Q2)</span>
+  <p>1→2 adiabatic compression, 2→3 isobaric, 3→4 adiabatic expansion, 4→1 isochoric (\(V_4 = V_1\)). Express \(\eta\) in terms of \(\gamma\), \(V_1\), \(V_2\), \(V_3\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Heat in (isobaric 2→3): \(Q_H = C_P(T_3 - T_2)\). Heat out (isochoric 4→1): \(Q_C = C_V(T_4 - T_1)\). So \(\eta = 1 - \frac{1}{\gamma}\frac{T_4 - T_1}{T_3 - T_2}\).</p>
+    <p>Express everything via \(T_1\): \(T_2 = T_1(V_1/V_2)^{\gamma-1}\); isobaric \(T_3 = T_2V_3/V_2\); adiabat \(T_4 = T_3(V_3/V_1)^{\gamma-1}\). Then \(T_4 - T_1 = T_1[(V_3/V_2)^\gamma - 1]\) and \(T_3 - T_2 = T_1(V_1/V_2)^{\gamma-1}(V_3 - V_2)/V_2\). Dividing:</p>
+    <p>\[ \eta = 1 - \frac{V_3^{\gamma} - V_2^{\gamma}}{\gamma\,V_1^{\gamma-1}(V_3 - V_2)} \]</p>
+  </div></details>
+</div>
+
+<div class="card">
+  <span class="tag">Chapter 3 formula card</span>
+  <div class="scroll-x"><table>
+    <tr><th>Topic</th><th>Formula</th></tr>
+    <tr><td>First Law</td><td>\(\Delta U = W + Q\) (\(W\) on, \(Q\) into the system)</td></tr>
+    <tr><td>Work</td><td>quasi-static \(W = -\int P\,dV\); constant external \(W = -P_{\text{ext}}\Delta V\)</td></tr>
+    <tr><td>Heat capacities</td><td>\(C_V = (\partial U/\partial T)_V,\ C_P = (\partial H/\partial T)_P\); ideal \(C_P - C_V = nR\), \(\gamma = C_P/C_V\)</td></tr>
+    <tr><td>Adiabatic (quasi-static)</td><td>\(PV^\gamma,\ TV^{\gamma-1},\ TP^{(1-\gamma)/\gamma}\) const; \(W = (P_2V_2 - P_1V_1)/(\gamma - 1)\)</td></tr>
+    <tr><td>Free expansion / throttling</td><td>\(\Delta U = 0\) / \(\Delta H = 0\); no \(\Delta T\) for ideal gas</td></tr>
+    <tr><td>Engines</td><td>\(\eta = 1 - Q_C/Q_H\); Carnot \(1 - T_C/T_H\); Otto \(1 - r^{1-\gamma}\); Joule \(1 - (p_2/p_1)^{(\gamma-1)/\gamma}\)</td></tr>
+    <tr><td>Refrigerator</td><td>\(\text{COP} = Q_C/W\); Carnot \(T_C/(T_H - T_C)\)</td></tr>
+  </table></div>
+</div>
+</section>
+
+<!-- CHAPTER 4 -->
+<section class="chapter" id="ch4">
+<div class="chapter-num">Chapter 4</div>
+<h2>Entropy and the Second Law</h2>
+
+<div class="intro">
+  <span class="tag">What this chapter does</span>
+  <p>The First Law would allow a hot cup of tea to get hotter by drawing heat from a cold room, as long as energy is conserved. That never happens. The Second Law captures which way things actually go, and this chapter turns it into a number, the <strong>entropy \(S\)</strong>: in any process that happens by itself, the total entropy goes up. The main practical skill is <strong>computing \(\Delta S\)</strong>, which the exams test heavily.</p>
+  <span class="tag" style="margin-top:12px">After this chapter you should be able to</span>
+  <ul>
+    <li>state the Second Law (Kelvin, Clausius) and explain why no engine beats Carnot;</li>
+    <li>compute \(\Delta S\) for heating, phase changes, reservoirs, gas expansions and mixing, including irreversible processes;</li>
+    <li>decide whether a process is reversible by computing \(\Delta S_{\text{universe}}\);</li>
+    <li>use \(dU = T\,dS - P\,dV\) and \(S = k_B\ln\Omega\).</li>
+  </ul>
+</div>
+
+<h3 id="s4-1">4.1 &ensp;Reversible processes and reservoirs</h3>
+<p>Two idealisations make the theory work, in the way frictionless planes make mechanics work:</p>
+<ul>
+  <li>A <strong>reversible process</strong> is quasi-static with no dissipation (§1.2). Run it backwards and both the system and the surroundings return to exactly where they were. Real processes only approximate this.</li>
+  <li>A <strong>heat reservoir</strong> has such a large heat capacity that taking heat from it or adding heat to it doesn't change its temperature (the atmosphere, a lake, a big water bath). Heat exchange is always reversible from the reservoir's point of view.</li>
+</ul>
+
+<h3 id="s4-2">4.2 &ensp;The Second Law</h3>
+<p>Two everyday observations, stated carefully, turn out to be the same law:</p>
+<div class="key-result">
+  <div class="kr-label">Kelvin statement</div>
+  <p>No process can have as its <em>only</em> effect the complete conversion of heat into work.</p>
+</div>
+<div class="key-result">
+  <div class="kr-label">Clausius statement</div>
+  <p>Heat cannot flow from a colder body to a hotter one with no other effect.</p>
+</div>
+<p>The words "only" and "no other effect" matter. An ideal gas expanding isothermally converts heat fully into work, but its volume has changed (another effect), so it can't be repeated in a cycle. A refrigerator moves heat from cold to hot, but it consumes work. What is forbidden is a <em>cyclic</em> machine that turns heat from a single reservoir entirely into work, or heat flowing uphill by itself.</p>
+<details><summary>Proof: the two statements are equivalent</summary><div class="body">
+  <p><b>Violate Clausius ⇒ violate Kelvin.</b> If heat could flow from cold to hot by itself, run a Carnot engine between the reservoirs and send the heat it dumps into the cold reservoir straight back up to the hot one. Net effect: heat taken from the hot reservoir and turned entirely into work. Kelvin is violated.</p>
+  <p><b>Violate Kelvin ⇒ violate Clausius.</b> If a perfect engine could turn heat fully into work, use that work to run a refrigerator. Net effect: heat moved from cold to hot with nothing else changed. Clausius is violated.</p>
+</div></details>
+
+<h3 id="s4-3">4.3 &ensp;Carnot's theorem and absolute temperature</h3>
+<div class="key-result">
+  <div class="kr-label">Carnot's theorem</div>
+  <p>No engine working between two reservoirs is more efficient than a reversible one, and all reversible engines between the same two temperatures have the same efficiency:</p>
+  <p>\[ \eta \le \eta_{\text{rev}} = 1 - \frac{T_C}{T_H} \]</p>
+</div>
+<p>This is the ultimate speed limit for turning heat into work, and it doesn't depend on the working substance (gas, steam, rubber band) or the details of the engine. Because it is universal, it can be used to <em>define</em> temperature without reference to any material: the <strong>thermodynamic temperature</strong> is defined by \(Q_C/Q_H = T_C/T_H\) for a reversible engine. It agrees with the ideal-gas scale of §1.5 (both give the Carnot result).</p>
+<details><summary>Proof sketch</summary><div class="body">
+  <p>Suppose an engine X beat a reversible engine R between the same reservoirs. Run R backwards as a refrigerator, driven by part of X's work, and let it put back into the hot reservoir the heat X took out. Because X is more efficient, there is work left over, and the only net effect is heat taken from the cold reservoir and turned into work, or heat moved from cold to hot. That contradicts the Second Law. Applying this argument both ways to two reversible engines shows their efficiencies must be equal.</p>
+  <p>For the temperature scale: if \(Q_C/Q_H = f(\theta_C, \theta_H)\) for every reversible engine, chaining two engines through an intermediate reservoir forces \(f(\theta_C, \theta_H) = g(\theta_C)/g(\theta_H)\). Choosing \(g(\theta) = \theta\) defines the absolute scale.</p>
+</div></details>
+
+<h3 id="s4-4">4.4 &ensp;Entropy</h3>
+<p>For a Carnot cycle, \(Q_H/T_H = Q_C/T_C\); with signs (heat absorbed positive), \(Q_H/T_H + Q_C/T_C = 0\). This generalises to any reversible cycle broken into many small heat exchanges: \(\oint\text{đ}Q_{\text{rev}}/T = 0\). An integral that vanishes around every closed loop doesn't depend on the path between two points, so it defines a <strong>state function</strong>:</p>
+<div class="key-result">
+  <div class="kr-label">Definition of entropy</div>
+  <p>\[ \Delta S = S_B - S_A = \int_A^B\frac{\text{đ}Q_{\text{rev}}}{T} \]</p>
+</div>
+<p>Two things to hold on to:</p>
+<ol>
+  <li><strong>The integral must be taken along a reversible path.</strong> For a real (irreversible) process, \(\int\text{đ}Q/T\) is <em>not</em> \(\Delta S\).</li>
+  <li><strong>But \(\Delta S\) itself only depends on the end states.</strong> So for an irreversible process, invent <em>any</em> convenient reversible path between the same start and end, and integrate along that. This is the single most important trick in the chapter.</li>
+</ol>
+<details><summary>Proof: Clausius's theorem \(\oint\text{đ}Q/T \le 0\)</summary><div class="body">
+  <p>Let a system go round any cycle, exchanging heat \(\text{đ}Q\) at temperatures \(T\). Supply each bit of heat with a small Carnot engine running from a single big reservoir at \(T_0\); each engine draws \(T_0\,\text{đ}Q/T\) from that reservoir. After one cycle the system and all the small engines are back to their start, and the net heat drawn from the single reservoir, \(T_0\oint\text{đ}Q/T\), has become work. Kelvin forbids this from being positive, so \(\oint\text{đ}Q/T \le 0\), with equality for a reversible cycle (run it backwards and the inequality flips).</p>
+</div></details>
+
+<h3 id="s4-5">4.5 &ensp;The entropy principle</h3>
+<p>Compare a real process with a reversible one between the same states and Clausius's theorem gives</p>
+<div class="key-result">
+  <div class="kr-label">Clausius inequality and the entropy principle</div>
+  <p>\[ dS \ge \frac{\text{đ}Q}{T} \qquad\Longrightarrow\qquad \Delta S_{\text{isolated}} \ge 0, \qquad \Delta S_{\text{univ}} = \Delta S_{\text{sys}} + \Delta S_{\text{surr}} \ge 0 \]</p>
+</div>
+<p>Equality holds only for reversible processes. In words: <strong>the entropy of an isolated system never decreases</strong>; treating "system + surroundings" as one isolated whole, the entropy of the universe never decreases. This gives a mechanical test:</p>
+<div class="remark"><strong>Reversibility test:</strong> compute \(\Delta S_{\text{sys}}\) and \(\Delta S_{\text{surr}}\) separately and add them. \(\Delta S_{\text{univ}} = 0\) ⇒ reversible; \(\gt 0\) ⇒ irreversible; \(\lt 0\) ⇒ impossible (check your signs).</div>
+<details><summary>Proof</summary><div class="body">
+  <p>Go from A to B by an irreversible path I, and come back by a reversible path II. For the cycle, \(\int_I\text{đ}Q/T + \int_{II}\text{đ}Q/T \le 0\). The return leg is reversible, so \(\int_{II}\text{đ}Q/T = S_A - S_B\). Hence \(\int_I\text{đ}Q/T \le S_B - S_A\). For an isolated system \(\text{đ}Q = 0\), so \(S_B \ge S_A\).</p>
+</div></details>
+
+<h3 id="s4-6">4.6 &ensp;Computing entropy changes: the toolkit</h3>
+<p>Nearly every entropy question is built from these pieces. Each one comes from \(\Delta S = \int\text{đ}Q_{\text{rev}}/T\) along a convenient reversible path:</p>
+<div class="scroll-x">
+<table>
+  <tr><th>Situation</th><th>\(\Delta S\)</th><th>Reversible path used</th></tr>
+  <tr><td>Heating, constant heat capacity \(C\)</td><td>\(C\ln\dfrac{T_2}{T_1}\)</td><td>contact with a sequence of reservoirs, \(\text{đ}Q = C\,dT\)</td></tr>
+  <tr><td>Reservoir at \(T_R\) receiving \(Q\)</td><td>\(Q/T_R\) (negative if it gives heat)</td><td>temperature never changes</td></tr>
+  <tr><td>Phase change at \(T_0\) (melting, boiling)</td><td>\(mL/T_0\)</td><td>happens at fixed \(T\)</td></tr>
+  <tr><td>Ideal gas, isothermal \(V_1 \to V_2\)</td><td>\(nR\ln\dfrac{V_2}{V_1}\)</td><td>quasi-static isothermal expansion</td></tr>
+  <tr><td>Ideal gas, general</td><td>\(nc_V\ln\dfrac{T_2}{T_1} + nR\ln\dfrac{V_2}{V_1}\)</td><td>isochoric then isothermal (§4.7)</td></tr>
+  <tr><td>Reversible adiabatic</td><td>0</td><td>\(\text{đ}Q = 0\)</td></tr>
+</table>
+</div>
+<p>Use them like building blocks: split the process into stages, find each stage's \(\Delta S\), and add. Then do the same for the surroundings if the question asks about the universe.</p>
+
+<div class="ex">
+  <span class="tag">Example 1 · Water heated by a reservoir (HW 2)</span>
+  <p>1 kg of water at 0 °C is dropped into a reservoir at 100 °C (\(c = 4.18\ \text{J/(g·K)}\)). Find \(\Delta S\) of the water, of the reservoir, and of the universe. Is it reversible? How could it be done reversibly?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Water: \(\Delta S = mc\ln(T_2/T_1) = 4180\ln(373.15/273.15) \approx +1304\ \text{J/K}\).</p>
+    <p>Reservoir: it gives up \(Q = mc\Delta T = 4.18\times10^5\ \text{J}\) at 373.15 K: \(\Delta S = -Q/T = -1120\ \text{J/K}\).</p>
+    <p>Universe: \(+184\ \text{J/K} \gt 0\), irreversible (heat crossed a finite temperature gap). A reversible version: put the water in contact with a long series of reservoirs, each only slightly hotter than the last, from 0 °C up to 100 °C. Then every heat transfer happens across an infinitesimal gap and \(\Delta S_{\text{univ}} \to 0\).</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 2 · Two blocks reaching a common temperature</span>
+  <p>Two identical blocks, heat capacity \(C\), at \(T_1\) and \(T_2\), are put in contact (insulated from everything else). Find \(\Delta S\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Energy conservation: \(T_f = (T_1 + T_2)/2\). Each block is "heated" or "cooled" from its start to \(T_f\):</p>
+    <p>\[ \Delta S = C\ln\frac{T_f}{T_1} + C\ln\frac{T_f}{T_2} = C\ln\frac{(T_1 + T_2)^2}{4T_1T_2} \ge 0 \]</p>
+    <p>Always non-negative since \((T_1 + T_2)^2 \ge 4T_1T_2\) (AM ≥ GM), with equality only when \(T_1 = T_2\). For unequal masses use \(T_f = \sum m_ic_iT_i/\sum m_ic_i\).</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 3 · Mixing bath water (Tut 4)</span>
+  <p>50 L of water at 55 °C is mixed with 25 L at 10 °C. How much entropy is created?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>\(T_f = (50\times328.15 + 25\times283.15)/75 = 313.15\ \text{K}\) (40 °C).</p>
+    <p>\[ \Delta S = (5.0\times10^4)(4.186)\ln\frac{313.15}{328.15} + (2.5\times10^4)(4.186)\ln\frac{313.15}{283.15} \approx -9.79 + 10.54 = +0.75\ \text{kJ/K} \]</p>
+    <p>The hot water loses entropy, the cold water gains more: net creation, as it must be.</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 4 · Free expansion of an ideal gas</span>
+  <p>An ideal gas expands into a vacuum from \(V_1\) to \(V_2\) in an insulated box. Find \(\Delta S\) of the gas and of the universe.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>\(W = Q = 0\), so \(\Delta U = 0\) and \(T\) is unchanged. No heat flowed, but that does <em>not</em> mean \(\Delta S = 0\): the process is irreversible, so \(\int\text{đ}Q/T\) is not \(\Delta S\). Replace it by a reversible isothermal expansion between the same states:</p>
+    <p>\[ \Delta S_{\text{gas}} = nR\ln\frac{V_2}{V_1} \gt 0 \]</p>
+    <p>The surroundings are untouched, so \(\Delta S_{\text{univ}} = nR\ln(V_2/V_1) \gt 0\). Compare a <em>reversible</em> isothermal expansion: the gas gains the same \(\Delta S\), but the reservoir loses exactly that much, giving \(\Delta S_{\text{univ}} = 0\).</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 5 · Heating air at constant pressure (Tut 4)</span>
+  <p>1 L of air (diatomic) at 300 K and 1 bar is heated at constant pressure until its volume doubles. Find \(\Delta S\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Constant \(P\), so volume doubling means \(T\) doubles. \(\Delta S = nc_P\ln 2\) with \(n = PV/RT\) and \(c_P = \tfrac72R\):</p>
+    <p>\[ \Delta S = \frac{PV}{T}\cdot\frac72\ln2 = \frac{(10^5)(10^{-3})}{300}\cdot3.5\cdot0.693 \approx 0.81\ \text{J/K} \]</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 6 · A resistor in a heat bath (Tut 4)</span>
+  <p>A 100 Ω resistor is held at 300 K by its surroundings while 10 A flows for 300 s. Find \(\Delta S\) of the resistor and of the universe.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>The resistor ends in the same state it started (same \(T\)), so \(\Delta S_{\text{resistor}} = 0\): entropy is a state function. The electrical work \(I^2Rt = 3\times10^{6}\ \text{J}\) is all dumped as heat into the surroundings at 300 K:</p>
+    <p>\[ \Delta S_{\text{univ}} = \frac{3\times10^6}{300} = 1.0\times10^4\ \text{J/K} \]</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 7 · Minimum work to cool one body (Tut 3)</span>
+  <p>Two identical bodies (heat capacity \(C_P\)) start at \(T_i\). A refrigerator working between them cools one to \(T_2\). What is the minimum work needed?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p><b>Minimum work ⟺ reversible ⟺ \(\Delta S_{\text{total}} = 0\).</b> If the hot body ends at \(T_1\):</p>
+    <p>\[ C_P\ln\frac{T_2}{T_i} + C_P\ln\frac{T_1}{T_i} = 0 \;\Rightarrow\; T_1 = \frac{T_i^2}{T_2} \]</p>
+    <p>Energy: the work equals heat into the hot body minus heat out of the cold one:</p>
+    <p>\[ W_{\min} = C_P(T_1 - T_i) - C_P(T_i - T_2) = C_P\left(\frac{T_i^2}{T_2} + T_2 - 2T_i\right) \]</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 8 · Liquid vs solid just below the melting point (HW 2)</span>
+  <p>A substance has molar heat capacities \(c_s\) (solid) and \(c_l\) (liquid), melting point \(T_0\) and molar latent heat \(l\). At a temperature \(T\) slightly below \(T_0\), find \(S_{\text{liquid}} - S_{\text{solid}}\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Entropy is a state function, so go round a convenient loop: start from liquid at \(T\), warm it to \(T_0\), freeze it, cool the solid back to \(T\).</p>
+    <p>\[ S_l(T) - S_s(T) = \underbrace{\frac{l}{T_0}}_{\text{at } T_0} + c_l\ln\frac{T}{T_0} - c_s\ln\frac{T}{T_0} = \frac{l}{T_0} + (c_l - c_s)\ln\frac{T}{T_0} \]</p>
+  </div></details>
+</div>
+<p>See also the ice-cube example in §9.3, which combines melting, warming and a reservoir.</p>
+
+<h3 id="s4-7">4.7 &ensp;The fundamental relation and ideal-gas entropy</h3>
+<p>For a reversible change, \(\text{đ}Q = T\,dS\) and \(\text{đ}W = -P\,dV\), so the First Law becomes</p>
+<div class="key-result">
+  <div class="kr-label">Fundamental relation</div>
+  <p>\[ dU = T\,dS - P\,dV \qquad\Longleftrightarrow\qquad dS = \frac{1}{T}\,dU + \frac{P}{T}\,dV \]</p>
+</div>
+<p>It contains only state functions, so although derived for a reversible change, it holds between <em>any</em> two nearby equilibrium states. Reading off coefficients (§2.6, tool ①):</p>
+<div class="eq">\[ \left(\frac{\partial S}{\partial U}\right)_{\!V} = \frac1T, \qquad \left(\frac{\partial S}{\partial V}\right)_{\!U} = \frac PT \]</div>
+<div class="why">
+  <span class="tag">Where it's used later</span>
+  <p>This one line is the starting point of Chapters 5–9. Chapter 5 rewrites it with \(T\) and \(P\) as variables (the potentials \(F\) and \(G\)); Chapter 6 uses \(\partial S/\partial U = 1/T\) to show that heat flows from hot to cold.</p>
+</div>
+<p>For an ideal gas, \(dU = nc_V\,dT\) and \(P/T = nR/V\), so</p>
+<div class="key-result">
+  <div class="kr-label">Ideal-gas entropy change</div>
+  <p>\[ \Delta S = nc_V\ln\frac{T_2}{T_1} + nR\ln\frac{V_2}{V_1} = nc_P\ln\frac{T_2}{T_1} - nR\ln\frac{P_2}{P_1} \]</p>
+</div>
+<details><summary>Proof of the \((T,P)\) form</summary><div class="body">
+  <p>From \(PV = nRT\): \(dV/V = dT/T - dP/P\). Substituting into \(dS = nc_V\,dT/T + nR\,dV/V\) and using \(c_V + R = c_P\) gives \(dS = nc_P\,dT/T - nR\,dP/P\).</p>
+</div></details>
+<p><strong>Beyond the ideal gas.</strong> For any substance with equation of state \(P(T,V)\):</p>
+<div class="eq">\[ dS = \frac{C_V}{T}\,dT + \left(\frac{\partial P}{\partial T}\right)_{\!V}dV \]</div>
+<p>(proved neatly in §5.6 with a Maxwell relation). For a van der Waals gas, \((\partial P/\partial T)_V = nR/(V - nb)\), so \(\Delta S = C_V\ln(T_2/T_1) + nR\ln\frac{V_2 - nb}{V_1 - nb}\). The attraction \(a\) changes the energy but not the entropy at fixed \(T\) and \(V\).</p>
+
+<h3 id="s4-8">4.8 &ensp;What entropy measures: \(S = k_B\ln\Omega\)</h3>
+<p>Flip 100 coins. A <strong>microstate</strong> is the exact sequence (there are \(2^{100}\)); a <strong>macrostate</strong> is what you'd actually report, say "\(n\) heads". The number of microstates in a macrostate is the <strong>multiplicity</strong> \(\Omega(N,n) = \binom{N}{n}\). "All heads" has \(\Omega = 1\); "50 heads" has \(\Omega \approx 10^{29}\). If the coins are shaken randomly, you will essentially always see something near 50, simply because overwhelmingly more microstates look like that.</p>
+<div class="key-result">
+  <div class="kr-label">Boltzmann entropy</div>
+  <p>\[ S = k_B\ln\Omega \]</p>
+</div>
+<p>Equilibrium is the macrostate with the largest \(\Omega\). The Second Law becomes a statement about probability: systems drift towards macrostates with more microstates because those are vastly more likely. For a macroscopic system (\(N \sim 10^{23}\)) "vastly" is so extreme that a decrease in entropy is never observed.</p>
+<div class="key-result">
+  <div class="kr-label">Sackur–Tetrode equation (monatomic ideal gas)</div>
+  <p>\[ S = Nk_B\left[\ln\left(\frac VN\left(\frac{4\pi mU}{3Nh^2}\right)^{3/2}\right) + \frac52\right] \]</p>
+</div>
+<p>Differentiate and the familiar results drop out: \(1/T = \partial S/\partial U = \tfrac32Nk_B/U\) gives \(U = \tfrac32Nk_BT\); \(P/T = \partial S/\partial V = Nk_B/V\) gives \(PV = Nk_BT\). Microscopic counting and macroscopic thermodynamics agree.</p>
+<details><summary>Where Sackur–Tetrode comes from (sketch)</summary><div class="body">
+  <p>\(\Omega\) is proportional to the volume of phase space available: positions contribute \(V^N\); momenta lie on a \(3N\)-dimensional sphere of radius \(\sqrt{2mU}\), contributing \(\propto U^{3N/2}\); and dividing by \(N!\) accounts for identical particles being indistinguishable. So \(\Omega \propto V^NU^{3N/2}/[N!\,(3N/2)!]\). Taking the log with Stirling's approximation \(\ln N! \approx N\ln N - N\) gives the formula. The \(1/N!\) is what makes \(S\) depend on \(V/N\) rather than \(V\); see the Gibbs paradox in §8.1.</p>
+</div></details>
+
+<div class="card">
+  <span class="tag">Chapter 4 formula card</span>
+  <div class="scroll-x"><table>
+    <tr><th>Topic</th><th>Formula</th></tr>
+    <tr><td>Second Law</td><td>Kelvin / Clausius; \(\eta \le 1 - T_C/T_H\)</td></tr>
+    <tr><td>Entropy</td><td>\(\Delta S = \int\text{đ}Q_{\text{rev}}/T\) along any reversible path between the same states</td></tr>
+    <tr><td>Entropy principle</td><td>\(dS \ge \text{đ}Q/T\); \(\Delta S_{\text{univ}} \ge 0\) (= 0 iff reversible)</td></tr>
+    <tr><td>Building blocks</td><td>\(C\ln(T_2/T_1)\); \(Q/T_R\); \(mL/T_0\); \(nR\ln(V_2/V_1)\)</td></tr>
+    <tr><td>Fundamental relation</td><td>\(dU = T\,dS - P\,dV\)</td></tr>
+    <tr><td>Ideal gas</td><td>\(\Delta S = nc_V\ln(T_2/T_1) + nR\ln(V_2/V_1) = nc_P\ln(T_2/T_1) - nR\ln(P_2/P_1)\)</td></tr>
+    <tr><td>Microscopic</td><td>\(S = k_B\ln\Omega\)</td></tr>
+  </table></div>
+</div>
 </section>
 
 <!-- CHAPTER 5 -->
@@ -470,7 +1253,7 @@
 
 <h3 id="s5-4">5.4 &ensp;Maxwell relations: trading entropy for measurable quantities</h3>
 <p>The problem: many questions ask for an entropy change, e.g. "how much does the entropy of a copper block change when it is compressed at constant temperature?" That needs \((\partial S/\partial P)_T\), but there is no "entropy meter". The <strong>Maxwell relations</strong> replace such entropy derivatives by derivatives of \(P, V, T\), which come from the equation of state or from tabulated data.</p>
-<p>Where they come from is simple. Each potential is a state function, so its mixed second derivative does not depend on the order of differentiation (tool ① in §0.2). Take \(dG = -S\,dT + V\,dP\): the coefficients are \(-S\) and \(V\), and cross-differentiating gives</p>
+<p>Where they come from is simple. Each potential is a state function, so its mixed second derivative does not depend on the order of differentiation (the toolkit in §2.6). Take \(dG = -S\,dT + V\,dP\): the coefficients are \(-S\) and \(V\), and cross-differentiating gives</p>
 <div class="eq">\[ \left.\frac{\partial(-S)}{\partial P}\right|_T = \left.\frac{\partial V}{\partial T}\right|_P \quad\Longrightarrow\quad \left(\frac{\partial S}{\partial P}\right)_{\!T} = -\left(\frac{\partial V}{\partial T}\right)_{\!P} \]</div>
 <p>Doing this once for each potential:</p>
 <div class="key-result">
@@ -1429,7 +2212,7 @@
 </section>
 
 <footer style="margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-family:var(--sans); font-size:12px; color:var(--text-dim);">
-  PHYS 2261 &middot; Study guide for Chapters 5–9 &middot; Companion to the full Lecture Notes
+  PHYS 2261 &middot; Study guide for Chapters 1–9 &middot; Companion to the full Lecture Notes
 </footer>
 <script>
 (function(){

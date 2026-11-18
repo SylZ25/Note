@@ -1,0 +1,1462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHYS2261 Study Guide</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Inter:wght@400;500;600&display=swap">
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'},startup:{typeset:true}};</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.js"></script>
+<style>
+  :root {
+    --bg: #FAFAF7; --bg-section: #F3F2ED;
+    --text: #1A1A18; --text-secondary: #4A4A44; --text-dim: #7A7A72;
+    --accent: #2A5F8A; --accent-faint: rgba(42,95,138,0.08);
+    --eq-bg: #F7F6F2; --border: #D8D6CE; --border-light: #E8E6DE;
+    --key-bg: #2A5F8A; --key-text: #FAFAF7;
+    --why: #8A6420; --why-faint: rgba(138,100,32,0.08);
+    --ex: #3A7055; --ex-faint: rgba(58,112,85,0.07);
+    --sidebar-w: 280px; --sidebar-bg: #F0EFE9; --sidebar-active: rgba(42,95,138,0.12);
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #181816; --bg-section: #222220;
+      --text: #E8E8E2; --text-secondary: #B8B8B0; --text-dim: #888880;
+      --accent: #5A9FD4; --accent-faint: rgba(90,159,212,0.1);
+      --eq-bg: #242422; --border: #3A3A36; --border-light: #2E2E2A;
+      --key-bg: #5A9FD4; --key-text: #181816;
+      --why: #D2AE68; --why-faint: rgba(210,174,104,0.09);
+      --ex: #7CC29C; --ex-faint: rgba(124,194,156,0.08);
+      --sidebar-bg: #1E1E1C; --sidebar-active: rgba(90,159,212,0.15);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #181816; --bg-section: #222220;
+    --text: #E8E8E2; --text-secondary: #B8B8B0; --text-dim: #888880;
+    --accent: #5A9FD4; --accent-faint: rgba(90,159,212,0.1);
+    --eq-bg: #242422; --border: #3A3A36; --border-light: #2E2E2A;
+    --key-bg: #5A9FD4; --key-text: #181816;
+    --why: #D2AE68; --why-faint: rgba(210,174,104,0.09);
+    --ex: #7CC29C; --ex-faint: rgba(124,194,156,0.08);
+    --sidebar-bg: #1E1E1C; --sidebar-active: rgba(90,159,212,0.15);
+  }
+  body {
+    background: var(--bg); color: var(--text);
+    font-family: var(--serif); font-size: 17px; line-height: 1.75;
+    max-width: 760px; margin: 0 auto; padding: 48px 24px 80px;
+  }
+  .course-label { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 8px; }
+  h1 { font-size: 32px; font-weight: 700; line-height: 1.25; text-wrap: balance; margin: 0 0 6px; }
+  .subtitle { font-family: var(--sans); font-size: 14px; color: var(--text-dim); margin-bottom: 28px; }
+  h2 { font-size: 26px; font-weight: 700; line-height: 1.3; text-wrap: balance; margin: 0 0 22px; }
+  h3 { font-size: 20px; font-weight: 600; line-height: 1.35; margin: 40px 0 14px; }
+  h4 { font-family: var(--sans); font-size: 15px; font-weight: 600; margin: 26px 0 8px; }
+  p { margin: 0 0 16px; }
+  a { color: var(--accent); }
+  strong { font-weight: 600; }
+  ul, ol { padding-left: 22px; margin: 8px 0 16px; }
+  li { margin-bottom: 6px; }
+
+  .howto { font-family: var(--sans); font-size: 14px; line-height: 1.7; color: var(--text-secondary); background: var(--bg-section); border: 1px solid var(--border-light); border-radius: 6px; padding: 16px 20px; margin-bottom: 20px; }
+  .howto b { color: var(--text); font-weight: 600; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 10px; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-size: 13px; }
+  .sw { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
+  .toolbar { display: flex; gap: 8px; margin: 0 0 36px; flex-wrap: wrap; }
+  .toolbar button { font-family: var(--sans); font-size: 13px; padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--text); cursor: pointer; }
+  .toolbar button:hover { background: var(--bg-section); }
+  .toolbar button:focus-visible, summary:focus-visible, .nav-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .toc { background: var(--bg-section); border: 1px solid var(--border-light); border-radius: 6px; padding: 20px 24px; margin-bottom: 48px; }
+  .toc-title { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 12px; }
+  .toc ol { margin: 0; padding: 0; list-style: none; }
+  .toc > ol > li { margin-bottom: 8px; }
+  .toc > ol > li > a { font-family: var(--sans); font-size: 14px; font-weight: 600; color: var(--accent); text-decoration: none; }
+  .toc ol ol { margin: 4px 0 4px 18px; }
+  .toc ol ol li { margin-bottom: 1px; }
+  .toc ol ol a { font-family: var(--sans); font-size: 13px; color: var(--text-secondary); text-decoration: none; }
+  .toc a:hover { text-decoration: underline; }
+
+  .chapter { margin-bottom: 64px; padding-top: 16px; border-top: 2px solid var(--accent); }
+  .chapter-num { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 4px; }
+
+  .intro { background: var(--bg-section); border-radius: 8px; padding: 18px 22px; margin: 0 0 28px; }
+  .intro .tag, .why .tag, .ex .tag, .card .tag { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .intro .tag { color: var(--accent); }
+  .intro p:last-child, .intro ul:last-child { margin-bottom: 0; }
+  .intro ul { margin-top: 4px; }
+
+  .eq { background: var(--eq-bg); border-left: 3px solid var(--accent); padding: 12px 20px; margin: 18px 0; overflow-x: auto; }
+  .eq .label { font-family: var(--sans); font-size: 12px; font-weight: 600; color: var(--accent); letter-spacing: 0.04em; display: block; margin-bottom: 2px; }
+  .eq mjx-container { font-size: 108% !important; }
+  .key-result { background: var(--key-bg); color: var(--key-text); border-radius: 6px; padding: 14px 22px; margin: 22px 0; overflow-x: auto; }
+  .key-result .kr-label { font-family: var(--sans); font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.75; margin-bottom: 4px; }
+  .key-result p { margin: 0; line-height: 1.8; }
+  .key-result mjx-container { font-size: 108% !important; }
+
+  .why { border-left: 3px solid var(--why); background: var(--why-faint); padding: 12px 18px; margin: 20px 0; font-size: 16px; line-height: 1.72; }
+  .why .tag { color: var(--why); }
+  .why p:last-child, .why ul:last-child { margin-bottom: 0; }
+  .ex { border: 1px solid var(--border); border-left: 3px solid var(--ex); background: var(--ex-faint); border-radius: 0 6px 6px 0; padding: 12px 18px; margin: 22px 0; }
+  .ex .tag { color: var(--ex); }
+  .ex > p:last-child { margin-bottom: 0; }
+  .remark { background: var(--accent-faint); border-radius: 6px; padding: 12px 18px; margin: 20px 0; font-size: 15.5px; line-height: 1.7; color: var(--text-secondary); }
+  .remark strong { color: var(--text); }
+
+  details { margin: 16px 0; border: 1px dashed var(--border); border-radius: 6px; background: var(--bg); }
+  details > summary { cursor: pointer; list-style: none; font-family: var(--sans); font-size: 14px; font-weight: 500; color: var(--text-secondary); padding: 9px 14px; display: flex; align-items: center; gap: 8px; }
+  details > summary::-webkit-details-marker { display: none; }
+  details > summary::before { content: ""; width: 7px; height: 7px; border-right: 2px solid var(--text-dim); border-bottom: 2px solid var(--text-dim); transform: rotate(-45deg); transition: transform 0.15s; flex: none; }
+  details[open] > summary::before { transform: rotate(45deg); }
+  details > summary:hover { color: var(--text); }
+  details > .body { padding: 2px 18px 6px; font-size: 16px; }
+  details.sol { border-color: var(--ex); }
+  .ex details.sol { margin-bottom: 4px; background: var(--bg); }
+
+  .card { border: 1px solid var(--border); border-radius: 8px; padding: 16px 20px; margin: 28px 0 0; }
+  .card .tag { color: var(--accent); }
+  .scroll-x { overflow-x: auto; margin: 16px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; font-variant-numeric: tabular-nums; }
+  th { font-family: var(--sans); font-size: 12px; font-weight: 600; letter-spacing: 0.04em; color: var(--text-dim); text-align: left; padding: 8px 10px; border-bottom: 2px solid var(--border); }
+  td { padding: 9px 10px; border-bottom: 1px solid var(--border-light); vertical-align: top; }
+  figure { margin: 20px 0; }
+  figcaption { text-align: center; font-family: var(--sans); font-size: 13px; line-height: 1.6; color: var(--text-dim); }
+
+  @media (max-width: 600px) {
+    body { font-size: 16px; padding: 32px 16px 60px; }
+    h1 { font-size: 26px; } h2 { font-size: 22px; } h3 { font-size: 18px; }
+    .intro, .ex, .why { padding-left: 14px; padding-right: 14px; }
+  }
+  @media print { .nav-toggle, .side-panel, .side-panel-backdrop, .toolbar { display: none !important; } }
+
+  .nav-toggle { position: fixed; top: 16px; left: 16px; z-index: 1001; width: 40px; height: 40px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg); cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 8px rgba(0,0,0,0.08); }
+  .nav-toggle:hover { background: var(--bg-section); }
+  .nav-toggle svg { width: 18px; height: 18px; stroke: var(--text); stroke-width: 2; fill: none; stroke-linecap: round; }
+  .nav-toggle .icon-close { display: none; }
+  .nav-open .nav-toggle .icon-menu { display: none; }
+  .nav-open .nav-toggle .icon-close { display: block; }
+  .side-panel { position: fixed; top: 0; left: 0; z-index: 1000; width: var(--sidebar-w); height: 100vh; overflow-y: auto; background: var(--sidebar-bg); border-right: 1px solid var(--border); transform: translateX(-100%); transition: transform 0.25s ease; padding: 72px 0 32px; box-sizing: border-box; }
+  .nav-open .side-panel { transform: translateX(0); }
+  .side-panel-backdrop { position: fixed; inset: 0; z-index: 999; background: rgba(0,0,0,0.3); opacity: 0; pointer-events: none; transition: opacity 0.25s ease; }
+  .nav-open .side-panel-backdrop { opacity: 1; pointer-events: auto; }
+  .sp-chapter { margin: 0 0 4px; }
+  .sp-chapter-btn { display: flex; align-items: center; gap: 8px; width: 100%; border: none; background: none; cursor: pointer; font-family: var(--sans); font-size: 13px; font-weight: 600; color: var(--text); padding: 8px 16px; text-align: left; }
+  .sp-chapter-btn:hover { background: var(--sidebar-active); }
+  .sp-arrow { width: 14px; height: 14px; stroke: var(--text-dim); stroke-width: 2; fill: none; flex-shrink: 0; transition: transform 0.2s; }
+  .sp-chapter.open .sp-arrow { transform: rotate(90deg); }
+  .sp-num { color: var(--text-dim); min-width: 18px; font-size: 12px; font-variant-numeric: tabular-nums; }
+  .sp-sections { display: none; margin: 0; padding: 0 0 4px; list-style: none; }
+  .sp-chapter.open .sp-sections { display: block; }
+  .sp-sections li { margin: 0; }
+  .sp-sections a { display: block; padding: 5px 16px 5px 42px; font-family: var(--sans); font-size: 12.5px; line-height: 1.45; color: var(--text-secondary); text-decoration: none; border-left: 2px solid transparent; }
+  .sp-sections a:hover { background: var(--sidebar-active); }
+  .sp-sections a.active { color: var(--accent); font-weight: 500; border-left-color: var(--accent); background: var(--sidebar-active); }
+  @media (min-width: 1200px) { .side-panel-backdrop { display: none; } }
+  @media (prefers-reduced-motion: reduce) { .side-panel, .side-panel-backdrop, .sp-arrow, details > summary::before { transition: none; } }
+</style>
+</head>
+<body>
+<button class="nav-toggle" aria-label="Toggle navigation" id="navToggle" type="button">
+  <svg class="icon-menu" viewBox="0 0 24 24"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+  <svg class="icon-close" viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg>
+</button>
+<div class="side-panel-backdrop" id="navBackdrop"></div>
+<nav class="side-panel" id="sidePanel" aria-label="Sections"><div class="sp-chapter open"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">Prep</span> What to Bring from Chapters 1–4</button><ul class="sp-sections">
+<li><a href="#s0-1" data-s>0.1 State functions and total differentials</a></li>
+<li><a href="#s0-2" data-s>0.2 Three tools for partial derivatives</a></li>
+<li><a href="#s0-3" data-s>0.3 Three laws, one equation</a></li>
+<li><a href="#s0-4" data-s>0.4 The measurable quantities</a></li>
+</ul></div>
+<div class="sp-chapter"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">5</span> Thermodynamic Potentials</button><ul class="sp-sections">
+<li><a href="#s5-1" data-s>5.1 Natural variables: what a differential tells you</a></li>
+<li><a href="#s5-2" data-s>5.2 Changing variables: enthalpy, Helmholtz and Gibbs free energies</a></li>
+<li><a href="#s5-3" data-s>5.3 What the new functions mean physically</a></li>
+<li><a href="#s5-4" data-s>5.4 Maxwell relations: trading entropy for measurable quantities</a></li>
+<li><a href="#s5-5" data-s>5.5 The relation between \(C_P\) and \(C_V\)</a></li>
+<li><a href="#s5-6" data-s>5.6 Maxwell relations at work</a></li>
+<li><a href="#s5-7" data-s>5.7 When particle number changes: the chemical potential</a></li>
+</ul></div>
+<div class="sp-chapter"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">6</span> Equilibrium and Stability</button><ul class="sp-sections">
+<li><a href="#s6-1" data-s>6.1 Which way does a process go?</a></li>
+<li><a href="#s6-2" data-s>6.2 Equilibrium between two parts: equal \(T\), \(P\), \(\mu\)</a></li>
+<li><a href="#s6-3" data-s>6.3 Stability: will it stay there?</a></li>
+<li><a href="#s6-4" data-s>6.4 Le Chatelier's principle</a></li>
+</ul></div>
+<div class="sp-chapter"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">7</span> Phase Equilibrium and Phase Transitions</button><ul class="sp-sections">
+<li><a href="#s7-1" data-s>7.1 The key picture: lowest \(\mu\) wins</a></li>
+<li><a href="#s7-2" data-s>7.2 Phase diagrams and the Gibbs phase rule</a></li>
+<li><a href="#s7-3" data-s>7.3 The Clausius–Clapeyron equation</a></li>
+<li><a href="#s7-4" data-s>7.4 The van der Waals fluid: where the liquid–gas transition comes from</a></li>
+<li><a href="#s7-5" data-s>7.5 First-order and continuous transitions</a></li>
+</ul></div>
+<div class="sp-chapter"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">8</span> Applications: Reactions, Solutions and Mixtures</button><ul class="sp-sections">
+<li><a href="#s8-1" data-s>8.1 The entropy of mixing</a></li>
+<li><a href="#s8-2" data-s>8.2 Chemical equilibrium: the law of mass action</a></li>
+<li><a href="#s8-3" data-s>8.3 Dilute solutions</a></li>
+<li><a href="#s8-4" data-s>8.4 Colligative properties</a></li>
+<li><a href="#s8-5" data-s>8.5 Binary mixtures: mix or separate?</a></li>
+<li><a href="#s8-6" data-s>8.6 The common-tangent rule and the lever rule</a></li>
+</ul></div>
+<div class="sp-chapter"><button class="sp-chapter-btn" type="button"><svg class="sp-arrow" viewBox="0 0 24 24"><polyline points="9 6 15 12 9 18"/></svg><span class="sp-num">9</span> The Third Law of Thermodynamics</button><ul class="sp-sections">
+<li><a href="#s9-1" data-s>9.1 Why worry about absolute zero?</a></li>
+<li><a href="#s9-2" data-s>9.2 Statements of the Third Law</a></li>
+<li><a href="#s9-3" data-s>9.3 Absolute entropy</a></li>
+<li><a href="#s9-4" data-s>9.4 Consequences of the Third Law</a></li>
+</ul></div></nav>
+
+<div class="course-label">PHYS 2261 — Semester 3</div>
+<h1>Thermal Physics: Study Guide</h1>
+<p class="subtitle">Chapters 5–9 · Intuition first, proofs on demand</p>
+
+<div class="howto">
+  <b>How to read this guide.</b> Each chapter opens by saying what problem it solves and what you should be able to do afterwards. The main text gives the idea and the result first; <b>proofs are folded away</b>. On a first read you can skip every one of them and come back once the results feel familiar. Example solutions are folded too, so you can try first. The complete, rigorous version is still in the original <a href="phys2261-notes.html">Lecture Notes</a>.
+  <div class="legend">
+    <span><i class="sw" style="background:var(--key-bg)"></i>Formula or definition to remember</span>
+    <span><i class="sw" style="background:var(--why)"></i>Why it exists / where it's used later</span>
+    <span><i class="sw" style="background:var(--ex)"></i>Worked example</span>
+    <span><i class="sw" style="border:1px dashed var(--text-dim)"></i>Folded proof</span>
+  </div>
+</div>
+<div class="toolbar">
+  <button type="button" id="openAll">Expand all proofs and solutions</button>
+  <button type="button" id="closeAll">Collapse all</button>
+</div>
+
+<h3 style="margin-top:0">The map: how Chapters 5–9 fit together</h3>
+<p>These five chapters follow a single thread. Chapter 4 ended with one equation, \(dU = T\,dS - P\,dV\), and everything after grows out of it:</p>
+<div class="scroll-x">
+<table>
+  <tr><th>Ch.</th><th>In one sentence</th><th>Main tool</th><th>Typical question</th></tr>
+  <tr><td>5</td><td>Rewrite \(dU = TdS - PdV\) in forms that suit real experiments</td><td>\(H, F, G\); Maxwell relations; chemical potential \(\mu\)</td><td>Derive a Maxwell relation; compute \(C_P - C_V\); replace \(\partial S\) by measurable quantities</td></tr>
+  <tr><td>6</td><td>Where does a system settle, and is that state stable?</td><td>"At fixed \(T, P\), \(G\) is minimised"; equal \(T, P, \mu\) at equilibrium</td><td>Decide which way a process goes; stability constraints (\(S = aU^bV^cN^d\))</td></tr>
+  <tr><td>7</td><td>Ice, water, steam: which phase, and when?</td><td>Two phases coexist ⟺ equal \(\mu\); Clausius–Clapeyron</td><td>Slope of a phase boundary; vapour pressure; triple point; phase rule</td></tr>
+  <tr><td>8</td><td>Chemical reactions, solutions, mixtures</td><td>One recipe: write \(\mu\) → set equal → expand to first order</td><td>Equilibrium constant; boiling/freezing shifts; osmotic pressure; lever rule</td></tr>
+  <tr><td>9</td><td>Can we reach 0 K?</td><td>Third Law: \(\Delta S \to 0\) as \(T \to 0\)</td><td>Absolute entropy; consequences \(C \to 0\), \(\alpha \to 0\)</td></tr>
+</table>
+</div>
+<p>Suggested order: <strong>get comfortable with the Chapter 5 toolkit first</strong> (the four potentials, reading off coefficients, Maxwell relations), then 6 → 7. Chapter 9 is short and can come before 8. Chapter 8 is the most applied; leave it for last.</p>
+
+<nav class="toc"><div class="toc-title">Contents</div><ol>
+<li><a href="#ch0">What to Bring from Chapters 1–4</a><ol>
+<li><a href="#s0-1">0.1 State functions and total differentials</a></li>
+<li><a href="#s0-2">0.2 Three tools for partial derivatives</a></li>
+<li><a href="#s0-3">0.3 Three laws, one equation</a></li>
+<li><a href="#s0-4">0.4 The measurable quantities</a></li>
+</ol></li>
+<li><a href="#ch5">5. Thermodynamic Potentials</a><ol>
+<li><a href="#s5-1">5.1 Natural variables: what a differential tells you</a></li>
+<li><a href="#s5-2">5.2 Changing variables: enthalpy, Helmholtz and Gibbs free energies</a></li>
+<li><a href="#s5-3">5.3 What the new functions mean physically</a></li>
+<li><a href="#s5-4">5.4 Maxwell relations: trading entropy for measurable quantities</a></li>
+<li><a href="#s5-5">5.5 The relation between \(C_P\) and \(C_V\)</a></li>
+<li><a href="#s5-6">5.6 Maxwell relations at work</a></li>
+<li><a href="#s5-7">5.7 When particle number changes: the chemical potential</a></li>
+</ol></li>
+<li><a href="#ch6">6. Equilibrium and Stability</a><ol>
+<li><a href="#s6-1">6.1 Which way does a process go?</a></li>
+<li><a href="#s6-2">6.2 Equilibrium between two parts: equal \(T\), \(P\), \(\mu\)</a></li>
+<li><a href="#s6-3">6.3 Stability: will it stay there?</a></li>
+<li><a href="#s6-4">6.4 Le Chatelier's principle</a></li>
+</ol></li>
+<li><a href="#ch7">7. Phase Equilibrium and Phase Transitions</a><ol>
+<li><a href="#s7-1">7.1 The key picture: lowest \(\mu\) wins</a></li>
+<li><a href="#s7-2">7.2 Phase diagrams and the Gibbs phase rule</a></li>
+<li><a href="#s7-3">7.3 The Clausius–Clapeyron equation</a></li>
+<li><a href="#s7-4">7.4 The van der Waals fluid: where the liquid–gas transition comes from</a></li>
+<li><a href="#s7-5">7.5 First-order and continuous transitions</a></li>
+</ol></li>
+<li><a href="#ch8">8. Applications: Reactions, Solutions and Mixtures</a><ol>
+<li><a href="#s8-1">8.1 The entropy of mixing</a></li>
+<li><a href="#s8-2">8.2 Chemical equilibrium: the law of mass action</a></li>
+<li><a href="#s8-3">8.3 Dilute solutions</a></li>
+<li><a href="#s8-4">8.4 Colligative properties</a></li>
+<li><a href="#s8-5">8.5 Binary mixtures: mix or separate?</a></li>
+<li><a href="#s8-6">8.6 The common-tangent rule and the lever rule</a></li>
+</ol></li>
+<li><a href="#ch9">9. The Third Law of Thermodynamics</a><ol>
+<li><a href="#s9-1">9.1 Why worry about absolute zero?</a></li>
+<li><a href="#s9-2">9.2 Statements of the Third Law</a></li>
+<li><a href="#s9-3">9.3 Absolute entropy</a></li>
+<li><a href="#s9-4">9.4 Consequences of the Third Law</a></li>
+</ol></li>
+</ol></nav>
+
+<!-- CHAPTER 0 -->
+<section class="chapter" id="ch0">
+<div class="chapter-num">Before we start</div>
+<h2>What to Bring from Chapters 1–4</h2>
+
+<div class="intro">
+  <span class="tag">What this part does</span>
+  <p>Chapters 5–9 rely on only a handful of facts from the first four chapters. They are collected here so you can flip back whenever one is used. If any item looks unfamiliar, revisit that part of the original notes first.</p>
+</div>
+
+<h3 id="s0-1">0.1 &ensp;State functions and total differentials</h3>
+<p>A <strong>state function</strong> depends only on the current state of the system, not on how it got there: \(U, S, V, P, T\) are all state functions. Heat \(Q\) and work \(W\) are not; they are <em>process quantities</em>, which is why their small amounts are written \(\text{đ}Q\), \(\text{đ}W\).</p>
+<p>If \(f\) is a state function of \(x\) and \(y\), a small change in \(f\) is</p>
+<div class="key-result">
+  <div class="kr-label">Total differential</div>
+  <p>\[ df = \left(\frac{\partial f}{\partial x}\right)_{\!y} dx + \left(\frac{\partial f}{\partial y}\right)_{\!x} dy \]</p>
+</div>
+<p>The single most common move from Chapter 5 onward is <strong>reading off coefficients</strong>: whenever you have an equation of the form \(df = A\,dx + B\,dy\), you immediately know \(A = (\partial f/\partial x)_y\) and \(B = (\partial f/\partial y)_x\).</p>
+
+<h3 id="s0-2">0.2 &ensp;Three tools for partial derivatives</h3>
+<p>Nearly every calculation in Chapter 5 uses only these three:</p>
+<div class="eq">
+<span class="label">① Mixed partials are equal (because \(f\) is a state function)</span>
+\[ \frac{\partial}{\partial y}\left(\frac{\partial f}{\partial x}\right) = \frac{\partial}{\partial x}\left(\frac{\partial f}{\partial y}\right) \quad\Longrightarrow\quad \left(\frac{\partial A}{\partial y}\right)_{\!x} = \left(\frac{\partial B}{\partial x}\right)_{\!y} \]
+</div>
+<div class="eq">
+<span class="label">② Reciprocal</span>
+\[ \left(\frac{\partial x}{\partial y}\right)_{\!z} = \frac{1}{(\partial y/\partial x)_z} \]
+</div>
+<div class="eq">
+<span class="label">③ Cyclic relation (three variables linked by one equation)</span>
+\[ \left(\frac{\partial x}{\partial y}\right)_{\!z}\left(\frac{\partial y}{\partial z}\right)_{\!x}\left(\frac{\partial z}{\partial x}\right)_{\!y} = -1 \]
+</div>
+<div class="why">
+  <span class="tag">Where these are used</span>
+  <p>Tool ① produces the Maxwell relations of Chapter 5. Tool ③ turns hard-to-measure derivatives into easy ones, for example \((\partial P/\partial T)_V = \alpha/\kappa_T\), which you need for \(C_P - C_V\).</p>
+</div>
+
+<h3 id="s0-3">0.3 &ensp;Three laws, one equation</h3>
+<p>The First Law says \(dU = \text{đ}Q + \text{đ}W\). For a quasi-static process the work done on a gas is \(\text{đ}W = -P\,dV\), and for a reversible process the heat absorbed is \(\text{đ}Q = T\,dS\) (this is the definition of entropy). Substituting:</p>
+<div class="key-result">
+  <div class="kr-label">Fundamental relation</div>
+  <p>\[ dU = T\,dS - P\,dV \]</p>
+</div>
+<p>We used a reversible process to derive it, but the equation contains only state functions, so it holds between <strong>any two neighbouring equilibrium states</strong>, however the system actually gets from one to the other. Everything in Chapters 5–9 grows from this line.</p>
+<p>Two more results from earlier chapters come up again and again:</p>
+<ul>
+  <li><strong>Entropy principle:</strong> for an isolated system \(\Delta S \geq 0\), with equality only for reversible processes. More generally \(dS \geq \text{đ}Q/T\) (the Clausius inequality).</li>
+  <li><strong>How to compute entropy changes:</strong> \(\Delta S = \int\text{đ}Q_\text{rev}/T\); for heating \(\Delta S = \int C\,dT/T\), for a phase change \(\Delta S = L/T\).</li>
+</ul>
+
+<h3 id="s0-4">0.4 &ensp;The measurable quantities</h3>
+<p>In the lab we can measure \(P\), \(V\), \(T\) and heat directly. That gives four standard <strong>response functions</strong>:</p>
+<div class="scroll-x">
+<table>
+  <tr><th>Name</th><th>Definition</th><th>Meaning</th><th>Ideal gas</th></tr>
+  <tr><td>Expansion coefficient \(\alpha\)</td><td>\(\frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_P\)</td><td>Fractional volume change per kelvin at fixed \(P\)</td><td>\(1/T\)</td></tr>
+  <tr><td>Isothermal compressibility \(\kappa_T\)</td><td>\(-\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_T\)</td><td>Fractional volume decrease per unit pressure at fixed \(T\)</td><td>\(1/P\)</td></tr>
+  <tr><td>Heat capacity \(C_P\)</td><td>\(T\left(\frac{\partial S}{\partial T}\right)_P\)</td><td>Heat needed per kelvin at fixed \(P\)</td><td>\(\tfrac{f+2}{2}nR\)</td></tr>
+  <tr><td>Heat capacity \(C_V\)</td><td>\(T\left(\frac{\partial S}{\partial T}\right)_V\)</td><td>Heat needed per kelvin at fixed \(V\)</td><td>\(\tfrac{f}{2}nR\)</td></tr>
+</table>
+</div>
+<p>Heat capacities are written as \(T(\partial S/\partial T)\) because \(\text{đ}Q = T\,dS\). This form is used directly in Chapters 5 and 9.</p>
+</section>
+
+<!-- CHAPTER 5 -->
+<section class="chapter" id="ch5">
+<div class="chapter-num">Chapter 5</div>
+<h2>Thermodynamic Potentials</h2>
+
+<div class="intro">
+  <span class="tag">What this chapter does</span>
+  <p>\(dU = T\,dS - P\,dV\) is elegant but awkward to use. Its variables are \(S\) and \(V\), while in a real experiment we control <strong>temperature and pressure</strong> (a water bath, an open beaker in the atmosphere). Entropy can be neither controlled nor read off a dial. This chapter builds the tools to fix that:</p>
+  <ul>
+    <li>three new "energy functions" \(H, F, G\) whose variables include \(T\) and \(P\);</li>
+    <li>the <strong>Maxwell relations</strong>, which replace derivatives of entropy by derivatives of \(P, V, T\) that we can measure;</li>
+    <li>the <strong>chemical potential</strong> \(\mu\), for systems whose particle number can change.</li>
+  </ul>
+  <span class="tag" style="margin-top:12px">After this chapter you should be able to</span>
+  <ul>
+    <li>write down the four potentials and their differentials, and read \(S, P, V, T\) off them;</li>
+    <li>derive any Maxwell relation in ten seconds and use it to get rid of a \(\partial S\);</li>
+    <li>derive \(C_P - C_V = TV\alpha^2/\kappa_T\) and put numbers into it.</li>
+  </ul>
+</div>
+
+<h3 id="s5-1">5.1 &ensp;Natural variables: what a differential tells you</h3>
+<p>Look at the structure of \(dU = T\,dS - P\,dV\): each term on the right is "some quantity × d(another quantity)". The quantities after the \(d\), here \(S\) and \(V\), are the <strong>natural variables</strong> of \(U\). Treat \(U\) as \(U(S,V)\), compare with the total differential \(dU = (\partial U/\partial S)_V dS + (\partial U/\partial V)_S dV\), and read off:</p>
+<div class="key-result">
+  <div class="kr-label">Reading \(T\) and \(P\) off \(U(S,V)\)</div>
+  <p>\[ T = \left(\frac{\partial U}{\partial S}\right)_{\!V}, \qquad P = -\left(\frac{\partial U}{\partial V}\right)_{\!S} \]</p>
+</div>
+<p>This says something important: <strong>if you know \(U\) as a function of its natural variables \(S\) and \(V\), you can find the temperature, the pressure and hence the equation of state</strong>. All the thermodynamics of the system is contained in that one function. That is where the word "potential" comes from: just as differentiating a potential energy gives a force, differentiating a thermodynamic potential gives \(T\), \(P\) and so on.</p>
+
+<div class="ex">
+  <span class="tag">Example · The whole ideal gas from \(U(S,V)\)</span>
+  <p>The entropy of a monatomic ideal gas (Chapter 4) can be inverted to give \(U(S,V) = c\,V^{-2/3}\,e^{2S/3Nk_B}\), with \(c\) a constant. Find \(T\) and \(P\) and check that you recover familiar results.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>\[ T = \left(\frac{\partial U}{\partial S}\right)_{\!V} = \frac{2}{3Nk_B}\,U \quad\Longrightarrow\quad U = \tfrac{3}{2}Nk_BT \]</p>
+    <p>\[ P = -\left(\frac{\partial U}{\partial V}\right)_{\!S} = \frac{2}{3}\,\frac{U}{V} \quad\Longrightarrow\quad PV = \tfrac{2}{3}U = Nk_BT \]</p>
+    <p>Equipartition and the ideal gas law both come out of a single function.</p>
+  </div></details>
+</div>
+
+<h3 id="s5-2">5.2 &ensp;Changing variables: enthalpy, Helmholtz and Gibbs free energies</h3>
+<p>To swap the natural variable \(S\) for \(T\), there is a standard trick using the product rule \(d(TS) = T\,dS + S\,dT\). Subtract \(d(TS)\) from \(dU\):</p>
+<div class="eq">\[ d(U - TS) = T\,dS - P\,dV - T\,dS - S\,dT = -S\,dT - P\,dV \]</div>
+<p>The \(T\,dS\) term cancels and is replaced by \(-S\,dT\). The new function \(U - TS\) has natural variables \(T\) and \(V\). In the same way, adding \(d(PV)\) swaps \(V\) for \(P\). This gives four functions in total (the operation is called a Legendre transformation):</p>
+<div class="key-result">
+  <div class="kr-label">The four thermodynamic potentials</div>
+  <p>\[ \begin{aligned} &U &&dU = T\,dS - P\,dV &&\text{natural variables } S, V \\ &H = U + PV &&dH = T\,dS + V\,dP &&\text{natural variables } S, P \\ &F = U - TS &&dF = -S\,dT - P\,dV &&\text{natural variables } T, V \\ &G = U - TS + PV &&dG = -S\,dT + V\,dP &&\text{natural variables } T, P \end{aligned} \]</p>
+</div>
+<p>No need to memorise four differentials, just the pattern: <strong>adding \(PV\) turns \(-P\,dV\) into \(+V\,dP\); subtracting \(TS\) turns \(T\,dS\) into \(-S\,dT\).</strong></p>
+<p>Reading off coefficients works for every potential:</p>
+<div class="eq">\[ \begin{aligned} &T = \left(\frac{\partial H}{\partial S}\right)_P, &&V = \left(\frac{\partial H}{\partial P}\right)_S \\ &S = -\left(\frac{\partial F}{\partial T}\right)_V, &&P = -\left(\frac{\partial F}{\partial V}\right)_T \\ &S = -\left(\frac{\partial G}{\partial T}\right)_P, &&V = \left(\frac{\partial G}{\partial P}\right)_T \end{aligned} \]</div>
+<p>The last line gets used constantly in Chapters 7 and 8: the \(T\)-derivative of \(G\) is \(-S\), the \(P\)-derivative is \(V\).</p>
+
+<details><summary>Memory aid: the thermodynamic square (optional)</summary><div class="body">
+  <p>Write the four variables at the corners and the four potentials on the sides ("<b>V</b>alid <b>F</b>acts and <b>T</b>heoretical <b>U</b>nderstandings <b>G</b>enerate <b>S</b>olutions to <b>H</b>ard <b>P</b>roblems", read clockwise from top-left):</p>
+  <p>\[ \begin{array}{ccc} V & F & T \\ U & & G \\ S & H & P \end{array} \]</p>
+  <p>Add two diagonal arrows, one from \(S\) to \(T\) and one from \(P\) to \(V\). Then:</p>
+  <ul>
+    <li>Each potential's natural variables are the two corners next to it (\(F\): \(V\) and \(T\)).</li>
+    <li>In its differential, each natural variable is multiplied by the corner diagonally opposite.</li>
+    <li>The sign is \(+\) if the arrow points <em>away</em> from the natural variable, \(-\) if it points <em>towards</em> it.</li>
+  </ul>
+  <p>Check with \(G\): natural variables \(T, P\). Opposite \(T\) is \(S\), and the arrow points towards \(T\), giving \(-S\,dT\). Opposite \(P\) is \(V\), and the arrow points away from \(P\), giving \(+V\,dP\). If this feels fiddly, the "add \(PV\) / subtract \(TS\)" rule above is more direct.</p>
+</div></details>
+
+<h3 id="s5-3">5.3 &ensp;What the new functions mean physically</h3>
+<p>\(H\), \(F\) and \(G\) are not just a change of variables; each one is the useful quantity in a particular experimental situation.</p>
+
+<h4>Enthalpy \(H\): the heat absorbed at constant pressure</h4>
+<p>At constant pressure \(dP = 0\), so \(dH = T\,dS = \text{đ}Q\):</p>
+<div class="key-result">
+  <div class="kr-label">Heat at constant pressure</div>
+  <p>\[ Q_P = \Delta H \]</p>
+</div>
+<p>Chemical reactions, melting and boiling almost always happen at atmospheric pressure, so the "heat of reaction" or "latent heat" you find in tables is really a \(\Delta H\).</p>
+<div class="why">
+  <span class="tag">Where it's used later</span>
+  <p>The latent heat \(L = \Delta H = T\Delta S\) in Chapter 7; the reaction heat \(\Delta h_0\) in the van 't Hoff equation of Chapter 8; and throttling (Joule–Thomson, Chapter 3) is a constant-\(H\) process.</p>
+</div>
+
+<h4>Helmholtz free energy \(F\): the maximum work at constant temperature</h4>
+<p>For a system in contact with a reservoir at temperature \(T\), the work it can deliver is at most \(-\Delta F\) (proved in Chapter 6). In a reversible isothermal process, the work done on the system equals \(\Delta F\) exactly:</p>
+<div class="key-result">
+  <div class="kr-label">Reversible isothermal process</div>
+  <p>\[ W_{\text{on}} = \Delta F, \qquad W_{\text{by, max}} = -\Delta F \]</p>
+</div>
+<p>Why not \(-\Delta U\)? Because during an isothermal process the system also exchanges heat \(T\Delta S\) with the reservoir. Only the part \(F = U - TS\) is "free" to become work; the rest, \(TS\), can only be exchanged as heat.</p>
+<div class="ex">
+  <span class="tag">Example · Isothermal expansion of an ideal gas</span>
+  <p>\(n\) mol of ideal gas expands reversibly and isothermally at temperature \(T\) from \(V_1\) to \(V_2\). Find \(\Delta F\) and compare it with the work done by the gas.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>For an ideal gas \(U\) depends only on \(T\), so \(\Delta U = 0\); the entropy change is \(\Delta S = nR\ln(V_2/V_1)\). Hence</p>
+    <p>\[ \Delta F = \Delta U - T\Delta S = -nRT\ln\frac{V_2}{V_1} \]</p>
+    <p>The work done by the gas is \(\int P\,dV = nRT\ln(V_2/V_1) = -\Delta F\). They match: every joule of work came from heat drawn from the reservoir. The gas's \(U\) is unchanged, but its \(F\) went down.</p>
+  </div></details>
+</div>
+
+<h4>Gibbs free energy \(G\): which way a process goes at constant \(T\) and \(P\)</h4>
+<p>Most real processes (reactions, phase changes, dissolving) take place at constant temperature and pressure. Chapter 6 shows that under these conditions a process can only go in the direction that <em>lowers</em> \(G\), and equilibrium is the minimum of \(G\). That makes \(G\) the central quantity of Chapters 6–8.</p>
+<div class="why">
+  <span class="tag">Why it exists</span>
+  <p>Questions like "does ice melt at −5 °C?" or "does this reaction run by itself?" are answered by the sign of \(\Delta G\). The form \(G = H - TS\) shows the competition: lowering \(H\) (releasing heat) favours one direction, raising \(S\) (more disorder) may favour the other, and the temperature \(T\) sets which one wins.</p>
+</div>
+
+<div class="scroll-x">
+<table>
+  <tr><th>Held fixed</th><th>Use</th><th>Special meaning</th></tr>
+  <tr><td>\(S, V\) (isolated, rigid, insulated)</td><td>\(U\)</td><td>Isolated system: \(S\) is maximum at equilibrium (equivalently, \(U\) is minimum at fixed \(S\))</td></tr>
+  <tr><td>\(S, P\)</td><td>\(H\)</td><td>Heat at constant pressure \(= \Delta H\)</td></tr>
+  <tr><td>\(T, V\)</td><td>\(F\)</td><td>Maximum isothermal work \(= -\Delta F\); \(F\) minimum at equilibrium</td></tr>
+  <tr><td>\(T, P\)</td><td>\(G\)</td><td>\(G\) minimum at equilibrium; \(G = \mu N\)</td></tr>
+</table>
+</div>
+
+<details><summary>Proof: why "maximum \(S\)" and "minimum \(U\)" are the same statement</summary><div class="body">
+  <p>An isolated system at fixed \(U\) has maximum \(S\). Let \(X\) be any internal variable that is free to change; then \((\partial S/\partial X)_U = 0\) and \((\partial^2 S/\partial X^2)_U \lt 0\).</p>
+  <p>Let \(\Gamma = (\partial U/\partial X)_S\). By the cyclic relation, \(\Gamma = -(\partial U/\partial S)_X(\partial S/\partial X)_U = -T(\partial S/\partial X)_U = 0\). Differentiating once more:</p>
+  <p>\[ \left(\frac{\partial^2 U}{\partial X^2}\right)_{\!S} = -T\left(\frac{\partial^2 S}{\partial X^2}\right)_{\!U} \gt 0 \]</p>
+  <p>So at fixed \(S\), the same state minimises \(U\). That is why equilibrium can be phrased either as "entropy maximum" or as "energy (potential) minimum".</p>
+</div></details>
+
+<h3 id="s5-4">5.4 &ensp;Maxwell relations: trading entropy for measurable quantities</h3>
+<p>The problem: many questions ask for an entropy change, e.g. "how much does the entropy of a copper block change when it is compressed at constant temperature?" That needs \((\partial S/\partial P)_T\), but there is no "entropy meter". The <strong>Maxwell relations</strong> replace such entropy derivatives by derivatives of \(P, V, T\), which come from the equation of state or from tabulated data.</p>
+<p>Where they come from is simple. Each potential is a state function, so its mixed second derivative does not depend on the order of differentiation (tool ① in §0.2). Take \(dG = -S\,dT + V\,dP\): the coefficients are \(-S\) and \(V\), and cross-differentiating gives</p>
+<div class="eq">\[ \left.\frac{\partial(-S)}{\partial P}\right|_T = \left.\frac{\partial V}{\partial T}\right|_P \quad\Longrightarrow\quad \left(\frac{\partial S}{\partial P}\right)_{\!T} = -\left(\frac{\partial V}{\partial T}\right)_{\!P} \]</div>
+<p>Doing this once for each potential:</p>
+<div class="key-result">
+  <div class="kr-label">Maxwell relations</div>
+  <p>\[ \begin{aligned} \left(\frac{\partial T}{\partial V}\right)_{\!S} &= -\left(\frac{\partial P}{\partial S}\right)_{\!V} &&(U) \\ \left(\frac{\partial T}{\partial P}\right)_{\!S} &= \left(\frac{\partial V}{\partial S}\right)_{\!P} &&(H) \\ \left(\frac{\partial S}{\partial V}\right)_{\!T} &= \left(\frac{\partial P}{\partial T}\right)_{\!V} &&(F) \\ \left(\frac{\partial S}{\partial P}\right)_{\!T} &= -\left(\frac{\partial V}{\partial T}\right)_{\!P} &&(G) \end{aligned} \]</p>
+</div>
+<p>The ones you will actually use are the last two (from \(F\) and \(G\)): their left sides ask "how does entropy change with \(V\) or \(P\) at constant \(T\)?", and their right sides come straight from the equation of state. <strong>You don't need to memorise them</strong>: write the relevant differential, cross-differentiate, and the signs take care of themselves.</p>
+
+<div class="ex">
+  <span class="tag">Example 1 · Sanity check: isothermal expansion of an ideal gas</span>
+  <p>Use a Maxwell relation to re-derive \(\Delta S = nR\ln(V_2/V_1)\) for the isothermal expansion of an ideal gas.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>At constant \(T\), \(dS = (\partial S/\partial V)_T\,dV\). The \(F\) relation gives \((\partial S/\partial V)_T = (\partial P/\partial T)_V\), and for an ideal gas \(P = nRT/V\), so \((\partial P/\partial T)_V = nR/V\):</p>
+    <p>\[ \Delta S = \int_{V_1}^{V_2}\frac{nR}{V}\,dV = nR\ln\frac{V_2}{V_1} \]</p>
+    <p>Same answer as Chapter 4's \(\int\text{đ}Q/T\), but without ever asking how much heat flowed.</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 2 · Compressing a litre of water</span>
+  <p>At 20 °C, 1 L of water is compressed isothermally from 1 atm to 101 atm. Its expansion coefficient is \(\alpha = 2.1\times10^{-4}\ \text{K}^{-1}\), and its volume barely changes. Find the entropy change of the water and the heat it gives out.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Use the \(G\) relation: \((\partial S/\partial P)_T = -(\partial V/\partial T)_P = -V\alpha\). The liquid's volume is nearly constant, so treat \(V\alpha\) as constant:</p>
+    <p>\[ \Delta S \approx -V\alpha\,\Delta P = -(10^{-3})(2.1\times10^{-4})(1.013\times10^{7}) \approx -2.1\ \text{J/K} \]</p>
+    <p>For a reversible isothermal process \(Q = T\Delta S \approx 293 \times (-2.1) \approx -6.2\times10^{2}\ \text{J}\): about 620 J of heat is released. No entropy was measured, only one tabulated value of \(\alpha\).</p>
+  </div></details>
+</div>
+
+<h3 id="s5-5">5.5 &ensp;The relation between \(C_P\) and \(C_V\)</h3>
+<p>For solids and liquids, heating at constant volume is practically impossible: the material wants to expand, and holding its volume fixed takes enormous pressure. So experiments measure \(C_P\). When theory needs \(C_V\), it is calculated from \(C_P\), \(\alpha\) and \(\kappa_T\) using:</p>
+<div class="key-result">
+  <div class="kr-label">\(C_P - C_V\)</div>
+  <p>\[ C_P - C_V = \frac{TV\alpha^2}{\kappa_T} \]</p>
+</div>
+<ul>
+  <li>Every factor on the right is \(\geq 0\) (\(\kappa_T \gt 0\) is the stability condition of Chapter 6), so always \(C_P \geq C_V\): at constant pressure some of the heat goes into expansion work.</li>
+  <li>The two are equal when \(\alpha = 0\), for example water at 4 °C.</li>
+  <li><strong>Check:</strong> for an ideal gas \(\alpha = 1/T\) and \(\kappa_T = 1/P\), giving \(TV\cdot\frac{1}{T^2}\cdot P = \frac{PV}{T} = nR\), the familiar \(C_P - C_V = nR\).</li>
+</ul>
+<details><summary>Proof</summary><div class="body">
+  <p>Treat \(S\) as \(S(T,V)\): \(dS = (\partial S/\partial T)_V\,dT + (\partial S/\partial V)_T\,dV\). Divide by \(dT\) at constant \(P\):</p>
+  <p>\[ \left(\frac{\partial S}{\partial T}\right)_{\!P} = \left(\frac{\partial S}{\partial T}\right)_{\!V} + \left(\frac{\partial S}{\partial V}\right)_{\!T}\left(\frac{\partial V}{\partial T}\right)_{\!P} \]</p>
+  <p>Multiply by \(T\): \(C_P = C_V + T(\partial S/\partial V)_T(\partial V/\partial T)_P\). Use the Maxwell relation \((\partial S/\partial V)_T = (\partial P/\partial T)_V\), then the cyclic relation \((\partial P/\partial T)_V = -(\partial V/\partial T)_P/(\partial V/\partial P)_T = \alpha/\kappa_T\), and \((\partial V/\partial T)_P = V\alpha\):</p>
+  <p>\[ C_P - C_V = T\cdot\frac{\alpha}{\kappa_T}\cdot V\alpha = \frac{TV\alpha^2}{\kappa_T} \]</p>
+</div></details>
+<div class="ex">
+  <span class="tag">Example · \(C_P - C_V\) for water</span>
+  <p>At 20 °C water has \(\alpha = 2.07\times10^{-4}\ \text{K}^{-1}\), \(\kappa_T = 4.6\times10^{-10}\ \text{Pa}^{-1}\), molar volume \(V_m = 1.8\times10^{-5}\ \text{m}^3\) and \(C_P = 75.3\ \text{J/(mol·K)}\). Find the molar \(C_V\).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>\[ C_P - C_V = \frac{(293)(1.8\times10^{-5})(2.07\times10^{-4})^2}{4.6\times10^{-10}} \approx 0.49\ \text{J/(mol·K)} \]</p>
+    <p>So \(C_V \approx 74.8\ \text{J/(mol·K)}\). For a liquid the difference is under 1%, quite unlike an ideal gas (where it is \(R = 8.3\), about 30%): a liquid barely expands, so it does very little work.</p>
+  </div></details>
+</div>
+
+<h3 id="s5-6">5.6 &ensp;Maxwell relations at work</h3>
+<p>The following results appear in homework and in later chapters. Each uses the same three steps: <strong>write the derivative you want → use a Maxwell relation to eliminate \(\partial S\) → substitute the equation of state</strong>.</p>
+
+<h4>(a) Entropy change of any substance</h4>
+<div class="key-result">
+  <div class="kr-label">Two general entropy differentials</div>
+  <p>\[ dS = \frac{C_V}{T}\,dT + \left(\frac{\partial P}{\partial T}\right)_{\!V}dV, \qquad dS = \frac{C_P}{T}\,dT - \left(\frac{\partial V}{\partial T}\right)_{\!P}dP \]</p>
+</div>
+<p>Given an equation of state and a heat capacity, you can now find the entropy change of any substance between any two states: integrate along a convenient path (change \(T\) at fixed \(V\) or \(P\), then change \(V\) or \(P\) at fixed \(T\)). For an ideal gas this reproduces Chapter 4's \(\Delta S = nC_V\ln(T_2/T_1) + nR\ln(V_2/V_1)\).</p>
+<details><summary>Proof</summary><div class="body">
+  <p>The total differential of \(S(T,V)\) is \(dS = (\partial S/\partial T)_V dT + (\partial S/\partial V)_T dV\). The first coefficient is \(C_V/T\) by definition of heat capacity; the second becomes \((\partial P/\partial T)_V\) by the \(F\) relation. The second formula is the same argument with \(S(T,P)\) and the \(G\) relation.</p>
+</div></details>
+
+<h4>(b) How internal energy depends on volume</h4>
+<div class="key-result">
+  <div class="kr-label">Energy equation</div>
+  <p>\[ \left(\frac{\partial U}{\partial V}\right)_{\!T} = T\left(\frac{\partial P}{\partial T}\right)_{\!V} - P \]</p>
+</div>
+<p>This settles a question left open in Chapter 3. For an ideal gas, \(P = nRT/V\) gives \(T\cdot nR/V - P = 0\). So the ideal gas's \(U\) depends only on \(T\): it is a <strong>consequence</strong>, not an extra assumption.</p>
+<details><summary>Proof</summary><div class="body">
+  <p>Divide \(dU = T\,dS - P\,dV\) by \(dV\) at constant \(T\): \((\partial U/\partial V)_T = T(\partial S/\partial V)_T - P\). Then use \((\partial S/\partial V)_T = (\partial P/\partial T)_V\).</p>
+</div></details>
+<div class="ex">
+  <span class="tag">Example · A van der Waals gas cools in free expansion</span>
+  <p>A van der Waals gas, \(P = \frac{nRT}{V - nb} - \frac{an^2}{V^2}\) with constant \(C_V\), expands freely into a vacuum (no heat, no work) from \(V_1\) to \(V_2\). What happens to its temperature?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>\((\partial P/\partial T)_V = nR/(V - nb)\), so \((\partial U/\partial V)_T = \frac{nRT}{V-nb} - P = \frac{an^2}{V^2}\). Integrating, \(U = C_VT - \frac{an^2}{V} + \text{const}\).</p>
+    <p>Free expansion has \(W = 0\) and \(Q = 0\), so \(U\) is unchanged:</p>
+    <p>\[ C_V\Delta T = an^2\left(\frac{1}{V_2} - \frac{1}{V_1}\right) \lt 0 \]</p>
+    <p>The gas cools. As the molecules spread out they work against their mutual attraction (the \(a\) term), and that energy can only come from their thermal motion.</p>
+  </div></details>
+</div>
+
+<h4>(c) Why adiabatic expansion cools</h4>
+<div class="eq">\[ \left(\frac{\partial T}{\partial P}\right)_{\!S} = \frac{TV\alpha}{C_P} \gt 0 \quad(\text{when } \alpha \gt 0) \]</div>
+<p>Lowering the pressure reversibly and adiabatically (isentropically) lowers the temperature. For an ideal gas, \(\alpha = 1/T\) gives \(dT/T = \frac{nR}{C_P}\,dP/P = \frac{\gamma-1}{\gamma}\,dP/P\), which is the differential form of Chapter 3's adiabatic relation \(TP^{(1-\gamma)/\gamma} = \text{const}\).</p>
+<details><summary>Proof</summary><div class="body">
+  <p>By the cyclic relation, \((\partial T/\partial P)_S = -(\partial S/\partial P)_T/(\partial S/\partial T)_P\). The numerator is \(-V\alpha\) by the \(G\) relation; the denominator is \(C_P/T\).</p>
+</div></details>
+
+<h4>(d) The Joule–Thomson (throttling) coefficient</h4>
+<div class="eq">\[ \mu_{JT} = \left(\frac{\partial T}{\partial P}\right)_{\!H} = \frac{V}{C_P}\,(T\alpha - 1) \]</div>
+<p>For an ideal gas \(T\alpha = 1\), so throttling leaves the temperature unchanged. A real gas with \(T\alpha \gt 1\) cools on throttling (the principle behind gas liquefaction and refrigerators); with \(T\alpha \lt 1\) it warms. The boundary \(T\alpha = 1\) is the inversion curve.</p>
+<details><summary>Proof</summary><div class="body">
+  <p>\(\mu_{JT} = -(\partial H/\partial P)_T/(\partial H/\partial T)_P\). The denominator is \(C_P\). From \(dH = T\,dS + V\,dP\), \((\partial H/\partial P)_T = T(\partial S/\partial P)_T + V = -TV\alpha + V\). Substitute.</p>
+</div></details>
+
+<details><summary>Extension: cooling by adiabatic demagnetisation (for interest)</summary><div class="body">
+  <p>For a magnetic system, replace \(-P\,dV\) by \(H\,dM\) (applied field \(H\), magnetisation \(M\)); the same steps give magnetic Maxwell relations. For a paramagnet obeying Curie's law \(M = aVH/T\):</p>
+  <p>\[ \left(\frac{\partial T}{\partial H}\right)_{\!S} = \frac{aV}{C_H\,T}\,H \gt 0 \]</p>
+  <p>Reducing the field adiabatically lowers the temperature. This is a standard way to cool samples below 1 K, and the "isothermal step + adiabatic step" idea returns in Chapter 9 when we ask whether 0 K can be reached.</p>
+</div></details>
+
+<h3 id="s5-7">5.7 &ensp;When particle number changes: the chemical potential</h3>
+<p>So far the particle number \(N\) has been fixed. But in a phase change (water molecules leaving the liquid for the vapour), a chemical reaction, or dissolving, the number of particles in each part changes. The fundamental relation then needs one more term:</p>
+<div class="key-result">
+  <div class="kr-label">Fundamental relation for open systems</div>
+  <p>\[ dU = T\,dS - P\,dV + \mu\,dN, \qquad dG = -S\,dT + V\,dP + \mu\,dN \]</p>
+</div>
+<p>\(\mu\) is the <strong>chemical potential</strong>. Reading off coefficients:</p>
+<div class="eq">\[ \mu = \left(\frac{\partial U}{\partial N}\right)_{\!S,V} = \left(\frac{\partial G}{\partial N}\right)_{\!T,P} \]</div>
+<p>In words: how much \(G\) increases when one particle is added at fixed \(T\) and \(P\).</p>
+<div class="why">
+  <span class="tag">Why it exists · where it's used later</span>
+  <p>\(T\) decides which way heat flows (hot to cold). \(P\) decides which side expands (high to low pressure). <strong>\(\mu\) decides which way particles move: from high \(\mu\) to low \(\mu\)</strong> (proved in Chapter 6). So:</p>
+  <ul>
+    <li>Chapter 7: two phases coexist ⟺ their chemical potentials are equal. Phase diagrams and the Clausius–Clapeyron equation follow from this single statement.</li>
+    <li>Chapter 8: chemical equilibrium, solutions and mixtures are all "set the \(\mu\)'s equal".</li>
+  </ul>
+</div>
+
+<h4>\(G = \mu N\): the chemical potential is the Gibbs energy per particle</h4>
+<p>\(G\) is extensive (doubling the system doubles \(G\)), but its natural variables \(T\) and \(P\) do not change with system size. So at fixed \(T, P\), \(G\) can only be proportional to \(N\), and the proportionality constant is \(\mu\):</p>
+<div class="key-result">
+  <div class="kr-label">Euler relation</div>
+  <p>\[ G = \mu N \quad\Longrightarrow\quad \mu = \frac{G}{N} \equiv g(T,P) \]</p>
+</div>
+<p>For a single substance, <strong>\(\mu\) is just the Gibbs energy per molecule (or per mole)</strong>. Dividing \(dG = -S\,dT + V\,dP\) by \(N\) gives the most important formula of Chapter 7:</p>
+<div class="key-result">
+  <div class="kr-label">\(d\mu\) for a single substance</div>
+  <p>\[ d\mu = -s\,dT + v\,dP \qquad (s = S/N,\ v = V/N) \]</p>
+</div>
+<details><summary>Proof: the Euler and Gibbs–Duhem relations</summary><div class="body">
+  <p>Scale the system by a factor \(\lambda\): \(U(\lambda S, \lambda V, \lambda N) = \lambda U(S, V, N)\). Differentiate with respect to \(\lambda\) and set \(\lambda = 1\):</p>
+  <p>\[ U = TS - PV + \mu N \]</p>
+  <p>Hence \(G = U - TS + PV = \mu N\), and similarly \(H = TS + \mu N\), \(F = -PV + \mu N\).</p>
+  <p>Take the total differential of \(U = TS - PV + \mu N\) and subtract \(dU = T\,dS - P\,dV + \mu\,dN\). What remains is the <strong>Gibbs–Duhem relation</strong>:</p>
+  <p>\[ S\,dT - V\,dP + N\,d\mu = 0 \]</p>
+  <p>It says \(T\), \(P\) and \(\mu\) cannot all vary independently: fix two and the third is determined. With several components, \(S\,dT - V\,dP + \sum_i N_i\,d\mu_i = 0\); this is the origin of the Gibbs phase rule in Chapter 7.</p>
+</div></details>
+
+<h4>Chemical potential of an ideal gas</h4>
+<p>At constant temperature \(d\mu = v\,dP = \frac{k_BT}{P}\,dP\). Integrate from a reference pressure \(P_0\) to \(P\):</p>
+<div class="key-result">
+  <div class="kr-label">Ideal-gas chemical potential</div>
+  <p>\[ \mu(T,P) = \mu_0(T) + k_BT\ln\frac{P}{P_0} \qquad(\text{per mole: } RT\ln\tfrac{P}{P_0}) \]</p>
+</div>
+<p>Higher pressure means higher chemical potential: the molecules are more "eager" to leave. In a gas mixture, each component uses its own partial pressure \(P_i\). This formula is the starting point for chemical equilibrium constants in Chapter 8.</p>
+
+<div class="card">
+  <span class="tag">Chapter 5 formula card</span>
+  <div class="scroll-x"><table>
+    <tr><th>Topic</th><th>Formula</th></tr>
+    <tr><td>The potentials</td><td>\(H = U + PV,\ F = U - TS,\ G = U - TS + PV\)</td></tr>
+    <tr><td>Differentials</td><td>\(dU = TdS - PdV,\ dH = TdS + VdP,\ dF = -SdT - PdV,\ dG = -SdT + VdP\)</td></tr>
+    <tr><td>Most-used read-offs</td><td>\(S = -(\partial G/\partial T)_P,\ V = (\partial G/\partial P)_T,\ P = -(\partial F/\partial V)_T\)</td></tr>
+    <tr><td>Most-used Maxwell</td><td>\((\partial S/\partial V)_T = (\partial P/\partial T)_V,\ (\partial S/\partial P)_T = -(\partial V/\partial T)_P\)</td></tr>
+    <tr><td>Heat capacities</td><td>\(C_P - C_V = TV\alpha^2/\kappa_T\)</td></tr>
+    <tr><td>Energy equation</td><td>\((\partial U/\partial V)_T = T(\partial P/\partial T)_V - P\)</td></tr>
+    <tr><td>Chemical potential</td><td>\(G = \mu N,\ d\mu = -s\,dT + v\,dP,\ \mu_{\text{ideal}} = \mu_0 + k_BT\ln(P/P_0)\)</td></tr>
+  </table></div>
+</div>
+</section>
+
+<!-- CHAPTER 6 -->
+<section class="chapter" id="ch6">
+<div class="chapter-num">Chapter 6</div>
+<h2>Equilibrium and Stability</h2>
+
+<div class="intro">
+  <span class="tag">What this chapter does</span>
+  <p>Chapter 5 built \(F\) and \(G\). This chapter puts them to work by answering two questions about any system:</p>
+  <ul>
+    <li><strong>Where does it end up?</strong> At fixed \(T\) and \(P\) it slides downhill in \(G\) until \(G\) is as small as possible. Between two parts that can exchange things, equilibrium means equal \(T\), equal \(P\) and equal \(\mu\).</li>
+    <li><strong>Does it stay there?</strong> Only if small disturbances die out, which requires \(C_V \gt 0\) and \(\kappa_T \gt 0\).</li>
+  </ul>
+  <span class="tag" style="margin-top:12px">After this chapter you should be able to</span>
+  <ul>
+    <li>say which potential is minimised for given constraints, and use the sign of \(\Delta G\) to decide which way a process goes;</li>
+    <li>state the three equilibrium conditions and the direction things flow when they are not met;</li>
+    <li>apply the stability conditions (e.g. constrain the exponents in \(S = aU^bV^cN^d\)) and use Le Chatelier's principle.</li>
+  </ul>
+</div>
+
+<h3 id="s6-1">6.1 &ensp;Which way does a process go?</h3>
+<p>For an isolated system the Second Law already answers this: entropy goes up, and equilibrium is maximum entropy. But a beaker on a lab bench is not isolated; it exchanges heat with the room. Tracking the room's entropy as well is tedious. What we want is a rule stated <em>only in terms of the system</em>. The potentials provide exactly that:</p>
+<div class="key-result">
+  <div class="kr-label">Direction of spontaneous change and equilibrium</div>
+  <p>\[ \begin{aligned} &\text{fixed } T, V: && dF \le 0, &&\text{equilibrium at minimum } F \\ &\text{fixed } T, P: && dG \le 0, &&\text{equilibrium at minimum } G \end{aligned} \]</p>
+</div>
+<p>The constant-\(T\), constant-\(P\) case is by far the most common (anything open to the air at room temperature), so the working rule for the rest of the course is: <strong>a process at fixed \(T\) and \(P\) happens by itself only if it lowers \(G\)</strong>.</p>
+
+<details><summary>Proof: where the minimum principles come from</summary><div class="body">
+  <p>Combine the Clausius inequality \(dS \geq \text{đ}Q/T\) with the First Law \(\text{đ}Q = dU - \text{đ}W\):</p>
+  <p>\[ T\,dS \geq dU - \text{đ}W \]</p>
+  <p><b>Fixed \(T\).</b> Let \(\text{đ}W' = -\text{đ}W\) be the work done <em>by</em> the system. Then \(\text{đ}W' \le -dU + T\,dS = -d(U - TS) = -dF\), using \(T\,dS = d(TS)\) at constant \(T\). If no work is done (fixed \(V\)), \(dF \le 0\).</p>
+  <p><b>Fixed \(T\) and \(P\).</b> The system must at least push back the surroundings, \(\text{đ}W' = P\,dV\) if that is its only work. Then \(P\,dV \le -dF\), and since \(P\) is constant, \(d(F + PV) = dG \le 0\).</p>
+  <p>Equality holds for reversible changes. At equilibrium nothing can lower the potential further, so it sits at a minimum: \(dF = 0, d^2F \gt 0\) or \(dG = 0, d^2G \gt 0\).</p>
+</div></details>
+
+<div class="ex">
+  <span class="tag">Example · Does ice melt at −10 °C? At +10 °C?</span>
+  <p>For melting ice, \(\Delta H = 6.01\ \text{kJ/mol}\), and at 0 °C the process is in equilibrium. Assuming \(\Delta H\) and \(\Delta S\) don't change much with temperature, find the sign of \(\Delta G\) for melting at 263 K and at 283 K.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>At the melting point \(\Delta G = 0\), so \(\Delta S = \Delta H/T_m = 6010/273.15 = 22.0\ \text{J/(mol·K)}\). Then \(\Delta G = \Delta H - T\Delta S\):</p>
+    <p>\[ T = 263\ \text{K}: \ \Delta G = 6010 - 263(22.0) \approx +220\ \text{J/mol} \gt 0 \quad\Rightarrow\quad \text{ice does not melt} \]</p>
+    <p>\[ T = 283\ \text{K}: \ \Delta G = 6010 - 283(22.0) \approx -220\ \text{J/mol} \lt 0 \quad\Rightarrow\quad \text{ice melts} \]</p>
+    <p>Melting costs energy (\(\Delta H \gt 0\)) but gains entropy (\(\Delta S \gt 0\)). The \(-T\Delta S\) term grows with temperature, so above 0 °C entropy wins and below it energy wins. That tug of war inside \(G = H - TS\) is the reason phase transitions happen at a definite temperature.</p>
+  </div></details>
+</div>
+
+<h4>Maximum useful work</h4>
+<p>The proof above also shows that at fixed \(T\) the work a system can deliver is at most \(-\Delta F\), and at fixed \(T\) and \(P\) the work beyond pushing back the atmosphere (e.g. electrical work) is at most \(-\Delta G\).</p>
+<div class="ex">
+  <span class="tag">Example · A hydrogen fuel cell</span>
+  <p>For \(\mathrm{H_2} + \tfrac12\mathrm{O_2} \to \mathrm{H_2O(l)}\) at 298 K and 1 bar: \(\Delta H = -286\ \text{kJ/mol}\), \(\Delta G = -237\ \text{kJ/mol}\). How much electrical work can a fuel cell deliver per mole of water, and where does the rest of the energy go?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Maximum non-expansion work \(= -\Delta G = 237\ \text{kJ}\). Burning the hydrogen would release \(-\Delta H = 286\ \text{kJ}\) of heat, but even a perfect fuel cell can turn only 237 kJ into electrical work. The remaining \(\Delta H - \Delta G = T\Delta S = -49\ \text{kJ}\) must be released as heat, because the products have lower entropy than the reactants (three molecules of gas become one of liquid), and that entropy has to be dumped into the surroundings.</p>
+  </div></details>
+</div>
+
+<h3 id="s6-2">6.2 &ensp;Equilibrium between two parts: equal \(T\), \(P\), \(\mu\)</h3>
+<p>Now split a system into two parts that can exchange something. The rule is easy to state:</p>
+<div class="key-result">
+  <div class="kr-label">Equilibrium conditions</div>
+  <p>Whatever the two parts can exchange, the matching intensive variable must be equal on both sides:</p>
+  <p>\[ \text{energy} \Rightarrow T_1 = T_2, \qquad \text{volume} \Rightarrow P_1 = P_2, \qquad \text{particles} \Rightarrow \mu_1 = \mu_2 \]</p>
+</div>
+<p>When a condition is <em>not</em> met, the system moves to increase its total entropy, which fixes the direction of flow:</p>
+<div class="scroll-x">
+<table>
+  <tr><th>If the parts can exchange</th><th>Equilibrium needs</th><th>Otherwise</th></tr>
+  <tr><td>Energy (heat)</td><td>\(T_1 = T_2\)</td><td>Heat flows from high \(T\) to low \(T\)</td></tr>
+  <tr><td>Volume (movable wall)</td><td>\(P_1 = P_2\)</td><td>The high-\(P\) side expands</td></tr>
+  <tr><td>Particles (permeable wall)</td><td>\(\mu_1 = \mu_2\)</td><td>Particles move from high \(\mu\) to low \(\mu\)</td></tr>
+</table>
+</div>
+<p>The first two rows are familiar. The third is the new one, and it is what Chapters 7 and 8 run on: <strong>whenever particles can move between two places (two phases, a solution and pure solvent, reactants and products), equilibrium means their chemical potentials are equal</strong>.</p>
+
+<details><summary>Proof: maximise the total entropy</summary><div class="body">
+  <p>Entropy is extensive, so \(S = S_1(U_1, V_1, N_1) + S_2(U_2, V_2, N_2)\). The whole system is isolated, so \(dU_2 = -dU_1\), \(dV_2 = -dV_1\), \(dN_2 = -dN_1\). From \(dU = T\,dS - P\,dV + \mu\,dN\), the entropy derivatives are \(\partial S/\partial U = 1/T\), \(\partial S/\partial V = P/T\), \(\partial S/\partial N = -\mu/T\). So</p>
+  <p>\[ dS = \left(\frac{1}{T_1} - \frac{1}{T_2}\right)dU_1 + \left(\frac{P_1}{T_1} - \frac{P_2}{T_2}\right)dV_1 - \left(\frac{\mu_1}{T_1} - \frac{\mu_2}{T_2}\right)dN_1 \]</p>
+  <p>At equilibrium \(dS = 0\) for every allowed \(dU_1, dV_1, dN_1\), so each bracket vanishes: \(T_1 = T_2\), then \(P_1 = P_2\), then \(\mu_1 = \mu_2\).</p>
+  <p>Away from equilibrium a spontaneous change has \(dS \gt 0\). Take just the first term: if \(T_1 \lt T_2\) the bracket is positive, so \(dU_1 \gt 0\): energy flows into the colder part. The other two rows of the table follow the same way.</p>
+</div></details>
+
+<h3 id="s6-3">6.3 &ensp;Stability: will it stay there?</h3>
+<p>"Minimum of \(G\)" (or maximum of \(S\)) contains two pieces of information. The first derivative being zero gives the equilibrium conditions above. The second derivative having the right sign says the state is a true minimum, not a maximum or a saddle, so that small random fluctuations get pushed back. That requirement constrains the material itself:</p>
+<div class="key-result">
+  <div class="kr-label">Stability conditions</div>
+  <p>\[ C_V \gt 0, \qquad \kappa_T = -\frac{1}{V}\left(\frac{\partial V}{\partial P}\right)_{\!T} \gt 0 \]</p>
+</div>
+<p>Both conditions have a direct physical meaning:</p>
+<ul>
+  <li><strong>\(C_V \gt 0\) (thermal stability).</strong> If a small region randomly gains some energy, its temperature rises, so heat flows back out of it. With a negative heat capacity, gaining energy would make it colder; it would pull in even more heat and the fluctuation would run away.</li>
+  <li><strong>\(\kappa_T \gt 0\) (mechanical stability).</strong> If a small region gets squeezed, its pressure goes up and it pushes back. If squeezing <em>lowered</em> its pressure, it would keep collapsing.</li>
+</ul>
+<div class="why">
+  <span class="tag">Where it's used later</span>
+  <ul>
+    <li>Chapter 7: below the critical temperature the van der Waals equation has a stretch with \((\partial P/\partial V)_T \gt 0\), i.e. \(\kappa_T \lt 0\). That uniform fluid is unstable and splits into liquid + gas; this is the liquid–gas transition.</li>
+    <li>Chapter 8: a mixture whose \(G(x)\) curves the wrong way is unstable in the same sense and separates into two phases (oil and water).</li>
+    <li>Chapter 5: \(\kappa_T \gt 0\) is why \(C_P - C_V = TV\alpha^2/\kappa_T \geq 0\).</li>
+  </ul>
+</div>
+
+<details><summary>Proof: the second variation of entropy</summary><div class="body">
+  <p>At fixed \(N\), let the energy and volume fluctuate by \(dU\), \(dV\). The second-order change of \(S(U,V)\) is</p>
+  <p>\[ d^2S = \tfrac{1}{2}\left[S_{UU}(dU)^2 + 2S_{UV}\,dU\,dV + S_{VV}(dV)^2\right] \]</p>
+  <p>The bracket equals \(d(S_U)\,dU + d(S_V)\,dV = d(1/T)\,dU + d(P/T)\,dV\). Now write everything in terms of \(dT\) and \(dV\), using \(d(1/T) = -dT/T^2\), \(dU = C_V\,dT + [T(\partial P/\partial T)_V - P]\,dV\), \(d(P/T) = dP/T - P\,dT/T^2\) and \(dP = (\partial P/\partial T)_V dT + (\partial P/\partial V)_T dV\). Expanding, all cross terms \(dT\,dV\) cancel, leaving</p>
+  <p>\[ d^2S = -\frac{1}{2}\frac{C_V}{T^2}(dT)^2 + \frac{1}{2T}\left(\frac{\partial P}{\partial V}\right)_{\!T}(dV)^2 \]</p>
+  <p>For this to be negative for every \(dT\) and \(dV\), each coefficient must be negative: \(C_V \gt 0\) and \((\partial P/\partial V)_T \lt 0\), i.e. \(\kappa_T \gt 0\).</p>
+</div></details>
+
+<div class="ex">
+  <span class="tag">Example · Constraints on a model entropy (exam-style)</span>
+  <p>A substance has entropy \(S = a\,U^bV^cN^d\) with \(a \gt 0\). What constraints apply to \(b\), \(c\), \(d\)?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p><b>Extensivity:</b> doubling the system must double \(S\). \(S(\lambda U, \lambda V, \lambda N) = \lambda^{b+c+d}S\) must equal \(\lambda S\), so \(b + c + d = 1\).</p>
+    <p><b>Stability:</b> \(S\) must curve downward in each variable:</p>
+    <p>\[ \frac{\partial^2 S}{\partial U^2} = ab(b-1)\,U^{b-2}V^cN^d \lt 0 \;\Rightarrow\; 0 \lt b \lt 1 \]</p>
+    <p>and in the same way \(0 \lt c \lt 1\), \(0 \lt d \lt 1\). (The product \(x(x-1)\) is negative only for \(0 \lt x \lt 1\).)</p>
+    <p>Bonus check: \(1/T = \partial S/\partial U = ab\,U^{b-1}V^cN^d \gt 0\) needs \(b \gt 0\), consistent with the above.</p>
+  </div></details>
+</div>
+<div class="remark"><strong>Recipe for this type of question:</strong> (1) extensivity: \(S(\lambda U, \lambda V, \lambda N) = \lambda S\); (2) stability: every \(\partial^2 S/\partial X^2 \lt 0\); (3) sign checks: \(1/T = \partial S/\partial U \gt 0\), \(P/T = \partial S/\partial V \gt 0\).</div>
+
+<h3 id="s6-4">6.4 &ensp;Le Chatelier's principle</h3>
+<p>The stability conditions have a qualitative version that needs no calculation:</p>
+<div class="key-result">
+  <div class="kr-label">Le Chatelier's principle</div>
+  <p>When a system in equilibrium is disturbed (temperature, pressure, volume or concentration changed), it shifts to a new equilibrium in the direction that <strong>partly undoes</strong> the disturbance.</p>
+</div>
+<p>This is the same logic as \(C_V \gt 0\) and \(\kappa_T \gt 0\): a stable equilibrium pushes back. If it amplified the disturbance instead, it would not have been stable to begin with.</p>
+<div class="ex">
+  <span class="tag">Example · Making ammonia</span>
+  <p>\(\mathrm{N_2(g)} + 3\,\mathrm{H_2(g)} \rightleftharpoons 2\,\mathrm{NH_3(g)}\) releases heat (\(\Delta h = -92\ \text{kJ/mol}\)). To get more ammonia, should you raise or lower the temperature? The pressure?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p><b>Temperature:</b> heating adds heat; the system responds by running in the direction that absorbs heat, which is backwards (the reverse reaction is endothermic). So <em>lower</em> temperature gives more NH₃ at equilibrium.</p>
+    <p><b>Pressure:</b> the left side has 4 molecules of gas, the right only 2. Compressing raises the pressure; the system responds by shifting toward fewer gas molecules, i.e. forwards. So <em>higher</em> pressure gives more NH₃. Industrial plants run at very high pressure for this reason.</p>
+    <p>Chapter 8 turns both statements into equations (the law of mass action and the van 't Hoff equation).</p>
+  </div></details>
+</div>
+<div class="remark"><strong>How to apply it:</strong> identify what the disturbance <em>adds</em> (heat, pressure, a reactant) and ask which direction <em>removes</em> some of it. For temperature, look at the sign of \(\Delta h\): heating favours the endothermic direction. For pressure, count moles of gas: compression favours the side with fewer.</div>
+
+<div class="card">
+  <span class="tag">Chapter 6 formula card</span>
+  <div class="scroll-x"><table>
+    <tr><th>Topic</th><th>Result</th></tr>
+    <tr><td>Combined laws</td><td>\(T\,dS \ge dU - \text{đ}W\)</td></tr>
+    <tr><td>Direction at fixed \(T, P\)</td><td>\(dG \le 0\); equilibrium at minimum \(G\)</td></tr>
+    <tr><td>Direction at fixed \(T, V\)</td><td>\(dF \le 0\); max work \(= -\Delta F\)</td></tr>
+    <tr><td>Equilibrium between parts</td><td>\(T_1 = T_2,\ P_1 = P_2,\ \mu_1 = \mu_2\); particles flow high \(\mu\) → low \(\mu\)</td></tr>
+    <tr><td>Stability</td><td>\(C_V \gt 0,\ \kappa_T \gt 0\); \(S\) concave in \(U, V, N\)</td></tr>
+  </table></div>
+</div>
+</section>
+
+<!-- CHAPTER 7 -->
+<section class="chapter" id="ch7">
+<div class="chapter-num">Chapter 7</div>
+<h2>Phase Equilibrium and Phase Transitions</h2>
+
+<div class="intro">
+  <span class="tag">What this chapter does</span>
+  <p>Ice melts at 0 °C and water boils at 100 °C, sharply, not gradually. Why at a definite temperature, and how does that temperature move with pressure? The whole chapter rests on two facts from Chapters 5–6:</p>
+  <ul>
+    <li>at fixed \(T\) and \(P\), the phase with the <strong>lowest chemical potential \(\mu\)</strong> wins;</li>
+    <li>two phases can <strong>coexist only where their \(\mu\) are equal</strong>.</li>
+  </ul>
+  <span class="tag" style="margin-top:12px">After this chapter you should be able to</span>
+  <ul>
+    <li>explain a phase diagram (lines, triple point, critical point) and use the Gibbs phase rule;</li>
+    <li>use the Clausius–Clapeyron equation for slopes of phase boundaries, vapour pressures and triple points;</li>
+    <li>explain how the van der Waals fluid produces a liquid–gas transition (Maxwell construction, metastable states);</li>
+    <li>tell first-order from continuous transitions.</li>
+  </ul>
+</div>
+
+<h3 id="s7-1">7.1 &ensp;The key picture: lowest \(\mu\) wins</h3>
+<p>A <strong>phase</strong> is a region of matter that is uniform throughout: same density, composition and so on everywhere. Ice, liquid water and steam are three phases of one substance. (A uniform mix of He and N₂ gas is one phase; ice cubes in water are two.)</p>
+<p>At given \(T\) and \(P\), each phase has its own chemical potential \(\mu(T,P)\), the Gibbs energy per molecule. Molecules drift from high \(\mu\) to low \(\mu\) (§6.2), so at any \((T,P)\) the substance ends up entirely in the phase with the lowest \(\mu\). Now recall from §5.7:</p>
+<div class="eq">\[ \left(\frac{\partial\mu}{\partial T}\right)_{\!P} = -s, \qquad \left(\frac{\partial\mu}{\partial P}\right)_{\!T} = v \]</div>
+<p>So on a plot of \(\mu\) against \(T\), each phase is a line sloping <em>down</em> with slope \(-s\). A gas has much more entropy per molecule than a liquid, which has more than a solid. So the gas line is the steepest and the solid line the flattest:</p>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="Chemical potential versus temperature for solid, liquid and gas; the lowest line is the stable phase, crossings give the melting and boiling points, and raising the pressure lifts the gas line and raises the boiling point" style="width:100%;max-width:600px;display:block;margin:12px auto">
+  <line x1="70" y1="300" x2="580" y2="300" stroke="var(--text)" stroke-width="1.2"/>
+  <line x1="70" y1="300" x2="70" y2="15" stroke="var(--text)" stroke-width="1.2"/>
+  <line x1="70.0" y1="86.8" x2="550.0" y2="176.8" stroke="var(--text-dim)" stroke-width="1.2"/><line x1="70.0" y1="58.4" x2="550.0" y2="238.4" stroke="var(--text-dim)" stroke-width="1.2"/><line x1="196.3" y1="30.0" x2="550.0" y2="295.3" stroke="var(--text-dim)" stroke-width="1.2"/><line x1="221.6" y1="30.0" x2="550.0" y2="276.3" stroke="var(--accent)" stroke-width="1.5" stroke-dasharray="6 4"/><line x1="70.0" y1="86.8" x2="221.6" y2="115.3" stroke="var(--text)" stroke-width="3"/><line x1="221.6" y1="115.3" x2="398.4" y2="181.6" stroke="var(--text)" stroke-width="3"/><line x1="398.4" y1="181.6" x2="550.0" y2="295.3" stroke="var(--text)" stroke-width="3"/><line x1="221.6" y1="115.3" x2="221.6" y2="300" stroke="var(--text-dim)" stroke-dasharray="3 3"/><line x1="398.4" y1="181.6" x2="398.4" y2="300" stroke="var(--text-dim)" stroke-dasharray="3 3"/><line x1="448.9" y1="200.5" x2="448.9" y2="300" stroke="var(--accent)" stroke-dasharray="3 3"/>
+  <g font-family="Inter, sans-serif" font-size="13" fill="var(--text)">
+  <text x="155.9" y="122.9" text-anchor="end">solid</text>
+  <text x="318.6" y="173.2" text-anchor="end">liquid</text>
+  <text x="493.5" y="277.4" text-anchor="end">gas</text>
+  <text x="221.6" y="318" text-anchor="middle" font-style="italic">T<tspan font-size="9" dy="3">m</tspan></text>
+  <text x="398.4" y="318" text-anchor="middle" font-style="italic">T<tspan font-size="9" dy="3">b</tspan></text>
+  <text x="575" y="318" text-anchor="end" font-style="italic">T</text>
+  <text x="58" y="26" text-anchor="end" font-style="italic">μ</text>
+</g>
+<g font-family="Inter, sans-serif" font-size="11" fill="var(--accent)">
+  <text x="452.9" y="318" font-style="italic">T<tspan font-size="8" dy="3">b</tspan><tspan dy="-3">′</tspan></text>
+  <text x="347.9" y="116.7">gas at higher P</text>
+</g>
+<g font-family="Inter, sans-serif" font-size="11" fill="var(--text-dim)">
+  <text x="75.1" y="54.3">liquid (unstable here)</text>
+</g>
+</svg>
+<figcaption>\(\mu\) against \(T\) at fixed pressure (lines drawn straight for simplicity). The thick line is the lowest \(\mu\) at each temperature, i.e. the phase actually present. Crossings are the melting point \(T_m\) and boiling point \(T_b\). Raising the pressure lifts the gas line most, moving the boiling point up to \(T_b'\).</figcaption>
+</figure>
+<p>Read the picture from left to right:</p>
+<ul>
+  <li>At low \(T\) the solid has the lowest \(\mu\): it is stable.</li>
+  <li>The steeper liquid line overtakes it at \(T_m\): the substance melts.</li>
+  <li>The even steeper gas line overtakes the liquid at \(T_b\): it boils.</li>
+</ul>
+<p>The transitions are sharp because the lowest line switches abruptly at a crossing. At the crossing itself the two \(\mu\) are equal and both phases can coexist:</p>
+<div class="key-result">
+  <div class="kr-label">Two phases coexist when</div>
+  <p>\[ T^{\text{I}} = T^{\text{II}}, \qquad P^{\text{I}} = P^{\text{II}}, \qquad \mu^{\text{I}}(T,P) = \mu^{\text{II}}(T,P) \]</p>
+</div>
+<p>The picture also explains <strong>pressure</strong>: raising \(P\) raises each \(\mu\) by \(v\,\Delta P\). The gas has by far the largest \(v\), so its line rises most and its crossing with the liquid moves to higher temperature. That is why water boils above 100 °C in a pressure cooker. §7.3 makes this quantitative.</p>
+
+<details><summary>Why a uniform phase can split in two (the entropy argument)</summary><div class="body">
+  <p>Suppose the entropy of a uniform substance, as a function of its energy, has a stretch where \(S(U)\) curves <em>upward</em>. Split the system into two halves with energies \(U + \Delta U\) and \(U - \Delta U\). The total energy is the same, but the average entropy is</p>
+  <p>\[ \tfrac{1}{2}\left[S(U + \Delta U) + S(U - \Delta U)\right] \gt S(U) \]</p>
+  <p>because a chord lies above an upward-curving curve. Splitting raises the entropy, so the uniform state is not the equilibrium state: the system separates into two parts with different energy densities, i.e. two phases. This is exactly the violation of the stability condition \(\partial^2S/\partial U^2 \lt 0\) from §6.3.</p>
+</div></details>
+
+<h3 id="s7-2">7.2 &ensp;Phase diagrams and the Gibbs phase rule</h3>
+<p>Do the "lowest \(\mu\)" comparison at every \((T, P)\) and colour each point by the winning phase: that is a <strong>phase diagram</strong>. For water:</p>
+<div class="scroll-x">
+<table>
+  <tr><th>Feature</th><th>What it means</th></tr>
+  <tr><td>Regions</td><td>One phase is stable: ice, water or vapour. \(T\) and \(P\) can both be varied freely.</td></tr>
+  <tr><td>Lines</td><td>Two phases coexist (melting, boiling, sublimation curves). Along a line, choosing \(T\) fixes \(P\). For example, at 100 °C water and steam coexist only at 1 atm.</td></tr>
+  <tr><td>Triple point</td><td>All three lines meet and all three phases coexist: \(273.16\ \text{K}\) (0.01 °C), \(611.66\ \text{Pa}\) for water. This is the reference point of the temperature scale (Chapter 1).</td></tr>
+  <tr><td>Critical point</td><td>The liquid–gas line ends (water: about 374 °C, 22 MPa). Beyond it, liquid and gas stop being distinct phases.</td></tr>
+</table>
+</div>
+<p>Why are coexistence regions lines and points rather than areas? Counting answers it. With \(K\) components and \(P\) coexisting phases, the number of intensive variables you can still change freely is</p>
+<div class="key-result">
+  <div class="kr-label">Gibbs phase rule</div>
+  <p>\[ f = K + 2 - P \]</p>
+</div>
+<p>For a pure substance (\(K = 1\)): one phase gives \(f = 2\) (an area), two phases \(f = 1\) (a line), three phases \(f = 0\) (a single point). Four phases of a pure substance can never coexist.</p>
+<details><summary>Proof: count unknowns and equations</summary><div class="body">
+  <p>Each phase is described by \(T\), \(P\) and its composition. Composition is \(K\) mole fractions that add to 1, so \(K - 1\) independent ones. Each phase therefore has \(K + 1\) intensive variables, and \(P\) phases have \(P(K+1)\).</p>
+  <p>Equilibrium requires \(T\), \(P\) and each of the \(K\) chemical potentials to be equal across all \(P\) phases. Each "equal across \(P\) phases" is \(P - 1\) equations, and there are \(K + 2\) such quantities: \((P-1)(K+2)\) equations.</p>
+  <p>Free variables \(= P(K+1) - (P-1)(K+2) = K + 2 - P\).</p>
+</div></details>
+
+<h3 id="s7-3">7.3 &ensp;The Clausius–Clapeyron equation</h3>
+<p>A coexistence line has a definite slope, and we can predict it from two measurable numbers: the latent heat and the volume change.</p>
+<div class="key-result">
+  <div class="kr-label">Clausius–Clapeyron equation</div>
+  <p>\[ \frac{dP}{dT} = \frac{\Delta s}{\Delta v} = \frac{L}{T\,\Delta v} \]</p>
+</div>
+<p>Here \(L = T\Delta s\) is the latent heat (heat absorbed going from phase I to phase II) and \(\Delta v\) the change in volume, both for the same amount of substance (per molecule, per mole, or per kilogram).</p>
+<div class="why">
+  <span class="tag">What it tells you</span>
+  <ul>
+    <li><strong>Boiling:</strong> \(L \gt 0\) and the gas takes up far more volume (\(\Delta v \gt 0\)), so \(dP/dT \gt 0\): higher pressure → higher boiling point.</li>
+    <li><strong>Melting of ice:</strong> \(L \gt 0\), but liquid water is <em>denser</em> than ice, so \(\Delta v \lt 0\) and \(dP/dT \lt 0\). Squeezing ice lowers its melting point. Almost every other substance behaves the opposite way.</li>
+  </ul>
+</div>
+<details><summary>Proof (three lines)</summary><div class="body">
+  <p>Along the coexistence line, \(\mu^{\text{I}} = \mu^{\text{II}}\) at every point, so moving along the line their changes are equal: \(d\mu^{\text{I}} = d\mu^{\text{II}}\). With \(d\mu = -s\,dT + v\,dP\):</p>
+  <p>\[ -s^{\text{I}}\,dT + v^{\text{I}}\,dP = -s^{\text{II}}\,dT + v^{\text{II}}\,dP \quad\Longrightarrow\quad \frac{dP}{dT} = \frac{s^{\text{II}} - s^{\text{I}}}{v^{\text{II}} - v^{\text{I}}} \]</p>
+  <p>The phase change happens at constant \(T\) and is reversible, so the heat absorbed is \(L = T(s^{\text{II}} - s^{\text{I}})\).</p>
+</div></details>
+
+<h4>Vapour pressure: the integrated form</h4>
+<p>For liquid → gas (or solid → gas), three approximations make the equation easy to integrate: the gas volume dominates (\(\Delta V \approx V_g\)); the vapour is ideal (\(V_g = RT/P\) per mole); and \(L\) is roughly constant. Then \(dP/dT = LP/(RT^2)\), which integrates to</p>
+<div class="key-result">
+  <div class="kr-label">Vapour-pressure curve</div>
+  <p>\[ \ln P = -\frac{L}{RT} + \text{const}, \qquad \ln\frac{P_2}{P_1} = -\frac{L}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right) \]</p>
+</div>
+<p>(\(L\) per mole.) Plotting \(\ln P\) against \(1/T\) gives a straight line of slope \(-L/R\); reading \(L\) off such a slope is a standard exam step.</p>
+
+<div class="ex">
+  <span class="tag">Example 1 · Pressure cooker</span>
+  <p>A pressure cooker runs at 2 atm. At what temperature does the water boil? (\(L_{\text{vap}} = 40.7\ \text{kJ/mol}\); at 1 atm it boils at 373.15 K.)</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>\[ \frac{1}{T_2} = \frac{1}{T_1} - \frac{R}{L}\ln\frac{P_2}{P_1} = \frac{1}{373.15} - \frac{8.314\,\ln 2}{40\,700} = 2.680\times10^{-3} - 1.42\times10^{-4} \]</p>
+    <p>so \(T_2 \approx 394\ \text{K} \approx 121\ \text{°C}\). (The measured value is about 120 °C.) Food cooks much faster at 121 °C than at 100 °C.</p>
+  </div></details>
+</div>
+<div class="ex">
+  <span class="tag">Example 2 · How much pressure to melt ice?</span>
+  <p>Ice: \(L_{\text{fus}} = 6.01\ \text{kJ/mol}\); molar volumes \(19.65\ \text{cm}^3\) (ice) and \(18.02\ \text{cm}^3\) (water). By how much must the pressure rise to lower the melting point by 1 K?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>\(\Delta v = 18.02 - 19.65 = -1.63\ \text{cm}^3/\text{mol} = -1.63\times10^{-6}\ \text{m}^3/\text{mol}\).</p>
+    <p>\[ \frac{dP}{dT} = \frac{6010}{(273.15)(-1.63\times10^{-6})} \approx -1.35\times10^{7}\ \text{Pa/K} \approx -133\ \text{atm/K} \]</p>
+    <p>About 133 atm per kelvin: the effect exists but is small, because \(\Delta v\) for melting is tiny compared with boiling.</p>
+  </div></details>
+</div>
+
+<div class="ex">
+  <span class="tag">Example 3 · Triple point of ammonia (course example)</span>
+  <p>The vapour pressures (in Pa) of liquid and solid ammonia are \(\ln P = 24.38 - 3063/T\) (liquid) and \(\ln P = 27.92 - 3754/T\) (solid). Find (i) the triple point, (ii) the latent heats of vaporisation, sublimation and fusion.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p><b>Latent heats.</b> Compare each line with \(\ln P = -L/(RT) + \text{const}\): the coefficient of \(1/T\) is \(L/R\).</p>
+    <p>\[ L_{\text{vap}} = 3063 \times 8.31 \approx 2.55\times10^{4}\ \text{J/mol}, \qquad L_{\text{sub}} = 3754 \times 8.31 \approx 3.12\times10^{4}\ \text{J/mol} \]</p>
+    <p><b>Triple point.</b> There, liquid and solid have the same vapour pressure. Set the two lines equal:</p>
+    <p>\[ 24.38 - \frac{3063}{T_t} = 27.92 - \frac{3754}{T_t} \;\Rightarrow\; T_t = \frac{691}{3.54} \approx 195.2\ \text{K}, \qquad \ln P_t = 24.38 - \frac{3063}{195.2} \;\Rightarrow\; P_t \approx 5.93\ \text{kPa} \]</p>
+    <p><b>Fusion.</b> Going solid → gas directly or via the liquid must cost the same (entropy is a state function), so \(L_{\text{sub}} = L_{\text{fus}} + L_{\text{vap}}\) and \(L_{\text{fus}} \approx 5.7\times10^{3}\ \text{J/mol}\).</p>
+  </div></details>
+  <p style="font-size:14px;color:var(--text-secondary);margin:10px 0 0">Note: the slide prints the solid constant as 27.29, which would put the triple point near 237 K. The value 27.92 reproduces the slide's own answer of 195.2 K and 5934 Pa.</p>
+</div>
+
+<div class="ex">
+  <span class="tag">Example 4 · Diamond vs graphite (course example)</span>
+  <p>At 298 K and 1 bar graphite is stable: its molar \(G\) is 2900 J/mol lower than diamond's. Molar volumes: diamond \(3.42\times10^{-6}\ \text{m}^3\), graphite \(5.31\times10^{-6}\ \text{m}^3\). (i) Why does high pressure favour diamond, and roughly what pressure is needed? (ii) At 500 K the molar entropies are 7.59 J/K (diamond) and 12.33 J/K (graphite). Find the slope of the boundary.</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p><b>(i)</b> \((\partial G/\partial P)_T = V\): raising the pressure increases both \(G\)'s, but graphite's faster because its volume is larger. The lines cross when the 2900 J/mol gap is used up:</p>
+    <p>\[ \Delta P \approx \frac{2900}{(5.31 - 3.42)\times10^{-6}} \approx 1.5\times10^{9}\ \text{Pa} \approx 15\ \text{kbar} \]</p>
+    <p><b>(ii)</b> Clausius–Clapeyron with \(\Delta\) = graphite − diamond:</p>
+    <p>\[ \frac{dP}{dT} = \frac{\Delta S}{\Delta V} = \frac{12.33 - 7.59}{1.89\times10^{-6}} \approx 2.5\times10^{6}\ \text{Pa/K} \approx 25\ \text{bar/K} \]</p>
+    <p>Positive: graphite has more entropy, so heating favours it, and each extra kelvin needs about 25 bar more to keep diamond stable. (The 500 K entropies come from the 298 K table values plus \(\int C_P\,dT/T\); see the full notes.)</p>
+  </div></details>
+  <p style="font-size:14px;color:var(--text-secondary);margin:10px 0 0">Note: the slide swaps the two molar volumes. Diamond is the denser phase, and the slide's own calculation uses \(V_{\text{graphite}} - V_{\text{diamond}} = (5.31 - 3.42)\times10^{-6}\).</p>
+</div>
+
+<h3 id="s7-4">7.4 &ensp;The van der Waals fluid: where the liquid–gas transition comes from</h3>
+<p>So far we have taken the existence of liquid and gas for granted. The van der Waals equation shows how a single equation of state produces both. Per molecule (\(v = V/N\)):</p>
+<div class="eq">\[ P = \frac{k_BT}{v - b} - \frac{a}{v^2} \]</div>
+<p>\(b\) accounts for the finite size of molecules, \(a\) for their mutual attraction. At high temperature the isotherms look like an ideal gas. Below a <strong>critical temperature \(T_c\)</strong> each isotherm develops a wiggle containing a stretch where \((\partial P/\partial V)_T \gt 0\), i.e. \(\kappa_T \lt 0\). By §6.3 that is unstable: a uniform fluid there splits into two phases, liquid and gas.</p>
+<div class="key-result">
+  <div class="kr-label">Van der Waals critical point</div>
+  <p>\[ v_c = 3b, \qquad k_BT_c = \frac{8a}{27b}, \qquad P_c = \frac{a}{27b^2}, \qquad \frac{P_cv_c}{k_BT_c} = \frac{3}{8} \]</p>
+</div>
+<p>At \(T_c\) the wiggle shrinks to a single point where the isotherm is momentarily flat and has an inflection; above \(T_c\) liquid and gas can no longer be told apart.</p>
+<details><summary>Proof: critical constants</summary><div class="body">
+  <p>Require \((\partial P/\partial v)_T = 0\) and \((\partial^2 P/\partial v^2)_T = 0\):</p>
+  <p>\[ -\frac{k_BT}{(v-b)^2} + \frac{2a}{v^3} = 0, \qquad \frac{2k_BT}{(v-b)^3} - \frac{6a}{v^4} = 0 \]</p>
+  <p>The first gives \(k_BT = 2a(v-b)^2/v^3\). Substituting into the second gives \(4/(v-b) = 6/v\), so \(v = 3b\). Then \(k_BT_c = 2a(2b)^2/(3b)^3 = 8a/27b\) and \(P_c = k_BT_c/(2b) - a/(9b^2) = a/27b^2\).</p>
+</div></details>
+
+<h4>The Maxwell equal-area construction</h4>
+<p>The real isotherm doesn't follow the wiggle. It runs flat at the coexistence pressure, where liquid and gas coexist. Which flat line? The one that cuts off <strong>equal areas</strong> above and below:</p>
+<figure>
+<svg viewBox="0 0 600 340" role="img" aria-label="Van der Waals isotherm below the critical temperature with the Maxwell equal-area construction" style="width:100%;max-width:600px;display:block;margin:12px auto">
+  <path d="M74.8,142.5 L74.8,142.5 75.5,147.8 76.2,152.8 76.8,157.3 77.5,161.6 78.2,165.4 78.8,169.0 79.5,172.2 80.1,175.2 80.8,178.0 81.5,180.5 82.1,182.7 82.8,184.8 83.5,186.6 84.1,188.3 84.8,189.8 85.4,191.1 86.1,192.3 86.8,193.4 87.4,194.3 88.1,195.1 88.8,195.8 89.4,196.3 90.1,196.8 90.7,197.1 91.4,197.4 92.1,197.6 92.7,197.7 93.4,197.8 94.1,197.8 94.7,197.7 95.4,197.5 96.0,197.3 96.7,197.1 97.4,196.8 98.0,196.4 98.7,196.0 99.4,195.6 100.0,195.2 100.7,194.7 101.3,194.1 102.0,193.6 102.7,193.0 103.3,192.4 104.0,191.8 104.7,191.2 105.3,190.5 106.0,189.8 106.6,189.1 107.3,188.4 108.0,187.7 108.6,187.0 109.3,186.3 110.0,185.5 110.6,184.8 111.3,184.0 112.0,183.3 112.6,182.5 113.3,181.7 113.9,180.9 114.6,180.2 115.3,179.4 115.9,178.6 116.6,177.8 117.3,177.1 117.9,176.3 118.6,175.5 119.2,174.7 119.9,174.0 120.6,173.2 121.2,172.4 121.9,171.7 122.6,170.9 123.2,170.2 123.9,169.4 124.5,168.7 125.2,167.9 125.9,167.2 126.5,166.5 127.2,165.7 127.9,165.0 128.5,164.3 129.2,163.6 129.8,162.9 130.5,162.2 131.2,161.5 131.8,160.9 132.5,160.2 133.2,159.5 133.8,158.9 134.5,158.2 135.1,157.6 135.8,156.9 136.5,156.3 137.1,155.7 137.8,155.1 138.5,154.4 139.1,153.8 139.8,153.3 140.4,152.7 141.1,152.1 141.8,151.5 142.4,151.0 143.1,150.4 143.8,149.8 144.4,149.3 145.1,148.8 145.8,148.2 146.4,147.7 147.1,147.2 147.7,146.7 148.4,146.2 149.1,145.7 149.7,145.2 150.4,144.8 151.1,144.3 151.7,143.8 152.4,143.4 153.0,142.9 153.7,142.5 L153.7,142.5 Z" fill="var(--accent)" fill-opacity="0.22" stroke="none"/>
+  <path d="M153.7,142.5 L153.7,142.5 155.4,141.4 157.1,140.3 158.8,139.3 160.6,138.3 162.3,137.4 164.0,136.5 165.7,135.6 167.4,134.8 169.1,134.0 170.8,133.3 172.5,132.5 174.2,131.9 176.0,131.2 177.7,130.6 179.4,130.1 181.1,129.5 182.8,129.0 184.5,128.5 186.2,128.1 187.9,127.6 189.7,127.2 191.4,126.9 193.1,126.5 194.8,126.2 196.5,125.9 198.2,125.6 199.9,125.3 201.6,125.1 203.4,124.9 205.1,124.7 206.8,124.5 208.5,124.4 210.2,124.2 211.9,124.1 213.6,124.0 215.3,123.9 217.0,123.9 218.8,123.8 220.5,123.8 222.2,123.7 223.9,123.7 225.6,123.7 227.3,123.7 229.0,123.8 230.7,123.8 232.5,123.9 234.2,123.9 235.9,124.0 237.6,124.1 239.3,124.2 241.0,124.3 242.7,124.4 244.4,124.5 246.2,124.6 247.9,124.8 249.6,124.9 251.3,125.1 253.0,125.2 254.7,125.4 256.4,125.6 258.1,125.8 259.8,126.0 261.6,126.2 263.3,126.4 265.0,126.6 266.7,126.8 268.4,127.0 270.1,127.2 271.8,127.5 273.5,127.7 275.3,127.9 277.0,128.2 278.7,128.4 280.4,128.7 282.1,128.9 283.8,129.2 285.5,129.5 287.2,129.7 289.0,130.0 290.7,130.3 292.4,130.6 294.1,130.8 295.8,131.1 297.5,131.4 299.2,131.7 300.9,132.0 302.6,132.3 304.4,132.6 306.1,132.9 307.8,133.2 309.5,133.5 311.2,133.8 312.9,134.1 314.6,134.4 316.3,134.7 318.1,135.0 319.8,135.3 321.5,135.7 323.2,136.0 324.9,136.3 326.6,136.6 328.3,136.9 330.0,137.3 331.8,137.6 333.5,137.9 335.2,138.2 336.9,138.5 338.6,138.9 340.3,139.2 342.0,139.5 343.7,139.8 345.4,140.2 347.2,140.5 348.9,140.8 350.6,141.2 352.3,141.5 354.0,141.8 355.7,142.1 357.4,142.5 L357.4,142.5 Z" fill="var(--accent)" fill-opacity="0.22" stroke="none"/>
+  <line x1="50" y1="300" x2="575" y2="300" stroke="var(--text)" stroke-width="1.2"/>
+  <line x1="50" y1="300" x2="50" y2="15" stroke="var(--text)" stroke-width="1.2"/>
+  <polyline points="67.2,39.5 68.5,63.4 69.7,84.1 71.0,102.0 72.3,117.5 73.6,130.9 74.8,142.4 76.1,152.3 77.4,160.8 78.6,168.1 79.9,174.2 81.2,179.4 82.4,183.7 83.7,187.3 85.0,190.3 86.3,192.6 87.5,194.4 88.8,195.8 90.1,196.8 91.3,197.4 92.6,197.7 93.9,197.8 95.2,197.6 96.4,197.2 97.7,196.6 99.0,195.9 100.2,195.0 101.5,194.0 102.8,192.9 104.0,191.8 105.3,190.5 106.6,189.2 107.9,187.9 109.1,186.5 110.4,185.0 111.7,183.6 112.9,182.1 114.2,180.6 115.5,179.2 116.7,177.7 118.0,176.2 119.3,174.7 120.6,173.2 121.8,171.8 123.1,170.3 124.4,168.9 125.6,167.5 126.9,166.1 128.2,164.7 129.4,163.3 130.7,162.0 132.0,160.7 133.3,159.4 134.5,158.2 135.8,156.9 137.1,155.7 138.3,154.6 139.6,153.4 140.9,152.3 142.1,151.2 143.4,150.1 144.7,149.1 146.0,148.1 147.2,147.1 148.5,146.1 149.8,145.2 151.0,144.3 152.3,143.4 153.6,142.6 154.8,141.7 156.1,140.9 157.4,140.1 158.7,139.4 159.9,138.6 161.2,137.9 162.5,137.2 163.7,136.6 165.0,135.9 166.3,135.3 167.5,134.7 168.8,134.1 170.1,133.6 171.4,133.0 172.6,132.5 173.9,132.0 175.2,131.5 176.4,131.1 177.7,130.6 179.0,130.2 180.2,129.8 181.5,129.4 182.8,129.0 184.1,128.6 185.3,128.3 186.6,128.0 187.9,127.7 189.1,127.4 190.4,127.1 191.7,126.8 192.9,126.5 194.2,126.3 195.5,126.1 196.8,125.8 198.0,125.6 199.3,125.4 200.6,125.3 201.8,125.1 203.1,124.9 204.4,124.8 205.6,124.6 206.9,124.5 208.2,124.4 209.5,124.3 210.7,124.2 212.0,124.1 213.3,124.0 214.5,124.0 215.8,123.9 217.1,123.9 218.3,123.8 219.6,123.8 220.9,123.8 222.2,123.7 223.4,123.7 224.7,123.7 226.0,123.7 227.2,123.7 228.5,123.8 229.8,123.8 231.0,123.8 232.3,123.8 233.6,123.9 234.9,123.9 236.1,124.0 237.4,124.1 238.7,124.1 239.9,124.2 241.2,124.3 242.5,124.4 243.8,124.4 245.0,124.5 246.3,124.6 247.6,124.7 248.8,124.9 250.1,125.0 251.4,125.1 252.6,125.2 253.9,125.3 255.2,125.5 256.5,125.6 257.7,125.7 259.0,125.9 260.3,126.0 261.5,126.2 262.8,126.3 264.1,126.5 265.3,126.6 266.6,126.8 267.9,126.9 269.2,127.1 270.4,127.3 271.7,127.4 273.0,127.6 274.2,127.8 275.5,128.0 276.8,128.2 278.0,128.3 279.3,128.5 280.6,128.7 281.9,128.9 283.1,129.1 284.4,129.3 285.7,129.5 286.9,129.7 288.2,129.9 289.5,130.1 290.7,130.3 292.0,130.5 293.3,130.7 294.6,130.9 295.8,131.1 297.1,131.3 298.4,131.6 299.6,131.8 300.9,132.0 302.2,132.2 303.4,132.4 304.7,132.7 306.0,132.9 307.3,133.1 308.5,133.3 309.8,133.5 311.1,133.8 312.3,134.0 313.6,134.2 314.9,134.5 316.1,134.7 317.4,134.9 318.7,135.1 320.0,135.4 321.2,135.6 322.5,135.9 323.8,136.1 325.0,136.3 326.3,136.6 327.6,136.8 328.8,137.0 330.1,137.3 331.4,137.5 332.7,137.7 333.9,138.0 335.2,138.2 336.5,138.5 337.7,138.7 339.0,138.9 340.3,139.2 341.5,139.4 342.8,139.7 344.1,139.9 345.4,140.2 346.6,140.4 347.9,140.6 349.2,140.9 350.4,141.1 351.7,141.4 353.0,141.6 354.2,141.9 355.5,142.1 356.8,142.3 358.1,142.6 359.3,142.8 360.6,143.1 361.9,143.3 363.1,143.6 364.4,143.8 365.7,144.1 366.9,144.3 368.2,144.5 369.5,144.8 370.8,145.0 372.0,145.3 373.3,145.5 374.6,145.8 375.8,146.0 377.1,146.3 378.4,146.5 379.6,146.7 380.9,147.0 382.2,147.2 383.5,147.5 384.7,147.7 386.0,148.0 387.3,148.2 388.5,148.4 389.8,148.7 391.1,148.9 392.3,149.2 393.6,149.4 394.9,149.6 396.2,149.9 397.4,150.1 398.7,150.4 400.0,150.6 401.2,150.8 402.5,151.1 403.8,151.3 405.1,151.6 406.3,151.8 407.6,152.0 408.9,152.3 410.1,152.5 411.4,152.8 412.7,153.0 413.9,153.2 415.2,153.5 416.5,153.7 417.8,153.9 419.0,154.2 420.3,154.4 421.6,154.6 422.8,154.9 424.1,155.1 425.4,155.3 426.6,155.6 427.9,155.8 429.2,156.0 430.5,156.3 431.7,156.5 433.0,156.7 434.3,157.0 435.5,157.2 436.8,157.4 438.1,157.6 439.3,157.9 440.6,158.1 441.9,158.3 443.2,158.6 444.4,158.8 445.7,159.0 447.0,159.2 448.2,159.5 449.5,159.7 450.8,159.9 452.0,160.1 453.3,160.4 454.6,160.6 455.9,160.8 457.1,161.0 458.4,161.3 459.7,161.5 460.9,161.7 462.2,161.9 463.5,162.1 464.7,162.4 466.0,162.6 467.3,162.8 468.6,163.0 469.8,163.2 471.1,163.4 472.4,163.7 473.6,163.9 474.9,164.1 476.2,164.3 477.4,164.5 478.7,164.7 480.0,165.0 481.3,165.2 482.5,165.4 483.8,165.6 485.1,165.8 486.3,166.0 487.6,166.2 488.9,166.4 490.1,166.7 491.4,166.9 492.7,167.1 494.0,167.3 495.2,167.5 496.5,167.7 497.8,167.9 499.0,168.1 500.3,168.3 501.6,168.5 502.8,168.7 504.1,168.9 505.4,169.1 506.7,169.3 507.9,169.5 509.2,169.7 510.5,169.9 511.7,170.2 513.0,170.4 514.3,170.6 515.5,170.8 516.8,171.0 518.1,171.2 519.4,171.4 520.6,171.6 521.9,171.8 523.2,171.9 524.4,172.1 525.7,172.3 527.0,172.5 528.2,172.7 529.5,172.9 530.8,173.1 532.1,173.3 533.3,173.5 534.6,173.7 535.9,173.9 537.1,174.1 538.4,174.3 539.7,174.5 540.9,174.7 542.2,174.9 543.5,175.0 544.8,175.2 546.0,175.4 547.3,175.6 548.6,175.8 549.8,176.0 551.1,176.2 552.4,176.4 553.6,176.6 554.9,176.7 556.2,176.9 557.5,177.1 558.7,177.3 560.0,177.5" fill="none" stroke="var(--text)" stroke-width="2"/>
+  <line x1="74.8" y1="142.5" x2="357.4" y2="142.5" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 4"/>
+  <circle cx="74.8" cy="142.5" r="4" fill="var(--accent)"/><circle cx="357.4" cy="142.5" r="4" fill="var(--accent)"/>
+  <circle cx="93.5" cy="197.8" r="3.5" fill="var(--text)"/><circle cx="224.6" cy="123.7" r="3.5" fill="var(--text)"/>
+  <g font-family="Inter, sans-serif" font-size="13" fill="var(--text)">
+    <text x="66.8" y="132.5" text-anchor="end">6 (liquid)</text>
+    <text x="363.4" y="132.5">2 (gas)</text>
+    <text x="93.5" y="217.8" text-anchor="middle">5</text>
+    <text x="224.6" y="113.7" text-anchor="middle">3</text>
+    <text x="157.7" y="160.5">4</text>
+    <text x="568" y="320" text-anchor="end">V</text>
+    <text x="38" y="26" text-anchor="end">p</text>
+    <text x="363.4" y="170.5" fill="var(--accent)" font-size="12" font-style="italic">p<tspan font-size="9" dy="3">coex</tspan></text>
+  </g>
+  <g font-family="Inter, sans-serif" font-size="11" fill="var(--text-dim)">
+    <text x="114.8" y="166.5" text-anchor="middle" font-weight="600">A</text>
+    <text x="260.5" y="139.5" text-anchor="middle" font-weight="600">B</text>
+  </g>
+</svg>
+<figcaption>Van der Waals isotherm at \(T = 0.9\,T_c\) (computed). The dashed line at \(P_{\text{coex}}\) makes areas A and B equal. Compressing the gas from the right, the system follows the curve to point 2, then condenses at constant pressure to point 6 (liquid).</figcaption>
+</figure>
+<details><summary>Why equal areas</summary><div class="body">
+  <p>Points 2 (gas) and 6 (liquid) coexist, so \(\mu_2 = \mu_6\), i.e. \(G_2 = G_6\). Going from 2 to 6 along the wiggle 2→3→4→5→6 at fixed \(T\), \(dG = V\,dP\), so</p>
+  <p>\[ G_6 - G_2 = \int_{\text{loop}} V\,dP = 0 \]</p>
+  <p>On the \(P\)–\(V\) diagram this integral is the area between the curve and the flat line, with the part above the line and the part below counting with opposite signs. Zero total means area A = area B.</p>
+  <p>Equivalently, the Gibbs energy along the isotherm (from \(dG = V\,dP\)) is \(G = -Nk_BT\ln(V - Nb) + \frac{(Nk_BT)(Nb)}{V - Nb} - \frac{2aN^2}{V} + c(T)\). Plotted against \(P\) it forms a loop whose two stable branches cross exactly at \(P_{\text{coex}}\).</p>
+</div></details>
+
+<h4>Metastable states: superheating and supercooling</h4>
+<p>Not every point on the wiggle is equally forbidden:</p>
+<div class="scroll-x">
+<table>
+  <tr><th>Stretch of the curve</th><th>\(\kappa_T\)</th><th>Status</th><th>Real example</th></tr>
+  <tr><td>2 → 3 (gas, past coexistence)</td><td>\(\gt 0\)</td><td>Metastable</td><td>Supersaturated vapour (e.g. in a cloud chamber)</td></tr>
+  <tr><td>3 → 4 → 5</td><td>\(\lt 0\)</td><td>Unstable: cannot exist</td><td>—</td></tr>
+  <tr><td>5 → 6 (liquid, past coexistence)</td><td>\(\gt 0\)</td><td>Metastable</td><td>Superheated water above 100 °C without boiling</td></tr>
+</table>
+</div>
+<p>A <strong>metastable</strong> state is a local, not global, minimum of \(G\): small fluctuations are pushed back (because \(\kappa_T \gt 0\)), so it can last a long time, but a big enough kick (a dust particle, a scratch, a seed crystal) tips it into the stable phase. Supercooled water below 0 °C is the same idea for freezing.</p>
+<dl style="margin:12px 0 16px">
+  <dt style="font-family:var(--sans);font-weight:600;font-size:14px;color:var(--accent)">Binodal (coexistence) curve</dt>
+  <dd style="margin:0 0 8px">Joins the coexistence points (2 and 6) at every \(T\); found by the Maxwell construction.</dd>
+  <dt style="font-family:var(--sans);font-weight:600;font-size:14px;color:var(--accent)">Spinodal curve</dt>
+  <dd style="margin:0">Joins the turning points (3 and 5) where \((\partial P/\partial V)_T = 0\). Inside it the fluid is unstable.</dd>
+</dl>
+<p>Metastable states lie between the two curves. Both curves meet at the critical point.</p>
+
+<h3 id="s7-5">7.5 &ensp;First-order and continuous transitions</h3>
+<p>In melting and boiling, \(\mu\) is continuous across the transition (the two lines cross), but its <em>slopes</em> jump: \(\partial\mu/\partial T = -s\) and \(\partial\mu/\partial P = v\) are different for the two phases. So entropy and volume change abruptly, and there is a latent heat \(L = T\Delta s\). Because the <em>first</em> derivatives jump, these are called <strong>first-order transitions</strong>.</p>
+<p>In some transitions the two phases become identical at the transition point: \(\Delta s = 0\), \(\Delta v = 0\), no latent heat. Only <em>second</em> derivatives of \(\mu\) (heat capacity, compressibility, expansion coefficient) jump or blow up. These are <strong>continuous (second-order) transitions</strong>: the liquid–gas transition exactly at the critical point, a magnet losing its magnetisation, a metal becoming superconducting. Their theory is beyond this course.</p>
+<div class="scroll-x">
+<table>
+  <tr><th></th><th>First-order</th><th>Continuous (second-order)</th></tr>
+  <tr><td>\(\mu\) itself</td><td>continuous</td><td>continuous</td></tr>
+  <tr><td>\(s\), \(v\)</td><td>jump</td><td>continuous</td></tr>
+  <tr><td>Latent heat</td><td>yes, \(L = T\Delta s\)</td><td>none</td></tr>
+  <tr><td>\(c_P = -T\,\partial^2\mu/\partial T^2\), \(\kappa_T\), \(\alpha\)</td><td>finite on each side</td><td>jump or diverge</td></tr>
+  <tr><td>Examples</td><td>melting, boiling, sublimation</td><td>critical point, ferromagnet, superconductor</td></tr>
+</table>
+</div>
+
+<div class="card">
+  <span class="tag">Chapter 7 formula card</span>
+  <div class="scroll-x"><table>
+    <tr><th>Topic</th><th>Result</th></tr>
+    <tr><td>Coexistence</td><td>\(\mu^{\text{I}}(T,P) = \mu^{\text{II}}(T,P)\); lowest \(\mu\) is the stable phase</td></tr>
+    <tr><td>Slopes of \(\mu\)</td><td>\((\partial\mu/\partial T)_P = -s,\ (\partial\mu/\partial P)_T = v\)</td></tr>
+    <tr><td>Phase rule</td><td>\(f = K + 2 - P\)</td></tr>
+    <tr><td>Clausius–Clapeyron</td><td>\(dP/dT = L/(T\Delta v)\)</td></tr>
+    <tr><td>Vapour pressure</td><td>\(\ln(P_2/P_1) = -(L/R)(1/T_2 - 1/T_1)\)</td></tr>
+    <tr><td>Triple point</td><td>set two vapour-pressure curves equal; \(L_{\text{sub}} = L_{\text{fus}} + L_{\text{vap}}\)</td></tr>
+    <tr><td>vdW critical point</td><td>\(v_c = 3b,\ k_BT_c = 8a/27b,\ P_c = a/27b^2\)</td></tr>
+    <tr><td>Maxwell construction</td><td>equal areas above and below \(P_{\text{coex}}\)</td></tr>
+  </table></div>
+</div>
+</section>
+
+<!-- CHAPTER 8 -->
+<section class="chapter" id="ch8">
+<div class="chapter-num">Chapter 8</div>
+<h2>Applications: Reactions, Solutions and Mixtures</h2>
+
+<div class="intro">
+  <span class="tag">What this chapter does</span>
+  <p>This chapter looks like a list of unrelated topics: chemical equilibrium, Raoult's law, boiling and freezing points, osmosis, mixing and separating. In fact <strong>every one of them is solved by the same three steps</strong>:</p>
+  <ol>
+    <li>Write the chemical potential \(\mu\) of each species in each place it can be.</li>
+    <li>Set the \(\mu\)'s equal wherever particles can move (Chapter 6).</li>
+    <li>If the effect is small, expand to first order using \((\partial\mu/\partial P)_T = v\) and \((\partial\mu/\partial T)_P = -s\).</li>
+  </ol>
+  <p>The only new physics is <strong>how mixing changes \(\mu\)</strong>, and that comes from the entropy of mixing (§8.1).</p>
+  <span class="tag" style="margin-top:12px">After this chapter you should be able to</span>
+  <ul>
+    <li>write the law of mass action for a reaction and use the van 't Hoff equation;</li>
+    <li>derive and use Raoult's law, the boiling/freezing-point shifts and the osmotic pressure;</li>
+    <li>explain when two substances mix or separate, and use the common-tangent and lever rules on a phase diagram.</li>
+  </ul>
+</div>
+
+<h3 id="s8-1">8.1 &ensp;The entropy of mixing</h3>
+<p>Put gas A in the left half of a box and gas B in the right half, at the same \(T\) and \(P\). Remove the partition. The gases mix and never unmix by themselves: mixing is irreversible, so it must create entropy. For ideal gases nothing else changes (no interactions, so \(\Delta U = 0\) and \(T\) stays the same); each gas simply spreads into a larger volume, like a free expansion.</p>
+<div class="key-result">
+  <div class="kr-label">Entropy of mixing (ideal)</div>
+  <p>\[ \Delta S_{\text{mix}} = -Nk_B\sum_i x_i\ln x_i \;\gt\; 0, \qquad x_i = \frac{N_i}{N} \]</p>
+</div>
+<p>Since every \(x_i\) is between 0 and 1, every \(\ln x_i \lt 0\) and the result is positive. Equal amounts of two gases (\(x = \tfrac12\)) give \(Nk_B\ln 2\), where \(N\) is the <em>total</em> number of molecules.</p>
+<div class="why">
+  <span class="tag">Why this matters for the rest of the chapter</span>
+  <p>Mixing adds \(-T\Delta S_{\text{mix}}\) to \(G\), which <em>lowers</em> it. Differentiating that term gives each component a chemical potential lowered by a \(k_BT\ln x\) term:</p>
+  <p>\[ \mu_i = \mu_i^{0} + k_BT\ln x_i \]</p>
+  <p>where \(\mu_i^0\) is the pure substance's value. This single fact drives everything below: a solvent with something dissolved in it has a lower \(\mu\) than the pure solvent, so water "prefers" to be in the solution.</p>
+</div>
+<div class="ex">
+  <span class="tag">Example · Mixing gases</span>
+  <p>(a) Find \(\Delta S\) when 1 mol of N₂ and 1 mol of O₂ (same \(T\), \(P\)) mix. (b) Find the entropy of mixing per mole of air (79% N₂, 21% O₂).</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>(a) \(N = 2\) mol, \(x = \tfrac12\) each: \(\Delta S = -2R(\tfrac12\ln\tfrac12 + \tfrac12\ln\tfrac12) = 2R\ln 2 \approx 11.5\ \text{J/K}\).</p>
+    <p>(b) \(\Delta S = -R(0.79\ln 0.79 + 0.21\ln 0.21) = 8.314 \times 0.514 \approx 4.27\ \text{J/(mol·K)}\).</p>
+  </div></details>
+</div>
+<details><summary>Proof of the formula, and the Gibbs paradox</summary><div class="body">
+  <p>Let species \(i\) start with \(N_i\) molecules in its own compartment \(V_i\), all at the same density, so \(V_i/V = x_i\). An ideal gas's entropy depends on volume through \(Nk_B\ln V\). Before mixing: \(k_B\sum_i N_i\ln V_i = k_BN\sum_i x_i\ln x_i + k_BN\ln V\). After mixing every species fills \(V\): \(k_BN\ln V\). The difference is \(-Nk_B\sum_i x_i\ln x_i\).</p>
+  <p><b>Gibbs paradox.</b> Repeat with the <em>same</em> gas on both sides. The formula would still predict \(2Nk_B\ln 2\), yet nothing physical has happened; reinserting the partition restores the original state. The resolution is that identical molecules are indistinguishable: the correct volume dependence is \(Nk_B\ln(V/N)\) (as in the Sackur–Tetrode equation), and joining two identical gases at the same density leaves \(V/N\) unchanged, so \(\Delta S = 0\). For different gases, each species' own \(V/N_i\) still grows, so the mixing entropy survives.</p>
+</div></details>
+
+<h3 id="s8-2">8.2 &ensp;Chemical equilibrium: the law of mass action</h3>
+<p>Take \(\mathrm{N_2} + 3\,\mathrm{H_2} \rightleftharpoons 2\,\mathrm{NH_3}\) at fixed \(T\) and \(P\). If the reaction advances a little, N₂ drops by \(\varepsilon\), H₂ by \(3\varepsilon\), and NH₃ rises by \(2\varepsilon\). At equilibrium \(G\) is a minimum, so \(dG = \sum\mu_i\,dN_i = 0\) for this change:</p>
+<div class="key-result">
+  <div class="kr-label">Condition for chemical equilibrium</div>
+  <p>\[ \mu_{\mathrm{N_2}} + 3\,\mu_{\mathrm{H_2}} = 2\,\mu_{\mathrm{NH_3}} \]</p>
+</div>
+<p>The chemical potentials balance with the same coefficients as the reaction equation. Now substitute the ideal-gas form \(\mu_i = g_i^0 + RT\ln(P_i/P_0)\) per mole (§5.7), with \(P_i\) the partial pressure:</p>
+<div class="key-result">
+  <div class="kr-label">Law of mass action</div>
+  <p>\[ \frac{(P_{\mathrm{NH_3}}/P_0)^2}{(P_{\mathrm{N_2}}/P_0)(P_{\mathrm{H_2}}/P_0)^3} = K(T), \qquad K(T) = e^{-\Delta g_0/RT} \]</p>
+</div>
+<p>\(\Delta g_0 = 2g^0_{\mathrm{NH_3}} - g^0_{\mathrm{N_2}} - 3g^0_{\mathrm{H_2}}\) (products minus reactants, at the reference pressure \(P_0\)). The <strong>equilibrium constant</strong> \(K\) depends only on temperature: whatever amounts you start with, the partial pressures adjust until this ratio equals \(K(T)\). Large \(K\) (negative \(\Delta g_0\)) means mostly products.</p>
+<details><summary>Proof: from equal \(\mu\)'s to \(K\)</summary><div class="body">
+  <p>\[ g^0_{\mathrm{N_2}} + RT\ln\tfrac{P_{\mathrm{N_2}}}{P_0} + 3g^0_{\mathrm{H_2}} + 3RT\ln\tfrac{P_{\mathrm{H_2}}}{P_0} = 2g^0_{\mathrm{NH_3}} + 2RT\ln\tfrac{P_{\mathrm{NH_3}}}{P_0} \]</p>
+  <p>Move the \(g^0\) terms to one side, combine the logarithms, and divide by \(RT\): \(\ln[\ldots] = -\Delta g_0/RT\). Exponentiate.</p>
+</div></details>
+<div class="remark"><strong>Pressure effect (Le Chatelier, quantitatively).</strong> With mole fractions \(x_i\) and total pressure \(P\), \(P_i = x_iP\), so \(\frac{x_{\mathrm{NH_3}}^2}{x_{\mathrm{N_2}}x_{\mathrm{H_2}}^3} = K(T)\,(P/P_0)^2\). The power 2 is (gas moles on the left) − (gas moles on the right). Raising \(P\) increases the fraction of NH₃, as §6.4 predicted.</div>
+
+<h4>How \(K\) changes with temperature</h4>
+<div class="key-result">
+  <div class="kr-label">van 't Hoff equation</div>
+  <p>\[ \frac{d\ln K}{dT} = \frac{\Delta h_0}{RT^2} \quad\Longrightarrow\quad \ln\frac{K_2}{K_1} = -\frac{\Delta h_0}{R}\left(\frac{1}{T_2} - \frac{1}{T_1}\right) \]</p>
+</div>
+<p>\(\Delta h_0\) is the heat absorbed by the reaction. Endothermic (\(\Delta h_0 \gt 0\)): \(K\) grows with \(T\). Exothermic (\(\Delta h_0 \lt 0\)): \(K\) shrinks with \(T\). This is the quantitative form of Le Chatelier. Notice it has exactly the same shape as the vapour-pressure law \(d\ln P/dT = L/RT^2\) from §7.3, because evaporation is just the "reaction" liquid ⇌ vapour.</p>
+<details><summary>Proof</summary><div class="body">
+  <p>\(\frac{d}{dT}\left(-\frac{\Delta g_0}{RT}\right) = -\frac{1}{R}\,\frac{T\,(d\Delta g_0/dT) - \Delta g_0}{T^2}\). Use \(d\Delta g_0/dT = -\Delta s_0\) and \(\Delta g_0 = \Delta h_0 - T\Delta s_0\): the numerator becomes \(-T\Delta s_0 - \Delta h_0 + T\Delta s_0 = -\Delta h_0\).</p>
+</div></details>
+<div class="ex">
+  <span class="tag">Example · Ammonia at high temperature</span>
+  <p>For \(\mathrm{N_2} + 3\mathrm{H_2} \rightleftharpoons 2\mathrm{NH_3}\), \(\Delta h_0 = -92\ \text{kJ}\). Treating \(\Delta h_0\) as constant, by what factor does \(K\) change between 298 K and 700 K?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>\[ \ln\frac{K_{700}}{K_{298}} = -\frac{-92\,000}{8.314}\left(\frac{1}{700} - \frac{1}{298}\right) = 11\,066 \times (-1.927\times10^{-3}) \approx -21.3 \]</p>
+    <p>so \(K\) drops by a factor of about \(e^{21} \approx 2\times10^{9}\). Heating strongly disfavours ammonia. Industry still runs hot because the reaction is far too slow at room temperature, and compensates with very high pressure (the \((P/P_0)^2\) factor above).</p>
+  </div></details>
+</div>
+
+<h3 id="s8-3">8.3 &ensp;Dilute solutions</h3>
+<p>A <strong>dilute solution</strong> has a little solute B (salt, sugar) dissolved in a lot of solvent A (water): \(N_B \ll N_A\). Solute molecules are far apart, so they interact only with the solvent, never with each other. Write \(x = N_B/N_A\) for the (small) solute fraction. The one result we need is how dissolving the solute changes the solvent's chemical potential:</p>
+<div class="key-result">
+  <div class="kr-label">Solvent and solute in a dilute solution</div>
+  <p>\[ \mu_A = \mu_0(T,P) - x\,k_BT, \qquad \mu_B = f(T,P) + k_BT\ln x \]</p>
+</div>
+<p>\(\mu_0\) is the chemical potential of the pure solvent; \(f\) describes solute–solvent interactions and never appears in the results. The first formula is the important one: <strong>dissolving anything lowers the solvent's \(\mu\) by \(xk_BT\)</strong>, regardless of what the solute is. It is the \(k_BT\ln x_A\) term from §8.1 with \(\ln(1-x) \approx -x\).</p>
+<div class="why">
+  <span class="tag">Why this matters</span>
+  <p>Because only the <em>number</em> of dissolved particles enters (not their identity), the effects in §8.4 are called <strong>colligative properties</strong>. One mole of sugar and one mole of urea shift the freezing point of water by the same amount. A salt like NaCl splits into two ions, so it counts double.</p>
+</div>
+<details><summary>Proof: the Gibbs energy of a dilute solution</summary><div class="body">
+  <p>Start from pure solvent, \(G = N_A\mu_0\). Adding \(N_B\) solute molecules adds an interaction term \(N_Bf(T,P)\) (proportional to \(N_B\), since solute molecules don't meet each other) and the mixing term \(-T\Delta S_{\text{mix}} = k_BT[N_B\ln(N_B/N) + N_A\ln(N_A/N)]\). For \(N_B \ll N_A\), \(N \approx N_A\) and \(N_A\ln(N_A/N) \approx -N_B\), so</p>
+  <p>\[ G \approx N_A\mu_0 + N_Bf - N_Bk_BT\ln N_A + N_Bk_BT\ln N_B - N_Bk_BT \]</p>
+  <p>Differentiating: \(\mu_A = \partial G/\partial N_A = \mu_0 - N_Bk_BT/N_A\) and \(\mu_B = \partial G/\partial N_B = f + k_BT\ln(N_B/N_A)\).</p>
+</div></details>
+
+<h3 id="s8-4">8.4 &ensp;Colligative properties</h3>
+<p>All four results below come from the three-step recipe in the chapter introduction. The pure solvent's own equilibrium point (its boiling point, freezing point, or vapour pressure) is the point we expand around.</p>
+
+<h4>Raoult's law: vapour pressure is lowered</h4>
+<div class="key-result">
+  <div class="kr-label">Raoult's law</div>
+  <p>\[ P \approx P_0(1 - x) \]</p>
+</div>
+<p>\(P_0\) is the vapour pressure of the pure solvent. With solute dissolved, the solvent's \(\mu\) in the liquid is lower, so fewer molecules "want" to escape and the equilibrium vapour pressure drops by the fraction \(x\).</p>
+<details><summary>Proof</summary><div class="body">
+  <p>Step 2: the vapour is pure solvent, so \(\mu_{\text{gas}}(T,P) = \mu_0(T,P) - xk_BT\). For pure solvent, \(\mu_{\text{gas}}(T,P_0) = \mu_0(T,P_0)\).</p>
+  <p>Step 3: expand both sides about \(P_0\) using \(\partial\mu/\partial P = v\): \(v_{\text{gas}}(P - P_0) = v_{\text{liq}}(P - P_0) - xk_BT\). Drop \(v_{\text{liq}} \ll v_{\text{gas}}\) and use \(v_{\text{gas}} = k_BT/P_0\): \(P - P_0 = -xP_0\).</p>
+</div></details>
+
+<h4>Boiling point goes up, freezing point goes down</h4>
+<div class="key-result">
+  <div class="kr-label">Boiling-point elevation and freezing-point depression</div>
+  <p>\[ \Delta T_b \approx +\frac{x\,RT_b^2}{L_{\text{vap}}}, \qquad \Delta T_m \approx -\frac{x\,RT_m^2}{L_{\text{fus}}} \]</p>
+</div>
+<p>(\(L\) per mole; per molecule replace \(R\) by \(k_B\).) The solute stays in the liquid; the vapour and the ice are pure solvent. Dissolving lowers \(\mu\) of the liquid only. In the \(\mu(T)\) picture of §7.1, the liquid line moves <em>down</em>, so it crosses the gas line later (higher \(T_b\)) and the solid line earlier (lower \(T_m\)). The liquid range widens at both ends. This is why salted roads don't ice over and why antifreeze is added to car radiators.</p>
+<details><summary>Proof (boiling; freezing is identical)</summary><div class="body">
+  <p>At fixed \(P\), the solution boils where \(\mu_{\text{gas}}(T) = \mu_0(T) - xk_BT\). Pure solvent: \(\mu_{\text{gas}}(T_b) = \mu_0(T_b)\). Expand about \(T_b\) with \(\partial\mu/\partial T = -s\):</p>
+  <p>\[ -s_{\text{gas}}\,\Delta T = -s_{\text{liq}}\,\Delta T - xk_BT \;\Rightarrow\; \Delta T = \frac{xk_BT_b}{s_{\text{gas}} - s_{\text{liq}}} = \frac{xk_BT_b^2}{L_{\text{vap}}} \]</p>
+  <p>For freezing, replace the gas by ice: \((s_{\text{ice}} - s_{\text{liq}})\Delta T = xk_BT\), and since \(s_{\text{ice}} \lt s_{\text{liq}}\) the shift is negative: \(\Delta T = -xk_BT_m^2/L_{\text{fus}}\).</p>
+</div></details>
+
+<h4>Osmotic pressure</h4>
+<p>A <strong>semi-permeable membrane</strong> lets water through but not the solute. Put pure water on one side and solution on the other. Water flows into the solution (its \(\mu\) is lower there) until the solution side is at a higher pressure that stops the flow, e.g. a column of height \(h\) with \(\Pi = \rho gh\).</p>
+<div class="key-result">
+  <div class="kr-label">Osmotic pressure</div>
+  <p>\[ \Pi = P_2 - P_1 = \frac{N_Bk_BT}{V} = \frac{n_BRT}{V} \]</p>
+</div>
+<p>It has exactly the form of the ideal gas law: the dissolved particles push as if they were a gas filling the solution's volume.</p>
+<details><summary>Proof</summary><div class="body">
+  <p>Water's \(\mu\) must match across the membrane: \(\mu_0(T,P_1) = \mu_0(T,P_2) - xk_BT\). Expand \(\mu_0(T,P_2) \approx \mu_0(T,P_1) + v_w(P_2 - P_1)\) with \(v_w\) the volume per water molecule: \(v_w(P_2 - P_1) = xk_BT = N_Bk_BT/N_A\). Since \(N_Av_w \approx V\), \(P_2 - P_1 = N_Bk_BT/V\).</p>
+</div></details>
+
+<div class="ex">
+  <span class="tag">Example · Seawater</span>
+  <p>Seawater has about 35 g of NaCl per kg. Estimate (a) how much its vapour pressure is lowered, (b) its boiling and freezing points, (c) the pressure a desalination plant must exceed to push fresh water out through a membrane. (\(L_{\text{vap}} = 40.7\), \(L_{\text{fus}} = 6.01\ \text{kJ/mol}\).)</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>35 g NaCl = 0.60 mol, which gives 1.20 mol of ions. 965 g of water = 53.6 mol. So \(x \approx 1.20/54.8 \approx 0.022\).</p>
+    <p>(a) Raoult: the vapour pressure is about 2.2% below that of pure water.</p>
+    <p>(b) \(\Delta T_b \approx 0.022 \times 8.314 \times 373^2/40\,700 \approx +0.6\ \text{K}\); \(\Delta T_m \approx -0.022 \times 8.314 \times 273^2/6010 \approx -2.3\ \text{K}\). (Measured: seawater freezes near −1.9 °C. The dilute-solution formulas slightly overestimate at this concentration.)</p>
+    <p>(c) About 1200 mol of ions per m³: \(\Pi \approx 1200 \times 8.314 \times 298 \approx 3\times10^6\ \text{Pa} \approx 30\ \text{atm}\). Reverse-osmosis plants must apply more than this.</p>
+  </div></details>
+</div>
+
+<h3 id="s8-5">8.5 &ensp;Binary mixtures: mix or separate?</h3>
+<p>Now drop "dilute": mix two components A and B in any proportion, \(x = N_B/(N_A + N_B)\) from 0 (pure A) to 1 (pure B). Will they form one uniform mixture, or separate like oil and water? Compare Gibbs energies.</p>
+<p>Unmixed, \(G\) is just a weighted average of the pure substances — a straight line in \(x\). Mixing ideal components adds only the mixing entropy:</p>
+<div class="key-result">
+  <div class="kr-label">Ideal mixture</div>
+  <p>\[ G = (1-x)G_A^0 + xG_B^0 + Nk_BT\left[(1-x)\ln(1-x) + x\ln x\right] \]</p>
+</div>
+<p>The bracket is negative and curves upward, so \(G(x)\) sags below the straight line everywhere: <strong>ideal components always mix</strong>, in any proportion. (In fact the slope of \(x\ln x\) is infinite at \(x \to 0\), so adding the first trace of B always lowers \(G\): no substance in contact with another stays perfectly pure.)</p>
+
+<h4>When mixing costs energy</h4>
+<p>In real mixtures, unlike molecules may attract each other less than like ones (oil and water), so mixing <em>raises</em> the energy. Now two terms compete: the energy term makes \(G(x)\) bulge upward in the middle, while the entropy term pulls it down. At low temperature the energy wins and \(G(x)\) develops a stretch that curves the wrong way. A uniform mixture there is unstable and lowers its \(G\) by splitting into an A-rich phase and a B-rich phase.</p>
+<figure>
+<svg viewBox="0 0 620 340" role="img" aria-label="Gibbs energy of a non-ideal binary mixture versus composition, with the common tangent touching at the two coexisting compositions" style="width:100%;max-width:620px;display:block;margin:12px auto">
+  <line x1="60" y1="300" x2="575" y2="300" stroke="var(--text)" stroke-width="1.2"/>
+  <line x1="60" y1="300" x2="60" y2="15" stroke="var(--text)" stroke-width="1.2"/>
+  <line x1="560" y1="300" x2="560" y2="15" stroke="var(--border)" stroke-width="1"/>
+  <polyline points="61.0,270.8 62.2,271.4 63.5,271.7 64.7,271.8 66.0,271.9 67.2,271.8 68.5,271.7 69.7,271.5 71.0,271.3 72.2,271.0 73.5,270.7 74.7,270.4 76.0,270.0 77.2,269.6 78.5,269.1 79.7,268.7 81.0,268.2 82.2,267.7 83.5,267.2 84.7,266.6 86.0,266.1 87.2,265.5 88.5,264.9 89.7,264.3 91.0,263.7 92.2,263.1 93.5,262.4 94.7,261.8 95.9,261.1 97.2,260.5 98.4,259.8 99.7,259.1 100.9,258.4 102.2,257.7 103.4,257.0 104.7,256.3 105.9,255.6 107.2,254.9 108.4,254.1 109.7,253.4 110.9,252.7 112.2,251.9 113.4,251.2 114.7,250.4 115.9,249.6 117.2,248.9 118.4,248.1 119.7,247.3 120.9,246.6 122.2,245.8 123.4,245.0 124.7,244.2 125.9,243.4 127.2,242.7 128.4,241.9 129.6,241.1 130.9,240.3 132.1,239.5 133.4,238.7 134.6,237.9 135.9,237.1 137.1,236.3 138.4,235.5 139.6,234.7 140.9,233.9 142.1,233.1 143.4,232.3 144.6,231.5 145.9,230.7 147.1,229.9 148.4,229.1 149.6,228.3 150.9,227.4 152.1,226.6 153.4,225.8 154.6,225.0 155.9,224.2 157.1,223.4 158.4,222.6 159.6,221.8 160.8,221.0 162.1,220.2 163.3,219.4 164.6,218.6 165.8,217.8 167.1,217.0 168.3,216.2 169.6,215.4 170.8,214.6 172.1,213.8 173.3,213.0 174.6,212.2 175.8,211.4 177.1,210.6 178.3,209.8 179.6,209.0 180.8,208.2 182.1,207.4 183.3,206.6 184.6,205.9 185.8,205.1 187.1,204.3 188.3,203.5 189.6,202.7 190.8,202.0 192.1,201.2 193.3,200.4 194.5,199.6 195.8,198.9 197.0,198.1 198.3,197.3 199.5,196.6 200.8,195.8 202.0,195.0 203.3,194.3 204.5,193.5 205.8,192.8 207.0,192.0 208.3,191.2 209.5,190.5 210.8,189.8 212.0,189.0 213.3,188.3 214.5,187.5 215.8,186.8 217.0,186.0 218.3,185.3 219.5,184.6 220.8,183.9 222.0,183.1 223.3,182.4 224.5,181.7 225.8,181.0 227.0,180.2 228.2,179.5 229.5,178.8 230.7,178.1 232.0,177.4 233.2,176.7 234.5,176.0 235.7,175.3 237.0,174.6 238.2,173.9 239.5,173.2 240.7,172.5 242.0,171.8 243.2,171.1 244.5,170.5 245.7,169.8 247.0,169.1 248.2,168.4 249.5,167.8 250.7,167.1 252.0,166.4 253.2,165.8 254.5,165.1 255.7,164.5 257.0,163.8 258.2,163.1 259.5,162.5 260.7,161.9 261.9,161.2 263.2,160.6 264.4,159.9 265.7,159.3 266.9,158.7 268.2,158.0 269.4,157.4 270.7,156.8 271.9,156.2 273.2,155.6 274.4,154.9 275.7,154.3 276.9,153.7 278.2,153.1 279.4,152.5 280.7,151.9 281.9,151.3 283.2,150.7 284.4,150.1 285.7,149.5 286.9,149.0 288.2,148.4 289.4,147.8 290.7,147.2 291.9,146.6 293.2,146.1 294.4,145.5 295.6,144.9 296.9,144.4 298.1,143.8 299.4,143.3 300.6,142.7 301.9,142.2 303.1,141.6 304.4,141.1 305.6,140.5 306.9,140.0 308.1,139.5 309.4,138.9 310.6,138.4 311.9,137.9 313.1,137.4 314.4,136.9 315.6,136.3 316.9,135.8 318.1,135.3 319.4,134.8 320.6,134.3 321.9,133.8 323.1,133.3 324.4,132.8 325.6,132.3 326.8,131.8 328.1,131.3 329.3,130.9 330.6,130.4 331.8,129.9 333.1,129.4 334.3,129.0 335.6,128.5 336.8,128.0 338.1,127.6 339.3,127.1 340.6,126.6 341.8,126.2 343.1,125.7 344.3,125.3 345.6,124.9 346.8,124.4 348.1,124.0 349.3,123.5 350.6,123.1 351.8,122.7 353.1,122.3 354.3,121.8 355.6,121.4 356.8,121.0 358.1,120.6 359.3,120.2 360.5,119.7 361.8,119.3 363.0,118.9 364.3,118.5 365.5,118.1 366.8,117.7 368.0,117.3 369.3,117.0 370.5,116.6 371.8,116.2 373.0,115.8 374.3,115.4 375.5,115.0 376.8,114.7 378.0,114.3 379.3,113.9 380.5,113.6 381.8,113.2 383.0,112.8 384.3,112.5 385.5,112.1 386.8,111.8 388.0,111.4 389.3,111.1 390.5,110.7 391.8,110.4 393.0,110.0 394.2,109.7 395.5,109.4 396.7,109.0 398.0,108.7 399.2,108.4 400.5,108.1 401.7,107.7 403.0,107.4 404.2,107.1 405.5,106.8 406.7,106.5 408.0,106.1 409.2,105.8 410.5,105.5 411.7,105.2 413.0,104.9 414.2,104.6 415.5,104.3 416.7,104.0 418.0,103.7 419.2,103.4 420.5,103.1 421.7,102.8 423.0,102.6 424.2,102.3 425.5,102.0 426.7,101.7 427.9,101.4 429.2,101.1 430.4,100.9 431.7,100.6 432.9,100.3 434.2,100.0 435.4,99.8 436.7,99.5 437.9,99.2 439.2,99.0 440.4,98.7 441.7,98.4 442.9,98.2 444.2,97.9 445.4,97.7 446.7,97.4 447.9,97.1 449.2,96.9 450.4,96.6 451.7,96.4 452.9,96.1 454.2,95.9 455.4,95.6 456.7,95.4 457.9,95.1 459.2,94.9 460.4,94.6 461.6,94.4 462.9,94.1 464.1,93.9 465.4,93.6 466.6,93.4 467.9,93.1 469.1,92.9 470.4,92.6 471.6,92.4 472.9,92.1 474.1,91.9 475.4,91.6 476.6,91.4 477.9,91.1 479.1,90.9 480.4,90.6 481.6,90.4 482.9,90.1 484.1,89.9 485.4,89.6 486.6,89.3 487.9,89.1 489.1,88.8 490.4,88.6 491.6,88.3 492.8,88.0 494.1,87.8 495.3,87.5 496.6,87.2 497.8,86.9 499.1,86.7 500.3,86.4 501.6,86.1 502.8,85.8 504.1,85.5 505.3,85.2 506.6,84.9 507.8,84.6 509.1,84.3 510.3,84.0 511.6,83.7 512.8,83.3 514.1,83.0 515.3,82.7 516.6,82.3 517.8,82.0 519.1,81.6 520.3,81.3 521.6,80.9 522.8,80.5 524.1,80.1 525.3,79.7 526.5,79.3 527.8,78.9 529.0,78.5 530.3,78.0 531.5,77.6 532.8,77.1 534.0,76.6 535.3,76.1 536.5,75.6 537.8,75.1 539.0,74.5 540.3,73.9 541.5,73.3 542.8,72.7 544.0,72.1 545.3,71.4 546.5,70.7 547.8,70.0 549.0,69.2 550.3,68.3 551.5,67.5 552.8,66.5 554.0,65.5 555.3,64.4 556.5,63.2 557.8,61.8 559.0,60.2" fill="none" stroke="var(--text)" stroke-width="2"/>
+  <line x1="60.0" y1="277.1" x2="560.0" y2="65.7" stroke="var(--accent)" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="83.2" y1="267.3" x2="83.2" y2="300" stroke="var(--text-dim)" stroke-dasharray="3 3"/>
+  <line x1="536.8" y1="75.5" x2="536.8" y2="300" stroke="var(--text-dim)" stroke-dasharray="3 3"/>
+  <line x1="310.0" y1="138.7" x2="310.0" y2="171.4" stroke="var(--accent)" stroke-width="1.5"/>
+  <circle cx="83.2" cy="267.3" r="4" fill="var(--accent)"/><circle cx="536.8" cy="75.5" r="4" fill="var(--accent)"/>
+  <circle cx="310.0" cy="138.7" r="3.5" fill="var(--text)"/><circle cx="310.0" cy="171.4" r="3.5" fill="var(--accent)"/>
+  <circle cx="151.9" cy="226.8" r="3" fill="none" stroke="var(--text)"/><circle cx="468.1" cy="93.1" r="3" fill="none" stroke="var(--text)"/>
+  <g font-family="Inter, sans-serif" font-size="13" fill="var(--text)">
+    <text x="83.2" y="318" text-anchor="middle" font-style="italic">x<tspan font-size="9" dy="3">a</tspan></text>
+    <text x="536.8" y="318" text-anchor="middle" font-style="italic">x<tspan font-size="9" dy="3">b</tspan></text>
+    <text x="310.0" y="318" text-anchor="middle" font-style="italic">x<tspan font-size="9" dy="3">0</tspan></text>
+    <text x="60" y="334" text-anchor="middle" font-size="11">0 (pure A)</text>
+    <text x="560" y="334" text-anchor="middle" font-size="11">1 (pure B)</text>
+    <text x="48" y="26" text-anchor="end" font-style="italic">G</text>
+    <text x="300.0" y="130.7" text-anchor="end" font-size="11">homogeneous mixture</text>
+    <text x="310.0" y="189.4" text-anchor="middle" font-size="11" fill="var(--accent)">common tangent: phases a + b</text>
+  </g>
+  <g font-family="Inter, sans-serif" font-size="11" fill="var(--text-dim)">
+    <text x="151.9" y="216.8" text-anchor="middle">s</text>
+    <text x="468.1" y="83.1" text-anchor="middle">s</text>
+  </g>
+</svg>
+<figcaption>\(G(x)\) for a mixture whose mixing costs energy, below its critical temperature (computed). Between \(x_a\) and \(x_b\) the straight common tangent (dashed) lies below the curve, so a mixture of overall composition \(x_0\) lowers \(G\) by splitting into two phases with compositions \(x_a\) and \(x_b\). Open circles mark where the curvature changes sign.</figcaption>
+</figure>
+<p>Compositions between \(x_a\) and \(x_b\) are a <strong>solubility gap</strong>: the two components are immiscible there. Raising \(T\) strengthens the entropy term, the gap narrows, and above a certain temperature it disappears. Plotting \(x_a\) and \(x_b\) against \(T\) gives a dome, with two phases inside and one uniform mixture outside, just like the liquid–gas dome in §7.4.</p>
+
+<h3 id="s8-6">8.6 &ensp;The common-tangent rule and the lever rule</h3>
+<p>Two practical tools for reading binary phase diagrams:</p>
+<div class="key-result">
+  <div class="kr-label">Common-tangent rule</div>
+  <p>Two phases \(\alpha\) and \(\beta\) coexist at the compositions where a <strong>single straight line is tangent to both</strong> \(G(x)\) curves (or both parts of one curve).</p>
+</div>
+<p>Why: equilibrium needs \(\mu_A\) equal in both phases and \(\mu_B\) equal in both phases. The tangent line to \(g(x) = G/N\) at composition \(x\) hits the \(x = 0\) axis at \(\mu_A\) and the \(x = 1\) axis at \(\mu_B\). Equal \(\mu\)'s in two phases means equal intercepts, which means the same tangent line.</p>
+<details><summary>Proof: chemical potentials are tangent intercepts</summary><div class="body">
+  <p>With \(G = Ng(x)\), \(N = N_A + N_B\), \(x = N_B/N\): \(\partial x/\partial N_A = -x/N\), \(\partial x/\partial N_B = (1-x)/N\). So</p>
+  <p>\[ \mu_A = \frac{\partial G}{\partial N_A} = g - x\,g'(x), \qquad \mu_B = \frac{\partial G}{\partial N_B} = g + (1-x)\,g'(x) \]</p>
+  <p>The tangent at \(x\) is \(\ell(y) = g(x) + g'(x)(y - x)\); \(\ell(0) = \mu_A\) and \(\ell(1) = \mu_B\).</p>
+</div></details>
+<p>Once the coexisting compositions \(x^\alpha\) and \(x^\beta\) are known, conservation of B fixes how much of each phase there is. If a fraction \(\mathcal{P}\) of the particles is in phase \(\beta\) and the overall composition is \(x_0\), then \((1-\mathcal{P})x^\alpha + \mathcal{P}x^\beta = x_0\):</p>
+<div class="key-result">
+  <div class="kr-label">Lever rule</div>
+  <p>\[ \mathcal{P}_\beta = \frac{x_0 - x^\alpha}{x^\beta - x^\alpha}, \qquad \mathcal{P}_\alpha = \frac{x^\beta - x_0}{x^\beta - x^\alpha} \]</p>
+</div>
+<p>On the diagram: the amount of each phase is proportional to the length of the segment on the <em>opposite</em> side of \(x_0\). If \(x_0\) is close to \(x^\alpha\), most of the system is phase \(\alpha\).</p>
+
+<h4>Building a phase diagram</h4>
+<p>Given \(G(x)\) curves for, say, the liquid and gas at many temperatures: wherever the curves cross, draw the common tangent and mark its two touching points; then plot those compositions against \(T\). For two liquids with boiling points \(T_A \lt T_B\) this gives a lens-shaped two-phase region between \(T_A\) and \(T_B\). The gas is always richer in the more volatile component (the lower boiling point).</p>
+<div class="ex">
+  <span class="tag">Example · Liquefying air (course example)</span>
+  <p>Air (21% O₂, 79% N₂) is cooled to 80.5 K. The phase diagram shows gas with oxygen fraction \(x_g = 0.15\) coexisting with liquid at \(x_l = 0.40\). What fraction of the molecules is still gas?</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p>Lever rule with \(x_0 = 0.21\):</p>
+    <p>\[ \mathcal{P}_{\text{gas}} = \frac{x_l - x_0}{x_l - x_g} = \frac{0.40 - 0.21}{0.40 - 0.15} = 0.76 \]</p>
+    <p>76% is still gas; 24% has condensed. The liquid is oxygen-rich because oxygen boils at a higher temperature (90 K) than nitrogen (77 K). (The slide labels this temperature range "°C"; it is kelvin.)</p>
+  </div></details>
+</div>
+
+<h4>Eutectic mixtures</h4>
+<p>Some pairs mix completely as liquids but form two different solid phases: \(\alpha\) (mostly A) and \(\beta\) (mostly B). On cooling, solid \(\alpha\) or \(\beta\) starts to separate out, and the melting curves fall from the pure melting points \(T_A\) and \(T_B\) towards each other. They meet at the <strong>eutectic point</strong>, the composition with the lowest melting temperature of all, lower than either pure substance. This is freezing-point depression pushed to large concentrations. Example from the slides: water + ethylene glycol (car coolant) has its eutectic near −49 °C at about 56% glycol; a 50% mixture freezes at about −31 °C.</p>
+
+<div class="card">
+  <span class="tag">Chapter 8 formula card</span>
+  <div class="scroll-x"><table>
+    <tr><th>Topic</th><th>Result</th></tr>
+    <tr><td>Recipe</td><td>write \(\mu\) → set equal → expand with \(\partial\mu/\partial P = v\), \(\partial\mu/\partial T = -s\)</td></tr>
+    <tr><td>Mixing</td><td>\(\Delta S_{\text{mix}} = -Nk_B\sum x_i\ln x_i\); \(\mu_i = \mu_i^0 + k_BT\ln x_i\)</td></tr>
+    <tr><td>Reaction equilibrium</td><td>\(\sum\nu_i\mu_i = 0\); \(\prod(P_i/P_0)^{\nu_i} = K = e^{-\Delta g_0/RT}\)</td></tr>
+    <tr><td>van 't Hoff</td><td>\(d\ln K/dT = \Delta h_0/RT^2\)</td></tr>
+    <tr><td>Dilute solvent</td><td>\(\mu_A = \mu_0 - xk_BT\)</td></tr>
+    <tr><td>Raoult</td><td>\(P = P_0(1 - x)\)</td></tr>
+    <tr><td>Boiling / freezing</td><td>\(\Delta T_b = xRT_b^2/L_{\text{vap}}\), \(\Delta T_m = -xRT_m^2/L_{\text{fus}}\)</td></tr>
+    <tr><td>Osmotic pressure</td><td>\(\Pi = n_BRT/V\)</td></tr>
+    <tr><td>Lever rule</td><td>\(\mathcal{P}_\beta = (x_0 - x^\alpha)/(x^\beta - x^\alpha)\)</td></tr>
+  </table></div>
+</div>
+</section>
+
+<!-- CHAPTER 9 -->
+<section class="chapter" id="ch9">
+<div class="chapter-num">Chapter 9</div>
+<h2>The Third Law of Thermodynamics</h2>
+
+<div class="intro">
+  <span class="tag">What this chapter does</span>
+  <p>The First and Second Laws only ever talk about <em>changes</em>, \(\Delta U\) and \(\Delta S\). The Third Law is about the bottom of the temperature scale: it gives entropy an absolute zero, and it explains why 0 K can be approached but never reached. It is a short chapter that reuses tools from Chapters 4, 5 and 7.</p>
+  <span class="tag" style="margin-top:12px">After this chapter you should be able to</span>
+  <ul>
+    <li>state the Third Law (Nernst and Planck forms) and explain it with \(S = k_B\ln\Omega\);</li>
+    <li>compute an absolute entropy from heat capacities and latent heats;</li>
+    <li>derive the consequences \(C \to 0\), \(\alpha \to 0\), flat phase boundaries, and the unattainability of 0 K.</li>
+  </ul>
+</div>
+
+<h3 id="s9-1">9.1 &ensp;Why worry about absolute zero?</h3>
+<p>A reversible refrigerator removing heat \(Q_C\) from a cold body at \(T_C\) and dumping it at \(T_H\) needs work (§3.9, §4.4)</p>
+<div class="eq">\[ W = Q_C\left(\frac{T_H}{T_C} - 1\right) \]</div>
+<p>As \(T_C \to 0\) this blows up: extracting even a little heat from something near 0 K costs enormous work. So refrigeration alone cannot reach absolute zero. The Third Law turns this observation into a general principle (§9.4).</p>
+
+<h3 id="s9-2">9.2 &ensp;Statements of the Third Law</h3>
+<div class="key-result">
+  <div class="kr-label">Nernst statement</div>
+  <p>For any isothermal process between equilibrium (condensed) states, \(\displaystyle\lim_{T\to0}\Delta S = 0\).</p>
+</div>
+<div class="key-result">
+  <div class="kr-label">Planck statement</div>
+  <p>The entropy of a perfect crystal is zero at absolute zero: \(S(T = 0) = 0\).</p>
+</div>
+<p>Nernst says all entropy <em>differences</em> vanish at 0 K, so every state of a substance approaches the same entropy there. Planck sets that common value to zero. Unlike energy, whose zero is a convention, entropy then has an <strong>absolute</strong> value.</p>
+<p>The microscopic reason is \(S = k_B\ln\Omega\) (§4.11). At \(T = 0\) a perfect crystal sits in its single lowest-energy arrangement: \(\Omega = 1\), so \(S = 0\). There is no remaining uncertainty about the microstate.</p>
+<div class="remark"><strong>Residual entropy.</strong> If the lowest-energy state is not unique, \(\Omega_0 \gt 1\) and \(S(0) = k_B\ln\Omega_0 \gt 0\). In a crystal of CO, each molecule can point either way (CO or OC) at almost the same energy. If the orientations freeze in at random, \(\Omega_0 = 2^N\), and the crystal keeps \(Nk_B\ln 2\), i.e. \(R\ln 2\) per mole.</div>
+<details><summary>How Nernst's statement shows up in chemistry data</summary><div class="body">
+  <p>For an isothermal reaction, \(\Delta G = \Delta H - T\Delta S\), so \(\Delta S = (\Delta H - \Delta G)/T\). At \(T = 0\), \(\Delta G = \Delta H\), and the limit is \(0/0\). By L'Hôpital's rule, \(\lim\Delta S = (\partial\Delta H/\partial T)_0 - (\partial\Delta G/\partial T)_0\). Measured \(\Delta G(T)\) and \(\Delta H(T)\) curves meet at \(T = 0\) and both become flat there: \(\partial\Delta G/\partial T = -\Delta S \to 0\) and \(\partial\Delta H/\partial T = \Delta C_P \to 0\).</p>
+</div></details>
+
+<h3 id="s9-3">9.3 &ensp;Absolute entropy</h3>
+<p>With \(S(0) = 0\) as the reference, the entropy at any temperature is obtained by adding up \(\text{đ}Q/T\) for all the heat needed to bring the substance up from 0 K:</p>
+<div class="key-result">
+  <div class="kr-label">Absolute (Third-Law) entropy</div>
+  <p>\[ S(T) = \int_0^T\frac{C(T')}{T'}\,dT' + \sum_{\text{transitions}}\frac{\Delta H_{\text{trans}}}{T_{\text{trans}}} \]</p>
+</div>
+<p>The integral uses each phase's own heat capacity; each melting or boiling on the way adds its latent heat divided by its temperature. Tabulated entropies (like the diamond and graphite values in Chapter 7) are made this way. In problems, though, you usually need entropy <em>changes</em>, and the same two pieces (\(\int C\,dT/T\) and \(L/T\)) are what you add up.</p>
+<div class="ex">
+  <span class="tag">Example · An ice cube melting in the kitchen (course example)</span>
+  <p>A 30 g ice cube at 0 °C melts on a table in a 25 °C kitchen and warms to 25 °C. Find the entropy change of (a) the ice/water, (b) the kitchen, (c) the universe. (\(L = 333\ \text{J/g}\), \(c = 4.186\ \text{J/(g·K)}\).)</p>
+  <details class="sol"><summary>Show solution</summary><div class="body">
+    <p><b>(a)</b> Melting at 273 K: \(\Delta S_1 = mL/T = (30)(333)/273 = 36.6\ \text{J/K}\). Warming 273 → 298 K: \(\Delta S_2 = mc\ln(T_f/T_i) = (30)(4.186)\ln(298/273) = 11.0\ \text{J/K}\). Total \(47.6\ \text{J/K}\).</p>
+    <p><b>(b)</b> The kitchen is a reservoir at 298 K giving up all that heat: \(Q = (30)(333) + (30)(4.186)(25) = 13\,130\ \text{J}\), so \(\Delta S = -13\,130/298 = -44.1\ \text{J/K}\).</p>
+    <p><b>(c)</b> \(47.6 - 44.1 = +3.5\ \text{J/K} \gt 0\): irreversible, as heat flowed across a finite temperature difference. The ice gains more entropy than the kitchen loses because it receives the heat at a lower temperature, and \(\Delta S = \int\text{đ}Q/T\).</p>
+  </div></details>
+</div>
+
+<h3 id="s9-4">9.4 &ensp;Consequences of the Third Law</h3>
+<p>Each consequence below uses one tool from earlier chapters together with "\(\Delta S \to 0\) as \(T \to 0\)".</p>
+
+<h4>(i) Heat capacities vanish</h4>
+<div class="key-result">
+  <div class="kr-label">As \(T \to 0\)</div>
+  <p>\[ C_P \to 0, \qquad C_V \to 0 \]</p>
+</div>
+<p>Reason: \(S(T) = \int_0^T C\,dT'/T'\) must be finite. If \(C\) stayed at a nonzero value, \(\int dT'/T'\) would diverge logarithmically. So the classical ideal gas, with constant \(C_V = \tfrac32Nk_B\), must fail at very low temperature; real matter is quantum there, and its heat capacity falls to zero (for example as \(T^3\) for vibrations in a solid).</p>
+
+<h4>(ii) Thermal expansion vanishes</h4>
+<div class="key-result">
+  <div class="kr-label">As \(T \to 0\)</div>
+  <p>\[ \alpha = \frac{1}{V}\left(\frac{\partial V}{\partial T}\right)_{\!P} \to 0 \]</p>
+</div>
+<p>Reason: by Nernst, compressing isothermally at \(T \to 0\) changes no entropy, \((\partial S/\partial P)_T \to 0\). The Maxwell relation \((\partial S/\partial P)_T = -(\partial V/\partial T)_P\) (§5.4) then gives \(V\alpha \to 0\). Likewise \((\partial P/\partial T)_V = (\partial S/\partial V)_T \to 0\).</p>
+
+<h4>(iii) Phase boundaries become flat</h4>
+<div class="key-result">
+  <div class="kr-label">As \(T \to 0\)</div>
+  <p>\[ \frac{dP}{dT} = \frac{\Delta s}{\Delta v} \to 0 \]</p>
+</div>
+<p>Reason: Clausius–Clapeyron (§7.3) with \(\Delta s \to 0\) and \(\Delta v\) finite. Any coexistence line that reaches 0 K must meet the axis horizontally, as the melting curve of helium does.</p>
+
+<h4>(iv) Absolute zero cannot be reached</h4>
+<p>Cooling is done in alternating steps between two values of a control parameter (volume, pressure, or magnetic field as in adiabatic demagnetisation, §5.6). An <strong>isothermal step</strong> (in contact with the coldest reservoir available) lowers \(S\) at fixed \(T\); an <strong>isentropic step</strong> (isolated) then lowers \(T\) at fixed \(S\). The final step can't be isothermal, since that would need a reservoir already at 0 K.</p>
+<figure>
+<svg viewBox="0 0 600 330" role="img" aria-label="Entropy versus temperature for two values of volume or pressure; the curves meet at T = 0, so alternating isothermal and isentropic steps shrink and never reach absolute zero" style="width:100%;max-width:600px;display:block;margin:12px auto">
+  <line x1="60" y1="290" x2="580" y2="290" stroke="var(--text)" stroke-width="1.2"/>
+  <line x1="60" y1="290" x2="60" y2="15" stroke="var(--text)" stroke-width="1.2"/>
+  <polyline points="60.0,290.0 70.2,284.8 80.4,279.7 90.6,274.5 100.8,269.4 111.0,264.2 121.2,259.1 131.4,253.9 141.6,248.8 151.8,243.6 162.0,238.5 172.2,233.3 182.4,228.2 192.7,223.0 202.9,217.9 213.1,212.7 223.3,207.6 233.5,202.4 243.7,197.3 253.9,192.1 264.1,187.0 274.3,181.8 284.5,176.7 294.7,171.5 304.9,166.4 315.1,161.2 325.3,156.1 335.5,150.9 345.7,145.8 355.9,140.6 366.1,135.5 376.3,130.3 386.5,125.2 396.7,120.0 406.9,114.9 417.1,109.7 427.3,104.6 437.6,99.4 447.8,94.3 458.0,89.1 468.2,84.0 478.4,78.8 488.6,73.7 498.8,68.5 509.0,63.4 519.2,58.2 529.4,53.1 539.6,47.9 549.8,42.8 560.0,37.6" fill="none" stroke="var(--text)" stroke-width="2"/>
+  <polyline points="60.0,290.0 70.2,287.4 80.4,284.8 90.6,282.3 100.8,279.7 111.0,277.1 121.2,274.5 131.4,272.0 141.6,269.4 151.8,266.8 162.0,264.2 172.2,261.7 182.4,259.1 192.7,256.5 202.9,253.9 213.1,251.4 223.3,248.8 233.5,246.2 243.7,243.6 253.9,241.1 264.1,238.5 274.3,235.9 284.5,233.3 294.7,230.8 304.9,228.2 315.1,225.6 325.3,223.0 335.5,220.5 345.7,217.9 355.9,215.3 366.1,212.7 376.3,210.2 386.5,207.6 396.7,205.0 406.9,202.4 417.1,199.9 427.3,197.3 437.6,194.7 447.8,192.1 458.0,189.6 468.2,187.0 478.4,184.4 488.6,181.8 498.8,179.3 509.0,176.7 519.2,174.1 529.4,171.5 539.6,169.0 549.8,166.4 560.0,163.8" fill="none" stroke="var(--text-dim)" stroke-width="2"/>
+  <path d="M460.0,88.1 L460.0,189.0 L260.0,189.0 L260.0,239.5 L160.0,239.5 L160.0,264.8 L110.0,264.8 L110.0,277.4 L85.0,277.4 L85.0,283.7 L72.5,283.7 L72.5,286.8 L66.2,286.8" fill="none" stroke="var(--accent)" stroke-width="1.8"/>
+  <g font-family="Inter, sans-serif" font-size="13" fill="var(--text)">
+    <text x="556.0" y="41.6" text-anchor="end" dx="-2" dy="-8"> V₁ (or P₁)</text>
+    <text x="560.0" y="155.8" text-anchor="end" fill="var(--text-dim)">V₂ (or P₂)</text>
+    <text x="572" y="310" text-anchor="end" font-style="italic">T</text>
+    <text x="48" y="26" text-anchor="end" font-style="italic">S</text>
+    <text x="60" y="308" text-anchor="middle">0</text>
+  </g>
+  <g font-family="Inter, sans-serif" font-size="11" fill="var(--accent)">
+    <text x="454.0" y="138.6" text-anchor="end">isothermal</text>
+    <text x="360.0" y="205.0" text-anchor="middle">isentropic</text>
+  </g>
+</svg>
+<figcaption>Entropy against temperature for two values of the control parameter. The Third Law makes the curves meet at \(T = 0\), so each isothermal + isentropic cycle gains less temperature than the one before. No finite number of steps reaches \(T = 0\).</figcaption>
+</figure>
+<p>Because \(\Delta S \to 0\), the two curves meet at \(T = 0\). Each vertical drop gets smaller, and so does each move to the left. (In the figure each cycle exactly halves \(T\).) If the curves did not meet, a single isentropic step from a low enough temperature could land exactly on 0 K.</p>
+<div class="key-result">
+  <div class="kr-label">Unattainability statement</div>
+  <p>Absolute zero cannot be reached by any process in a finite number of steps or in a finite time.</p>
+</div>
+
+<h4>The four laws at a glance</h4>
+<div class="scroll-x">
+<table>
+  <tr><th>Law</th><th>Introduces</th><th>In one line</th></tr>
+  <tr><td>Zeroth</td><td>Temperature</td><td>Thermal equilibrium is transitive, so systems can be labelled by \(T\).</td></tr>
+  <tr><td>First</td><td>Internal energy</td><td>\(\Delta U = W + Q\): energy is conserved.</td></tr>
+  <tr><td>Second</td><td>Entropy</td><td>\(\Delta S_{\text{isolated}} \ge 0\): processes have a direction.</td></tr>
+  <tr><td>Third</td><td>Zero of entropy</td><td>\(\Delta S \to 0\) as \(T \to 0\); 0 K is unattainable.</td></tr>
+</table>
+</div>
+
+<div class="card">
+  <span class="tag">Chapter 9 formula card</span>
+  <div class="scroll-x"><table>
+    <tr><th>Topic</th><th>Result</th></tr>
+    <tr><td>Third Law</td><td>\(\lim_{T\to0}\Delta S = 0\); \(S(0) = 0\) for a perfect crystal; residual \(S(0) = k_B\ln\Omega_0\)</td></tr>
+    <tr><td>Absolute entropy</td><td>\(S(T) = \int_0^T C\,dT/T + \sum\Delta H_{\text{trans}}/T_{\text{trans}}\)</td></tr>
+    <tr><td>Consequences</td><td>\(C \to 0\); \(\alpha \to 0\); \(dP/dT \to 0\); 0 K unattainable</td></tr>
+  </table></div>
+</div>
+</section>
+
+<footer style="margin-top:48px; padding-top:20px; border-top:1px solid var(--border); font-family:var(--sans); font-size:12px; color:var(--text-dim);">
+  PHYS 2261 &middot; Study guide for Chapters 5–9 &middot; Companion to the full Lecture Notes
+</footer>
+<script>
+(function(){
+  document.getElementById('navToggle').addEventListener('click', function(){ document.body.classList.toggle('nav-open'); });
+  document.getElementById('navBackdrop').addEventListener('click', function(){ document.body.classList.remove('nav-open'); });
+  document.querySelectorAll('.sp-chapter-btn').forEach(function(b){ b.addEventListener('click', function(){ b.parentElement.classList.toggle('open'); }); });
+  function setAll(open){ document.querySelectorAll('details').forEach(function(d){ d.open = open; }); }
+  document.getElementById('openAll').addEventListener('click', function(){ setAll(true); });
+  document.getElementById('closeAll').addEventListener('click', function(){ setAll(false); });
+  window.addEventListener('beforeprint', function(){ setAll(true); });
+  var links = document.querySelectorAll('.sp-sections a[data-s]'), targets = [];
+  links.forEach(function(a){ var el = document.querySelector(a.getAttribute('href')); if (el) targets.push({a:a, el:el}); });
+  var active = null;
+  function mark(a){ if (active === a) return; if (active) active.classList.remove('active'); a.classList.add('active'); active = a;
+    var ch = a.closest('.sp-chapter'); if (ch && !ch.classList.contains('open')) ch.classList.add('open'); }
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if (ticking) return; ticking = true;
+    requestAnimationFrame(function(){
+      var y = window.scrollY + 120, best = null;
+      for (var i = 0; i < targets.length; i++) { if (targets[i].el.getBoundingClientRect().top + window.scrollY <= y) best = targets[i].a; }
+      if (best) mark(best); ticking = false;
+    });
+  });
+  links.forEach(function(a){ a.addEventListener('click', function(){ if (window.innerWidth < 1200) document.body.classList.remove('nav-open'); }); });
+  if (targets.length) mark(targets[0].a);
+})();
+</script>
+</body>
+</html>

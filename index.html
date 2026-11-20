@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PHYS2261 热物理 · 笔记</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Inter:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #FAFAF7; --card: #FFFFFF; --text: #1A1A18; --dim: #6B6B62;
+    --accent: #2A5F8A; --accent-soft: rgba(42,95,138,0.08);
+    --border: #E2E0D8; --tag-bg: rgba(42,95,138,0.10);
+    --serif: 'Source Serif 4', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #181816; --card: #222220; --text: #E8E8E2; --dim: #9A9A90;
+      --accent: #5A9FD4; --accent-soft: rgba(90,159,212,0.10);
+      --border: #35352F; --tag-bg: rgba(90,159,212,0.14);
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; padding: 56px 24px 72px; background: var(--bg); color: var(--text);
+    font-family: var(--sans); line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  main { max-width: 780px; margin: 0 auto; }
+  header { margin-bottom: 44px; }
+  .kicker { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); margin: 0 0 12px; }
+  h1 { font-family: var(--serif); font-size: clamp(1.9rem, 4.5vw, 2.7rem); font-weight: 700; margin: 0 0 10px; letter-spacing: -.01em; }
+  .sub { color: var(--dim); font-size: .98rem; margin: 0; }
+  .rule { height: 1px; background: var(--border); border: 0; margin: 36px 0; }
+
+  h2 { font-size: .78rem; letter-spacing: .16em; text-transform: uppercase; color: var(--dim); font-weight: 600; margin: 0 0 16px; }
+  .grid { display: grid; gap: 14px; grid-template-columns: 1fr; margin-bottom: 40px; }
+  @media (min-width: 640px) { .grid { grid-template-columns: 1fr 1fr; } }
+
+  a.card {
+    display: block; text-decoration: none; color: inherit;
+    background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+    padding: 20px 22px; transition: border-color .15s ease, transform .15s ease;
+  }
+  a.card:hover { border-color: var(--accent); transform: translateY(-1px); }
+  a.card .t { font-family: var(--serif); font-size: 1.14rem; font-weight: 600; margin: 0 0 6px; }
+  a.card .d { font-size: .88rem; color: var(--dim); margin: 0; }
+  .tag {
+    display: inline-block; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase;
+    color: var(--accent); background: var(--tag-bg); border-radius: 4px;
+    padding: 2px 7px; margin-bottom: 12px; font-weight: 600;
+  }
+  .tag.en { color: var(--dim); background: var(--accent-soft); }
+
+  footer { color: var(--dim); font-size: .82rem; margin-top: 8px; }
+  footer a { color: var(--accent); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <p class="kicker">PHYS 2261 · Semester 3</p>
+    <h1>Thermal Physics 热物理</h1>
+    <p class="sub">课堂讲义与复习指南 · 中英双语版</p>
+  </header>
+
+  <h2>双语版</h2>
+  <div class="grid">
+    <a class="card" href="phys2261-notes-bilingual.html">
+      <span class="tag">Bilingual</span>
+      <p class="t">Thermal Physics: Lecture Notes</p>
+      <p class="d">课堂讲义 · 第 1–9 章，英文段落后接中文，公式全程保留</p>
+    </a>
+    <a class="card" href="phys2261-study-guide-bilingual.html">
+      <span class="tag">Bilingual</span>
+      <p class="t">Thermal Physics: Study Guide</p>
+      <p class="d">复习指南 · 直觉优先、证明与解答可折叠，中英对照</p>
+    </a>
+  </div>
+
+  <h2>English only</h2>
+  <div class="grid">
+    <a class="card" href="phys2261-notes.html">
+      <span class="tag en">Original</span>
+      <p class="t">Lecture Notes</p>
+      <p class="d">Original English edition</p>
+    </a>
+    <a class="card" href="phys2261-study-guide.html">
+      <span class="tag en">Original</span>
+      <p class="t">Study Guide</p>
+      <p class="d">Original English edition</p>
+    </a>
+  </div>
+
+  <hr class="rule">
+  <footer>
+    <a href="https://github.com/SylZ25/Note">SylZ25/Note</a> · 由 GitHub Pages 托管
+  </footer>
+</main>
+</body>
+</html>
